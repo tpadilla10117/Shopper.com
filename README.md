@@ -1,19 +1,23 @@
 # App Description
 
-- The first iteration of Amanda's (Turtles) portfolio site 
+- A template created in Node.js for e-commerce sites
 
 ## Deployment:
 
 
 ## Tech Stack:
 
-- Node.js, JS, React.js, HTML, SASS
+- Node.js, Express.js(API & Webhook), JS, React.js, HTML, SASS / SCSS, Redux, Jest, PostgreSQL 
 
 ## Limitations & Future Iterations:
 
 - 
 
 ## Integrations, Tools, & Libraries:
+
+### Stripe API
+
+### `npm i node-modules`
 
 ### `npm install react-router-dom`
 
