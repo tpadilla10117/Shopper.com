@@ -9,6 +9,10 @@
 
         export { default as Header } from '../components/layout/header/Header.jsx';
 
+        export { default as Products } from '../components/layout/products/Products.jsx';
+
+        export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
+
 
 
 /* -------------------------------------------------------------------------- */

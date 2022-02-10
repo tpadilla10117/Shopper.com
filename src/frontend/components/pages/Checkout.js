@@ -1,0 +1,1 @@
+/* This page shows the Checkout page for a customer */

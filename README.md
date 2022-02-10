@@ -18,6 +18,10 @@
 ### Stripe API
 
 ### `npm i node-modules`
+- (https://www.npmjs.com/package/node-modules)
+
+### `npm install axios` 
+- promise based HTTP client for browser and node.js
 
 ### `npm install react-router-dom`
 
@@ -40,6 +44,20 @@
 - React component for animating vertical scrolling
 - (https://www.npmjs.com/package/react-scroll)
 
+### `npm i react-responsive-carousel`
+- for carousel dependency
+
+### `npm install react-currency-format`
+- for currency fortmatter dependency
+
+### `npm install moment`
+- A JavaScript date library for parsing, validating, manipulating, and formatting dates
+
+### `npm install --save stripe` 
+- to install the Stripe library
+
+### `npm install @stripe/stripe-js`
+- install Stripe.js Module to make server-side requests to to Stripe API and to provide methods for including Stripe.js in client-side code
 
 # Getting Started with Create React App
 
