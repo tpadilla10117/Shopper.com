@@ -20,8 +20,31 @@
 ### `npm i node-modules`
 - (https://www.npmjs.com/package/node-modules)
 
+### `npm i nodemon`
+
+### `npm i cors`
+
 ### `npm install axios` 
 - promise based HTTP client for browser and node.js
+
+### `npm i --save-dev jest`
+- add jest (JS) testing library to dev dependency for unit tests
+
+### `npm i jsonwebtoken`
+- jsonwebtoken
+
+### `npm i morgan`
+- logging middleware
+
+### `npm i express`
+- for web-server & API
+
+### `npm i bcrypt`
+- for pw hashing
+
+### `npm i dotenv`
+
+### `npm i redux`
 
 ### `npm install react-router-dom`
 
@@ -49,6 +72,7 @@
 
 ### `npm install react-currency-format`
 - for currency fortmatter dependency
+- (https://www.npmjs.com/package/react-currency-format)
 
 ### `npm install moment`
 - A JavaScript date library for parsing, validating, manipulating, and formatting dates
@@ -129,3 +153,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Stripe Processes:
+
+After login & authentication, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment -> receive a STRIPE_SIGNING_SECRET and place into environment variable
+
+For payments use: `4242 4242 4242 4242` for card number -> should give a success.
