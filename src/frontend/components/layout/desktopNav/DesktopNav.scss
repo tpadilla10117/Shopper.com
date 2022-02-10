@@ -1,0 +1,37 @@
+.desktopNav-parent-container {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    border: 5px solid red;
+    background-color: $background-primary;
+
+    .desktop-nav-items-container {
+        display: flex;
+        
+
+        a:last-child {
+            border: 5px solid red;
+            display: none;
+        }
+        
+        .desktopNav-nav-item {
+            display: flex;
+            /* border: 5px solid blue; */
+            padding: 20px;
+           
+            ul {
+                /* border: 5px solid yellow; */
+                
+                li {
+                    list-style: none;
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+    
+}
