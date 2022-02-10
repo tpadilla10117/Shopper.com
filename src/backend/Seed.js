@@ -1,6 +1,6 @@
 /* Seed.js is where I seed the db with meaningful info: */
 
-    import { client } from './PostgreSQLClient';
+    const { client } = require('./index.js');
 
 /* Drop Tables: */
     async function dropTables() {
@@ -66,7 +66,7 @@
 
     async function buildTables() {
         try {
-            client.connect();
+            /* client.connect(); */
             await dropTables();
             await createTables();
         } catch (error) {
@@ -77,7 +77,7 @@
     async function rebuildDB() {
         try {
             client.connect();
-            buildTables();
+            await buildTables();
             
         } catch (error) {
             console.error("Error during rebuildDB");

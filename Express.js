@@ -26,3 +26,28 @@
             console.error("Database is closed for repairs!", error);
         }
     })
+
+/* Middleware: */
+
+    server.use(bodyParser.json());
+    server.use(morgan('dev'));
+
+//Server passes in:
+    //the request object (built from the client's request)
+    //the response object (which has methods to build and send back a response)
+    //the next function, which will move forward to the next matching middleware
+    server.use((req, res, next) => {
+        console.log("<____Body Logger START____>");
+        console.log(req.body);
+        console.log("<_____Body Logger END_____>");
+    
+        next();
+    });
+
+/* ApiRouter: */
+    /* const apiRouter = require('./src/frontend/api');
+    server.use('/api', apiRouter); */
+
+    module.exports = {
+        server
+    };

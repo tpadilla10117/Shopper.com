@@ -35,11 +35,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "seed:dev": "nodemon .src/backend/Seed.js"
+    "start": "node Express.js",
+    "seed:dev": "nodemon ./src/backend/Seed.js",
+    "start:dev": "nodemon Express.js",
+    "db:build": "node ./src/backend/Seed.js"
   },
   "eslintConfig": {
     "extends": [
