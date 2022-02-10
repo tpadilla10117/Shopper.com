@@ -1,4 +1,6 @@
-import { client } from './PostgreSQLClient';
+/* Seed.js is where I seed the db with meaningful info: */
+
+    import { client } from './PostgreSQLClient';
 
 /* Drop Tables: */
     async function dropTables() {
@@ -39,6 +41,12 @@ import { client } from './PostgreSQLClient';
                     password VARCHAR (255) UNIQUE NOT NULL,
                     isAdmin BOOLEAN DEFAULT false
                 );
+                CREATE TABLE orders(
+                    id SERIAL PRIMARY KEY,
+                    status VARCHAR(255) DEFAULT 'created',
+                    "userId" INTEGER REFERENCES users(id),
+                    "datePlaced" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
                 CREATE TABLE order_products(
                     id SERIAL PRIMARY KEY,
                     "productId" INTEGER REFERENCES products(id),
@@ -46,13 +54,37 @@ import { client } from './PostgreSQLClient';
                     price INTEGER NOT NULL,
                     quantity INTEGER NOT NULL DEFAULT (0)
                 );
+                
             
             `)
-
-
-
-
+            console.log("Finished building tables!")
         } catch (error) {
             console.log("Error building tables", error);
         }
     }
+
+
+    async function buildTables() {
+        try {
+            client.connect();
+            await dropTables();
+            await createTables();
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async function rebuildDB() {
+        try {
+            client.connect();
+            buildTables();
+            
+        } catch (error) {
+            console.error("Error during rebuildDB");
+            throw error;
+        }
+    };
+
+    rebuildDB()
+        .catch(console.error)
+        .finally( () => client.end() );
