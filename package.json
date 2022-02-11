@@ -42,7 +42,8 @@
     "start": "node express.js",
     "seed:dev": "nodemon ./src/backend/seed.js",
     "start:dev": "nodemon express.js",
-    "db:build": "node ./src/backend/seed.js"
+    "db:build": "node ./src/backend/seed.js",
+    "test:watch:db": "jest --watchAll --runInBand --verbose db"
   },
   "eslintConfig": {
     "extends": [
