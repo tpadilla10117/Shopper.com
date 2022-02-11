@@ -9,6 +9,26 @@
         getUserByUsername
     } = require('./dbadapters/users');
 
+/* Database Adapter Testing: */
+    async function testDB() {
+        try {
+            console.log("Starting to test Database!")
+
+            console.log("Calling getUser...");
+            const user = await getUser({
+                username: 'trin',
+                password: 'padilla123'
+            });
+            console.log("The result of calling getUser: ", user);
+
+            console.log("Finished testing Database!")
+        } catch (error) {
+            console.log("Error testing Database!")
+            throw error;
+        }
+    }
+
+
 /* Drop Tables: */
     async function dropTables() {
         console.log('Dropping all tables...')
@@ -100,6 +120,7 @@
             client.connect();
             await buildTables()
             .then (seedInitialUsers)
+            .then (testDB)
             
         } catch (error) {
             console.error("Error during rebuildDB");

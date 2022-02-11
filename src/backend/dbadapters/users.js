@@ -3,7 +3,7 @@
     const bcrypt = require('bcrypt');
     const SALT_COUNT = 10;
 /* ----------------------------------------------------------------------------- */
-//TODO: THESE ARE THE USER METHODS:
+//THESE ARE THE USER METHODS:
 
 
     async function createUser( {firstName, lastName, email, imageURL, username, password, isAdmin} ) {
@@ -61,7 +61,11 @@
 /* This function retrieves a user by id: */
     async function getUserById(id) {
         try {
-
+            const { rows: [user] } = await client.query(`
+            SELECT * FROM users WHERE id=$1
+            `, [id]);
+            delete user.password;
+            return user;
         } catch (error) {
             throw error;
         }
@@ -70,7 +74,16 @@
 /* This function retrives a user by username: */
     async function getUserByUsername(username) {
         try {
+            const { rows } = await client.query(`
+            SELECT * FROM users
+            WHERE username=$1
+            `, [username]);
 
+            if(!rows || !rows.length) {
+                return null;
+            }
+            const [user] =  rows;
+            return user;
         } catch (error) {
             throw error;
         }
