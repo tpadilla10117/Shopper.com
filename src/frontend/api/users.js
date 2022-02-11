@@ -12,7 +12,7 @@
     } = require('../../backend/dbadapters/users');
     const jwt = require('jsonwebtoken');
     const bcrypt = require('bcrypt');
-
+    /* const {JWT_SECRET} = process.env || 'notSoSecret'; */
     usersRouter.use((req, res, next) => {
         console.log("A request is being made to /users");
 
@@ -30,7 +30,7 @@
 
 /* Register Route for new user creation: */
     usersRouter.post('/register', async (req, res, next) => {
-        const { username, password, firstname, lastname, location } = req.body;
+        const { username, password, firstname, lastname, location, isAdmin, email, imageURL, active } = req.body;
 
         try {
             const _user = await getUserByUsername(username);
@@ -47,17 +47,24 @@
                 password,
                 firstname,
                 lastname,
-                location
+                location,
+                email,
+                isAdmin,
+                imageURL,
+                active
             });
 
             const token = jwt.sign({
                 id: user.id,
-                username
+                username,
+                
             }, process.env.JWT_SECRET);
 
             res.send({
                 message: `Thank you for signing up ${username}!`,token
             });
+
+            res.send({user})
 
         } catch ( {name, message} ) {
             next( {name, message} )
