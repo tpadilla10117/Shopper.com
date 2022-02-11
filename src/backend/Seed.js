@@ -21,6 +21,18 @@
             });
             console.log("The result of calling getUser: ", user);
 
+            console.log("Calling getAllUsers");
+            const users = await getAllUsers();
+            console.log("The result of invoking getAllUsers:", users);
+
+            console.log("Calling getUserById with 1");
+            const trin = await getUserById(1);
+            console.log("Result of getUserById:", trin);
+
+            console.log("Calling getUserByUsername");
+            const username = await getUserByUsername("trin");
+            console.log("The result of calling getUserByUsername:", username);
+
             console.log("Finished testing Database!")
         } catch (error) {
             console.log("Error testing Database!")
@@ -93,7 +105,9 @@
     async function seedInitialUsers() {
         try {
             const seedUsers = [
-                {firstName:'trin', lastName:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true}
+                {firstName:'trin', lastName:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true,
+                id: 1
+                }
             ]
 
             const users = await Promise.all(seedUsers.map(createUser));
