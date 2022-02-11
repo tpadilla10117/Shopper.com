@@ -45,8 +45,8 @@
     });
 
 /* ApiRouter: */
-    /* const apiRouter = require('./src/frontend/api');
-    server.use('/api', apiRouter); */
+    const apiRouter = require('./src/frontend/api');
+    server.use('/api', apiRouter);
 
     module.exports = {
         server

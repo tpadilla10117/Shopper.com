@@ -89,6 +89,8 @@
         }
     }
 
+/* TODO: updateUser() ? */
+
 
     module.exports = {
         createUser,
