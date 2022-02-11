@@ -1,7 +1,13 @@
 /* Seed.js is where I seed the db with meaningful info: */
 
     const { client } = require('./index.js');
-    const {createUser} = require('./dbadapters/users');
+    const {
+        createUser, 
+        getAllUsers,
+        getUser,
+        getUserById,
+        getUserByUsername
+    } = require('./dbadapters/users');
 
 /* Drop Tables: */
     async function dropTables() {
