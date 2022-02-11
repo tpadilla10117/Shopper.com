@@ -1,6 +1,7 @@
 /* Seed.js is where I seed the db with meaningful info: */
 
     const { client } = require('./index.js');
+    const {createUser} = require('./dbadapters/users');
 
 /* Drop Tables: */
     async function dropTables() {
@@ -63,6 +64,20 @@
         }
     }
 
+    async function seedInitialUsers() {
+        try {
+            const seedUsers = [
+                {firstName:'trin', lastName:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true}
+            ]
+
+            const users = await Promise.all(seedUsers.map(createUser));
+            console.log("Created Users: ", users);
+        } catch (error) {
+            console.log("There was an error creating users!");
+            throw error;
+        }
+    }
+
 
     async function buildTables() {
         try {
@@ -77,7 +92,8 @@
     async function rebuildDB() {
         try {
             client.connect();
-            await buildTables();
+            await buildTables()
+            .then (seedInitialUsers)
             
         } catch (error) {
             console.error("Error during rebuildDB");

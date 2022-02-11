@@ -39,10 +39,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node Express.js",
-    "seed:dev": "nodemon ./src/backend/Seed.js",
-    "start:dev": "nodemon Express.js",
-    "db:build": "node ./src/backend/Seed.js"
+    "start": "node express.js",
+    "seed:dev": "nodemon ./src/backend/seed.js",
+    "start:dev": "nodemon express.js",
+    "db:build": "node ./src/backend/seed.js"
   },
   "eslintConfig": {
     "extends": [
