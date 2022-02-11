@@ -72,13 +72,15 @@
                 );
                 CREATE TABLE users(
                     id SERIAL PRIMARY KEY,
-                    firstName VARCHAR(255) NOT NULL,
-                    lastName VARCHAR (255) NOT NULL,
+                    firstname VARCHAR(255) NOT NULL,
+                    lastname VARCHAR (255) NOT NULL,
                     email VARCHAR (255) UNIQUE NOT NULL,
                     imageURL VARCHAR (255) DEFAULT NULL,
                     username VARCHAR (255) UNIQUE NOT NULL,
                     password VARCHAR (255) UNIQUE NOT NULL,
-                    isAdmin BOOLEAN DEFAULT false
+                    isAdmin BOOLEAN DEFAULT false,
+                    active boolean DEFAULT true,
+                    location VARCHAR(255) NOT NULL
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -106,7 +108,7 @@
         try {
             const seedUsers = [
                 {firstName:'trin', lastName:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true,
-                id: 1
+                id: 1, location: 'Tatooine',
                 }
             ]
 

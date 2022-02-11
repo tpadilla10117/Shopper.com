@@ -28,5 +28,41 @@
         });
     });
 
+/* Register Route for new user creation: */
+    usersRouter.post('/register', async (req, res, next) => {
+        const { username, password, firstname, lastname, location } = req.body;
+
+        try {
+            const _user = await getUserByUsername(username);
+
+            if(_user) {
+                next( {
+                    name: 'UserExistsError',
+                    message: 'A user by that username already exists!'
+                });
+            }
+
+            const user = await createUser({
+                username,
+                password,
+                firstname,
+                lastname,
+                location
+            });
+
+            const token = jwt.sign({
+                id: user.id,
+                username
+            }, process.env.JWT_SECRET);
+
+            res.send({
+                message: `Thank you for signing up ${username}!`,token
+            });
+
+        } catch ( {name, message} ) {
+            next( {name, message} )
+        }
+    });
+
 
     module.exports = usersRouter;
