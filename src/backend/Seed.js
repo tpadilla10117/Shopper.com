@@ -133,6 +133,7 @@
 
     async function rebuildDB() {
         try {
+        /* TODO: When running Jest, comment this client out: */
             client.connect();
             await buildTables()
             .then (seedInitialUsers)
@@ -147,3 +148,14 @@
     rebuildDB()
         .catch(console.error)
         .finally( () => client.end() );
+
+
+        module.exports = {
+            rebuildDB,
+            dropTables,
+            createTables,
+            seedInitialUsers,
+            testDB,
+        }
+        
+        /* npm run test:watch:db */

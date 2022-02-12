@@ -27,6 +27,9 @@
 ### `npm install axios` 
 - promise based HTTP client for browser and node.js
 
+### `npm i pg`
+- the database
+
 ### `npm i --save-dev jest`
 - add jest (JS) testing library to dev dependency for unit tests
 

@@ -6,16 +6,16 @@ const { getAllUsers } = require('../../backend/dbadapters/users');
 const {
     dropTables,
     createTables,
-    seedInitialUsers
+    /* seedInitialUsers */
 } = require('../../backend/seed');
 
     describe('Database', () => {
 
         beforeAll( async () => {
-            /* client.connect(); */
+            client.connect();
             await dropTables();
             await createTables();
-            await seedInitialUsers();
+            /* await seedInitialUsers(); */
         });
 
     /* After the tests run, clean up... */
@@ -24,15 +24,28 @@ const {
         });
 
         describe('users', () => {
-            beforeAll(async () => {
-                const testUser = await getAllUsers();
+            let testUser;
+        
+            describe('getAllUsers', () => {
+                beforeAll(async() => {
+                    testUser = await getAllUsers( 
+                        /* [ 
+                            {
+                            id: 1,
+                            username: 'Henryfluff',
+                            name: 'Henry',
+                            location: 'Asgard',
+                            active: true,
+                            }
+                        ] */
+                    );
+                })
+    
+                it('Returns an object', async () => {
+                    expect(typeof testUser).toBe('object');
+                });
+    
             });
-            
-            it('Returns an object', async () => {
-                expect(typeof testUser).toBe('object');
-            });
-
-
 
         });
 
