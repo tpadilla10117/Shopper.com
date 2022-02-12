@@ -20,6 +20,8 @@
         next();
     });
 
+/* Route to getAllUsers : */
+
     usersRouter.get('/', async (req, res) => {
         const users = await getAllUsers();
 
@@ -70,6 +72,52 @@
             next( {name, message} )
         }
     });
+
+/* Login route for existing users: */
+
+    usersRouter.post('/login', async (req, res, next) => {
+        const { username, password } = req.body;
+
+        //request must have both a username and a password:
+        if (!username || !password ) {
+            next ({
+                name: 'MissingCredentialsError',
+                mesaage: 'Please supply both a valid username and password'
+            });
+        }
+
+        try {
+            const user = await getUserByUsername(username);
+
+            const isMatch = await bcrypt.compare(password, user.password);
+
+            if (isMatch === true) {
+                //create token & return to the user
+                let token = jwt.sign( {id: user.id, username}, process.env.JWT_SECRET);
+
+                const recoveredData = jwt.verify(token, process.env.JWT_SECRET);
+
+                //the recovered data...
+                res.send( {
+                    message: 'Login Success!',
+                    recoveredData,
+                    token: token
+                });
+            } else if (isMatch === false) {
+                next({
+                    name: 'IncorrectCredentialsError',
+                    message: 'Username or password is incorrect!'
+                });
+            }
+
+        } catch (error) {
+            console.log(error);
+            next(error);
+        }
+
+    })
+
+
 
 
     module.exports = usersRouter;
