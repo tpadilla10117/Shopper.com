@@ -107,7 +107,7 @@
     async function seedInitialUsers() {
         try {
             const seedUsers = [
-                {firstName:'trin', lastName:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true,
+                {firstname:'trin', lastname:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true,
                 id: 1, location: 'Tatooine',
                 }
             ]

@@ -12,7 +12,7 @@
 
 /* This is where I connect to the client (database) : */
 
-    const { client } = require('./src/backend');
+    const { client } = require('./src/backend/index');
 
     // connect to the server
     const PORT = process.env.PORT || 3000;

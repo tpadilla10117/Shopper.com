@@ -14,4 +14,4 @@
 
 
     // Exports:
-    module.exports = {client}
+    module.exports = {client};
