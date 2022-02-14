@@ -9,7 +9,7 @@ const Sidebar = (/* props */) => {
 
     /* const { isOpen, navToggle } = props */
     const isToggled = useSelector(state => state.nav.isOpen);
-    console.log(useSelector(state => state.nav.isOpen))
+    console.log("Value of isOpen: ", useSelector(state => state.nav.isOpen))
 
     return (
         <CSSTransition in={isToggled/* isOpen */} timeout={300} unmountOnExit onEnter={ () => /* navToggle */isToggled} onExited={ () => /* navToggle */isToggled} classNames="sidebar-transition">

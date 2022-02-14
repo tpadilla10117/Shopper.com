@@ -21,12 +21,12 @@ function ScrollToTop() {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-    <ScrollToTop/>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Router>
+    <Provider store={store}>
+      <Router>
+      <ScrollToTop/>
+          <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

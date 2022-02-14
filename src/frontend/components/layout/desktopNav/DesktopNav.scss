@@ -10,10 +10,10 @@
     .desktop-nav-items-container {
         display: flex;
         
-
+/* TODO: Need to move the last element to the end of the Navbar: */
         a:last-child {
             border: 5px solid red;
-            display: none;
+            /* display: none; */
         }
         
         .desktopNav-nav-item {

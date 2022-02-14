@@ -52,5 +52,18 @@ export const NavbarData = [
     exact: 'true',
     offset: -80
 },
+{
+    title: 'SignIn',
+    path: '/signin',
+    /* icon: <AiIcons.AiOutlineFilePdf />, */
+    cName: 'nav-text',
+    activeObject: null,
+    id: 4,
+    smooth: true,
+    duration: 500,
+    spy: true,
+    exact: 'true',
+    offset: -80
+},
 
 ]

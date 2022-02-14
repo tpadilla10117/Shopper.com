@@ -1,16 +1,31 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import {Header} from './utils';
+import { Routes, Route } from 'react-router-dom';
+import {
+  Header, 
+  Login,
+  Landing,
+  Signin,
+} from './utils';
 import './App.scss';
 
 
 function App() {
   return (
     <div className="App">
-      <CSSTransition timeout={300}>
+      {/* <CSSTransition timeout={300}>
         <Header />
-      </CSSTransition>
+      </CSSTransition> */}
+      <Routes>
+        <Route path='/' element={<Landing />}/>
 
+        <Route path='/signin' element={<Signin />} />
+
+
+
+      </Routes>
+    
+      
 
 
     </div>
