@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 import {scrollTop} from '../../utils';
 
 const Nav = (props) => {
-
+/* TODO: re-write in redux code */
     const {navToggle} = props;
     const [ scrollNav, setScrollNav ] = useState(false);
 

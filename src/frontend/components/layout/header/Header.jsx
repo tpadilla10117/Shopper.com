@@ -4,7 +4,7 @@
     import {Nav, DesktopNav, Sidebar} from '../../utils';
 
     const Header = () => {
-
+/* TODO: Rewrite in Redux code: */
         const [isOpen, setIsOpen] = useState(false);
         const [ isDesktop, setIsDesktop ] = useState(window.innerWidth > 1000);
 

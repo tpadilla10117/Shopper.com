@@ -4,6 +4,8 @@ import './index.css';
 import App from './frontend/components/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './frontend/reduxglobalstore/Store';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -21,7 +23,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <ScrollToTop/>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

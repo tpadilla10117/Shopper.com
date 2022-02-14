@@ -47,7 +47,11 @@
 
 ### `npm i dotenv`
 
-### `npm i redux`
+### `npm install react-redux`
+- React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state. (https://react-redux.js.org/introduction/getting-started)
+
+### `npm install @reduxjs/toolkit`
+- Redux is a predictable state container for JavaScript apps.  It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience. (https://redux.js.org/introduction/getting-started)
 
 ### `npm install react-router-dom`
 
