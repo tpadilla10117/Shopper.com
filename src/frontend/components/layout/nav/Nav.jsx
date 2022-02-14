@@ -3,11 +3,22 @@ import "./Nav.scss";
 import {NavbarData} from '../../../seed';
 import {NavLink} from 'react-router-dom';
 import {scrollTop} from '../../utils';
+import { useDispatch } from 'react-redux';
+import { navToggler } from '../../../reduxslices/navSlice.js';
 
 const Nav = (props) => {
 /* TODO: re-write in redux code */
-    const {navToggle} = props;
+
+     /* useDispatch lets me dispatch / shoot actions into the Global Store: */
+     const dispatch = useDispatch();
+
+    
     const [ scrollNav, setScrollNav ] = useState(false);
+
+    const navToggle = () => {
+        dispatch(navToggler())
+        console.log("clicked")
+    }
 
 
     /* Box and transparent are referencing inline style properties: */

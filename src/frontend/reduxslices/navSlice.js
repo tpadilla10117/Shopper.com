@@ -11,8 +11,19 @@
         name: "nav",
         initialState,
         reducers: {
+            //Actions:
+            navToggler: (state) => {
+                state.isOpen = !state.isOpen
+                console.log(`The values of ${state.isOpen}`)
+            }
 
         }
-    })
+    });
+
+/* Export your actions to be used in components: */
+    export const { navToggler } = navSlice.actions;
+
+/* Selectors - This is how we pull info. from the Global Store slice: */
+    export const selectItems = (state) => state.nav.isOpen;
 
     export default navSlice.reducer;

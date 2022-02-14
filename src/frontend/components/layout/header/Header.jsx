@@ -5,12 +5,13 @@
 
     const Header = () => {
 /* TODO: Rewrite in Redux code: */
+
         const [isOpen, setIsOpen] = useState(false);
         const [ isDesktop, setIsDesktop ] = useState(window.innerWidth > 1000);
 
-        const navToggle = () => {
+        /* const navToggle = () => {
             setIsOpen(!isOpen);
-        };
+        }; */
 
         const updateComponentView = () => {
             setIsDesktop(window.innerWidth > 1000);
@@ -25,15 +26,15 @@
 
         <header className="header-parent-wrapper">
             {isDesktop ?
-                (<DesktopNav isOpen={isOpen} navToggle={navToggle}/>)
+                (<DesktopNav isOpen={isOpen} /* navToggle={navToggle} *//>)
         
                 :
 
-                (<Nav isOpen={isOpen} navToggle={navToggle} />)
+                (<Nav isOpen={isOpen} /* navToggle={navToggle} */ />)
 
             }
 
-            <Sidebar isOpen={isOpen} navToggle={navToggle} />
+            <Sidebar isOpen={isOpen} /* navToggle={navToggle} */ />
 
         </header> 
     );
