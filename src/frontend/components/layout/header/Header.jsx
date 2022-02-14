@@ -6,10 +6,12 @@
     const Header = () => {
 /* TODO: Rewrite in Redux code: */
 
-        const [isOpen, setIsOpen] = useState(false);
+    /* State for normal React code: */
+        /* const [isOpen, setIsOpen] = useState(false); */
         const [ isDesktop, setIsDesktop ] = useState(window.innerWidth > 1000);
 
-        /* const navToggle = () => {
+    /* If using normal React code: */
+       /*  const navToggle = () => {
             setIsOpen(!isOpen);
         }; */
 
@@ -26,15 +28,15 @@
 
         <header className="header-parent-wrapper">
             {isDesktop ?
-                (<DesktopNav isOpen={isOpen} /* navToggle={navToggle} *//>)
+                (<DesktopNav /* isOpen={isOpen} */ /* navToggle={navToggle} *//>)
         
                 :
 
-                (<Nav isOpen={isOpen} /* navToggle={navToggle} */ />)
+                (<Nav /* isOpen={isOpen} */ /* navToggle={navToggle} */ />)
 
             }
 
-            <Sidebar isOpen={isOpen} /* navToggle={navToggle} */ />
+            <Sidebar /* isOpen={isOpen} */ /* navToggle={navToggle} */ />
 
         </header> 
     );

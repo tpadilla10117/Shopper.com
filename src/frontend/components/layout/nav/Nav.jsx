@@ -7,12 +7,11 @@ import { useDispatch } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
 
 const Nav = (props) => {
-/* TODO: re-write in redux code */
 
-     /* useDispatch lets me dispatch / shoot actions into the Global Store: */
-     const dispatch = useDispatch();
+/* useDispatch lets me dispatch / shoot actions into the Global Store: */
+    const dispatch = useDispatch();
 
-    
+
     const [ scrollNav, setScrollNav ] = useState(false);
 
     const navToggle = () => {
