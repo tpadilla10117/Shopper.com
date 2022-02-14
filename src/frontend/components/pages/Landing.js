@@ -1,0 +1,1 @@
+/* This page is for when a user first travels to the site: */
