@@ -6,7 +6,6 @@
     return (
         <main>
 
-            
             <Login />
 
         </main>
