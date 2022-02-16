@@ -141,6 +141,19 @@
         }
     });
 
+/* Get a user by their username: */
+/* TODO: Need to test */
+    usersRouter.get('/username', async (req, res, next) => {
+        const { username } = req.params;
+        try {
+            const user = await getUserByUsername(username);
+            res.send(user);
+            console.log("Here is my User: ", username);
+        } catch (error) {
+            next(error);
+        };
+    });
+
 /* TODO: Delete a user route: */
 
 
