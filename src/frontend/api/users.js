@@ -115,7 +115,33 @@
             next(error);
         }
 
-    })
+    });
+
+/* TODO: Route once a user has been logged in: */
+/* Not successully tested yet */
+    usersRouter.get('/me', requireUser, async (req, res, next) => {
+        try {
+            res.send(req.user);
+            console.log('Here is req.user: ', req.user);
+
+        } catch ({name, message}) {
+            next({name, message});
+        }
+    });
+
+/* Get a user by their id: */
+    usersRouter.get('/:userId', async (req, res, next) => {
+        const { userId } = req.params;
+        try {
+            const user = await getUserById(userId);
+            res.send(user);
+            console.log("Here is my user: ", user);
+        } catch (error) {
+            next(error);
+        }
+    });
+
+/* TODO: Delete a user route: */
 
 
 
