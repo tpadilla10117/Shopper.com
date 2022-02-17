@@ -20,6 +20,23 @@
         next();
     });
 
+
+
+/* Errors Handling: */
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'Validation Error';
+    }
+};
+
+class TypeError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'Type Error';
+    };
+};
+
 /* Route to getAllUsers : */
 
     usersRouter.get('/', async (req, res) => {
@@ -132,12 +149,27 @@
 /* Get a user by their id: */
     usersRouter.get('/:userId', async (req, res, next) => {
         const { userId } = req.params;
+
         try {
             const user = await getUserById(userId);
-            res.send(user);
-            console.log("Here is my user: ", user);
+
+            if(userId === null || typeof userId === undefined) {
+                throw new TypeError("Incorrect field: :userId.  Cannot convert undefined or null to an objectsssss!") ;
+                
+            } else {
+               
+                res.send(user);
+                console.log("Here is my user: ", user);
+
+            }
         } catch (error) {
-            next(error);
+            if (TypeError) {
+                next("Invalid data: " + error.message);
+            } else {
+            /* This runs: */
+            next("Invalid data: " + error.message);
+
+            }
         }
     });
 

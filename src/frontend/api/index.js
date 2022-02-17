@@ -48,4 +48,12 @@
     const usersRouter = require('./users');
     apiRouter.use('/users', usersRouter);
 
+/* Error Handler -> Errors outputted as JSON to the frontend: */
+    apiRouter.use( (error, req, res, next) => {
+        res.send({
+            name: error.name,
+            message: error.message
+        })  ;
+    });
+
     module.exports = apiRouter;
