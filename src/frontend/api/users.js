@@ -10,6 +10,10 @@
         getUserById,
         getUserByUsername
     } = require('../../backend/dbadapters/users');
+    const {
+        updateUser
+    } = require('../../backend/dbadapters/admin');
+
     const jwt = require('jsonwebtoken');
     const bcrypt = require('bcrypt');
     const ApiError = require('./errors/apierror');
@@ -102,7 +106,7 @@ class TypeError extends Error {
         if (!username || !password ) {
             next ({
                 name: 'MissingCredentialsError',
-                mesaage: 'Please supply both a valid username and password'
+                message: 'Please supply both a valid username and password'
             });
         }
 
@@ -189,6 +193,22 @@ class TypeError extends Error {
 /* TODO: Delete a user route: */
 
 
+
+
+
+/* ------------------------------------------------------------ */
+/* THIS IS THE PATCH /users/:userId (*admin) Only admins can update a user */
+
+usersRouter.patch('/:userId', async (req, res, next) => {
+    const { userId } = req.params;
+    const { firstname, lastname, email, imageURL, username, password, isAdmin, location } = req.body
+      try {     
+          const updatedUser = await updateUser({id: userId, firstname, lastname, email, imageURL, username, password, isAdmin, location});
+          res.send(updatedUser);
+      } catch (error) {
+        next(error);
+    }
+  });
 
 
     module.exports = usersRouter;
