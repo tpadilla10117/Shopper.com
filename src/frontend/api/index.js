@@ -5,6 +5,7 @@
     const jwt = require('jsonwebtoken');
     const { getUserById } = require('../../backend/dbadapters/users');
     const {JWT_SECRET} = process.env;
+    const apiErrorHandler = require('./errors/apirerrorhandler');
 
 /* For API Requests...*/
     apiRouter.use(async (req, res, next) => {
@@ -43,17 +44,11 @@
         next();
     })
 
-/* Where I attach my routers...  */
+/* Middleware where I attach my routers and handle requests...  */
 
     const usersRouter = require('./users');
     apiRouter.use('/users', usersRouter);
 
-/* Error Handler -> Errors outputted as JSON to the frontend: */
-    apiRouter.use( (error, req, res, next) => {
-        res.send({
-            name: error.name,
-            message: error.message
-        })  ;
-    });
+    apiRouter.use(apiErrorHandler);
 
     module.exports = apiRouter;

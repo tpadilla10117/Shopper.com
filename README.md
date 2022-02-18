@@ -21,6 +21,7 @@
 - (https://www.npmjs.com/package/node-modules)
 
 ### `npm i nodemon`
+- monitors files and auto restart server when changes made to server
 
 ### `npm i cors`
 

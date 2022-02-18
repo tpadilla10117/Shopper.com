@@ -12,7 +12,10 @@
     } = require('../../backend/dbadapters/users');
     const jwt = require('jsonwebtoken');
     const bcrypt = require('bcrypt');
+    const ApiError = require('./errors/apierror');
     /* const {JWT_SECRET} = process.env || 'notSoSecret'; */
+
+
     usersRouter.use((req, res, next) => {
         console.log("A request is being made to /users");
 
@@ -137,9 +140,11 @@ class TypeError extends Error {
 /* TODO: Route once a user has been logged in: */
 /* Not successully tested yet */
     usersRouter.get('/me', requireUser, async (req, res, next) => {
+        const user = req.user;
+
         try {
-            res.send(req.user);
-            console.log('Here is req.user: ', req.user);
+            res.send(user);
+            console.log('Here is req.user: ', user);
 
         } catch ({name, message}) {
             next({name, message});
@@ -153,28 +158,22 @@ class TypeError extends Error {
         try {
             const user = await getUserById(userId);
 
-            if(userId === null || typeof userId === undefined) {
-                throw new TypeError("Incorrect field: :userId.  Cannot convert undefined or null to an objectsssss!") ;
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
                 
             } else {
-               
                 res.send(user);
                 console.log("Here is my user: ", user);
-
             }
         } catch (error) {
-            if (TypeError) {
-                next("Invalid data: " + error.message);
-            } else {
-            /* This runs: */
-            next("Invalid data: " + error.message);
-
-            }
+           next(error)
         }
     });
 
 /* Get a user by their username: */
 /* TODO: Need to test */
+/* Also, this will be the helper for a user checking their own profile */
     usersRouter.get('/username', async (req, res, next) => {
         const { username } = req.params;
         try {
@@ -182,6 +181,7 @@ class TypeError extends Error {
             res.send(user);
             console.log("Here is my User: ", username);
         } catch (error) {
+            
             next(error);
         };
     });
