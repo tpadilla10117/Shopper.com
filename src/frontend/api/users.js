@@ -30,7 +30,7 @@
 
 
 /* Errors Handling: */
-class ValidationError extends Error {
+/* class ValidationError extends Error {
     constructor(message) {
         super(message);
         this.name = 'Validation Error';
@@ -42,7 +42,7 @@ class TypeError extends Error {
         super(message);
         this.name = 'Type Error';
     };
-};
+}; */
 
 /* Route to getAllUsers : */
 
@@ -191,10 +191,29 @@ class TypeError extends Error {
     });
 
 /* TODO: Delete a user route: */
+/* Need to debug */
+    usersRouter.delete('/:userId', requireUser, async (req, res, next) => {
+        try {
+            const user = await getUserById(req.params.userId);
 
+            if (user && user.id === req.user.id) {
+                const updatedUser = await updateUser(user.id, { active: false});
 
+                res.send({ user: updatedUser });
+            } else {
+                next(user ? {
+                    name: "UnauthorizedUserError",
+                    message: "You cannot delete an account that is not yours"
+                } : {
+                    name: "UserNotFoundError",
+                    message: "That user does not exist"
+                });
+            }
 
-
+        } catch (error) {
+            next(error);
+        }
+    });
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE PATCH /users/:userId (*admin) Only admins can update a user */
