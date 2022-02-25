@@ -2,6 +2,9 @@
 
     import React, { useEffect, useState } from 'react';
     import './LandingLogin.scss';
+    import { useDispatch} from 'react-redux';
+    import { handleModalVisibility } from '../../../reduxslices/modalSlice';
+   
     import axios from 'axios';
 
     const BASE ='http://localhost:3000/api';
@@ -11,9 +14,15 @@
     };
 
     const LandingLogin = () => {
+        const dispatch = useDispatch();
+
+        const modalToggle = () => {
+            dispatch(handleModalVisibility())
+            console.log('clicked');
+        }
 
     /* const [ password, setPassword ] = useState(''); */
-    
+ 
 
     return (
         <section id='landing-login-parent-container'>
@@ -22,7 +31,7 @@
             
             <button className='mobile-signup-button'>Sign up with email</button>
             <p className='login-forgotpassword'>
-                Already have an account? <button className='mobile-signin-button'>Sign in</button>
+                Already have an account? <button className='mobile-signin-button' onClick={modalToggle}>Sign in</button>
             </p>
 
         </section>

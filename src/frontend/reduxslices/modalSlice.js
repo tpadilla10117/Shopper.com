@@ -6,7 +6,7 @@
         modalVisibility: false,
     }
 
-/* We create actions that have an action we dispatch to the global store: */
+/* I create actions that have an action I dispatch to the global store: */
     export const modalSlice = createSlice({
         name: 'modal',
         initialState,
@@ -19,5 +19,10 @@
         }
     });
 
-/* Export your actions to be used in components: */
+/* Export my actions to be used in components: */
     export const { handleModalVisibility } = modalSlice.actions;
+
+/* Selectors - How I pull the info. from the Global Store slice: */
+    export const selectItems = (state) => state.modal.modalVisibility;
+
+    export default modalSlice.reducer;
