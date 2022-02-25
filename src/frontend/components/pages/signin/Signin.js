@@ -5,13 +5,16 @@
     
 
     const Signin = () => {
-    return (
-        <section className='signin-parent-container'>
 
-            <LandingLogin />
+        return (
+            <section className='signin-parent-container'>
 
-        </section>
-    )
+                <LandingLogin />
+
+            
+
+            </section>
+        )
     }
 
     export default Signin;

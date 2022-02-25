@@ -7,6 +7,8 @@
 
         export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';
 
+        export { default as Modal } from '../components/layout/modal/Modal.jsx';
+
         export { default as Header } from '../components/layout/header/Header.jsx';
 
         export { default as Products } from '../components/layout/products/Products.jsx';

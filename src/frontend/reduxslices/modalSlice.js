@@ -8,7 +8,7 @@
 
 /* I create actions that have an action I dispatch to the global store: */
     export const modalSlice = createSlice({
-        name: 'modal',
+        name: "modal",
         initialState,
         reducers: {
             //Actions:

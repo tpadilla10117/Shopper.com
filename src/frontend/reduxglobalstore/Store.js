@@ -1,6 +1,7 @@
 /*This is the global store to handle state in the app:  */
     import { configureStore } from "@reduxjs/toolkit";
     import navReducer from '../reduxslices/navSlice.js';
+    import modalReducer from '../reduxslices/modalSlice';
 
 /* To change State: 
 
@@ -13,5 +14,6 @@
     export const store = configureStore({
         reducer: {
             nav: navReducer,
+            modal: modalReducer
         }
     });

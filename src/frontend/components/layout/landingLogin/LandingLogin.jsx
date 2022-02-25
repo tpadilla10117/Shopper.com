@@ -2,8 +2,9 @@
 
     import React, { useEffect, useState } from 'react';
     import './LandingLogin.scss';
-    import { useDispatch} from 'react-redux';
+    import { useDispatch, useSelector} from 'react-redux';
     import { handleModalVisibility } from '../../../reduxslices/modalSlice';
+    import { Modal } from '../../utils';
    
     import axios from 'axios';
 
@@ -19,7 +20,10 @@
         const modalToggle = () => {
             dispatch(handleModalVisibility())
             console.log('clicked');
-        }
+        };
+
+        const modalIsToggled = useSelector(state => state.modal.modalVisibility);
+        console.log("Is the modal toggled? : ", useSelector(state => state.modal.modalVisibility));
 
     /* const [ password, setPassword ] = useState(''); */
  
@@ -33,6 +37,16 @@
             <p className='login-forgotpassword'>
                 Already have an account? <button className='mobile-signin-button' onClick={modalToggle}>Sign in</button>
             </p>
+
+
+
+    {/* The modal appears when clicking 'mobile-signin-button: */}
+
+        {modalIsToggled && 
+            <Modal />
+        
+        }
+
 
         </section>
     );
