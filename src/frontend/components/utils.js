@@ -13,7 +13,7 @@
 
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
 
-        export { default as Login } from '../components/layout/login/Login.jsx';
+        export { default as LandingLogin } from '../components/layout/landingLogin/LandingLogin.jsx';
 
         export { default as Logout } from '../components/layout/logout/Logout.jsx';
 
