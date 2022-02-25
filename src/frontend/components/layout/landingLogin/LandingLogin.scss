@@ -1,12 +1,14 @@
 #landing-login-parent-container {
     display: flex;
-    position: relative;
+    /* position: relative; */ /* TODO: ruins masking */
     flex-direction: column;
     align-items: left;
     justify-content: center;
     height: 100%;
     width: 100%;
+    overflow: auto;
     padding: 2rem;
+    border: 10px solid red;
 
     .landing-login-h1 {
         color: #000000;
@@ -19,27 +21,27 @@
     .mobile-signup-button {
         line-height: 25.2px;
         font-size: 18px;
-        position: absolute;
+        /* position: absolute; */
         background-color: #1AC1DD;
         color: #fff;
         border-radius: 50px;
         width: 280px;
         height: 60px;
-        left: 55px;
-        top: 362px;
+       /*  left: 55px;
+        top: 362px; */
     }
 
     .mobile-signin-button {
         line-height: 25.2px;
         font-size: 18px;
-        position: absolute;
+        /* position: absolute; */
         background-color: #fff;
         border: 1px solid black;
         color: #1AC1DD;
         border-radius: 50px;
         width: 280px;
         height: 60px;
-        left: 55px;
-        top: 536px;
+        /* left: 55px;
+        top: 536px; */
     }
 }

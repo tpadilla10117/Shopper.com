@@ -28,7 +28,7 @@
 
         export { default as Landing } from '../components/pages/Landing';
 
-        export { default as Signin } from '../components/pages/Signin';
+        export { default as Signin } from '../components/pages/signin/Signin.js';
 
 
 

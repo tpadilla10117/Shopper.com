@@ -6,6 +6,7 @@ import {
   Login,
   Landing,
   Signin,
+  LandingLogin,
 } from './utils';
 import './App.scss';
 
@@ -26,6 +27,10 @@ function App() {
 
       </Routes> */}
       {/* <Landing /> */}
+
+      <Routes>
+        <Route path='/signin' element={<Signin />}/>
+      </Routes>
     
       
 
