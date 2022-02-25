@@ -12,23 +12,25 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      {/* <CSSTransition timeout={300}>
+    <main className="App">
+      <CSSTransition timeout={300}>
         <Header />
-      </CSSTransition> */}
-      <Routes>
+      </CSSTransition>
+      
+      {/* <Routes>
         <Route path='/' element={<Landing />}/>
 
         <Route path='/signin' element={<Signin />} />
 
 
 
-      </Routes>
+      </Routes> */}
+      {/* <Landing /> */}
     
       
 
 
-    </div>
+    </main>
   );
 }
 

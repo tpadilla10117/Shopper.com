@@ -25,6 +25,18 @@
     transform: rotate(360deg);
   }
 } */
+
+.App {
+  display: flex;
+  /* flex-direction: row; */
+  background-color: yellow;
+  max-height: 100%;
+  max-width: 100%;
+  
+}
+
+
+
 @import "variables.scss";
 @import "layout/desktopNav/DesktopNav.scss";
 @import "layout/sidebar//Sidebar.scss";

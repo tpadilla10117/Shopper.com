@@ -1,14 +1,15 @@
 /* TODO: This page is for when a user first travels to the site: */
 import React from 'react';
-import {LandingLogin} from '../utils';
+import {LandingLogin, Signin} from '../utils';
 
 const Landing = () => {
   return (
-    <main>
+    <section>
 
       <LandingLogin />
+      {/* <Signin /> */}
 
-    </main>
+    </section>
   );
 };
 

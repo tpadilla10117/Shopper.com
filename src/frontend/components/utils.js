@@ -17,6 +17,8 @@
 
         export { default as Logout } from '../components/layout/logout/Logout.jsx';
 
+        export { default as Login } from '../components/layout/login/Login.jsx';
+
 
 
 /* -------------------------------------------------------------------------- */

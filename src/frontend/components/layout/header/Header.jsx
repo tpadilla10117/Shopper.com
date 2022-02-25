@@ -2,6 +2,7 @@
 
     import React, {useState, useEffect} from 'react';
     import {Nav, DesktopNav, Sidebar} from '../../utils';
+    import './Header.scss';
 
     const Header = () => {
 /* TODO: Rewrite in Redux code: */

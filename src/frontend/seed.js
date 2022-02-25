@@ -15,8 +15,8 @@ export const NavbarData = [
       offset: -80,
   },
   {
-    title: 'About',
-    path: '/about',
+    title: 'Products',
+    path: '/products',
     /* icon: <AiIcons.AiOutlineUser />, */
     activeObject: null,
     id: 1,
@@ -28,8 +28,8 @@ export const NavbarData = [
 },
 
  {
-    title: 'Gallery',
-    path: '/gallery',
+    title: 'About',
+    path: '/about',
    /*  icon: <FaIcons.FaProjectDiagram />, */
     activeObject: null,
     id: 2,
@@ -40,8 +40,8 @@ export const NavbarData = [
     offset: -80
 },
 {
-    title: 'Contact',
-    path: '/contact',
+    title: 'Login',
+    path: '/login',
     /* icon: <AiIcons.AiOutlineFilePdf />, */
     cName: 'nav-text',
     activeObject: null,
@@ -52,18 +52,6 @@ export const NavbarData = [
     exact: 'true',
     offset: -80
 },
-{
-    title: 'SignIn',
-    path: '/signin',
-    /* icon: <AiIcons.AiOutlineFilePdf />, */
-    cName: 'nav-text',
-    activeObject: null,
-    id: 4,
-    smooth: true,
-    duration: 500,
-    spy: true,
-    exact: 'true',
-    offset: -80
-},
+
 
 ]
