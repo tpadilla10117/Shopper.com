@@ -4,7 +4,7 @@
     import './LandingLogin.scss';
     import { useDispatch, useSelector} from 'react-redux';
     import { handleModalVisibility } from '../../../reduxslices/modalSlice';
-    import { Modal } from '../../utils';
+    import { Modal, Login } from '../../utils';
    
     import axios from 'axios';
 
@@ -39,14 +39,18 @@
             </p>
 
 
-
+        {/* TODO: Need to finish styling the modal to test */}
     {/* The modal appears when clicking 'mobile-signin-button: */}
 
         {modalIsToggled && 
-            <Modal />
-        
-        }
+            <Modal>
 
+                <Login>
+
+                </Login>
+            </Modal>
+            
+        }
 
         </section>
     );
