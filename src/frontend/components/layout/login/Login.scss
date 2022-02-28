@@ -5,20 +5,20 @@
     height: 500px;
     /* width: 100%; */
     border: 1px solid red;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
     /* backdrop-filter: blur(5px); */
 
 /* TODO: fix the img background */
-    &:before {
+    /* &:before {
         content: "";
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: 1;
-        /* background: linear-gradient(to top, #f0e9dc 55%, transparent); */
-    }
+        background: linear-gradient(to top, #f0e9dc 55%, transparent);
+    } */
 
     .login-bg-img {
         position: absolute;

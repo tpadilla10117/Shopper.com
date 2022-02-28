@@ -2,6 +2,8 @@
     import { configureStore } from "@reduxjs/toolkit";
     import navReducer from '../reduxslices/navSlice.js';
     import modalReducer from '../reduxslices/modalSlice';
+    import loginReducer from '../reduxslices/loginSlice';
+
 
 /* To change State: 
 
@@ -14,6 +16,7 @@
     export const store = configureStore({
         reducer: {
             nav: navReducer,
-            modal: modalReducer
+            modal: modalReducer,
+            login: loginReducer
         }
     });
