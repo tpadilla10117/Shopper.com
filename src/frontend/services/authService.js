@@ -4,9 +4,21 @@
 
     const API_URL = "http://localhost:3000/api/users/";
 
-    /* TODO: Register logic */
+/* TODO: Register logic */
+    const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active ) => {
+        return axios.post(API_URL + "register", {
+            username,
+            password,
+            email,
+            isAdmin,
+            imageURL,
+            active,
+            firstname,
+            lastname
+        });
+    };
 
-    /* TODO: Login Logic */
+/* Login Logic */
     const login = (username, password) => {
         return axios.post(API_URL + "login", {
             username,
@@ -25,6 +37,7 @@
     };
 
     const authService = {
+        register,
         login,
         logout
     };

@@ -35,3 +35,11 @@
     - window.scrollTo() :
         - (https://www.w3schools.com/jsref/met_win_scrollto.asp)
         - The scrollTo() method scrolls the document to specified coordinates
+
+
+<!-- Redux: -->
+    - slice :
+        - a slice is a collection of Reduc reducer logic and actions for a single feature
+
+    - createAsyncThunk :
+        - a 'thunk' (middleware) that handles action types and dipatches right actions based on a returned promise.
