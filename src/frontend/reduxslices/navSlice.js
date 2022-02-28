@@ -6,7 +6,7 @@
         isOpen: false,
     }
 
-/* We create actions that have an action wee dispatch to the global store: */
+/* I create actions that have an action to dispatch to the global store: */
     export const navSlice = createSlice({
         name: "nav",
         initialState,
