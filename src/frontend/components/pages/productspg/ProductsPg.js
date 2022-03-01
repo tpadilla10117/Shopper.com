@@ -1,33 +1,32 @@
 /* TODO: This page is a generic products page: */
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { getProducts } from '../../../reduxslices/productSlice';
 
 const ProductsPg = () => {
-
+const dispatch = useDispatch();
 /* TODO: This logic (line 8 - 33), works to fetch products but I need to do it in Redux */
 const [products, setProducts] = useState('');
 
   const FAKESTORE_API_URL = "https://fakestoreapi.com/";
 
   /* Logic to request products from fakestoreapi.com : */
-      const productRequest = (id, title, price, category, description, image) => {
-          return axios.get(FAKESTORE_API_URL + "products?limit=5", {
-              id,
-              title,
-              price,
-              category,
-              description,
-              image
-          })
+      const productRequest = () => {
+          return axios.get(FAKESTORE_API_URL + "products?limit=5")
           .then(res => {
             const reqProducts = res.data;
             setProducts(reqProducts);
           })
       };
 
-      useEffect(() => {
+     /*  useEffect(() => {
         productRequest();
-      }, []) 
+      }, [])  */
+
+      useEffect(() => {
+        dispatch(getProducts())
+      }, []);
      
 
       console.log("Here are my products: ", products);
