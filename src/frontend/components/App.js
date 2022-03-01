@@ -9,6 +9,7 @@ import {
   Cart,
   Signin,
   LandingLogin,
+  ProductsPg
 } from './utils';
 import './App.scss';
 
@@ -37,7 +38,7 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path='products/mens'/>
+        <Route path='/products' element={<ProductsPg/>}/>
       </Routes>
 
 

@@ -42,6 +42,8 @@
 
         export { default as Signin } from '../components/pages/signin/Signin.js';
 
+        export { default as ProductsPg } from '../components/pages/productspg/ProductsPg.js';
+
 
 
 
