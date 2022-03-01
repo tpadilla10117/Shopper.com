@@ -2,11 +2,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../../reduxslices/productSlice';
+import { getProducts, selectItems } from '../../../reduxslices/productSlice';
 
 const ProductsPg = () => {
 const dispatch = useDispatch();
-/* const {items} = useSelector( (state) => state.items); */
+const items = useSelector(selectItems);
+console.log(items)
 /* TODO: This logic (line 8 - 33), works to fetch products but I need to do it in Redux */
 const [products, setProducts] = useState('');
 
@@ -31,11 +32,20 @@ const [products, setProducts] = useState('');
      
 
       console.log("Here are my products: ", products);
-
+/* TODO: Items currently populate as expected one API call runs */
   return (
     <section className='productspg-parent-container'>
 
-      hi
+      {items && items.map(productCard => {
+        return (
+          <section key={productCard.id}>
+
+            <h1>{productCard.title}</h1>
+          </section>
+        )
+      }
+        
+      )}
 
     </section>
   );
