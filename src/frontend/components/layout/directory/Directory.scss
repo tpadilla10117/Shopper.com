@@ -1,6 +1,11 @@
-.directory-menu {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+    
+    .directory-parent-container {
+        margin-top: 1rem;
+        
+        .directory-menu {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
