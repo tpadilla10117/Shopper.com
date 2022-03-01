@@ -20,16 +20,10 @@ function App() {
         <Header />
       </CSSTransition>
       
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Landing />}/>
-
-        <Route path='/signin' element={<Signin />} />
-
-
-
-      </Routes> */}
-      {/* <Landing /> */}
-
+      </Routes>
+      
       <Routes>
         <Route path='/about' element={<About />}/>
       </Routes>

@@ -17,6 +17,10 @@
 
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
 
+        export { default as MenuItem } from '../components/layout/menuItem/menuItem.js';
+
+        export { default as Directory } from '../components/layout/directory/Directory.js';
+
         export { default as LandingLogin } from '../components/layout/landingLogin/LandingLogin.jsx';
 
         export { default as Logout } from '../components/layout/logout/Logout.jsx';
