@@ -1,11 +1,12 @@
 /* TODO: This page is a generic products page: */
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../../reduxslices/productSlice';
 
 const ProductsPg = () => {
 const dispatch = useDispatch();
+/* const {items} = useSelector( (state) => state.items); */
 /* TODO: This logic (line 8 - 33), works to fetch products but I need to do it in Redux */
 const [products, setProducts] = useState('');
 

@@ -29,8 +29,17 @@
             [getProducts.fulfilled]: (state, action) => {
                 state.items = action.payload.items;
             }
+        },
+    /* ExtraReducer responds to the actions of the Thunk -> builder object used to define additional case reducers to run in response to actions outside of slice */
+        extraReducers(builder) {
+            builder
+                .addCase(getProducts.fulfilled, (state, action) => {
+                    state.status = 'succeeded'
+                    state.items = state.items.concat(action.payload.items)
+                })
         }
     });
+
 
 /* Selectors - how to pull info from Global store slice: */
 
