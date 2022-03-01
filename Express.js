@@ -9,6 +9,8 @@
 
     const cors = require('cors');
 
+    server.use(cors);
+
 
 /* This is where I connect to the client (database) : */
 

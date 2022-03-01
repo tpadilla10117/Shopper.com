@@ -30,6 +30,8 @@
             "auth/login",
             async ({username, password}, thunkAPI) => {
                 try {
+                    console.log("From middleware: ", username)
+                    console.log("From middleware: ", typeof username)
                     const data = await authService.login(username, password);
                     return { user: data };
                 } catch (error) {
