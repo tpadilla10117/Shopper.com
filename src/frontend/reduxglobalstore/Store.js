@@ -2,7 +2,7 @@
     import { configureStore } from "@reduxjs/toolkit";
     import navReducer from '../reduxslices/navSlice.js';
     import modalReducer from '../reduxslices/modalSlice';
-   
+    import authReducer from '../reduxslices/authSlice';
     import authMessageReducer from '../reduxslices/authmessageSlice';
 
 
@@ -19,6 +19,6 @@
             nav: navReducer,
             modal: modalReducer,
             message: authMessageReducer,
-            
+            auth: authReducer,
         }
     });

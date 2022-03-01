@@ -41,5 +41,8 @@
     - slice :
         - a slice is a collection of Reduc reducer logic and actions for a single feature
 
+    - thunk :
+        - Middleware in redux that sits between an action being dispatched and the action reaching the reducers.  Redux thunk is a middleware that lets you call action creators that return a function instead of an action object.  That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the function's body once the asynchronous operations have been completed.
+
     - createAsyncThunk :
         - a 'thunk' (middleware) that handles action types and dipatches right actions based on a returned promise.
