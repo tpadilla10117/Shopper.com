@@ -1,5 +1,6 @@
 
     import React, { useState } from 'react';
+    import './Directory.scss';
     import { MenuItem } from '../../utils.js';
 
     
