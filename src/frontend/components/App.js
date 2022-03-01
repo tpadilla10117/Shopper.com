@@ -5,6 +5,8 @@ import {
   Header, 
   Login,
   Landing,
+  About,
+  Cart,
   Signin,
   LandingLogin,
 } from './utils';
@@ -29,10 +31,16 @@ function App() {
       {/* <Landing /> */}
 
       <Routes>
+        <Route path='/about' element={<About />}/>
+      </Routes>
+
+      <Routes>
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
+
+      <Routes>
         <Route path='/signin' element={<Signin />}/>
       </Routes>
-    
-      
 
 
     </main>

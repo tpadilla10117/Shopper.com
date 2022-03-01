@@ -32,6 +32,10 @@
 
         export { default as Landing } from '../components/pages/Landing';
 
+        export { default as About } from '../components/pages/about/About.js';
+
+        export { default as Cart } from '../components/pages/cart/Cart.js';
+
         export { default as Signin } from '../components/pages/signin/Signin.js';
 
 
