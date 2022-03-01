@@ -3,13 +3,12 @@
     require('dotenv').config();
     const bodyParser = require('body-parser');
     const morgan = require('morgan');
-
     const express = require('express');
     const server = express();
-
     const cors = require('cors');
 
-    server.use(cors);
+
+    server.use(cors());
 
 
 /* This is where I connect to the client (database) : */
