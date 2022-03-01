@@ -1,19 +1,18 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { CtaButton } from '../../utils';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../reduxslices/authSlice';
+import { login, logout } from '../../../reduxslices/authSlice';
 import { clearMessage } from '../../../reduxslices/authmessageSlice';
 import cabana from '../../../assets/images/cabana.jpg';
 
 function Login(props) {
 
-  const { isLoggedIn } = useSelector( (state) => state.auth);
+  /* const { isLoggedIn } = useSelector( (state) => state.auth); */
   
   const { message } = useSelector( (state) => state.message);
 
   const dispatch = useDispatch();
-  const formRef = useRef();
   const nameRef = useRef();
   const pwordRef = useRef();
 
@@ -21,11 +20,11 @@ function Login(props) {
     dispatch(clearMessage());
   }, [dispatch]);
 
-  const initialValues = {
-    username: "",
-    password: "",
-  };
+ /*  const logOut = useCallback( () => {
+    dispatch(logOut());
+  }, [dispatch]); */
 
+/* My login handler to dispatch into global store: */
   const handleLogin = (event) => {
     event.preventDefault();
     /* const { username, password } = formRef.current; */
@@ -40,7 +39,12 @@ function Login(props) {
 
     }) */
   };
-
+  
+/* My logout handler to dispatch into global store: */
+  /* const handleLogout = (event) => {
+    event.preventDefault();
+    dispatch(logout());
+  } */
   
 
   return (
@@ -58,7 +62,8 @@ function Login(props) {
 
           <input className="login-form-input-box" type="text" placeholder="Password" required ref={pwordRef}/>
 
-          <CtaButton text={'Sign in'} />
+          <CtaButton text={'Sign in'} myClass={'signin-button'} />
+          {/* <CtaButton text={'Sign out'} myClass={"signout-button"} onClick={logOut}/> */}
 
         </div>
         

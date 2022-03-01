@@ -46,6 +46,11 @@
 ### `npm i bcrypt`
 - for pw hashing
 
+### `npm install classnames`
+
+- A simple JavaScript utility for conditionally joining classNames together.
+(https://www.npmjs.com/package/classnames)
+
 ### `npm i dotenv`
 
 ### `npm install react-redux`
