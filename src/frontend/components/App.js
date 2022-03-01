@@ -36,6 +36,10 @@ function App() {
         <Route path='/signin' element={<Signin />}/>
       </Routes>
 
+      <Routes>
+        <Route path='products/mens'/>
+      </Routes>
+
 
     </main>
   );

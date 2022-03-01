@@ -18,3 +18,11 @@
     }
     
     export default menuItem;
+
+  /*   <NavLink to={item.path} 
+                        exact='true'
+                        activeclassname='active'
+                        className='main-nav-item'
+                        style={ {textDecoration: "none"} } 
+                        key={index}
+                    ></NavLink> */
