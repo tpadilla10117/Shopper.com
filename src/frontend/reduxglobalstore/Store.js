@@ -5,6 +5,7 @@
     import authReducer from '../reduxslices/authSlice';
     import authMessageReducer from '../reduxslices/authmessageSlice';
     import basketReducer from '../reduxslices/basketslice';
+    import productReducer from '../reduxslices/productSlice.js';
 
 
 /* To change State: 
@@ -22,5 +23,6 @@
             message: authMessageReducer,
             auth: authReducer,
             basket: basketReducer,
+            products: productReducer,
         }
     });

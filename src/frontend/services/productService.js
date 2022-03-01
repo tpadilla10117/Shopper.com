@@ -20,4 +20,4 @@
         productRequest
     };
 
-    export default productRequest;
+    export default productService;
