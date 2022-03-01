@@ -1,0 +1,30 @@
+/* The redux slice for my shopping basket: */
+    import { createSlice } from "@reduxjs/toolkit";
+
+/* Initialize state of the slice: */
+    const initialState = {
+        items: [],
+    };
+
+/* I create actions for the slice to dispatch into global store: */
+    export const basketSlice = createSlice({
+        name: "basket",
+        initialState,
+        reducers: {
+            //Actions:
+            addToBasket: (state, action) => {
+                //push payload in global store (contains dispatched product)
+                state.items = [...state.items, action.payload];
+            },
+            removeFromBasket: (state, action) => {
+                //look for index of item want to remove...
+                const index = state.items.findIndex( basketItem => basketItem.id === action.payload.id);
+            }
+        }
+    });
+
+/* Export my actions: */
+    export const { addToBasket, removeFromBasket } = basketSlice.actions;
+
+
+    export default basketSlice.reducer;

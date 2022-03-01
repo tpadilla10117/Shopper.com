@@ -4,6 +4,7 @@
     import modalReducer from '../reduxslices/modalSlice';
     import authReducer from '../reduxslices/authSlice';
     import authMessageReducer from '../reduxslices/authmessageSlice';
+    import basketReducer from '../reduxslices/basketslice';
 
 
 /* To change State: 
@@ -20,5 +21,6 @@
             modal: modalReducer,
             message: authMessageReducer,
             auth: authReducer,
+            basket: basketReducer,
         }
     });
