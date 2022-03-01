@@ -4,7 +4,7 @@ import {LandingLogin, Signin, Directory} from '../utils';
 
 const Landing = () => {
   return (
-    <section>
+    <section className='landing-parent-container'>
 
       <Directory />
       {/* <LandingLogin /> */}

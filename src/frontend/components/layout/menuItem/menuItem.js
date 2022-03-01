@@ -1,9 +1,9 @@
 
     import React from 'react';
     
-    function menuItem({ title, imageUrl, size, history, linkUrl, match }) {
+    function menuItem({ title, imageUrl, size }) {
       return (
-        <div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
+        <div className={`${size} menu-item`}>
             
             <div className='menu-item-background-image' style={ {backgroundImage: `url(${imageUrl})`}}>
             </div>
@@ -18,11 +18,3 @@
     }
     
     export default menuItem;
-
-  /*   <NavLink to={item.path} 
-                        exact='true'
-                        activeclassname='active'
-                        className='main-nav-item'
-                        style={ {textDecoration: "none"} } 
-                        key={index}
-                    ></NavLink> */

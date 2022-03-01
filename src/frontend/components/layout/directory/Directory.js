@@ -2,7 +2,7 @@
     import React, { useState } from 'react';
     import './Directory.scss';
     import { MenuItem } from '../../utils.js';
-    import {NavLink} from 'react-router-dom';
+    import { NavLink } from 'react-router-dom';
 
     
     function Directory() {
@@ -41,7 +41,7 @@
                 linkUrl: 'products/mens'
               }
         ])
-
+/* TODO: Note that scroll on components covers the navbar */
         return (
         <section className='directory-parent-container'>
             <div className='directory-menu'>

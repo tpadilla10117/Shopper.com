@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import "./Nav.scss";
+/* import "./Nav.scss"; */
 import {NavbarData} from '../../../seed';
 import {NavLink} from 'react-router-dom';
 import {scrollTop} from '../../utils';
@@ -75,11 +75,14 @@ const Nav = (props) => {
                     </NavLink>
                 )
             })}
+
         </div>
 
         {/* TODO: For the mobile Icon */}
         <div className='nav-mobile-icon-container'>
-           
+
+            <h1 className='nav-mobile-header'>Shop</h1>
+
             <svg xmlns="http://www.w3.org/2000/svg" className="nav-mobile-icon" fill="none" height="24" width="24" viewBox="0 0 24 24" stroke="currentColor" onClick={navToggle} alt="A three-lined horizontal icon to toggle a navigation menu">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>

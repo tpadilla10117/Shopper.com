@@ -30,6 +30,10 @@
         - (https://v5.reactrouter.com/web/api/BrowserRouter)
         - A <Router> that used HTML5 history API to keep your UI in sunc with the URL
 
+    - <NavLink> : 
+        -(https://v5.reactrouter.com/web/api/NavLink)
+        - A special version of the <Link> (declarative, accessible navugation in application) that adds styling attributes to the rendered element when it matches the current url
+
 
 <!-- DOM methods: -->
     - window.scrollTo() :
