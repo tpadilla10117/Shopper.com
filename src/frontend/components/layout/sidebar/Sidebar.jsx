@@ -21,7 +21,7 @@ const Sidebar = (/* props */) => {
 
                 <div className='sidebar-wrapper'>
                     <ul className='sidebar-menu'>
-                        <div className='sidebar-link'>
+                        <div className='sidebar-link' onClick={isToggled}>
                             {NavbarData.map( (item, index) => {
                                 return (
                                     <NavLink to={item.path} activeclassname='active' className='nav-item'
