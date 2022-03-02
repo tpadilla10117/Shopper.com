@@ -1,5 +1,6 @@
 import React from 'react';
-import {CtaButton} from '../../utils';
+import { CtaButton } from '../../utils';
+import CurrencyFormat from 'react-currency-format';
 
 function ProductCards({
     id,
@@ -10,16 +11,20 @@ function ProductCards({
     price
 }) {
   return (
-    <div className='productcard-parent-container'>
+    <div className='productcard-parent-container' key={id}>
         <p className='productcard-category'>{category}</p>
 
         {/* TODO: Image element */}
-        
+        <figure className='productcard-img-wrapper'>
+
+        <img src={image} className='productcard-img' alt={title}/>
+        </figure>
+
         <h4 className='productcard-title'>{title}</h4>
-        <p className='prductcard-description'>{description}</p>
+        <p className='productcard-description'>{description}</p>
 
         <div className='productcard-price-wrapper'>
-            {/* TODO: price element */}
+            <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
         </div>
 
         <CtaButton className={'productcard-button'} text={"Add to Cart"}/>
