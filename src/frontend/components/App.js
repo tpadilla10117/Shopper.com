@@ -9,7 +9,9 @@ import {
   Cart,
   Signin,
   LandingLogin,
-  ProductsPg
+  CheckoutPg,
+  ProductsPg,
+  OrderPg
 } from './utils';
 import './App.scss';
 
@@ -39,6 +41,15 @@ function App() {
 
       <Routes>
         <Route path='/products' element={<ProductsPg/>}/>
+      </Routes>
+
+{/* TODO: Need to setup in db prior to finishing */}
+      <Routes>
+        <Route path='orders' element={<OrderPg />}/>
+      </Routes>
+
+      <Routes>
+        <Route path='/checkout' element={<CheckoutPg/>}/>
       </Routes>
 
 

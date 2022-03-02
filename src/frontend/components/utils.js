@@ -44,7 +44,11 @@
 
         export { default as Signin } from '../components/pages/signin/Signin.js';
 
+        export { default as OrderPg } from '../components/pages/orderpg/OrderPg.js';
+
         export { default as ProductsPg } from '../components/pages/productspg/ProductsPg.js';
+
+        export { default as CheckoutPg } from '../components/pages/checkoutpg/CheckoutPg.js';
 
 
 
