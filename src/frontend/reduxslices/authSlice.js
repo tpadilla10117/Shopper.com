@@ -12,6 +12,8 @@
         "auth/register",
         async ({username, email, password, firstname, lastname, isAdmin, imgURL, location, active } , thunkAPI) => {
             try {
+                const data = await authService.register(username, email, password, firstname, lastname, isAdmin, imgURL, location, active);
+                return { user: data };
 
             } catch (error) {
                 const message = (error.response &&
@@ -63,6 +65,7 @@
                 //actions:
                 [register.fulfilled]: (state, action) => {
                     state.isLoggedIn = true;
+                    state.user = action.payload.user
                 },
                 [register.rejected]: (state, action) => {
                     state.isLoggedIn = false;

@@ -18,21 +18,24 @@
         const handleRegister = (event) => {
             event.preventDefault();
             const username = usernameRef.current?.value;
-            const password = pwordRef.current?.value;
             const firstname = firstnameRef.current?.value;
             const lastname = lastnameRef.current?.value;
             const email = emailRef.current?.value;
+            const password = pwordRef.current?.value;
             const image = "";
-            const isAdmin = false;
-            const location = "";
-            const active = true;
+            const isAdmin = 'false';
+            const location = "Place";
+            const active = 'true';
+
+            
+            console.log("Heres emaulref: ", typeof email)
 
             dispatch(register( {
                 username,
-                password,
                 firstname,
                 lastname,
                 email,
+                password,
                 image,
                 isAdmin,
                 location,

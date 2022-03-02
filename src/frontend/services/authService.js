@@ -14,7 +14,8 @@
             imageURL,
             active,
             firstname,
-            lastname
+            lastname,
+            location
         });
     };
 
