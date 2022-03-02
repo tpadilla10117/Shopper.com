@@ -20,8 +20,18 @@
             removeFromBasket: (state, action) => {
                 //look for index of item want to remove...
                 const index = state.items.findIndex( basketItem => basketItem.id === action.payload.id);
-            }
-        }
+
+                //make a copy of the current basket...
+                let newBasket =[...state.items];
+
+                if (index >= 0) {
+                    newBasket.splice(index, 1)
+                } else {
+                    console.warn(`Can't remove product (id: ${action.payload.id}) as it is not in the basket`)
+                }
+                state.items = newBasket;
+            },
+        },
     });
 
 /* Export my actions: */
