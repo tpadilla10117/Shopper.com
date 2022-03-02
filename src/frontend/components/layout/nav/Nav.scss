@@ -28,11 +28,14 @@
             align-items: center;
             position: relative;
 
-            .nav-mobile-header {
-                /* border: 1px solid red; */
-                color: $text-highlight;
-                text-transform: uppercase;
-                letter-spacing: 1px;
+            .main-nav-logo {
+                text-decoration: none;
+                .nav-mobile-header {
+                    /* border: 1px solid red; */
+                    color: $text-highlight;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
             }
 
             .nav-mobile-shoppingcart-wrapper {

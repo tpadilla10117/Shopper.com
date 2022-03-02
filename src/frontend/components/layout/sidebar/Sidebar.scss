@@ -23,7 +23,7 @@
     z-index: 999;
     width: 100%;
     height: 100%;
-    background: $background-secondary;
+    background: $background-primary;
    /*  background: hsla(0,0%,42.7%,.12);
     box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
     backdrop-filter: blur(5px); */
@@ -71,7 +71,7 @@
                         text-transform: uppercase;
                         text-decoration: none;
                         list-style: none;
-                        color: $text-secondary;
+                        color: $text-primary;
                         letter-spacing: 3px;
                         font-size: 1.5em;
                         /* font-family: 'Lora', sans-serif; */
@@ -79,7 +79,7 @@
         
                         &:hover {
                             /* TODO: need to update color */
-                            color: #2DBCB4;
+                            color: $text-highlight;
                             transition: color 600ms ease 0s;
                         }
                     }
@@ -88,7 +88,7 @@
                         li {
                           span {
                             opacity: 1;
-                            color: #2DBCB4; /* TODO: need to update */
+                            color: $text-highlight; /* TODO: need to update */
                           }
                         }
                       

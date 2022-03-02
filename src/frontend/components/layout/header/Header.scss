@@ -1,6 +1,7 @@
 .header-parent-wrapper {
     display: flex;
     position: relative;
+    z-index: 999;
     height: 80px;
     max-height: 100%;
     width: 100%;
