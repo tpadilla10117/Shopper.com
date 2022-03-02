@@ -81,14 +81,14 @@ console.log(items.length)
         </div>
 
 
-        {/* TODO: For the mobile Icon */}
+    {/* For the mobile Icon */}
         <div className='nav-mobile-icon-container'>
             <NavLink to={'/'}
                 exact='true'
                 activeclassname='active'
                 className='main-nav-logo'
             >
-                <h1 className='nav-mobile-header'>Shop</h1>
+                <h1 className='nav-mobile-header'>Shopper</h1>
             </NavLink>
 
             <div className='nav-mobile-shoppingcart-wrapper'>
