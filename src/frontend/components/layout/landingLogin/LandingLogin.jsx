@@ -1,29 +1,42 @@
 /* TODO: This component handles the login functionality for users: */
 
-    import React, { useEffect, useState } from 'react';
+    import React from 'react';
     import './LandingLogin.scss';
     import { useDispatch, useSelector} from 'react-redux';
-    import { handleModalVisibility } from '../../../reduxslices/modalSlice';
+    import { handleModalVisibility, handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
     import { Modal, Login } from '../../utils';
-   
-    import axios from 'axios';
 
-    const BASE ='http://localhost:3000/api';
-
-    function storeCurrentToken(token) {
+    /* function storeCurrentToken(token) {
         localStorage.setItem('token', JSON.stringify(token));
-    };
+    }; */
 
     const LandingLogin = () => {
         const dispatch = useDispatch();
 
         const modalToggle = () => {
             dispatch(handleModalVisibility())
-            console.log('clicked');
+            /* console.log('clicked'); */
         };
 
+        const signUpModalToggle = () => {
+            dispatch(handleSignUpModalVisibility())
+        };
+
+
+        const signInHandler = () => {
+            modalToggle();
+            /* console.log("I clicked sign in!"); */
+        };
+
+        const signUpHandler = () => {
+            signUpModalToggle();
+        };
+
+    /* Toggler for Signin Modal: */
         const modalIsToggled = useSelector(state => state.modal.modalVisibility);
-        console.log("Is the modal toggled? : ", useSelector(state => state.modal.modalVisibility));
+        
+    /* Toggler for Signup Modal: */
+        const signUpModalIsToggled = useSelector(state => state.modal.signUpModalVisibility);
 
     /* const [ password, setPassword ] = useState(''); */
  
@@ -33,9 +46,11 @@
             <h1 className='landing-login-h1'>Welcome to Shop</h1>
             <h3 className='landing-login-h3'>Join Shop today.</h3>
             
-            <button className='mobile-signup-button'>Sign up with email</button>
+            <button 
+            onClick={signUpHandler}
+            className='mobile-signup-button'>Sign up with email</button>
             <p className='login-forgotpassword'>
-                Already have an account? <button className='mobile-signin-button' onClick={modalToggle}>Sign in</button>
+                Already have an account? <button className='mobile-signin-button' onClick={signInHandler}>Sign in</button>
             </p>
 
 
@@ -44,12 +59,14 @@
 
         {modalIsToggled && 
             <Modal>
-
-                <Login>
-
-                </Login>
+                <Login />
             </Modal>
             
+        }
+
+        {signUpModalIsToggled &&
+            /* TODO: Need to make a Sign Up modal */
+            <h1>Sign Up</h1>
         }
 
         </section>

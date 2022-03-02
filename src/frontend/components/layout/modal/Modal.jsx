@@ -11,6 +11,7 @@ const Modal = ( {children} ) => {
             dispatch(handleModalVisibility())
             console.log('clicked');
         };
+
 /* Allows me to click anywhere outside the Modal to close it: */
 
    /*  useEffect( () => {

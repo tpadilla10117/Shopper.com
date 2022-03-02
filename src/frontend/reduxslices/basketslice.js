@@ -6,6 +6,9 @@
         items: [],
     };
 
+    /* const initialState = user ? { isLoggedIn: true, user }
+    : { isLoggedIn: false, user: null}; */
+
 /* I create actions for the slice to dispatch into global store: */
     export const basketSlice = createSlice({
         name: "basket",

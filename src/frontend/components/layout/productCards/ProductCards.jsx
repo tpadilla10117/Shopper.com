@@ -24,14 +24,17 @@ function ProductCards({
             category, 
             image,
         };
-        dispatch(addToBasket(product) );
+        dispatch(addToBasket(product) )
+
+        /* TODO: Only one item at a time gets set in localStorage -> need items to add to basket, not overwrite each other */
+        localStorage.setItem('items-cart', JSON.stringify([product]))
+        ;
     };
 
   return (
     <div className='productcard-parent-container' key={id}>
         <p className='productcard-category'>{category}</p>
 
-        {/* TODO: Image element */}
         <figure className='productcard-img-wrapper'>
             <img src={image} className='productcard-img' alt={title}/>
         </figure>
