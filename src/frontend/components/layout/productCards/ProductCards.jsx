@@ -16,15 +16,14 @@ function ProductCards({
 
         {/* TODO: Image element */}
         <figure className='productcard-img-wrapper'>
-
-        <img src={image} className='productcard-img' alt={title}/>
+            <img src={image} className='productcard-img' alt={title}/>
         </figure>
 
         <h4 className='productcard-title'>{title}</h4>
         <p className='productcard-description'>{description}</p>
 
         <div className='productcard-price-wrapper'>
-            <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
+            <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} className='productcard-price'/>
         </div>
 
         <CtaButton className={'productcard-button'} text={"Add to Cart"}/>

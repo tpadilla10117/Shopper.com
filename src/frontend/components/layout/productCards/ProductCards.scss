@@ -8,7 +8,7 @@
     }
 
     .productcard-img-wrapper {
-        border: 1px solid green;
+        /* border: 1px solid green; */
         height: 200px;
         width: 100%;
         max-width: 100%;
@@ -22,6 +22,22 @@
 
         .productcard-img {
             object-fit: contain;
+            height: 80%;
         }
+    }
+
+    .productcard-description {
+        font-size: $p-txt-small;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .productcard-price-wrapper {
+        margin-bottom: 1rem;
+        font-weight: bold;
+
+        /* .productcard-price {
+
+        } */
     }
 }
