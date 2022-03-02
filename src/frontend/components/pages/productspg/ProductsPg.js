@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, selectItems } from '../../../reduxslices/productSlice';
+import { ProductCards } from '../../utils';
 
 const ProductsPg = () => {
 const dispatch = useDispatch();
@@ -38,10 +39,15 @@ const [products, setProducts] = useState('');
 
       {items && items.map(productCard => {
         return (
-          <section key={productCard.id}>
-
-            <h1>{productCard.title}</h1>
-          </section>
+          <ProductCards 
+            id={productCard.id} 
+            key={productCard.id} 
+            title={productCard.title} 
+            description={productCard.description}
+            category={productCard.category}
+            image={productCard.image}
+            price={productCard.price}  
+          />
         )
       }
         
