@@ -11,6 +11,8 @@
 
         export { default as Modal } from '../components/layout/modal/Modal.jsx';
 
+        export { default as SignupModal } from '../components/layout/signupModal/SignupModal.jsx';
+
         export { default as Header } from '../components/layout/header/Header.jsx';
 
         export { default as Products } from '../components/layout/products/Products.jsx';
@@ -28,6 +30,8 @@
         export { default as Logout } from '../components/layout/logout/Logout.jsx';
 
         export { default as Login } from '../components/layout/login/Login.jsx';
+
+        export { default as Signup } from '../components/layout/signup/Signup.jsx';
 
 
 

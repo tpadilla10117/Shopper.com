@@ -4,7 +4,7 @@
     import './LandingLogin.scss';
     import { useDispatch, useSelector} from 'react-redux';
     import { handleModalVisibility, handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
-    import { Modal, Login } from '../../utils';
+    import { Modal, SignupModal, Login, Signup } from '../../utils';
 
     /* function storeCurrentToken(token) {
         localStorage.setItem('token', JSON.stringify(token));
@@ -66,7 +66,10 @@
 
         {signUpModalIsToggled &&
             /* TODO: Need to make a Sign Up modal */
-            <h1>Sign Up</h1>
+            <SignupModal>
+                <Signup/>
+            </SignupModal>
+            
         }
 
         </section>
