@@ -1,0 +1,72 @@
+.signup-parent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    padding: 20px;
+    /* width: 100%; */
+    /* border: 1px solid red; */
+    /* position: relative; */
+    overflow: hidden;
+    box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
+    /* backdrop-filter: blur(5px); */
+
+/* TODO: fix the img background */
+    /* &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(to top, #f0e9dc 55%, transparent);
+    } */
+
+    .signup-bg-img {
+        position: absolute;
+        top: -60px;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .signup-form-h1 {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .signup-form-h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .signup-form-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        /* display: grid;
+        grid-template-columns: 50px 50px 50px 50px 50px;
+        grid-template-rows: auto; */
+
+        .signup-form-input-box {
+            height: 60px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid $text-light;
+            padding: 0 10px;
+            background: $background-primary;
+            margin: 8px 0;
+            font-size: $p-txt-size;
+
+        /* TODO: Need to rearrange in a grid */
+           /*  &:nth-child(2) {
+                border: 1px solid red;
+            }
+
+            &:nth-child(3) {
+                border: 1px solid red;
+            } */
+        }
+
+
+    }
+
+}

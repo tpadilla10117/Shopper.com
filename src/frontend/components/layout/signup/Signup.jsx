@@ -47,7 +47,7 @@
             onSubmit={handleRegister}
             className='signup-form-parent-container'>
                 <h1 className='signup-form-h1'>Welcome to Shopper</h1>
-                <h3 className='signup-form-h3'>It looks like you're new here, we need a bit more infor to create your new account</h3>
+                <h3 className='signup-form-h3'>It looks like you're new here, we need a bit more info to create your new account</h3>
                 <div className='signup-form-input-wrapper'>
                     <input className="signup-form-input-box" type="text" placeholder="Username" required ref={usernameRef}/>
 
