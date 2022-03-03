@@ -41,7 +41,7 @@ export const NavbarData = [
 },
 {
     title: 'Cart',
-    path: '/cart',
+    path: '/checkout',
     /* icon: <AiIcons.AiOutlineFilePdf />, */
     cName: 'nav-text',
     activeObject: null,
