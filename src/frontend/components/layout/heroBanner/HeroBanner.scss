@@ -1,0 +1,14 @@
+.herobanner-parent-container {
+    position: relative;
+
+    .herobanner-wrapper {
+        position: absolute;
+        height: 8rem;
+        width: 100%;
+        background-image: linear-gradient(to top,#f3f4f6 , rgba(243, 244, 246, 0), 100%, transparent );
+      /*  background: linear-gradient(0deg,#f3f4f6 30%,transparent); */
+        bottom: 0;
+        z-index: 20;
+    }
+
+}

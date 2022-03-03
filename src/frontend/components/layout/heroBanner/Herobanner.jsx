@@ -7,8 +7,8 @@ import outfit3 from '../../../assets/images/outfit3.jpg';
 
 function Herobanner() {
   return (
-    <div>
-        <div/>
+    <div className='herobanner-parent-container'>
+        <div className='herobanner-wrapper'/>
         <Carousel 
             autoPlay
             infiniteLoop
