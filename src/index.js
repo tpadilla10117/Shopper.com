@@ -22,7 +22,7 @@ function ScrollToTop() {
 /* Redux Logic: */
   /* 
   1) Passed reducers to Redux 'configureStore' function, which returns a 'store' object
-  2) Pass 'store' object to the react-reduc 'Provider' component, rendered on top of component tree
+  2) Pass 'store' object to the react-redux 'Provider' component, rendered on top of component tree
   3) -> any time I connect to Redux via react-redux connect, the store is available to my nested components
   
   */

@@ -3,7 +3,7 @@
 # src
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+- /src containes all the main folders & files that consist of the Shopper.com application
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**backend**](backend)

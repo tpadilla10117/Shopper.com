@@ -14,6 +14,20 @@
 
     - SASS ('Syntactically Awesome Style Sheets'): an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster. (Additional explanations at: https://www.creativebloq.com/web-design/what-is-sass-111517618 or see documentation at https://sass-lang.com/documentation)
 
+<!-- Middleware: -->
+    - body-parser:
+        - (https://www.npmjs.com/package/body-parser)
+        - (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+        - Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+    - morgan:
+        - (https://www.npmjs.com/package/morgan)
+        - HTTP request logger middleware for node.js
+
+    - cors:
+        - (https://www.npmjs.com/package/cors)
+        - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+
 <!-- React: -->
     - <React.StrictMode> : 
         - (https://reactjs.org/docs/strict-mode.html)
@@ -70,6 +84,7 @@
         - a slice is a collection of Reduc reducer logic and actions for a single feature
 
     - thunk :
+        - (https://redux.js.org/tutorials/essentials/part-5-async-logic)
         - Middleware in redux that sits between an action being dispatched and the action reaching the reducers.  Redux thunk is a middleware that lets you call action creators that return a function instead of an action object.  That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the function's body once the asynchronous operations have been completed.
 
     - createAsyncThunk :

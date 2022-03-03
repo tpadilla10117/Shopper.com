@@ -3,7 +3,7 @@
 # reduxglobalstore
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+- /src/frontend/reduxglobalstore is where I configure my Redux Global Store for handling application state
 <!-- optional markdown-notes-tree directory description ends here -->
 
 

@@ -3,7 +3,7 @@
 # assets
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+/src/frontend/assets contains an images, icons, etc. to be used as resources in UI components
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**icons**](icons)

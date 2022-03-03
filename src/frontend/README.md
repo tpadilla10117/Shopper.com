@@ -3,7 +3,7 @@
 # frontend
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+- /src/frontend contains all the frontend code for the application, including React components, Redux Store, API, etc.
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**api**](api)

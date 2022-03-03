@@ -3,7 +3,7 @@
 # public
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+- /public is where my main html file lives, in addition to metadata about Shopper.com, favicon.ico, etc.
 <!-- optional markdown-notes-tree directory description ends here -->
 
 

@@ -91,8 +91,6 @@ class TypeError extends Error {
                 message: `Thank you for signing up ${username}!`,token
             });
 
-            /* res.send({user}) */
-
         } catch ( {name, message} ) {
             next( {name, message} )
         }

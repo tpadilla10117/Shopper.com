@@ -1,8 +1,6 @@
 /* This is where connection to PostgreSQL client occurs: */
 
     require('dotenv').config();
-   /*  const bcrypt = require('bcrypt');
-    const SALT_COUNT = 10; */
 
     //1) Connect client to the PostgreSQL db:
     const { Client } = require('pg');
