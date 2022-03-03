@@ -45,8 +45,9 @@
     })
 
 /* Middleware where I attach my routers and handle requests...  */
-
+    
     const usersRouter = require('./users');
+    apiRouter.use('/products', require('./products'));
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);
