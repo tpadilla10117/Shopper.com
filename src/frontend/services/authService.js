@@ -16,7 +16,13 @@
             firstname,
             lastname,
             location
-        });
+        })
+        .then ( (response) => {
+            if (response.data.token) {
+                localStorage.setItem("user", JSON.stringify(response.data.token));
+            }
+            return response.data;
+        })
     };
 
 /* Login Logic */

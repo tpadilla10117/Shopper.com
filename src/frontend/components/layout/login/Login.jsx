@@ -1,14 +1,11 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { CtaButton } from '../../utils';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../../reduxslices/authSlice';
+import { login } from '../../../reduxslices/authSlice';
 import { clearMessage } from '../../../reduxslices/authmessageSlice';
 import cabana from '../../../assets/images/cabana.jpg';
 
-function Login(props) {
-
-  /* const { isLoggedIn } = useSelector( (state) => state.auth); */
+function Login() {
   
   const { message } = useSelector( (state) => state.message);
 
@@ -20,33 +17,14 @@ function Login(props) {
     dispatch(clearMessage());
   }, [dispatch]);
 
- /*  const logOut = useCallback( () => {
-    dispatch(logOut());
-  }, [dispatch]); */
-
 /* My login handler to dispatch into global store: */
   const handleLogin = (event) => {
     event.preventDefault();
-    /* const { username, password } = formRef.current; */
     const username = nameRef.current?.value;
     const password = pwordRef.current?.value;
-    console.log(username);
-    console.log(password); /* Both verified strings */
-
     dispatch(login( { username, password }))
-    
-    /* .then( () => {
-
-    }) */
   };
   
-/* My logout handler to dispatch into global store: */
-  /* const handleLogout = (event) => {
-    event.preventDefault();
-    dispatch(logout());
-  } */
-  
-
   return (
     <section className='login-parent-container'>
 {/* TODO: add in the img overlay*/}

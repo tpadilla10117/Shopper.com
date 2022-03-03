@@ -87,10 +87,11 @@ class TypeError extends Error {
             }, process.env.JWT_SECRET);
 
             res.send({
+                user,
                 message: `Thank you for signing up ${username}!`,token
             });
 
-            res.send({user})
+            /* res.send({user}) */
 
         } catch ( {name, message} ) {
             next( {name, message} )

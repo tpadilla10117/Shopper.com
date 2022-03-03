@@ -10,10 +10,10 @@
 /* Register Thunk: */
     export const register = createAsyncThunk(
         "auth/register",
-        async ({username, email, password, firstname, lastname, isAdmin, imgURL, location, active } , thunkAPI) => {
+        async ({username, password, firstname, lastname, location, email, isAdmin, imgURL, active } , thunkAPI) => {
             try {
-                const data = await authService.register(username, email, password, firstname, lastname, isAdmin, imgURL, location, active);
-                return { user: data };
+                const data = await authService.register(username, password, firstname, lastname, location, email, isAdmin, imgURL, active);
+                return {user:data};
 
             } catch (error) {
                 const message = (error.response &&
@@ -83,6 +83,14 @@
                     state.user = null;
                   },
             },
+            extraReducers(builder) {
+                builder
+                    .addCase(register.fulfilled, (state, action) => {
+                        state.isLoggedIn = true
+                        state.status = 'succeeded'
+                        state.user = action.payload.user
+                    })
+            }
         });
 
         export default authSlice.reducer;
