@@ -17,7 +17,6 @@
 <!-- Middleware: -->
     - body-parser:
         - (https://www.npmjs.com/package/body-parser)
-        - (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
         - Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 
     - morgan:
@@ -26,6 +25,7 @@
 
     - cors:
         - (https://www.npmjs.com/package/cors)
+        - (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
         - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 
 <!-- React: -->

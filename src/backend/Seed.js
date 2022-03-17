@@ -65,10 +65,11 @@
             await client.query(`
                 CREATE TABLE products(
                     id SERIAL PRIMARY KEY,
-                    name VARCHAR(255) NOT NULL,
+                    title VARCHAR(255) NOT NULL,
                     description VARCHAR(255) NOT NULL,
                     price VARCHAR(255) NOT NULL,
-                    category VARCHAR(255) NOT NULL
+                    category VARCHAR(255) NOT NULL,
+                    image VARCHAR(255) DEFAULT 'https://icon-library.com/images/no-image-available-icon/no-image-available-icon-8.jpg'
                 );
                 CREATE TABLE users(
                     id SERIAL PRIMARY KEY,
@@ -117,6 +118,15 @@
         } catch (error) {
             console.log("There was an error creating users!");
             throw error;
+        }
+    }
+
+    async function seedInitialProducts() {
+        console.log('Sarting to create initial products...');
+        try {
+
+        } catch (error) {
+            console.error('Error creating Products!')
         }
     }
 

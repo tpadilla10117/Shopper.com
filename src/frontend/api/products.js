@@ -21,4 +21,7 @@
         }
     });
 
+/* ------------------------------------------------------------ */
+/* THIS IS THE POST /products (*admin) Only admins can create a new product */
+
     module.exports = productsRouter;
