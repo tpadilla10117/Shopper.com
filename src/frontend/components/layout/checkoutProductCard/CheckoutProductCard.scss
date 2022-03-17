@@ -1,0 +1,20 @@
+.checkoutproductcard-parent-container {
+    
+    .checkoutproductcard-img-wrapper {
+        /* border: 1px solid green; */
+        height: 200px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        /* object-fit: contain; */
+        margin-bottom: 1rem;
+
+        .checkoutproductcard-img {
+            object-fit: contain;
+            height: 80%;
+        }
+    }
+}
