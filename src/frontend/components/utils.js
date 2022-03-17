@@ -21,6 +21,8 @@
 
         export { default as ProductCards } from '../components/layout/productCards/ProductCards.jsx';
 
+        export { default as CheckoutProductCard } from '../components/layout/checkoutProductCard/CheckoutProductCard.jsx';
+
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
 
         export { default as MenuItem } from '../components/layout/menuItem/menuItem.js';
