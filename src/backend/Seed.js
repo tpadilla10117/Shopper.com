@@ -9,6 +9,10 @@
         getUserByUsername
     } = require('./dbadapters/users');
 
+    const {
+        createProduct
+    } = require('./dbadapters/products');
+
 /* Database Adapter Testing: */
     async function testDB() {
         try {
@@ -122,9 +126,22 @@
     }
 
     async function seedInitialProducts() {
-        console.log('Sarting to create initial products...');
+        console.log('Starting to create initial products...');
         try {
+            const productsToCreate = [
+                {
+                    id:1, 
+                    title:"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                    price:109.95,
+                    description:"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                    category:"men's clothing",
+                    image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+                }
+            ]
 
+            const products = await Promise.all(productsToCreate.map(createProduct));
+            console.log('Products Created!');
+            console.log(products)
         } catch (error) {
             console.error('Error creating Products!')
         }
