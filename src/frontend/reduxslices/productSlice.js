@@ -5,7 +5,7 @@
     import productService from '../services/productService';
 
 /* GET Thunk (middleware to make API Call): */
-    export const getProducts = createAsyncThunk("products/products", async () => {
+    export const getProducts = createAsyncThunk("products", async () => {
         try {
             const data = await productService.productRequest();
             console.log("From getProducts Thunk: ", data)
