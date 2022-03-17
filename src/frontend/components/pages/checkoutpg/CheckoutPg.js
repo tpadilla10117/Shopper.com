@@ -17,12 +17,15 @@
 
             <div>
               {items.map( (item, index) => (
-                <div key={index} id={item.id}>
-                  <h1>{item.title}</h1>
-
-                  <CheckoutProductCard />
-
-                </div>
+                  <CheckoutProductCard 
+                    key={index}
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                    category={item.category}
+                    image={item.image}
+                  />
               ))}
             </div>
         </section>
