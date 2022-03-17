@@ -27,8 +27,19 @@ const [products, setProducts] = useState('');
         productRequest();
       }, [])  */
 
+      /* async function getAllProducts() {
+        try {
+          const { data } = await axios.get('/api/products');
+          return data;
+        } catch (error) {
+          throw error;
+        }
+      }; */
+
+    /* TODO: Working on fetching from my API instead of fakestore: */
       useEffect(() => {
         dispatch(getProducts())
+        /* getAllProducts(); */
       }, []);
      
 
