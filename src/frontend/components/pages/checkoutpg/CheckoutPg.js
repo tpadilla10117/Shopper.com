@@ -3,11 +3,13 @@
     import { useSelector } from "react-redux";
     import { selectItems, selectTotal } from "../../../reduxslices/basketslice.js";
     import { CheckoutProductCard } from '../../../components/utils.js';
+
     
     function CheckoutPg() {
 
         const items = useSelector( selectItems );
         const total = useSelector ( selectTotal );
+
 
 
 /* TODO: Need to finish component and style: */
