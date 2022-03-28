@@ -1,5 +1,8 @@
 /*This is the global store to handle state in the app:  */
     import { configureStore } from "@reduxjs/toolkit";
+    import { combineReducers } from "redux";
+    import { persistReducer } from "redux-persist";
+    import storage from 'redux-persist/lib/storage';
     import navReducer from '../reduxslices/navSlice.js';
     import modalReducer from '../reduxslices/modalSlice';
     import authReducer from '../reduxslices/authSlice';
@@ -7,6 +10,23 @@
     import basketReducer from '../reduxslices/basketslice';
     import productReducer from '../reduxslices/productSlice.js';
 
+
+/* Config for redux persist: */
+    const persistConfig = {
+        key: 'root',
+        storage,
+    }
+
+    const rootReducer = combineReducers({
+        nav: navReducer,
+        modal: modalReducer,
+        message: authMessageReducer,
+        auth: authReducer,
+        basket: basketReducer,
+        products: productReducer,
+    })
+
+    const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 /* To change State: 
 
@@ -16,7 +36,14 @@
 
 */
 
-    export const store = configureStore({
+    const store = configureStore({
+        reducer: persistedReducer, 
+    });
+
+    
+    export default store;
+
+   /*  export const store = configureStore({
         reducer: {
             nav: navReducer,
             modal: modalReducer,
@@ -25,4 +52,4 @@
             basket: basketReducer,
             products: productReducer,
         }
-    });
+    }); */

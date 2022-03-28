@@ -36,7 +36,7 @@ const [products, setProducts] = useState('');
         }
       }; */
 
-    /* TODO: Working on fetching from my API instead of fakestore: */
+    /* TODO: Working on fetching from my API - Bug that fetches every time we hit the route: */
       useEffect(() => {
         dispatch(getProducts())
         /* getAllProducts(); */
