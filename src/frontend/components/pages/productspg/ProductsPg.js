@@ -76,7 +76,7 @@ console.log("The status of loader: ", loadStatus);
   /* setTimeout(() => {
     setLoading(false);
 }, 1000); */
-
+  if(loadStatus) return <Loading/>
   return (
     <section className='productspg-parent-container'>
       {/* <h1>{loadStatus.loading}</h1> */}
