@@ -6,7 +6,7 @@
         loading: false,
     };
 
-/* Create actions for the slice to dispatch into the store: */ /* TODO: Check this logic */
+/* Create actions for the slice to dispatch into the store: */ 
     export const loadingSlice = createSlice({
         name: "loader",
         initialState,

@@ -72,10 +72,6 @@ console.log("The status of loader: ", loadStatus);
 
   console.log("The amount of items on product page: ", items.length )
 
-  /* if(loading) return <Loading /> */
-  /* setTimeout(() => {
-    setLoading(false);
-}, 1000); */
   if(loadStatus) return <Loading/>
   return (
     <section className='productspg-parent-container'>
