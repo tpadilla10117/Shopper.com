@@ -44,6 +44,12 @@
         next();
     })
 
+    apiRouter.get('/', (req, res) => {
+        res.send({
+            message: "Greetings from api/"
+        })
+    })
+
 /* Middleware where I attach my routers and handle requests...  */
     
     const usersRouter = require('./users');

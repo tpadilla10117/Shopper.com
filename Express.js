@@ -6,7 +6,7 @@
     const express = require('express');
     const server = express();
     const cors = require('cors');
-    /* const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh'); */
+    const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh');
 
 
     server.use(cors());
@@ -45,6 +45,7 @@
     
         next();
     });
+
 
 /* TODO: Create a Stripe checkout Session: */
     /* server.post('/create-checkout-session', async (req, res) => {
