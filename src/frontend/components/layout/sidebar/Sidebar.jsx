@@ -3,6 +3,8 @@ import { CSSTransition } from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 import { NavbarData } from '../../../seed';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { navToggler } from '../../../reduxslices/navSlice.js';
 import "../../App.scss";
 
 const Sidebar = (/* props */) => {
@@ -10,6 +12,13 @@ const Sidebar = (/* props */) => {
     /* const { isOpen, navToggle } = props */
     const isToggled = useSelector(state => state.nav.isOpen);
     console.log("Value of isOpen: ", useSelector(state => state.nav.isOpen))
+
+    const dispatch = useDispatch();
+
+    const navToggle = () => {
+        dispatch(navToggler())
+        console.log("clicked")
+    }
 
     return (
         <CSSTransition in={isToggled/* isOpen */} timeout={300} unmountOnExit onEnter={ () => /* navToggle */isToggled} onExited={ () => /* navToggle */isToggled} classNames="sidebar-transition">
@@ -21,12 +30,12 @@ const Sidebar = (/* props */) => {
 
                 <div className='sidebar-wrapper'>
                     <ul className='sidebar-menu'>
-                        <div className='sidebar-link' onClick={isToggled}>
+                        <div className='sidebar-link'>
                             {NavbarData.map( (item, index) => {
                                 return (
                                     <NavLink to={item.path} activeclassname='active' className='nav-item'
                                     style={ {textDecoration: 'none'} }
-                                    key={index}
+                                    key={index} onClick={navToggle}
                                     >
                                         <li key={index} className={item.title}>
                                             <span>{item.title}</span>
