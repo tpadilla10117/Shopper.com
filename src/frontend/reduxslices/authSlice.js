@@ -90,6 +90,11 @@
                         state.status = 'succeeded'
                         state.user = action.payload.user
                     })
+                    .addCase(login.fulfilled, (state, action) => {
+                        state.isLoggedIn = true
+                        state.status = 'succeeded'
+                        state.user = action.payload.user
+                    })
             }
         });
 

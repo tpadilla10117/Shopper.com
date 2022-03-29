@@ -6,6 +6,7 @@
     const express = require('express');
     const server = express();
     const cors = require('cors');
+    /* const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh'); */
 
 
     server.use(cors());
@@ -45,8 +46,27 @@
         next();
     });
 
+/* TODO: Create a Stripe checkout Session: */
+    /* server.post('/create-checkout-session', async (req, res) => {
+        const session = await stripe.checkout.sessions.create({
+            line_items: [
+                {
+                    //Provide exact Price ID of product you want to sell:
+                    price: '',
+                    quantity: 1,
+                },
+            ],
+            mode: 'payment',
+            success_url: `${server}?success=true`,
+            cancel_url: `${server}?canceled=true`
+        });
+        res.redirect(303, session.url);
+    }); */
+
+
 /* ApiRouter: */
     const apiRouter = require('./src/frontend/api');
+
     server.use('/api', apiRouter);
 
     module.exports = {

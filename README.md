@@ -108,6 +108,10 @@
 ### `npm install @reduxjs/toolkit`
 - Redux is a predictable state container for JavaScript apps.  It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience. (https://redux.js.org/introduction/getting-started)
 
+### `npm i redux-persist`
+- Persist and rehydrate a redux store
+- (https://www.npmjs.com/package/redux-persist)
+
 ### `npm install react-router-dom`
 
 ### `npm install react-transition-group`

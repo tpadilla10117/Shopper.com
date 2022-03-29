@@ -5,7 +5,9 @@ import App from './frontend/components/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { store } from './frontend/reduxglobalstore/Store';
+import store from './frontend/reduxglobalstore/Store';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -18,6 +20,8 @@ function ScrollToTop() {
 
   return null;
 }
+
+let persistor = persistStore(store);
 
 /* Redux Logic: */
   /* 
@@ -32,7 +36,9 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
       <ScrollToTop/>
+        <PersistGate Loading={null} persistor={persistor}>
           <App />
+        </PersistGate>
       </Router>
     </Provider>
   </React.StrictMode>,

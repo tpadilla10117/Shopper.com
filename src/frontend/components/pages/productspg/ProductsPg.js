@@ -3,25 +3,29 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, selectItems } from '../../../reduxslices/productSlice';
-import { ProductCards } from '../../utils';
+import { setLoader, isLoading } from '../../../reduxslices/loadingSlice';
+import { ProductCards, Loading } from '../../utils';
 
 const ProductsPg = () => {
 const dispatch = useDispatch();
 const items = useSelector(selectItems);
-console.log(items)
+const loadStatus = useSelector(setLoader);
+console.log("Items from ProductsPag: ", items)
+console.log("The status of loader: ", loadStatus);
+/* const [loading, setLoading] = useState(true); */
 /* TODO: This logic (line 8 - 33), works to fetch products but I need to do it in Redux */
-const [products, setProducts] = useState('');
+/* const [products, setProducts] = useState(''); */
 
-  const FAKESTORE_API_URL = "https://fakestoreapi.com/";
+  /* const FAKESTORE_API_URL = "https://fakestoreapi.com/"; */
 
   /* Logic to request products from fakestoreapi.com : */
-      const productRequest = () => {
+      /* const productRequest = () => {
           return axios.get(FAKESTORE_API_URL + "products?limit=5")
           .then(res => {
             const reqProducts = res.data;
             setProducts(reqProducts);
           })
-      };
+      }; */
 
      /*  useEffect(() => {
         productRequest();
@@ -36,18 +40,42 @@ const [products, setProducts] = useState('');
         }
       }; */
 
-    /* TODO: Working on fetching from my API instead of fakestore: */
-      useEffect(() => {
-        dispatch(getProducts())
-        /* getAllProducts(); */
-      }, []);
-     
+    /* TODO: Working on fetching from my API - Bug that fetches every time we hit the route. Need to onky fetch ONCE: */
+      /* useEffect(() => {
+        console.log("I rerendered")
 
-      console.log("Here are my products: ", products);
-/* TODO: Items currently populate as expected one API call runs */
+          window.addEventListener('dispatching',dispatch(getProducts()) );
+
+          return () => {
+            window.removeEventListener('dispatching', dispatch(getProducts()));
+          }
+          
+
+      }, [dispatch]); */
+
+      useEffect(() => {
+
+        if(items.length === 0 ) {
+          dispatch(getProducts());
+          dispatch(isLoading(true))
+          setTimeout(() => {
+            dispatch(isLoading(false))
+          }, 2000);
+          
+        } else {
+          console.log("The other condition")
+          return;
+        }
+
+      },[dispatch, items])
+
+
+  console.log("The amount of items on product page: ", items.length )
+
+  if(loadStatus) return <Loading/>
   return (
     <section className='productspg-parent-container'>
-
+      {/* <h1>{loadStatus.loading}</h1> */}
       {items && items.map(productCard => {
         return (
           <ProductCards 
@@ -64,20 +92,10 @@ const [products, setProducts] = useState('');
         
       )}
 
+      <h1>{loadStatus}</h1>
+
     </section>
   );
 };
 
 export default ProductsPg
-
-/* async function fetchData() {
-  fetch(`${BASE_URL}${apiKey}&start_date=2017-07-08&end_date=2017-07-20
-`)
-
-  .then((res) => {
-    if (res.ok) return res.json();
-    throw new Error('An Error occurred when fetching posts');
-  })
-  .then((posts) => setAstronomy(posts))
-  .catch((error) => setError(error.message));
-} */
