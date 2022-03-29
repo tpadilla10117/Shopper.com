@@ -3,6 +3,7 @@
 /* Redux Slice for products requested from fakestoreapi.com: */
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
     import productService from '../services/productService';
+    /* import { loadingSelector } from './loadingSlice'; */
 
 /* GET Thunk (middleware to make API Call): */
     export const getProducts = createAsyncThunk("products", async () => {
@@ -36,7 +37,7 @@
             builder
                 .addCase(getProducts.fulfilled, (state, action) => {
                     state.status = 'succeeded'
-                    state.items = state.items.concat(action.payload.items)
+                    state.items = [...state.items.concat(action.payload.items)]
                 })
         }
     });

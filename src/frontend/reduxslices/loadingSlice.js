@@ -13,6 +13,7 @@
         reducers: {
             isLoading: (state, action) => {
                 state.loading = false;
+                console.log("dispatched from LoadingSlice!")
             }
         }
     });
