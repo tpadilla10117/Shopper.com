@@ -9,6 +9,7 @@
     import authMessageReducer from '../reduxslices/authmessageSlice';
     import basketReducer from '../reduxslices/basketslice';
     import productReducer from '../reduxslices/productSlice.js';
+    import loadingReducer from '../reduxslices/loadingSlice.js';
 
 
 /* Config for redux persist: */
@@ -24,6 +25,7 @@
         auth: authReducer,
         basket: basketReducer,
         products: productReducer,
+        loader: loadingReducer,
     })
 
     const persistedReducer = persistReducer(persistConfig, rootReducer);

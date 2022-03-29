@@ -37,6 +37,8 @@
 
         export { default as Signup } from '../components/layout/signup/Signup.jsx';
 
+        export { default as Loading } from '../components/layout/loading/Loading.jsx';
+
 
 
 /* -------------------------------------------------------------------------- */

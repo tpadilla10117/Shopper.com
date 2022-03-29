@@ -6,10 +6,11 @@
 
 /* GET Thunk (middleware to make API Call): */
     export const getProducts = createAsyncThunk("products", async () => {
-        try {
+        try { 
             const data = await productService.productRequest();
             console.log("From getProducts Thunk: ", data)
             return { items: data };
+            
         } catch (error) {
             console.error(error)
         }
