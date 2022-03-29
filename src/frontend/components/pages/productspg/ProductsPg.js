@@ -3,12 +3,16 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, selectItems } from '../../../reduxslices/productSlice';
-import { ProductCards } from '../../utils';
+import { setLoader, isLoading } from '../../../reduxslices/loadingSlice';
+import { ProductCards, Loading } from '../../utils';
 
 const ProductsPg = () => {
 const dispatch = useDispatch();
 const items = useSelector(selectItems);
+const loadStatus = useSelector(setLoader);
 console.log("Items from ProductsPag: ", items)
+console.log("The status of loader: ", loadStatus);
+/* const [loading, setLoading] = useState(true); */
 /* TODO: This logic (line 8 - 33), works to fetch products but I need to do it in Redux */
 /* const [products, setProducts] = useState(''); */
 
@@ -52,8 +56,12 @@ console.log("Items from ProductsPag: ", items)
       useEffect(() => {
 
         if(items.length === 0 ) {
-
           dispatch(getProducts());
+          dispatch(isLoading(true))
+          setTimeout(() => {
+            dispatch(isLoading(false))
+          }, 2000);
+          
         } else {
           console.log("The other condition")
           return;
@@ -61,11 +69,17 @@ console.log("Items from ProductsPag: ", items)
 
       },[dispatch, items])
 
+
   console.log("The amount of items on product page: ", items.length )
+
+  /* if(loading) return <Loading /> */
+  /* setTimeout(() => {
+    setLoading(false);
+}, 1000); */
 
   return (
     <section className='productspg-parent-container'>
-
+      {/* <h1>{loadStatus.loading}</h1> */}
       {items && items.map(productCard => {
         return (
           <ProductCards 
@@ -81,6 +95,8 @@ console.log("Items from ProductsPag: ", items)
       }
         
       )}
+
+      <h1>{loadStatus}</h1>
 
     </section>
   );

@@ -3,13 +3,13 @@
 /* Redux Slice for products requested from fakestoreapi.com: */
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
     import productService from '../services/productService';
-    /* import { loadingSelector } from './loadingSlice'; */
 
 /* GET Thunk (middleware to make API Call): */
     export const getProducts = createAsyncThunk("products", async () => {
         try { 
             const data = await productService.productRequest();
             console.log("From getProducts Thunk: ", data)
+           
             return { items: data };
             
         } catch (error) {

@@ -3,16 +3,17 @@
     import { createSlice } from "@reduxjs/toolkit";
 
     const initialState = {
-        loading: true,
+        loading: false,
     };
 
 /* Create actions for the slice to dispatch into the store: */ /* TODO: Check this logic */
     export const loadingSlice = createSlice({
         name: "loader",
         initialState,
+    /* Object of 'case reducers'.  Key names used for actions : */
         reducers: {
             isLoading: (state, action) => {
-                state.loading = false;
+                state.loading = action.payload;
                 console.log("dispatched from LoadingSlice!")
             }
         }
@@ -22,6 +23,6 @@
     export const { isLoading } = loadingSlice.actions;
 
 /* Export the selectors: */
-    export const loadingSelector = (state) => state.loader.loading;
+    export const setLoader = (state) => state.loader.loading;
 
     export default loadingSlice.reducer;
