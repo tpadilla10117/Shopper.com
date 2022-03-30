@@ -124,7 +124,8 @@ class TypeError extends Error {
                 res.send( {
                     message: 'Login Success!',
                     recoveredData,
-                    token: token
+                    /* token: token, */
+                    email: user.email,
                 });
             } else if (isMatch === false) {
                 next({

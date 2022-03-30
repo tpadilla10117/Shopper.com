@@ -10,16 +10,19 @@
         
         const { line_items, customer_email } = req.body;
 
+        console.log("Here are my line items:", line_items)
+        console.log("Here is my customer email: ", customer_email);
+
     /* Check if req.body has items and email: */
         if(!line_items || !customer_email) {
             return res.status(400).json({error: 'Missing required session parameters!'})
         };
 
-        let session;
+        
 
         try {
         /* TODO: Need to Change domainURL to whatever url you deploy application to: */
-            session = await stripeApi.checkout.sessions.create({
+            const session = await stripeApi.checkout.sessions.create({
                 payment_method_types: ['card'],
                 mode: 'payment',
                 line_items,
