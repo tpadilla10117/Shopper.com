@@ -25,7 +25,7 @@
                 const index = state.items.findIndex( basketItem => basketItem.id === action.payload.id);
 
                 //make a copy of the current basket...
-                let newBasket =[...state.items];
+                let newBasket = [...state.items];
 
                 if (index >= 0) {
                     newBasket.splice(index, 1)
@@ -44,6 +44,7 @@
     export const selectItems = (state) => state.basket.items;
 
 /* use .reduce to loop through items in the array -> each time we iterate, add item price to the total */
-    export const selectTotal = (state) => state.basket.items.reduce( (total, item) => total + item.price, 0);
+/* TODO: total is not adding up properly */
+    export const selectTotal = (state) => state.basket.items.reduce( (total, item) => /* total + */ item.price, 0);
 
     export default basketSlice.reducer;

@@ -11,7 +11,7 @@
         const items = useSelector( selectItems );
         const total = useSelector ( selectTotal );
 
-
+console.log("Here is my total: ", total)
 /* TODO: Need to finish component and style: */
       return (
         <section>
@@ -19,7 +19,7 @@
 
             <button>Checkout</button>
             <span>
-              <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType='text' thousandSeparator={true} />
+              <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} />
             </span>
 
             <div>
