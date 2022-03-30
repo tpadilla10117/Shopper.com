@@ -7,6 +7,7 @@
     import { CheckoutProductCard } from '../../../components/utils.js';
     import { useStripe } from '@stripe/react-stripe-js';
     import { userData } from '../../../reduxslices/authSlice';
+    import { loadStripe } from '@stripe/stripe-js';
 
 
     
@@ -15,15 +16,28 @@
         const items = useSelector( selectItems );
         const total = useSelector ( selectTotal );
         const user = useSelector( userData)
+        const stripePromise = loadStripe('pk_test_51KepPXD7lX2ovvhcjTQAGgIsYzdaGEnKEYrKcbbfT4GXc29gwu6FrvlYZsdIEIDJLyFIlUBH3qxr0v6tWew3gN4a00mUeJLoOd');
+        console.log(stripePromise)
 
         const handleGuestCheckout = async () => {
-          const checkoutSession = await axios.post('/api/create-checkout-session', {
+          const stripe = await stripePromise;
+        /* Call backend to create a checkout session: */
+          const checkoutSession = await axios.post('http://localhost:3000/api/create-checkout-session', {
             items: items,
             email: user.email
-          })
-        }
+          });
+
+        /* Redirect the customer to the Stripe Checkout pg: */
+          const result = await stripe.redirectToCheckout({
+            sessionId: checkoutSession.data.id
+          });
+          if (result.error) {
+            alert(result.error.message);
+          }
+        };
         
 console.log("Here is my total: ", total)
+console.log("Here are my items: ", items)
 
 /* TODO: Need to finish component and style: */
       return (
