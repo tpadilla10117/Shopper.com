@@ -149,6 +149,10 @@
 ### `npm install @stripe/stripe-js`
 - install Stripe.js Module to make server-side requests to to Stripe API and to provide methods for including Stripe.js in client-side code
 
+### `npm install --save @stripe/react-stripe-js @stripe/stripe-js`
+- (https://stripe.com/docs/stripe-js/react)
+- React Stripe.js is a thin wrapper around Stripe Elements.  It allows you to add Elements to any React app.
+
 ### `npm install -D markdown-notes-tree`
 (https://github.com/mistermicheels/markdown-notes-tree)
 - If you have a folder structure with Markdown notes, you can use this tool to generate Markdown trees that act as a table of contents for the folder structure.

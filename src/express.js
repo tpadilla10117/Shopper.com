@@ -1,6 +1,6 @@
 //THIS IS WHERE I LAUNCH THE express.js web server:
 
-    require('dotenv').config();
+    /* require('dotenv').config(); */
     const bodyParser = require('body-parser');
     const morgan = require('morgan');
     const express = require('express');
@@ -9,10 +9,9 @@
 
     server.use(cors());
 
-
 /* This is where I connect to the client (database) : */
 
-    const { client } = require('./src/backend/index');
+    const { client } = require('./backend/index');
 
     // connect to the server
     const PORT = process.env.PORT || 3000;
@@ -65,7 +64,7 @@ server.use(express.static('public'));
 
 
 /* ApiRouter: */
-    const apiRouter = require('./src/frontend/api');
+    const apiRouter = require('./frontend/api');
 
     server.use('/api', apiRouter);
 

@@ -7,6 +7,7 @@
 
     async function createStripeCheckoutSession(req, res) {
         const domainURL = process.env.WEB_APP_URL;
+        
         const { line_items, customer_email } = req.body;
 
     /* Check if req.body has items and email: */
@@ -28,7 +29,7 @@
                 shipping_address_collection: { allowed_countries: ['GB', 'US']}
 
             });
-            res.status(200).json({ sessionID: session.id } )
+            res.status(200).json({ sessionId: session.id } )
         } catch (error) {
             console.log(error);
         /* Alert frontend for an error: */

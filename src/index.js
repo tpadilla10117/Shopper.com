@@ -8,7 +8,18 @@ import { Provider } from 'react-redux';
 import store from './frontend/reduxglobalstore/Store';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import reportWebVitals from './reportWebVitals';
+
+
+/* Create a Stripe Promise: TODO: process.env not working for whatever reason */
+
+
+/* const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY); */
+const stripePromise = loadStripe("pk_test_51KepPXD7lX2ovvhcjTQAGgIsYzdaGEnKEYrKcbbfT4GXc29gwu6FrvlYZsdIEIDJLyFIlUBH3qxr0v6tWew3gN4a00mUeJLoOd")
+
+/* console.log("Sample: ", process.env.stripe_publishable_key); */
 
 
 function ScrollToTop() {
@@ -37,7 +48,9 @@ ReactDOM.render(
       <Router>
       <ScrollToTop/>
         <PersistGate Loading={null} persistor={persistor}>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </PersistGate>
       </Router>
     </Provider>

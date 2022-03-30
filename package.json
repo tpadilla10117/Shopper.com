@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
-    "@stripe/stripe-js": "^1.22.0",
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.26.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -46,7 +47,7 @@
     "eject": "react-scripts eject",
     "start": "node express.js",
     "seed:dev": "nodemon ./src/backend/seed.js",
-    "start:dev": "nodemon express.js",
+    "start:dev": "nodemon ./src/express.js",
     "db:build": "node ./src/backend/seed.js",
     "test:watch:db": "jest --watchAll --runInBand --verbose db"
   },
