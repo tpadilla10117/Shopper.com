@@ -6,6 +6,7 @@
     const { getUserById } = require('../../backend/dbadapters/users');
     const {JWT_SECRET} = process.env;
     const apiErrorHandler = require('./errors/apirerrorhandler');
+    const createStripeCheckoutSession = require('./stripeCheckout');
 
 /* For API Requests...*/
     apiRouter.use(async (req, res, next) => {
@@ -71,6 +72,9 @@
         }
         res.send({ message: 'success from webhook!'})
     });
+
+/* Testing Stripe checkout Route: */
+    apiRouter.post('/create-checkout-session', createStripeCheckoutSession);
 
 /* Middleware where I attach my routers and handle requests...  */
     

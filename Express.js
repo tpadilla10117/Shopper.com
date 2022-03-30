@@ -7,7 +7,6 @@
     const server = express();
     const cors = require('cors');
 
-
     server.use(cors());
 
 
