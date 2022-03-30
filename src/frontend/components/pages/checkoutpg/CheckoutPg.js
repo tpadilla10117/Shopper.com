@@ -27,9 +27,9 @@
             email: user.email
           });
 
-        /* Redirect the customer to the Stripe Checkout pg: */
+        /* Redirect the customer to the Stripe Checkout pg: */console.log("sessionId: ", checkoutSession.data.sessionId)
           const result = await stripe.redirectToCheckout({
-            sessionId: checkoutSession.data.id
+            sessionId: checkoutSession.data.sessionId
           });
           if (result.error) {
             alert(result.error.message);

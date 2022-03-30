@@ -8,14 +8,14 @@
     async function createStripeCheckoutSession(req, res) {
         const domainURL = process.env.WEB_APP_URL;
         
-        const { line_items, customer_email } = req.body;
+        const { items, email } = req.body;
 
-        console.log("Here are my line items:", line_items)
-        console.log("Here is my customer email: ", customer_email);
+        console.log("Here are my line items:", items)
+        console.log("Here is my customer email: ", email);
 
     /* Need to transform data in my array so it reflects the formate Stripe wants: */
-        const transformedItems = line_items.map( item => ({
-            /* description: item.description, */
+        const transformedItems = items.map( item => ({
+        
         /* if group items together, need to change quantity logic */
             quantity: 1,
             price_data: {
@@ -32,7 +32,7 @@
         console.log("My transformed Items: ", transformedItems)
 
     /* Check if req.body has items and email: */
-        if(!line_items || !customer_email) {
+        if(!items || !email) {
             return res.status(400).json({error: 'Missing required session parameters!'})
         };
 
@@ -43,9 +43,11 @@
             const session = await stripeApi.checkout.sessions.create({
                 payment_method_types: ['card'],
                 mode: 'payment',
-                line_items,
-                /* line_items: transformedItems, */
+                line_items: transformedItems,
+                /* line_items,
                 customer_email,
+                */
+                customer_email: email,
                 success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_id}`,
                 cancel_url: `${domainURL}/canceled`,
                 shipping_address_collection: { allowed_countries: ['GB', 'US']}
