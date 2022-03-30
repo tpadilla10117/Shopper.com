@@ -11,7 +11,8 @@ import {
   LandingLogin,
   CheckoutPg,
   ProductsPg,
-  OrderPg
+  OrderPg,
+  SuccessPg
 } from './utils';
 import './App.scss';
 
@@ -42,7 +43,7 @@ function App() {
       
         <Route path='orders' element={<OrderPg />}/>
       
-
+        <Route path='/success' element={<SuccessPg />} />
       
         <Route path='/checkout' element={<CheckoutPg/>}/>
       </Routes>

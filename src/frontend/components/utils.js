@@ -60,6 +60,8 @@
 
         export { default as CheckoutPg } from '../components/pages/checkoutpg/CheckoutPg.js';
 
+        export { default as SuccessPg } from '../components/pages/successpg/SuccessPg.js';
+
 
 
 
