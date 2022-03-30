@@ -1,11 +1,11 @@
 /* Success page rendered when a user completes an order: */    
 
 import React, { useEffect } from 'react';
-/* import { withRouter, useHistory } from 'react-router-dom'; */
+import { withRouter, useNavigate } from 'react-router-dom';
 
 function SuccessPg() {
 
-  /* let history = useHistory(); */
+  let navigate = useNavigate();
 
   return (
     <div>
@@ -20,7 +20,7 @@ function SuccessPg() {
                             Thank you for shopping with us.  We'll send a confirmation once your item has shipped, if you would like to check the status of order(s) please press the link below.
                         </p>
 
-                        <button className="button mt-8" /* onClick={ () => router.push("/orders")} *//* onClick={() => history.push('/')} */>Go to home</button>
+                        <button className="button mt-8" /* onClick={ () => router.push("/orders")} */onClick={() => navigate('/')}>Go to home</button>
 
                     </div>
 
