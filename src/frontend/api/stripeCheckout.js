@@ -1,10 +1,7 @@
 /* TODO: Where I create a stripe checkout session: */
 
-    /* import { useSelector } from 'react-redux';
-    import { selectItems, selectTotal } from '../reduxslices/basketslice'; */
-
     const stripeApi = require('./stripe');
-
+    
     async function createStripeCheckoutSession(req, res) {
         const domainURL = process.env.WEB_APP_URL;
         

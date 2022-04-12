@@ -34,11 +34,14 @@
                 }
                 state.items = newBasket;
             },
+            clearBasket: (state, action) => {
+                state.items = [];
+            }
         },
     });
 
 /* Export my actions: */
-    export const { addToBasket, removeFromBasket } = basketSlice.actions;
+    export const { addToBasket, removeFromBasket, clearBasket } = basketSlice.actions;
 
 /* Selectors - how to pull info from Global store slice: */
     export const selectItems = (state) => state.basket.items;
