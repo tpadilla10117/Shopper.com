@@ -41,7 +41,7 @@ function App() {
 
 {/* TODO: Need to setup in db prior to finishing */}
       
-        <Route path='orders' element={<OrderPg />}/>
+        <Route path='/orders' element={<OrderPg />}/>
       
         <Route path='/success' element={<SuccessPg />} />
       

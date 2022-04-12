@@ -39,6 +39,8 @@
 
         export { default as Loading } from '../components/layout/loading/Loading.jsx';
 
+        export { default as Orders } from '../components/layout/orders/Orders.js';
+
 
 
 /* -------------------------------------------------------------------------- */
