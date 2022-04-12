@@ -39,7 +39,7 @@
         
 
         try {
-        /* TODO: Need to Change domainURL to whatever url you deploy application to: */
+        /* TODO: Need to Change domainURL to whatever url you deploy application to - remember to change success and cancel URLs: */
             const session = await stripeApi.checkout.sessions.create({
                 payment_method_types: ['card'],
                 mode: 'payment',
@@ -48,7 +48,8 @@
                 customer_email,
                 */
                 customer_email: email,
-                success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_id}`,
+                /* success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_id}` */
+                success_url: `http://localhost:3001/success`,
                 cancel_url: `${domainURL}/canceled`,
                 shipping_address_collection: { allowed_countries: ['GB', 'US']}
 

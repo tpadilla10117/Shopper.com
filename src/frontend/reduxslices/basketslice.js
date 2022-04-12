@@ -45,6 +45,7 @@
 
 /* use .reduce to loop through items in the array -> each time we iterate, add item price to the total */
 /* TODO: total is not adding up properly */
-    export const selectTotal = (state) => state.basket.items.reduce( (total, item) => /* total + */ item.price, 0);
+
+    export const selectTotal = (state) => state.basket.items.reduce( (total, item) => Number(total) + Number(item.price), 0);
 
     export default basketSlice.reducer;
