@@ -26,21 +26,27 @@ function CheckoutProductCard({ id, title, description, category, image, price })
                 <img src={image} className='checkoutproductcard-img' alt={title}/>
             </figure>
 
-            {/* TODO: Middle Section */}
-
-
-            <div>
-                <button className='checkoutProductCard-button' onClick={addItemToBasket}>
-                    Add Another To Cart
-                </button>
-                <button className='checkoutProductCard-button' onClick={removeItemFromBasket}>
-                    Remove From Cart
-                </button>
+            <div className='checkoutproductcard-productdetails'>
+                <span className='checkoutproductcard-productname'>
+                    <b>Product: </b>{title}
+                </span>
+                {/* <span className='checkoutproductcard-productid'>
+                    
+                </span> */}
             </div>
 
         </div>
 
         <div className='checkoutproductcard-pricedetails'>
+            <div className='checkoutproductcard-productamount-container'>
+                <Add onClick={addItemToBasket}  />
+                
+                <Remove onClick={removeItemFromBasket}/>
+
+            </div>
+            <div className='checkoutproductcard-productprice'>
+                {price}
+            </div>
 
         </div>
 

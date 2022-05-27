@@ -54,31 +54,31 @@ console.log("Here are my items: ", items)
         <section className="checkoutpg-parent-container">
             <div className="checkoutpg-wrapper">
 
-            </div>
+              {/* <button onClick={handleGuestCheckout}>Checkout</button>
+              <span>
+                <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} />
+              </span> */}
 
-            <button onClick={handleGuestCheckout}>Checkout</button>
-            <span>
-              <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} />
-            </span>
+              <div className="checkoutpg-topsection">
 
-            <div className="checkoutpg-topsection">
+              </div>
 
-            </div>
+              <div className="checkoutpg-bottomsection">
 
-            <div className="checkoutpg-bottomsection">
+                <div className="checkoutpg-infosection">
+                  {items.map( (item, index) => (
+                      <CheckoutProductCard 
+                        key={index}
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        price={item.price}
+                        category={item.category}
+                        image={item.image}
+                      />
+                  ))}
+                </div>
 
-              <div className="checkoutpg-infosection">
-                {items.map( (item, index) => (
-                    <CheckoutProductCard 
-                      key={index}
-                      id={item.id}
-                      title={item.title}
-                      description={item.description}
-                      price={item.price}
-                      category={item.category}
-                      image={item.image}
-                    />
-                ))}
               </div>
 
             </div>
