@@ -4,7 +4,10 @@
     import { useSelector } from "react-redux";
     import { selectItems, selectTotal, removeFromBasket, clearBasket } from "../../../reduxslices/basketslice.js";
     import CurrencyFormat from 'react-currency-format';
-    import { CheckoutProductCard } from '../../../components/utils.js';
+    import { 
+      CheckoutProductCard,
+      
+    } from '../../../components/utils.js';
     import { useStripe } from '@stripe/react-stripe-js';
     import { userData } from '../../../reduxslices/authSlice';
     import { loadStripe } from '@stripe/stripe-js';
@@ -48,29 +51,40 @@ console.log("Here are my items: ", items)
 
 /* TODO: Need to finish component and style: */
       return (
-        <section>
-            CheckoutPg
+        <section className="checkoutpg-parent-container">
+            <div className="checkoutpg-wrapper">
+
+            </div>
 
             <button onClick={handleGuestCheckout}>Checkout</button>
             <span>
               <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} />
             </span>
 
-            <div>
-              {items.map( (item, index) => (
-                  <CheckoutProductCard 
-                    key={index}
-                    id={item.id}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    category={item.category}
-                    image={item.image}
-                  />
-              ))}
+            <div className="checkoutpg-topsection">
+
             </div>
 
+            <div className="checkoutpg-bottomsection">
+
+              <div className="checkoutpg-infosection">
+                {items.map( (item, index) => (
+                    <CheckoutProductCard 
+                      key={index}
+                      id={item.id}
+                      title={item.title}
+                      description={item.description}
+                      price={item.price}
+                      category={item.category}
+                      image={item.image}
+                    />
+                ))}
+              </div>
+
+            </div>
+            
         </section>
+        
       )
     }
     

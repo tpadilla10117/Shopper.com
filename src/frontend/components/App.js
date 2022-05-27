@@ -12,7 +12,8 @@ import {
   CheckoutPg,
   ProductsPg,
   OrderPg,
-  SuccessPg
+  SuccessPg,
+  Footer
 } from './utils';
 import './App.scss';
 
@@ -47,6 +48,8 @@ function App() {
       
         <Route path='/checkout' element={<CheckoutPg/>}/>
       </Routes>
+
+      <Footer />
 
 
     </main>

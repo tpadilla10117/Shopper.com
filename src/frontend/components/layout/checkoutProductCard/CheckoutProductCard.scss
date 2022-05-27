@@ -1,20 +1,32 @@
 .checkoutproductcard-parent-container {
-    
-    .checkoutproductcard-img-wrapper {
-        /* border: 1px solid green; */
-        height: 200px;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        /* object-fit: contain; */
-        margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
 
-        .checkoutproductcard-img {
-            object-fit: contain;
-            height: 80%;
+    @media screen and (max-width: 760px) {
+        flex-direction: column;
+    }
+
+    .checkoutproductcard-details {
+        flex: 2;
+        display: flex;
+        
+        .checkoutproductcard-img-wrapper {
+            /* border: 1px solid green; */
+            height: 200px;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            /* object-fit: contain; */
+            margin-bottom: 1rem;
+    
+            .checkoutproductcard-img {
+                object-fit: contain;
+                height: 80%;
+            }
         }
     }
+    
 }

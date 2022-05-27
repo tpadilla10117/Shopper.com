@@ -1,0 +1,26 @@
+.checkoutpg-parent-container {
+
+    .checkoutpg-wrapper {
+
+        .checkoutpg-topsection {
+
+
+        }
+
+        .checkoutpg-bottomsection {
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and (max-width: 760px) {
+                flex-direction: column;
+            }
+            
+            .checkoutpg-infosection {
+                flex: 3;
+            }
+        }
+
+    }
+
+
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Directory, 
   HeroBanner,
-  Footer
+  
 
 } from '../utils';
 
@@ -14,7 +14,6 @@ const Landing = () => {
       <Directory />
       {/* <LandingLogin /> */}
       {/* <Signin /> */}
-      <Footer />
 
     </section>
   );
