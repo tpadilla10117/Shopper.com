@@ -1,9 +1,40 @@
 .checkoutpg-parent-container {
 
     .checkoutpg-wrapper {
+        padding: 20px;
+
+        @media screen and (max-width: 760px) {
+            padding: 10px;
+        }
+
+        .checkoutpg-title {
+            font-weight: 300;
+            text-align: center;
+        }
 
         .checkoutpg-topsection {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
 
+            .checkoutpg-topbtn {
+                padding: 10px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .checkoutpg-toptextwrapper {
+                @media screen and (max-width: 760px) {
+                    display: none;
+                }
+
+                .checkoutpg-toptext {
+                    text-decoration: underline;
+                    cursor: pointer;
+                    margin: 0px 10px;
+                }
+            }
 
         }
 
@@ -14,10 +45,11 @@
             @media screen and (max-width: 760px) {
                 flex-direction: column;
             }
-            
+
             .checkoutpg-infosection {
                 flex: 3;
             }
+
         }
 
     }

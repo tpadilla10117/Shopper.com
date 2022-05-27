@@ -16,12 +16,10 @@ function CheckoutProductCard({ id, title, description, category, image, price })
         dispatch(removeFromBasket( {id} ) );
     };
 
-/* TODO: Need to finish component and style: */
   return (
     <div className='checkoutproductcard-parent-container'>
         <div className='checkoutproductcard-details'>
 
-            {/* TODO: Image Section */}
             <figure className='checkoutproductcard-img-wrapper'>
                 <img src={image} className='checkoutproductcard-img' alt={title}/>
             </figure>
@@ -49,9 +47,9 @@ function CheckoutProductCard({ id, title, description, category, image, price })
             </div>
 
         </div>
-
-
+        
     </div>
+    
   )
 }
 
