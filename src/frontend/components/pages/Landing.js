@@ -1,6 +1,11 @@
 /* TODO: This page is for when a user first travels to the site: */
 import React from 'react';
-import {Directory, HeroBanner} from '../utils';
+import {
+  Directory, 
+  HeroBanner,
+  Footer
+
+} from '../utils';
 
 const Landing = () => {
   return (
@@ -9,6 +14,7 @@ const Landing = () => {
       <Directory />
       {/* <LandingLogin /> */}
       {/* <Signin /> */}
+      <Footer />
 
     </section>
   );

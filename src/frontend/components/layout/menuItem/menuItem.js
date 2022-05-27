@@ -2,6 +2,7 @@
     import React from 'react';
     
     function menuItem({ title, imageUrl, size }) {
+      
       return (
         <div className={`${size} menu-item`}>
             

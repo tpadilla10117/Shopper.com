@@ -41,6 +41,8 @@
 
         export { default as Orders } from '../components/layout/orders/Orders.js';
 
+        export { default as Footer } from '../components/layout/footer/Footer.jsx';
+
 
 
 /* -------------------------------------------------------------------------- */
