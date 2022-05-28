@@ -20,5 +20,51 @@
         cursor: pointer;
         opacity: 0.5;
         z-index: 2;
+
+    }
+
+    .herobanner2-wrapper {
+        height: 100%;
+        display: flex;
+        transition: all 1.5s ease;
+
+        .herobanner2-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+
+            .herobanner2-imgcontainer {
+                height: 100%;
+                flex: 1;
+
+                img {
+                    height: 80%;
+                }
+            }
+
+            .herobanner2-infocontainer {
+                flex: 1;
+                padding: 50px;
+
+                .herobanner2-h1 {
+                    font-size: 70px;
+                }
+
+                .herobanner2-description {
+                    margin: 50px 0px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    letter-spacing: 3px;
+                }
+
+                .herobanner2-btn {
+                    padding: 10px;
+                    font-size: 20px;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }

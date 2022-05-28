@@ -5,18 +5,36 @@ import {
 } from '../../../seed';
 
 function Herobanner2() {
+
+  const [ carouselIndex, setCarouselIndex ] = useState(0);
+  const handleCarouselClick = (direction) => {
+      
+      if( direction === 'left') {
+          setCarouselIndex(carouselIndex > 0 ? carouselIndex - 1 : 2)
+      } else {
+          setCarouselIndex(carouselIndex < 2 ? carouselIndex + 1 : 0)
+      }
+      
+  };
+
+
+
   return (
     <section className='herobanner2-parent-container'>
         <div className='herobanner2-arrow-wrapper'>
             <ArrowLeftOutlined />
         </div>
 
-        <div className='herobanner2-wrapper'>
+        <div className='herobanner2-wrapper'
+            direction='left'
+            onClick={() => handleCarouselClick("left")}
+        >
             {carouselItems.map( (item) => (
 
                 <div className='herobanner2-slide' key={item.id}>
-                    <figure className='herobanner2-imgcontainer'>
-
+                    <figure     className='herobanner2-imgcontainer'
+                    >
+                        <img src={item.img} alt='' />
                     </figure>
                     <div className='herobanner2-infocontainer'>
                         <h1 className='herobanner2-h1'>
@@ -34,7 +52,10 @@ function Herobanner2() {
 
         </div>
 
-        <div className='herobanner2-arrow-wrapper'>
+        <div className='herobanner2-arrow-wrapper'
+            direction='right'
+            onClick={() => handleCarouselClick("right")}
+        >
             <ArrowRightOutlined />
         </div>
     </section>
