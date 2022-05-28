@@ -5,6 +5,8 @@
 
         export { default as HeroBanner } from '../components/layout/heroBanner/Herobanner.jsx';
 
+        export { default as HeroBanner2 } from '../components/layout/herobanner2/Herobanner2.jsx';
+
         export { default as DesktopNav } from '../components/layout/desktopNav/DesktopNav.jsx';
 
         export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';

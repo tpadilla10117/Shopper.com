@@ -2,15 +2,15 @@
 import React from 'react';
 import {
   Directory, 
-  HeroBanner,
-  
+  /* HeroBanner, */
+  HeroBanner2
 
 } from '../utils';
 
 const Landing = () => {
   return (
     <section className='landing-parent-container'>
-      <HeroBanner />
+      <HeroBanner2 />
       <Directory />
       {/* <LandingLogin /> */}
       {/* <Signin /> */}
