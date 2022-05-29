@@ -9,15 +9,12 @@ function Herobanner2() {
   const [ carouselIndex, setCarouselIndex ] = useState(0);
   const slideLength = carouselItems.length;
 
- /*  const handleCarouselClick = (direction) => {
-      
-      if( direction === 'left') {
-          setCarouselIndex(carouselIndex > 0 ? carouselIndex - 1 : 2)
-      } else {
-          setCarouselIndex(carouselIndex < 2 ? carouselIndex + 1 : 0)
-      }
-      
-  }; */
+  /* Functions for Arrow Buttons if Requested by Client: */
+
+    const nextSlide = () => {
+        setCarouselIndex(carouselIndex === slideLength - 1 ? 0 : carouselIndex + 1);
+    };
+
 
     const previousSlide = () => {
         setCarouselIndex(carouselIndex === 0 ? slideLength - 1 : carouselIndex - 1);
@@ -27,8 +24,6 @@ function Herobanner2() {
   return (
     <section className='herobanner2-parent-container'>
         <div className='herobanner2-arrow-wrapper'
-            direction='left'
-            /* onClick={() => handleCarouselClick("left")} */
             style={{left: '10px' }}
         >
             <ArrowLeftOutlined 
@@ -37,14 +32,12 @@ function Herobanner2() {
             />
         </div>
 
-        <div className='herobanner2-wrapper'
-           /*  carouselindex={carouselIndex}
-            onClick={previousSlide} */
-        >
+        <div className='herobanner2-wrapper'>
             {carouselItems.map( (item, index) => (
 
                 <div 
                     className={ index === carouselIndex ? 'herobanner2-slide active' : 'herobanner2-slide'} 
+                    style={{backgroundColor: `${item.bg}` }}
                     key={item.id}
                 >
                     <figure     className='herobanner2-imgcontainer'
@@ -68,13 +61,11 @@ function Herobanner2() {
         </div>
 
         <div className='herobanner2-arrow-wrapper'
-            direction='right'
-            /* onClick={() => handleCarouselClick("right")} */
             style={{right: '10px' }}
         >
             <ArrowRightOutlined 
                 className='herobanner2-arrow-right'
-                
+                onClick={nextSlide}
             />
         </div>
     </section>

@@ -26,28 +26,20 @@
         height: 100%;
         display: flex;
         position: relative;
-        /* transition: all 1.5s ease; */
-        /* transform: translateX(-100vw); */
-
-        /* &.active {
-            transform: translateX(-100vw);
-        } */
 
         .herobanner2-slide {
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
-            transition: all .8s ease;
+            transition: all .5s ease-in-out;
             opacity: 0;
             position: absolute;
-            /* transform: translateX(-100vw); */
 
             &.active {
-                /* transform: translateX(-100vw); */
                 opacity: 1;
                 animation: slideInRight;
-                animation-duration: 1.5s;
+                animation-duration: 1s;
 
                 @keyframes slideInRight {
                     from {
@@ -89,6 +81,7 @@
                     padding: 10px;
                     font-size: 20px;
                     background-color: transparent;
+                    border: 2px solid;
                     cursor: pointer;
                 }
             }
