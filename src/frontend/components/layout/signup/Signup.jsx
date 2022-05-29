@@ -1,9 +1,8 @@
 /* This component is for a Signup form: */
-    import React, {useRef, useEffect} from 'react';
+    import React, {useRef} from 'react';
     import { CtaButton } from '../../utils';
-    import { useDispatch, useSelector } from 'react-redux';
+    import { useDispatch } from 'react-redux';
     import { register } from '../../../reduxslices/authSlice';
-    import { clearMessage } from '../../../reduxslices/authmessageSlice';
     
     function Signup() {
         const usernameRef = useRef();
@@ -27,8 +26,6 @@
             const location = "Place";
             const active = 'true';
 
-            
-            console.log("Heres emaulref: ", typeof email)
 
             dispatch(register( {
                 username,
@@ -43,29 +40,66 @@
             }))
         }
 
-       /*  username, email, password, firstname, lastname, isAdmin, imgURL, location, active */
       return (
         <section className='signup-parent-container'>
             <form 
-            onSubmit={handleRegister}
-            className='signup-form-parent-container'>
-                <h1 className='signup-form-h1'>Welcome to Shopper</h1>
-                <h3 className='signup-form-h3'>It looks like you're new here, we need a bit more info to create your new account</h3>
+                onSubmit={handleRegister}
+                className='signup-form-parent-container'
+            >
+                <h1 
+                    className='signup-form-h1'
+                >Welcome to Shopper
+                </h1>
+                <h3 
+                    className='signup-form-h3'
+                >It looks like you're new here, we need a bit more info to create your new account
+                </h3>
                 <div className='signup-form-input-wrapper'>
-                    <input className="signup-form-input-box" type="text" placeholder="Username" required ref={usernameRef}/>
+                    <input 
+                        id='signup-form-input-box-username'
+                        className="signup-form-input-box" type="text" 
+                        placeholder="Username" 
+                        required 
+                        ref={usernameRef}
+                    />
+                    <label htmlFor='signup-form-input-box-username'></label>
 
-                    <input className="signup-form-input-box" type="text" placeholder="First Name" required ref={firstnameRef}/>
+                    <input 
+                        id='signup-form-input-box-firstname'
+                        className="signup-form-input-box" type="text" 
+                        placeholder="First Name" 
+                        required 
+                        ref={firstnameRef}
+                    />
+                    <label htmlFor='signup-form-input-box-firstname'></label>
 
-                    <input className="signup-form-input-box" type="text" placeholder="Last Name" required ref={lastnameRef}/>
+                    <input 
+                        id='signup-form-input-box-lastname'
+                        className="signup-form-input-box" type="text" 
+                        placeholder="Last Name" 
+                        required 
+                        ref={lastnameRef}
+                    />
+                    <label htmlFor='signup-form-input-box-lastname'></label>
 
                     <input
-                    className='signup-form-input-box'
-                    type="text" placeholder='Email Address'
-                    required
-                    ref={emailRef}
+                        id='signup-form-input-box-email'
+                        className='signup-form-input-box'
+                        type="text" 
+                        placeholder='Email Address'
+                        required
+                        ref={emailRef}
                     />
+                    <label htmlFor='signup-form-input-box-email'></label>
 
-                    <input className="signup-form-input-box" type="text" placeholder="Enter a Password" required ref={pwordRef}/>
+                    <input 
+                        id='signup-form-input-box-emailpassword'
+                        className="signup-form-input-box" type="text" 
+                        placeholder="Enter a Password" 
+                        required 
+                        ref={pwordRef}
+                    />
+                    <label htmlFor='signup-form-input-box-emailpassword'></label>
 
                     <CtaButton text={'Continue'}
                     myClass={'signup-button'}

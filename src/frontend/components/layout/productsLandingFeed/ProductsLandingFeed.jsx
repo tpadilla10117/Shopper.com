@@ -25,7 +25,10 @@ const ProductsLandingFeed = ({
         />
         <div className='productsLandingFeed-information'>
           <div className='productsLandingFeed-icon-parent-container'>
-            <ShoppingCartOutlined />
+          {/* TODO: When click this icon, take to product page */}
+            <ShoppingCartOutlined 
+            
+            />
           </div>
           <div className='productsLandingFeed-icon-parent-container'>
             <SearchOutlined/>

@@ -18,13 +18,11 @@ const Nav = (props) => {
 
     const navToggle = () => {
         dispatch(navToggler())
-        console.log("clicked")
     }
 
-console.log(items.length)
-    /* Box and transparent are referencing inline style properties: */
+/* Box and transparent are referencing inline style properties: */
    const box = {
-    background: /* 'hsla(0,0%,42.7%,.12)' */'#fff',
+    background: '#fff',
     boxShadow: '0 3px 30px rgb(0 0 0 / 10%)',
     backdropFilter: 'blur(5px)'
     };
@@ -33,8 +31,7 @@ console.log(items.length)
         background: 'transparent'
     };
 
-
-    /* TODO: Event listener not firing regardless of logic: */
+/* Changes the ScrollNav styles based on a user's scroll: */
    const changeNav = () => {
         if (window.scrollY >= 80) {
             setScrollNav(true);
@@ -42,8 +39,6 @@ console.log(items.length)
             setScrollNav(false);
         }
     };
-
-    console.log(window.scrollY);
 
 
     useEffect(() => {

@@ -2,35 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 500px;
-    /* width: 100%; */
-    border: 1px solid red;
-    /* position: relative; */
     overflow: hidden;
     box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
-    /* backdrop-filter: blur(5px); */
-
-/* TODO: fix the img background */
-    /* &:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background: linear-gradient(to top, #f0e9dc 55%, transparent);
-    } */
-
-    .login-bg-img {
-        position: absolute;
-        top: -60px;
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+    background-size: cover;
 
     .login-form-h1 {
         text-align: center;
         margin-top: 40px;
+        font-size: 24px;
+        font-weight: 300;
     }
 
     .login-form-h3 {
@@ -47,10 +35,12 @@
             outline: none;
             border-radius: 5px;
             border: 1px solid $text-light;
-            padding: 0 10px;
             background: $background-primary;
-            margin: 8px 0;
             font-size: $p-txt-size;
+            flex: 1;
+            min-width: 40%;
+            margin: 10px 0;
+            padding: 10px;
         }
 
 

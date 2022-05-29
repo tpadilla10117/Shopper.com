@@ -14,7 +14,6 @@
             //Actions:
             navToggler: (state) => {
                 state.isOpen = !state.isOpen
-                console.log(`The values of ${state.isOpen}`)
             }
 
         }

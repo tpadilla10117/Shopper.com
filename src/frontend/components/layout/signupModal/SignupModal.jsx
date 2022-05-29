@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
 
@@ -9,22 +9,9 @@ const SignupModal = ( {children} ) => {
 
         const signUpModalToggle = () => {
             dispatch(handleSignUpModalVisibility())
-            console.log('clicked');
         };
 
-/* Allows me to click anywhere outside the Modal to close it: */
-
-   /*  useEffect( () => {
-
-        function handleClick(event) {
-            if(!modalReference.current?.contains(event.target)) {
-                modalToggle();
-            }
-        }
-
-        document.addEventListener("click", handleClick);
-        return () => document.removeEventListener("click", handleClick);
-    }, ); */
+/* TODO: Need functionality to make modal close when user clicks outside */
 
   return (
       
