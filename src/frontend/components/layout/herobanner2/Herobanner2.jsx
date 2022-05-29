@@ -7,7 +7,9 @@ import {
 function Herobanner2() {
 
   const [ carouselIndex, setCarouselIndex ] = useState(0);
-  const handleCarouselClick = (direction) => {
+  const slideLength = carouselItems.length;
+
+ /*  const handleCarouselClick = (direction) => {
       
       if( direction === 'left') {
           setCarouselIndex(carouselIndex > 0 ? carouselIndex - 1 : 2)
@@ -15,23 +17,36 @@ function Herobanner2() {
           setCarouselIndex(carouselIndex < 2 ? carouselIndex + 1 : 0)
       }
       
-  };
+  }; */
 
+    const previousSlide = () => {
+        setCarouselIndex(carouselIndex === 0 ? slideLength - 1 : carouselIndex - 1);
+    };
 
 
   return (
     <section className='herobanner2-parent-container'>
-        <div className='herobanner2-arrow-wrapper'>
-            <ArrowLeftOutlined />
+        <div className='herobanner2-arrow-wrapper'
+            direction='left'
+            /* onClick={() => handleCarouselClick("left")} */
+            style={{left: '10px' }}
+        >
+            <ArrowLeftOutlined 
+                className='herobanner2-arrow-left'
+                onClick={previousSlide}
+            />
         </div>
 
         <div className='herobanner2-wrapper'
-            direction='left'
-            onClick={() => handleCarouselClick("left")}
+           /*  carouselindex={carouselIndex}
+            onClick={previousSlide} */
         >
-            {carouselItems.map( (item) => (
+            {carouselItems.map( (item, index) => (
 
-                <div className='herobanner2-slide' key={item.id}>
+                <div 
+                    className={ index === carouselIndex ? 'herobanner2-slide active' : 'herobanner2-slide'} 
+                    key={item.id}
+                >
                     <figure     className='herobanner2-imgcontainer'
                     >
                         <img src={item.img} alt='' />
@@ -54,9 +69,13 @@ function Herobanner2() {
 
         <div className='herobanner2-arrow-wrapper'
             direction='right'
-            onClick={() => handleCarouselClick("right")}
+            /* onClick={() => handleCarouselClick("right")} */
+            style={{right: '10px' }}
         >
-            <ArrowRightOutlined />
+            <ArrowRightOutlined 
+                className='herobanner2-arrow-right'
+                
+            />
         </div>
     </section>
   )
