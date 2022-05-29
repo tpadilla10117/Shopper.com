@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../App.scss';
-import { Badge } from "@material-ui/core";
+/* import { Badge } from "@material-ui/core"; */
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
 const DesktopNav = (props) => {

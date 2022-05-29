@@ -18,7 +18,6 @@ const ProductsLandingFeed = ({
 
   return (
     <article className='productsLandingFeed-parent-container'>
-     
         <img 
           src={image} 
           alt=''
