@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToBasket, removeFromBasket } from '../../../reduxslices/basketslice';
+import { Add, Remove } from "@material-ui/icons";
 
 function CheckoutProductCard({ id, title, description, category, image, price }) {
 
@@ -15,29 +16,40 @@ function CheckoutProductCard({ id, title, description, category, image, price })
         dispatch(removeFromBasket( {id} ) );
     };
 
-/* TODO: Need to finish component and style: */
   return (
-    <section className='checkoutproductcard-parent-container'>
+    <div className='checkoutproductcard-parent-container'>
+        <div className='checkoutproductcard-details'>
 
-        {/* TODO: Image Section */}
-        <figure className='checkoutproductcard-img-wrapper'>
-            <img src={image} className='checkoutproductcard-img' alt={title}/>
-        </figure>
+            <figure className='checkoutproductcard-img-wrapper'>
+                <img src={image} className='checkoutproductcard-img' alt={title}/>
+            </figure>
 
-        {/* TODO: Middle Section */}
+            <div className='checkoutproductcard-productdetails'>
+                <span className='checkoutproductcard-productname'>
+                    <b>Product: </b>{title}
+                </span>
+                {/* <span className='checkoutproductcard-productid'>
+                    
+                </span> */}
+            </div>
 
-
-        <div>
-            <button className='checkoutProductCard-button' onClick={addItemToBasket}>
-                Add Another To Cart
-            </button>
-            <button className='checkoutProductCard-button' onClick={removeItemFromBasket}>
-                Remove From Cart
-            </button>
         </div>
 
+        <div className='checkoutproductcard-pricedetails'>
+            <div className='checkoutproductcard-productamount-container'>
+                <Add onClick={addItemToBasket}  />
+                
+                <Remove onClick={removeItemFromBasket}/>
 
-    </section>
+            </div>
+            <div className='checkoutproductcard-productprice'>
+                {price}
+            </div>
+
+        </div>
+        
+    </div>
+    
   )
 }
 

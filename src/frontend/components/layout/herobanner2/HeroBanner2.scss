@@ -1,0 +1,118 @@
+.herobanner2-parent-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 1060px) {
+        height: 80vh;
+    }
+
+    .herobanner2-arrow-wrapper {
+        width: 50px;
+        height: 50px;
+        background-color: #fff7f7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        cursor: pointer;
+        opacity: 0.5;
+        z-index: 2;
+    }
+
+    .herobanner2-wrapper {
+        height: 100%;
+        display: flex;
+        position: relative;
+
+        .herobanner2-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            transition: all .5s ease-in-out;
+            opacity: 0;
+            position: absolute;
+
+            &.active {
+                opacity: 1;
+                animation: slideInRight;
+                animation-duration: 1s;
+
+                @keyframes slideInRight {
+                    from {
+                      transform: translate3d(100%, 0, 0);
+                      visibility: visible;
+                    }
+                  
+                    to {
+                      transform: translate3d(0, 0, 0);
+                    }
+                  }
+            }
+
+            .herobanner2-imgcontainer {
+                height: 100%;
+                flex: 1;
+
+                img {
+                    height: 80%;
+
+                }
+            }
+
+            .herobanner2-infocontainer {
+                flex: 1;
+                padding: 50px;
+
+                @media screen and (max-width: 1060px) {
+                    position: absolute;
+                    background-color: hsla(0,0%,42.7%,.52);
+                    width: 100%;
+                }
+
+                .herobanner2-h1 {
+                    font-size: 70px;
+
+                    @media screen and (max-width: 1060px) {
+                        color: #fff;
+                        font-size: 39px;
+                     }
+                }
+
+                .herobanner2-description {
+                    margin: 50px 0px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    letter-spacing: 3px;
+
+                    @media screen and (max-width: 1060px) {
+                       color: #fff;
+                       font-size: 16px;
+                    }
+                    
+                }
+
+                .herobanner2-btn {
+                    padding: 10px;
+                    font-size: 20px;
+                    background-color: transparent;
+                    border: 2px solid;
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    @media screen and (max-width: 1060px) {
+                        background-color: #fff;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}

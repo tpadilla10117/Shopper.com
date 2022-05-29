@@ -98,4 +98,7 @@
             }
         });
 
+    /* User selector:  */
+        export const userData = (state) => state.auth.user;
+
         export default authSlice.reducer;

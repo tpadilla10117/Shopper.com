@@ -5,6 +5,8 @@
 
         export { default as HeroBanner } from '../components/layout/heroBanner/Herobanner.jsx';
 
+        export { default as HeroBanner2 } from '../components/layout/herobanner2/Herobanner2.jsx';
+
         export { default as DesktopNav } from '../components/layout/desktopNav/DesktopNav.jsx';
 
         export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';
@@ -17,7 +19,7 @@
 
         export { default as Header } from '../components/layout/header/Header.jsx';
 
-        export { default as Products } from '../components/layout/products/Products.jsx';
+        export { default as ProductsLandingFeed } from '../components/layout/productsLandingFeed/ProductsLandingFeed.jsx';
 
         export { default as ProductCards } from '../components/layout/productCards/ProductCards.jsx';
 
@@ -39,6 +41,10 @@
 
         export { default as Loading } from '../components/layout/loading/Loading.jsx';
 
+        export { default as Orders } from '../components/layout/orders/Orders.js';
+
+        export { default as Footer } from '../components/layout/footer/Footer.jsx';
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -59,6 +65,8 @@
         export { default as ProductsPg } from '../components/pages/productspg/ProductsPg.js';
 
         export { default as CheckoutPg } from '../components/pages/checkoutpg/CheckoutPg.js';
+
+        export { default as SuccessPg } from '../components/pages/successpg/SuccessPg.js';
 
 
 

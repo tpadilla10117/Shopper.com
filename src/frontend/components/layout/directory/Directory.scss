@@ -2,20 +2,23 @@
     .directory-parent-container {
         margin-top: 1rem;
         
-        .directory-menu {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
             .directory-nav-item {
-                min-width: 100%;
+                /* min-width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                /* border: 1px solid black; */
+                border: 1px solid black;
                 overflow: hidden;
-                border-radius: 5px;
+                border-radius: 5px; */
+
+                display: flex;
+                padding: 20px;
+                justify-content: space-between;
+
+                @media screen and (max-width: 760px) {
+                    padding: 8px;
+                    flex-direction: column;
+                }
             }
-        }
+        
     }

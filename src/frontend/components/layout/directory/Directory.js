@@ -41,22 +41,22 @@
                 linkUrl: 'products/mens'
               }
         ])
-/* TODO: Note that scroll on components covers the navbar */
+
         return (
-        <section className='directory-parent-container'>
-            <div className='directory-menu'>
-                {
-                    sections.map( ({id,...otherSectionProps}) => (
-                      <NavLink key={id} exact='true' to={otherSectionProps.linkUrl} activeclassname='active'
-                      className='directory-nav-item'>
-                        <MenuItem key={id} {...otherSectionProps}></MenuItem>
-                      </NavLink>
-                    ))
-                }
+          <section className='directory-parent-container'>
+              
+                  {
+                      sections.map( ({id,...otherSectionProps}) => (
+                        <NavLink key={id} exact='true' to={otherSectionProps.linkUrl} activeclassname='active'
+                        className='directory-nav-item'>
+                          <MenuItem key={id} {...otherSectionProps}></MenuItem>
+                        </NavLink>
+                      ))
+                  }
 
-            </div>
+              
 
-        </section>
+          </section>
         )
     }
     

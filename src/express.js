@@ -1,20 +1,17 @@
 //THIS IS WHERE I LAUNCH THE express.js web server:
 
-    require('dotenv').config();
+    /* require('dotenv').config(); */
     const bodyParser = require('body-parser');
     const morgan = require('morgan');
     const express = require('express');
     const server = express();
     const cors = require('cors');
-    /* const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh'); */
-
 
     server.use(cors());
 
-
 /* This is where I connect to the client (database) : */
 
-    const { client } = require('./src/backend/index');
+    const { client } = require('./backend/index');
 
     // connect to the server
     const PORT = process.env.PORT || 3000;
@@ -27,6 +24,7 @@
         } catch (error) {
             console.error("Database is closed for repairs!", error);
         }
+        
     })
 
 /* Middleware: */
@@ -46,6 +44,7 @@
         next();
     });
 
+server.use(express.static('public'));
 /* TODO: Create a Stripe checkout Session: */
     /* server.post('/create-checkout-session', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
@@ -65,7 +64,7 @@
 
 
 /* ApiRouter: */
-    const apiRouter = require('./src/frontend/api');
+    const apiRouter = require('./frontend/api');
 
     server.use('/api', apiRouter);
 

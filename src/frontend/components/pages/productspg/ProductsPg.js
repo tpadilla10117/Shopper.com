@@ -56,11 +56,11 @@ console.log("The status of loader: ", loadStatus);
       useEffect(() => {
 
         if(items.length === 0 ) {
-          dispatch(getProducts());
           dispatch(isLoading(true))
           setTimeout(() => {
             dispatch(isLoading(false))
           }, 2000);
+          dispatch(getProducts());
           
         } else {
           console.log("The other condition")
