@@ -1,48 +1,55 @@
 .desktopNav-parent-container {
-    display: flex;
     position: fixed;
     height: 80px;
     width: 100%;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    border: 5px solid red;
     background-color: $background-primary;
 
     .desktop-nav-items-container {
+        transform: translate(0%, 50%);
+        padding: 10px 20px;
         display: flex;
-        position: relative;
         align-items: center;
-        border: 5px solid blue;
-        justify-content: center;
-        width: 100%;
-        
-        a:nth-child(4) {
-            /* border: 5px solid red; */
-            position: absolute;
-            right: 90px;
-            
-        }
-        a:last-child {
-            /* border: 5px solid red; */
-            position: absolute;
-            /* display: none; */
-            right: 10px;
-        }
-        
-        .desktopNav-nav-item {
+        justify-content: space-between;
+
+        .desktop-nav-items-left {
+            flex: 1;
             display: flex;
-            /* border: 5px solid blue; */
-            padding: 20px;
-           
-            ul {
-                /* border: 5px solid yellow; */
-                
-                li {
-                    list-style: none;
-                    text-decoration: none;
-                    color: $background-secondary;
-                    letter-spacing: 1px;
+            align-items: center;
+
+            .desktop-nav-items-languages {
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            .desktop-nav-items-search-container {
+                border: 0.5px solid lightgray;
+                display: flex;
+                align-items: center;
+                margin-left: 25px;
+                padding: 5px;
+
+                input {
+                    border: none;
                 }
+            }
+        }
+
+        .desktop-nav-items-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .desktop-nav-items-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .desktopNav-nav-item {
+                font-size: 14px;
+                cursor: pointer;
+                margin-left: 25px;
+                color: black;
             }
         }
 
