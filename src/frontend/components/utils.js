@@ -19,7 +19,7 @@
 
         export { default as Header } from '../components/layout/header/Header.jsx';
 
-        export { default as Products } from '../components/layout/products/Products.jsx';
+        export { default as ProductsLandingFeed } from '../components/layout/productsLandingFeed/ProductsLandingFeed.jsx';
 
         export { default as ProductCards } from '../components/layout/productCards/ProductCards.jsx';
 

@@ -3,7 +3,8 @@ import React from 'react';
 import {
   Directory, 
   /* HeroBanner, */
-  HeroBanner2
+  HeroBanner2,
+  ProductFeed
 
 } from '../utils';
 
@@ -12,6 +13,7 @@ const Landing = () => {
     <section className='landing-parent-container'>
       <HeroBanner2 />
       <Directory />
+      <ProductFeed />
       {/* <LandingLogin /> */}
       {/* <Signin /> */}
 
