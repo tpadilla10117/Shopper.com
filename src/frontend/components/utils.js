@@ -46,7 +46,6 @@
         export { default as Footer } from '../components/layout/footer/Footer.jsx';
 
 
-
 /* -------------------------------------------------------------------------- */
 
 
@@ -68,7 +67,7 @@
 
         export { default as SuccessPg } from '../components/pages/successpg/SuccessPg.js';
 
-
+        export { default as IndividualProductPg } from '../components/pages/individualproductpg/IndividualProductPg.jsx';
 
 
 /* -------------------------------------------------------------------------- */

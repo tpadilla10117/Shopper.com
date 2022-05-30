@@ -1,19 +1,17 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   Header, 
-  Login,
   Landing,
   About,
-  Cart,
   Signin,
-  LandingLogin,
   CheckoutPg,
   ProductsPg,
   OrderPg,
   SuccessPg,
-  Footer
+  Footer,
+  IndividualProductPg
 } from './utils';
 import './App.scss';
 
@@ -30,15 +28,14 @@ function App() {
       
         <Route path='/about' element={<About />}/>
       
-        {/* <Route path='/cart' element={<Cart />} /> */}
-        {/* <Route exact path='/cart'>
-          <Navigate to='/cart' />
-        </Route> */}
-      
         <Route path='/signin' element={<Signin />}/>
       
         <Route path='/products' element={<ProductsPg/>}/>
       
+      {/* TODO: NEEDS TO BE DYNAMIC BASED ON UNIQUE productid */}
+        <Route path='/products/prodid' 
+          element={<IndividualProductPg/>} 
+        />
 
 {/* TODO: Need to setup in db prior to finishing */}
       

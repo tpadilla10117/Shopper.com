@@ -26,7 +26,7 @@
 /* ------------------------------------------------------------ */
 /* THIS IS TO GET AN INDIVIDUAL PRODUCT */
 
-    productsRouter.get('/:productid', async (req, res, next ) => {
+    productsRouter.get('/prodid:productid', async (req, res, next ) => {
         const { productid } = req.params;
         try {
             const product = await getProductById(productid);
