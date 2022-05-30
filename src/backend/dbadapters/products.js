@@ -16,14 +16,14 @@
     }
 
     async function createProducts(product) {
-        const {id, title, description, price, category, image} = product;
+        const {id, title, description, price, category, productid, image} = product;
 
         try {
             const { rows: [product] } = await client.query(`
-            INSERT INTO products(id, title, description, price, category, image)
-            VALUES($1,$2,$3,$4,$5,$6)
+            INSERT INTO products(id, title, description, price, category, productid, image)
+            VALUES($1,$2,$3,$4,$5,$6,$7)
             RETURNING *
-        `, [id, title, description, price, category, image]);
+        `, [id, title, description, price, category, productid, image]);
 
         return product;
 
@@ -32,8 +32,22 @@
         }
     }
 
+    async function getProductById(productid) {
+        try {
+            const { rows: [product] } = await client.query(`
+            SELECT * FROM products WHERE productid=$1
+            
+            `, [productid]);
+
+            return product;
+        } catch (error) {
+            throw error;
+        }
+    }
+
   
     module.exports = {
         getAllProducts,
-        createProducts
+        createProducts,
+        getProductById,
     }

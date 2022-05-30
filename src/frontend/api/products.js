@@ -5,7 +5,8 @@
 
 /* Import DB methods: */
     const {
-        getAllProducts
+        getAllProducts,
+        getProductById
     } = require('../../backend/dbadapters/products');
 
 /* ------------------------------------------------------------ */
@@ -20,6 +21,22 @@
             next(error)
         }
     });
+
+
+/* ------------------------------------------------------------ */
+/* THIS IS TO GET AN INDIVIDUAL PRODUCT */
+
+    productsRouter.get('/:productid', async (req, res, next ) => {
+        const { productid } = req.params;
+        try {
+            const product = await getProductById(productid);
+            res.send(product);
+            return product;
+        } catch (error) {
+            next(error)
+        }
+    });
+
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE POST /products (*admin) Only admins can create a new product */
