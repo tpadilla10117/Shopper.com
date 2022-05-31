@@ -37,8 +37,13 @@
         }
 
         button {
+            flex: 1;
+            border: none;
+            background-color: $text-primary;
+            color: $background-primary;
+
             svg {
-                margin: 5px;
+                cursor: pointer;
             }
         }
     }
