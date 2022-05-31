@@ -5,7 +5,7 @@ import {
   HeroBanner2,
   ProductFeed,
   Newsletter
-} from '../utils';
+} from '../../utils';
 
 const Landing = () => {
   return (

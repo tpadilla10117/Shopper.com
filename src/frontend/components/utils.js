@@ -53,7 +53,7 @@
 
     /* "pages" components: */
 
-        export { default as Landing } from '../components/pages/Landing';
+        export { default as Landing } from '../components/pages/landing/Landing.jsx';
 
         export { default as About } from '../components/pages/about/About.js';
 

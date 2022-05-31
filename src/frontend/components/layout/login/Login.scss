@@ -17,13 +17,14 @@
     .login-form-h1 {
         text-align: center;
         margin-top: 40px;
-        font-size: 24px;
-        font-weight: 300;
+        font-size: $primary-heading-h1;
+        font-weight: 700;
     }
 
     .login-form-h3 {
         text-align: center;
         margin-top: 20px;
+        font-weight: 400;
     }
 
     .login-form-input-wrapper {
