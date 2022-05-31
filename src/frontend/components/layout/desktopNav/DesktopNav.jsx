@@ -20,19 +20,25 @@ const DesktopNav = (props) => {
                 </div>
             </div>
 
-            <div className='desktop-nav-items-center'>
+            <NavLink 
+                className='desktop-nav-items-center'
+                to={'/'}
+                exact='true'
+                activeclassname='active'
+            >
+        
                 <h1 className='desktop-nav-items-center-h1'>SHOPPER</h1>
-            </div>
+            </NavLink>
 
             <div className='desktop-nav-items-right'>
                 <NavLink
-                    to='/signin'
+                    to='/products'
                     className='desktopNav-nav-item'
                     exact="true"
                     activeclassname='active'
                     style={ {textDecoration: 'none'}}
                 >
-                    REGISTER
+                    PRODUCTS
                 </NavLink>
                 <NavLink
                     to='/signin'
@@ -41,7 +47,7 @@ const DesktopNav = (props) => {
                     activeclassname='active'
                     style={ {textDecoration: 'none'}}
                 >
-                    LOGIN
+                    SIGN IN
                 </NavLink>
                 <NavLink
                     to='/checkout'

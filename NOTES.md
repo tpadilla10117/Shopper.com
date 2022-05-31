@@ -111,3 +111,32 @@
         - (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
         - (https://hackthestuff.com/article/what-is-manifest-json-file-and-how-it-is-useful#:~:text=The%20manifest.,Add%20to%20Home%20Screen%20prompt.&text=json%20provides%20to%20the%20browser,the%20name%2C%20icons%2C%20etc.)
+
+
+
+
+<!-- Unused code: -->
+    - API calls in Redux with Thunks:
+     /* const FAKESTORE_API_URL = "https://fakestoreapi.com/"; */
+
+  /* Logic to request products from fakestoreapi.com : */
+      /* const productRequest = () => {
+          return axios.get(FAKESTORE_API_URL + "products?limit=5")
+          .then(res => {
+            const reqProducts = res.data;
+            setProducts(reqProducts);
+          })
+      }; */
+
+     /*  useEffect(() => {
+        productRequest();
+      }, [])  */
+
+      /* async function getAllProducts() {
+        try {
+          const { data } = await axios.get('/api/products');
+          return data;
+        } catch (error) {
+          throw error;
+        }
+      }; */

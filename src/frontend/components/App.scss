@@ -1,45 +1,48 @@
-/* .App {
-  text-align: center;
-}
+/* DESIGN SYSTEM: ----------------------------------------------------------------------*/
+/* Colors: */
+$background-primary: #fff;
+$background-secondary: #1AC1DD;
+$text-primary: #282828; //Youtube black
+$text-secondary: #fff;
+$text-highlight: #1AC1DD;
+$text-light: #737373;
+$text-cardmask: #4a4a4a; 
+$button-primary: #1AC1DD; //Carribean Blue
+$button-secondary: #FFF;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* ------------------------------------------------------------------------------------- */
 
-.App-link {
-  color: #61dafb;
-}
+/* Text Sizes: */
+$primary-heading-h1: 29px;
+$secondary-heading-h2: 20px;
+$text-paragraph: 16px;
+$p-txt-small: .75rem;
+$p-txt-size: 20px;
+$p-txt-med: 16px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+
+/* ------------------------------------------------------------------------------------- */
+/* STYLES: */
 
 .App {
-  /* display: flex;
-  flex-direction: column; */
-  /* background-color: yellow; */
+
   height: 100%;
   max-height: 100%;
   max-width: 100%;
   min-height: 100vh;
+
+  h1, h2, h3 {
+    color: $text-primary;
+    font-family: Lato, 'sans-serif';
+  }
+
+  p {
+    font-family: Lato, 'sans-serif';
+  }
   
 }
 
-
-
-@import "variables.scss";
 @import "layout/desktopNav/DesktopNav.scss";
 @import "layout/heroBanner/HeroBanner.scss";
 @import "layout/nav/Nav.scss";

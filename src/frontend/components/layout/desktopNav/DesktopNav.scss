@@ -17,7 +17,7 @@
             align-items: center;
 
             .desktop-nav-items-languages {
-                font-size: 14px;
+                font-size: $text-paragraph;
                 cursor: pointer;
             }
 
@@ -37,6 +37,7 @@
         .desktop-nav-items-center {
             flex: 1;
             text-align: center;
+            text-decoration: none;
         }
 
         .desktop-nav-items-right {
@@ -46,10 +47,10 @@
             justify-content: flex-end;
 
             .desktopNav-nav-item {
-                font-size: 14px;
+                font-size: $text-paragraph;
                 cursor: pointer;
                 margin-left: 25px;
-                color: black;
+                color: $text-primary;
             }
         }
 
