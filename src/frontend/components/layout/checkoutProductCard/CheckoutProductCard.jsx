@@ -1,9 +1,10 @@
+/* The Product Cards Rendered on the Checkout Pg: */
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToBasket, removeFromBasket } from '../../../reduxslices/basketslice';
 import { Add, Remove } from "@material-ui/icons";
 
-function CheckoutProductCard({ id, title, description, category, image, price }) {
+function CheckoutProductCard({ id, title, description, category, image, price, productid }) {
 
     const dispatch = useDispatch();
 
@@ -28,8 +29,8 @@ function CheckoutProductCard({ id, title, description, category, image, price })
                 <span className='checkoutproductcard-productname'>
                     <b>Product: </b>{title}
                 </span>
-                {/* <span className='checkoutproductcard-productid'>
-                    
+              {/*   <span className='checkoutproductcard-productid'>
+                    <b>SKU: </b>
                 </span> */}
             </div>
 
@@ -43,7 +44,7 @@ function CheckoutProductCard({ id, title, description, category, image, price })
 
             </div>
             <div className='checkoutproductcard-productprice'>
-                {price}
+                <h3>{price}</h3>
             </div>
 
         </div>

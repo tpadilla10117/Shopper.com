@@ -79,13 +79,16 @@ function Footer() {
             </h3>
 
             <div className='footer-right-contactitem'>
-                <Room /> 252 Main Street , San Francisco 95822
+                <Room /> 
+                <p>252 Main Street , San Francisco 95822</p>
             </div>
             <div className='footer-right-contactitem'>
-                <Phone /> +1 xxx xx xx
+                <Phone /> 
+                <p>+1 xxx xx xx</p>
             </div>
             <div className='footer-right-contactitem'>
-                <MailOutline /> contact@tpadilla.dev
+                <MailOutline /> 
+                <p>contact@tpadilla.dev</p>
             </div>
             <img 
                 className='footer-right-paymentimgs' src="https://i.ibb.co/Qfvn4z6/payment.png" 

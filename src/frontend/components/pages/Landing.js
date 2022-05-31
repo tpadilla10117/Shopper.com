@@ -1,11 +1,10 @@
-/* TODO: This page is for when a user first travels to the site: */
+/* This page is for when a user first travels to the site: */
 import React from 'react';
 import {
   Directory, 
-  /* HeroBanner, */
   HeroBanner2,
-  ProductFeed
-
+  ProductFeed,
+  Newsletter
 } from '../utils';
 
 const Landing = () => {
@@ -14,9 +13,7 @@ const Landing = () => {
       <HeroBanner2 />
       <Directory />
       <ProductFeed />
-      {/* <LandingLogin /> */}
-      {/* <Signin /> */}
-
+      <Newsletter />
     </section>
   );
 };

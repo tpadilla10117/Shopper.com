@@ -29,7 +29,7 @@
 
         export { default as MenuItem } from '../components/layout/menuItem/menuItem.js';
 
-        export { default as Directory } from '../components/layout/directory/Directory.js';
+        export { default as Directory } from '../components/layout/directory/Directory.jsx';
 
         export { default as LandingLogin } from '../components/layout/landingLogin/LandingLogin.jsx';
 
@@ -44,6 +44,8 @@
         export { default as Orders } from '../components/layout/orders/Orders.js';
 
         export { default as Footer } from '../components/layout/footer/Footer.jsx';
+
+        export { default as Newsletter } from '../components/layout/newsletter/Newsletter.jsx';
 
 
 /* -------------------------------------------------------------------------- */

@@ -2,6 +2,7 @@
 /* Colors: */
 $background-primary: #fff;
 $background-secondary: #1AC1DD;
+$background-sections: #91E1EE;
 $text-primary: #282828; //Youtube black
 $text-secondary: #fff;
 $text-highlight: #1AC1DD;
@@ -11,10 +12,19 @@ $button-primary: #1AC1DD; //Carribean Blue
 $button-secondary: #FFF;
 
 
+
+/* FONTS: ----------------------------------------------------------------------*/
+
+/* LATO: 
+      Light 300
+      Regular 400
+      Bold 700 */
+
 /* ------------------------------------------------------------------------------------- */
 
 /* Text Sizes: */
 $primary-heading-h1: 29px;
+$extralarge-heading-h1: 60px;
 $secondary-heading-h2: 20px;
 $text-paragraph: 16px;
 $p-txt-small: .75rem;
@@ -37,7 +47,7 @@ $p-txt-med: 16px;
     font-family: Lato, 'sans-serif';
   }
 
-  p {
+  p, li {
     font-family: Lato, 'sans-serif';
   }
   
@@ -63,4 +73,5 @@ $p-txt-med: 16px;
 @import "layout/productFeed/ProductFeed.scss";
 @import "layout/productsLandingFeed/ProductsLandingFeed.scss";
 @import "pages/individualproductpg/IndiviualProductPg.scss";
+@import "layout/newsletter/Newsletter.scss";
 

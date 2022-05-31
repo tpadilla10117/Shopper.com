@@ -9,12 +9,11 @@ function Herobanner2() {
   const [ carouselIndex, setCarouselIndex ] = useState(0);
   const slideLength = carouselItems.length;
 
-  /* Functions for Arrow Buttons if Requested by Client: */
+  /* Functions for Arrow Buttons: */
 
     const nextSlide = () => {
         setCarouselIndex(carouselIndex === slideLength - 1 ? 0 : carouselIndex + 1);
     };
-
 
     const previousSlide = () => {
         setCarouselIndex(carouselIndex === 0 ? slideLength - 1 : carouselIndex - 1);

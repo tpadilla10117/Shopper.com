@@ -1,21 +1,21 @@
+/* The Section cards rendered in the Directory.jsx component: */
+import React from 'react';
 
-    import React from 'react';
-    
-    function menuItem({ title, imageUrl, size }) {
-      
-      return (
-        <div className={`${size} menu-item`}>
-            
-            <div className='menu-item-background-image' style={ {backgroundImage: `url(${imageUrl})`}}>
-            </div>
+function menuItem({ title, imageUrl, size }) {
+  
+  return (
+    <article className={`${size} menu-item`}>
+        
+        <figure className='menu-item-background-image' style={ {backgroundImage: `url(${imageUrl})`}}>
+        </figure>
 
-            <div className='menu-item-content'>
-                <h1 className='menu-item-title'>{title.toUpperCase()}</h1>
-                <span className='menu-item-subtitle'>Shop Now</span>
-            </div>
-
+        <div className='menu-item-content'>
+            <h1 className='menu-item-title'>{title.toUpperCase()}</h1>
+            <span className='menu-item-subtitle'>Shop Now</span>
         </div>
-      )
-    }
-    
-    export default menuItem;
+
+    </article>
+  )
+}
+
+export default menuItem;

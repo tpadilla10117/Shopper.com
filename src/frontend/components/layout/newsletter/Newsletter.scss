@@ -1,0 +1,45 @@
+.newsletter-parent-container {
+    height: 60vh;
+    background-color: $background-sections;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .newsletter-title {
+        font-size: $extralarge-heading-h1;
+        margin: 0 0 20px 0;
+    }
+
+    .newsletter-description {
+        font-size: $secondary-heading-h2;
+        font-weight: 300;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 760px) {
+            text-align: center;
+        }
+    }
+
+    .newsletter-info-parent-container {
+        width: 50%;
+        height: 40px;
+        background-color: $background-primary;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid lightgray;
+
+        .newsletter-info-input {
+            border: none;
+            flex: 8;
+            padding: 0 0 0 8px;
+        }
+
+        button {
+            svg {
+                margin: 5px;
+            }
+        }
+    }
+}

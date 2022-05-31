@@ -52,8 +52,7 @@
         }
 
         .checkoutproductcard-productprice {
-            font-size: 30px;
-            font-weight: 200;
+            font-size: $secondary-heading-h2;
 
             @media screen and (max-width: 760px) {
                 margin: 0 0 20px 0;
