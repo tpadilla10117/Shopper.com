@@ -1,4 +1,4 @@
-/* File for products table db adapters: */
+/* File for products table db adapters using SQL Queries: */
     const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */
@@ -16,14 +16,14 @@
     }
 
     async function createProducts(product) {
-        const {id, title, description, price, category, productid, image} = product;
+        const {id, title, description, price, category, subcategory, productid, image} = product;
 
         try {
             const { rows: [product] } = await client.query(`
-            INSERT INTO products(id, title, description, price, category, productid, image)
-            VALUES($1,$2,$3,$4,$5,$6,$7)
+            INSERT INTO products(id, title, description, price, category, subcategory, productid, image)
+            VALUES($1,$2,$3,$4,$5,$6,$7, $8)
             RETURNING *
-        `, [id, title, description, price, category, productid, image]);
+        `, [id, title, description, price, category, subcategory, productid, image]);
 
         return product;
 

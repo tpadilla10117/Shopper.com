@@ -31,3 +31,10 @@ function Orders() {
 }
 
 export default Orders;
+
+/* Server-Side retrieval of my order data: */
+/* export async function getServerSideprops(context) {
+    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+    
+} */

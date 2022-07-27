@@ -52,9 +52,12 @@
         })
     })
 
+
+
 /* Webhook TODO: */
+/* extract some events from stripe: */
+/* This would be for my deployed app: */
     apiRouter.post('/webhook', (req, res) => {
-    /* extract some events from stripe: */
         const event = req.body;
         console.log("Here is my req.body from webhook: ",req.body)
 

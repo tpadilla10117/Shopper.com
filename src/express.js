@@ -9,6 +9,7 @@
 
     server.use(cors());
 
+
 /* This is where I connect to the client (database) : */
 
     const { client } = require('./backend/index');
@@ -66,7 +67,8 @@ server.use(express.static('public'));
 /* ApiRouter: */
     const apiRouter = require('./frontend/api');
 
-    server.use('/api', apiRouter);
+/* My default endpoint for routes: */
+    server.use('/', apiRouter);
 
     module.exports = {
         server

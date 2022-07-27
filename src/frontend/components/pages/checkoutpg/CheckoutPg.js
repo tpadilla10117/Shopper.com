@@ -29,7 +29,7 @@
         const stripe = await stripePromise;
 
       /* Call backend to create a checkout session: */
-        const checkoutSession = await axios.post('http://localhost:3000/api/create-checkout-session', {
+        const checkoutSession = await axios.post('http://localhost:3000/create-checkout-session', {
           items: items,
           email: user.email
         });

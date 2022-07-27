@@ -112,8 +112,34 @@
 
         - (https://hackthestuff.com/article/what-is-manifest-json-file-and-how-it-is-useful#:~:text=The%20manifest.,Add%20to%20Home%20Screen%20prompt.&text=json%20provides%20to%20the%20browser,the%20name%2C%20icons%2C%20etc.)
 
+<!-- WebHook Process For Deployed Apps (Stripe) -->
+    - 1) go to your Stripe Dashboard -> Developers -> Webhooks -> Add endpoint
+    - 2) Paste in your endpoint from backend
+    - 3) Look at options, can select events to Listen to on backend
+    - 4) Copy POST request and paste into project
+
+<!-- WebHook Process For Local Environments using Striple CLI  (https://github.com/stripe/stripe-cli) -->
 
 
+
+<!-- API  -->
+    - If change primary endpoint '/', need to update stripecheckoutsession in stripeCheckout.js
+
+<!-- SQL QUERIES in DB ADAPTERS -->
+    - 1) The e.g. const {rows: [product] } is client-side code that represents our request to query the product table
+    - 2) Insert data into the table with 'INSERT INTO'
+    - 3) Specify which table you want to access.  In the example, we have 'products' table
+    - 4) Specify which columns you want to access in your table. In the example we have (id, title, description...image)
+    - 5) the VALUES $1, $2...etc are placeholders to specify values of each column
+    - 6) We make sure to add an argument to define the placeholder's value.  This is indicated with the brackets after the ``
+        - e.g. `INSERT INTO ... RETURNING *`, [id, title, description...items]
+
+    - e.g. Sample Query:
+            const { rows: [product] } = await client.query(`
+                INSERT INTO products(id, title, description, price, category, subcategory, productid, image)
+                VALUES($1,$2,$3,$4,$5,$6,$7, $8)
+                RETURNING *
+        `, [id, title, description, price, category, subcategory, productid, image]);
 
 <!-- Unused code: -->
     - API calls in Redux with Thunks:

@@ -36,6 +36,7 @@
         
 
         try {
+        /* Session Object gets created (https://stripe.com/docs/api/checkout/sessions/object#checkout_session_object-success_url): */
         /* TODO: Need to Change domainURL to whatever url you deploy application to - remember to change success and cancel URLs: */
             const session = await stripeApi.checkout.sessions.create({
                 payment_method_types: ['card'],
