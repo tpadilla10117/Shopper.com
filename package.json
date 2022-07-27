@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
     "classnames": "^2.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

@@ -89,6 +89,13 @@
 ### `npm i morgan`
 - logging middleware
 
+### `npm i body-parser`
+- Node.js body parsing middleware.
+
+- Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+- (https://www.npmjs.com/package/body-parser)
+
 ### `npm i express`
 - for web-server & API
 

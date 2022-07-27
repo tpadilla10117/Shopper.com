@@ -141,6 +141,27 @@
                 RETURNING *
         `, [id, title, description, price, category, subcategory, productid, image]);
 
+
+<!-- Stripe API LifeCycles & DOCS: -->
+    - 1) Checkout Lifecycle (https://stripe.com/docs/payments/checkout/how-checkout-works):
+
+        - Then need to handle a checkout.session.completed event
+
+    - 2) Fulfill Orders With Checkout (https://stripe.com/docs/payments/checkout/fulfill-orders):
+
+        - Now that you have the basic structure and security in place to make sure any event you process came from Stripe, you can handle the checkout.session.completed event. This event includes the Checkout Session object, which contains details about your customer and their payment.
+
+        - 1) Create a Webhook endpoint
+        - 2) Install and set up the Stripe CLI
+        - 3) Test your webhook locally
+            e.g. testing a payment intent: (https://stripe.com/docs/api/payment_intents/object)
+
+            e.g. testing a checkout session and getting its object: (https://stripe.com/docs/api/checkout/sessions)
+
+        - 4) Deploy your webhook endpoint
+
+        **ORDER: Trigger session -> if complete, use webhook to push data into DB & redirect to success page
+
 <!-- Unused code: -->
     - API calls in Redux with Thunks:
      /* const FAKESTORE_API_URL = "https://fakestoreapi.com/"; */
