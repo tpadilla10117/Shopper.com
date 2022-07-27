@@ -83,6 +83,7 @@
     
     const usersRouter = require('./users');
     apiRouter.use('/products', require('./products'));
+    apiRouter.use('/orders', require('./orders'));
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);
