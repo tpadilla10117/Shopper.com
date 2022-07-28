@@ -13,6 +13,10 @@
         createProducts,
     } = require('./dbadapters/products');
 
+    const {
+        createOrder,
+    } = require('./dbadapters/orders');
+
 /* Database Adapter Testing: */
     async function testDB() {
         try {
@@ -91,9 +95,17 @@
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
-                    status VARCHAR(255) DEFAULT 'created',
-                    "userId" INTEGER REFERENCES users(id),
-                    "datePlaced" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    status VARCHAR(255) DEFAULT 'complete',
+                    "userId" INTEGER REFERENCES users(id), 
+                    "orderDate" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    shippingStreet VARCHAR(100) NOT NULL,
+                    shippingStreet2 VARCHAR(200) DEFAULT NULL,
+                    shippingZip VARCHAR(100) NOT NULL,
+                    shippingCity VARCHAR(50) NOT NULL,
+                    shippingCountry VARCHAR(50) NOT NULL,
+                    shippingState VARCHAR(50) NOT NULL,
+                    currency VARCHAR(20) NOT NULL,
+                    amountTotal INTEGER NOT NULL
                 );
                 CREATE TABLE order_products(
                     id SERIAL PRIMARY KEY,
@@ -189,6 +201,34 @@
         } catch (error) {
             console.error('Error creating Products!')
         }
+    };
+
+    async function seedInitialOrders() {
+        console.log('Creating Orders...');
+
+        try {
+            const seedOrders = [
+                {
+                    id: 1,
+                    userId: 1,
+                    orderDate: '2022-07-28 18:10:25-07',
+                    shippingStreet: 'One Apple Park Way',
+                    shippingZip: '95014',
+                    shippingCity: 'Cupertino',
+                    shippingCountry: 'US',
+                    shippingState: 'CA',
+                    currency: 'usd',
+                    amountTotal: 200,
+                }
+            ]
+
+            const orders = await Promise.all(seedOrders.map(createOrder));
+            console.log('Orders Created! : ', orders)
+
+        } catch(error) {
+            console.error('Error seeding orders!')
+            throw error;
+        }
     }
 
 
@@ -209,6 +249,7 @@
             await buildTables()
             .then (seedInitialUsers)
             .then (seedInitialProducts)
+            .then (seedInitialOrders)
             .then (testDB)
             
         } catch (error) {
@@ -228,6 +269,7 @@
             createTables,
             seedInitialUsers,
             seedInitialProducts,
+            seedInitialOrders,
             testDB,
         }
         

@@ -29,7 +29,51 @@ async function getOrderById(id) {
     }
 };
 
+async function createOrder( {
+    id, 
+    status, 
+    userId, 
+    orderDate, 
+    shippingStreet, 
+    shippingStreet2, 
+    shippingZip, 
+    shippingCity, 
+    shippingCountry, 
+    shippingState, 
+    currency, 
+    amountTotal
+    } ) 
+{
+    try {
+        const { rows: [ order ] } = await client.query(`
+            INSERT INTO orders
+            (id, status, "userId", "orderDate", shippingStreet, shippingStreet2, shippingZip, shippingCity, shippingCountry, shippingState, currency, amountTotal)
+            VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+            RETURNING *
+        `, [
+            id, 
+            status, 
+            userId, 
+            orderDate, 
+            shippingStreet, 
+            shippingStreet2, 
+            shippingZip, 
+            shippingCity, 
+            shippingCountry, 
+            shippingState, 
+            currency, 
+            amountTotal
+        ])
+
+        return order;
+
+    } catch(error) {
+        throw error;
+    }
+};
+
 module.exports = {
    getAllOrders,
-   getOrderById
+   getOrderById,
+   createOrder
 }
