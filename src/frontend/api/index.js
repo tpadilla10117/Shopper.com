@@ -39,7 +39,17 @@
         }
     });
 
-/* Use .use to add middleware & non-webhook routes */
+/* Use .use to add middleware: */
+
+    apiRouter.use((req, res, next) => {
+        if (req.originalUrl === '/webhook') {
+        next();
+        } else {
+        express.json()(req, res, next);
+        console.log("Here is original URL: ", req.originalUrl);
+        }
+    });
+
     apiRouter.use( (req, res, next) => {
         if (req.user) {
             console.log('User is set: ', req.user);
@@ -47,11 +57,12 @@
         next();
     })
 
-    apiRouter.get('/', (req, res) => {
+   /*  apiRouter.get('/', (req, res) => {
         res.send({
             message: "Greetings from api/"
         })
-    })
+    }) */
+
 
 /* Testing Stripe checkout Route: */
     apiRouter.post('/create-checkout-session', createStripeCheckoutSession);
