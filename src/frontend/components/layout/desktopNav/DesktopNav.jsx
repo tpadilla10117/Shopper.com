@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const DesktopNav = (props) => {
 
+    const userToken = localStorage.getItem('user');
+    console.log('my token: ', userToken)
     const dispatch = useDispatch();
 
     const testSelector = useSelector(testData)
@@ -20,7 +22,7 @@ const DesktopNav = (props) => {
     };
 
     const isUserLoggedIn = useSelector(userData);
-    console.log('My user data from selector: ', isUserLoggedIn.user)
+    console.log('My user data from selector: ', isUserLoggedIn)
 
     
     
@@ -60,7 +62,7 @@ const DesktopNav = (props) => {
             {/* TODO: MAKE SIGN IN CONDITIONAL */}
 
             {
-                isUserLoggedIn ? 
+                userToken ? 
 
                 <div
                     
@@ -68,7 +70,7 @@ const DesktopNav = (props) => {
                     style={ {textDecoration: 'none'}}
                     onClick={logoutUser}
                 >
-                    Hi, {isUserLoggedIn.user.username}
+                    Hi, {isUserLoggedIn.recoveredData.username}
                 </div>
 
                 :

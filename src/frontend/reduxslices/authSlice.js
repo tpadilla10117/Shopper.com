@@ -19,9 +19,9 @@
                 const message = (error.response &&
                     error.response.data &&
                     error.response.data.message ) ||
-                error.message ||
-                error.toString();
-                thunkAPI.dispatch(setMessage(message));
+                    error.message ||
+                    error.toString();
+                    thunkAPI.dispatch(setMessage(message));
                 return thunkAPI.rejectWithValue();
             }
         }
@@ -35,6 +35,7 @@
                     console.log("From middleware: ", username)
                     console.log("From middleware: ", typeof username)
                     const data = await authService.login(username, password);
+                    console.log( {user: data})
                     return { user: data };
                 } catch (error) {
                     const message = (error.response && 
@@ -57,6 +58,8 @@
 /* Create initial state: */
         const initialState = user ? { isLoggedIn: true, user }
         : { isLoggedIn: false, user: null};
+console.log('My user', initialState)
+console.log('from localstorage:', user)
 
 /* Create actions for UI components: */
         const authSlice = createSlice({
@@ -64,7 +67,7 @@
             initialState,
             reducers: {
                 //actions:
-                [register.fulfilled]: (state, action) => {
+                /* [register.fulfilled]: (state, action) => {
                     state.isLoggedIn = true;
                     state.user = action.payload.user
                 },
@@ -82,7 +85,7 @@
                 [logout.fulfilled]: (state, action) => {
                     state.isLoggedIn = false;
                     state.user = null;
-                },
+                }, */
             },
             extraReducers(builder) {
                 builder
@@ -99,7 +102,7 @@
                     .addCase(logout.fulfilled, (state, action) => {
                         state.isLoggedIn = false
                         state.status = 'succeeded'
-                        state.user = action.payload.user
+                        state.user = null
                     })
             }
         });
