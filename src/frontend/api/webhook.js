@@ -9,11 +9,6 @@ const bodyParser = require('body-parser');
 /* Webhook Secret: */
 const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805dad8ea1e585cfb9eea5862';
 
-//To test Webhook route:
-webhookRouter.use((req, res, next) => {
-    console.log("A request is being made to /webhook");
-    next();
-});
 
 /* Fulfilling an order if checkout session completed: */
 /* TODO: 7/27 -> WORKS, so now I  have to put data in db:*/
@@ -55,10 +50,10 @@ webhookRouter.use((req, res, next) => {
                 
                 //TODO: Need to fulfill an order
 
-               /*  return fulfillOrder(session)
+                return fulfillOrder(session)
                     .then( () => res.status(200))
-                    .catch( (err) => res.status(400).send(`Error in Webhook: ${err.message}`)); */
-                break;
+                    .catch( (err) => res.status(400).send(`Error in Webhook: ${err.message}`));
+                
             case 'payment_intent.created':
                 const paymentIntent = event.data.object;
                 console.log("PatmentIntent Created: ", paymentIntent.id);
@@ -75,5 +70,6 @@ webhookRouter.use((req, res, next) => {
     });
 
 
-    webhookRouter.listen(4242, () => console.log('Running on port 4242'));
+    webhookRouter.listen(4242, () => console.log('Webhook Running on port 4242'));
+
 module.exports = webhookRouter;
