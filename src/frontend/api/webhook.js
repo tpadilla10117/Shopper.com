@@ -1,6 +1,8 @@
 /* const express = require('express');
 const webhookRouter = express.Router(); */
 
+const { createOrder } = require('../../backend/dbadapters/orders');
+
 const webhookRouter = require('express')();
 
 const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh');
@@ -11,11 +13,23 @@ const bodyParser = require('body-parser');
 const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805dad8ea1e585cfb9eea5862';
 
 
-/* Fulfilling an order if checkout session completed: */
-/* TODO: 7/27 -> WORKS, so now I  have to put data in db:*/
-    const fulfillOrder = async (session) => {
-        console.log('Fulfilling order!');
+/* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
 
+    const fulfillOrder = async ( session ) => {
+    
+        return createOrder( {
+            id: 3,
+            userId: 1,
+            orderDate: '2022-07-28 18:10:25-07',
+            shippingStreet: session.customer_details.address.line1,
+            shippingZip: session.customer_details.address.postal_code,
+            shippingCity: session.customer_details.address.city,
+            shippingCountry: session.customer_details.address.country,
+            shippingState: session.customer_details.address.state,
+            currency: session.currency,
+            amountTotal: session.amount_total,
+        })
+        
         
     };
 
