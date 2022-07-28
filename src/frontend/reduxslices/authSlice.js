@@ -50,6 +50,7 @@
 
 /* Logout Thunk: */
         export const logout = createAsyncThunk("auth/logout", async () => {
+            console.log('Am I hitting the logout thunk?')
             await authService.logout();
         });
 
@@ -73,15 +74,15 @@
                 [login.fulfilled]: (state, action) => {
                     state.isLoggedIn = true;
                     state.user = action.payload.user;
-                  },
-                  [login.rejected]: (state, action) => {
+                },
+                [login.rejected]: (state, action) => {
                     state.isLoggedIn = false;
                     state.user = null;
-                  },
-                  [logout.fulfilled]: (state, action) => {
+                },
+                [logout.fulfilled]: (state, action) => {
                     state.isLoggedIn = false;
                     state.user = null;
-                  },
+                },
             },
             extraReducers(builder) {
                 builder
@@ -95,10 +96,17 @@
                         state.status = 'succeeded'
                         state.user = action.payload.user
                     })
+                    .addCase(logout.fulfilled, (state, action) => {
+                        state.isLoggedIn = false
+                        state.status = 'succeeded'
+                        state.user = action.payload.user
+                    })
             }
         });
 
     /* User selector:  */
         export const userData = (state) => state.auth.user;
+
+        export const testData = (state) => state.auth;
 
         export default authSlice.reducer;

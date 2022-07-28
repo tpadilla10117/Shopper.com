@@ -3,9 +3,26 @@ import { NavLink } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { userData, logout, testData } from '../../../reduxslices/authSlice'; //my Selector
+import { useSelector, useDispatch } from 'react-redux';
 
 const DesktopNav = (props) => {
 
+    const dispatch = useDispatch();
+
+    const testSelector = useSelector(testData)
+
+    function logoutUser() {
+        console.log('Clicking username')
+        /* console.log('My logout action: ', logout()) */
+        console.log('Testing: ', testSelector) 
+        dispatch(logout());
+    };
+
+    const isUserLoggedIn = useSelector(userData);
+    console.log('My user data from selector: ', isUserLoggedIn.user)
+
+    
     
   return (
     <nav className='desktopNav-parent-container'>
@@ -40,7 +57,23 @@ const DesktopNav = (props) => {
                 >
                     PRODUCTS
                 </NavLink>
-                <NavLink
+            {/* TODO: MAKE SIGN IN CONDITIONAL */}
+
+            {
+                isUserLoggedIn ? 
+
+                <div
+                    
+                    activeclassname='active'
+                    style={ {textDecoration: 'none'}}
+                    onClick={logoutUser}
+                >
+                    Hi, {isUserLoggedIn.user.username}
+                </div>
+
+                :
+
+               <NavLink
                     to='/signin'
                     className='desktopNav-nav-item'
                     exact="true"
@@ -49,6 +82,17 @@ const DesktopNav = (props) => {
                 >
                     SIGN IN
                 </NavLink>
+
+            }
+                {/* <NavLink
+                    to='/signin'
+                    className='desktopNav-nav-item'
+                    exact="true"
+                    activeclassname='active'
+                    style={ {textDecoration: 'none'}}
+                >
+                    SIGN IN
+                </NavLink> */}
                 <NavLink
                     to='/checkout'
                     className='desktopNav-nav-item'

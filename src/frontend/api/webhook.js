@@ -3,6 +3,8 @@ const webhookRouter = express.Router(); */
 
 const { createOrder } = require('../../backend/dbadapters/orders');
 
+const { getUserById } = require('../../backend/dbadapters/users');
+
 const webhookRouter = require('express')();
 
 const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh');
@@ -13,9 +15,13 @@ const bodyParser = require('body-parser');
 const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805dad8ea1e585cfb9eea5862';
 
 
-/* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
+/* TODO: Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
 
     const fulfillOrder = async ( session ) => {
+
+       /*  try {
+            await getUserById
+        } */
     
         return createOrder( {
             id: 3,
@@ -63,10 +69,10 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
                 console.log("Checkout Session ID: ", session.id)
                 console.log("Checkout Session object: ", session)
                 
-                //TODO: Need to fulfill an order
+    //Fulfill an order:
 
                 return fulfillOrder(session)
-                    .then( () => res.status(200))
+                    .then( () => res.status(200).end() )
                     .catch( (err) => res.status(400).send(`Error in Webhook: ${err.message}`));
                 
             case 'payment_intent.created':
