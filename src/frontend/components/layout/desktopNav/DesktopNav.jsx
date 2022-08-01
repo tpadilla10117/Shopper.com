@@ -7,34 +7,6 @@ import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
 
 
-
-let authDropdownItems = [
-    {
-        id: 1,
-        name: 'Orders & Returns'
-    },
-    {
-        id: 2,
-        name: 'Saved Items'
-    },
-    {
-        id: 3,
-        name: 'About'
-    },
-    {
-        id: 4,
-        name: 'FAQ'
-    },
-    {
-        id: 5,
-        name: 'Contact Us'
-    },
-    {
-        id: 6,
-        name: 'Sign Out'
-    },
-];
-
 const DesktopNav = (props) => {
 
 /* Actions & Selectors for authentication:  */
@@ -47,6 +19,35 @@ const DesktopNav = (props) => {
     function logoutUser() {
         dispatch(logout());
     };
+
+
+    let authDropdownItems = [
+        {
+            id: 1,
+            name: 'Orders & Returns'
+        },
+        {
+            id: 2,
+            name: 'Saved Items'
+        },
+        {
+            id: 3,
+            name: 'About'
+        },
+        {
+            id: 4,
+            name: 'FAQ'
+        },
+        {
+            id: 5,
+            name: 'Contact Us'
+        },
+        {
+            id: 6,
+            name: 'Sign Out',
+            clickHandler: () => logoutUser(),
+        },
+    ];
 
     
     
@@ -92,17 +93,20 @@ const DesktopNav = (props) => {
                     className='desktop-nav-items-authdropdown-container'
                     activeclassname='active'
                     style={ {textDecoration: 'none'}}
-                    onClick={logoutUser}
+                    /* onClick={logoutUser} */
                 >
-                    <span>Hi, {isUserLoggedIn.recoveredData.username}</span>
+                    <span>Hi, {isUserLoggedIn.recoveredData.username}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+                    
+                    </span>
                     <ul className='desktop-nav-items-authdropdown'>
                         {authDropdownItems.map( (items, index) => {
-                            return <li key={items.id} className='desktop-nav-items-authdropdown-li'>
+                            return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
                                 {items.name}
                             </li>
                         })}
                     </ul>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+            
                 </div>
 
                 :
