@@ -44,13 +44,41 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
+            border: 1px solid blue;
 
             .desktopNav-nav-item {
                 font-size: $text-paragraph;
                 cursor: pointer;
                 margin-left: 25px;
                 color: $text-primary;
+            }
+
+            .desktop-nav-items-authdropdown-container {
+                position: relative;
+
+                .desktop-nav-items-authdropdown {
+                    display: none;
+                    position: absolute;
+                    margin-top: 5px;
+                    background-color: #FFFFFF;
+                    border: 1px #E6E5EA;
+                    border-radius: 4px;
+                    width: 400px;
+                    min-width: 160px;
+                    overflow: auto;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    color: black;
+
+                    .desktop-nav-items-authdropdown-li {
+                        cursor: pointer;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        padding: 20px 0px 20px 15px;
+                    }
+                }
             }
         }
 
