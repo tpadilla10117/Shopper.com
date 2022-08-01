@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToBasket, removeFromBasket, selectItems } from '../../../reduxslices/basketslice';
 import { selectItems as productsFromSlice } from '../../../reduxslices/productSlice';
 import { useParams } from 'react-router-dom';
+import './IndividualProductCards.scss';
 
 function IndividualProductCards( {
     id,
@@ -38,16 +39,20 @@ function IndividualProductCards( {
     };
 
 
-    console.log('Total items in general: ', totalItemsInBasket)
+/* Keep track of how many individual products a user wants to add to the cart */
+/* by using the productid from the route: */
 
     const productItems = useSelector(productsFromSlice);
 
     const { prodid } = useParams();
     const productBasedOnRoute = productItems.find( product => product.productid === prodid);
-    console.log('My items based on the route: ', productBasedOnRoute.productid)
 
-    console.log('Using find method on items:' , totalItemsInBasket.filter(x => x.productid === productBasedOnRoute.productid ).length)
+    const [ productCount, setProductCount ] = useState(0);
 
+    useEffect( () => {
+        setProductCount(totalItemsInBasket.filter(x => x.productid === productBasedOnRoute.productid ).length );
+    },[totalItemsInBasket, productBasedOnRoute]);
+    
 
     return (
         <div className='individualProductPg-wrapper'>
@@ -82,8 +87,9 @@ function IndividualProductCards( {
                         className='individualProductPg-info-quantity-totals'
                     >
                         <Remove onClick={removeItemFromBasket}/>
-                    {/* TODO: number needs to be dynamic: */}
-                        <span className='individualProductPg-info-quantity'>0</span>
+                    
+                        <span className='individualProductPg-info-quantity'>{productCount}</span>
+
                         <Add onClick={addItemToBasket}/>
 
                     </div>
