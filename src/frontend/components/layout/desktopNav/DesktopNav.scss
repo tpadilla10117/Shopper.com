@@ -6,7 +6,9 @@
 
     .desktop-nav-items-container {
         transform: translate(0%, 50%);
-        padding: 10px 20px;
+        /* padding: 10px 20px; */
+        padding: 0px 20px 0px 20px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -46,6 +48,7 @@
             align-items: center;
             justify-content: space-between;
             border: 1px solid blue;
+            height: 50px;
 
             .desktopNav-nav-item {
                 font-size: $text-paragraph;
@@ -56,20 +59,26 @@
 
             .desktop-nav-items-authdropdown-container {
                 position: relative;
+                cursor: pointer;
+                border: 1px solid blue;
+                height: 30px;
+                display: flex;
+                align-items: center;
 
                 .desktop-nav-items-authdropdown {
                     display: none;
                     position: absolute;
-                    margin-top: 5px;
+                    margin-top: 275px;
                     background-color: #FFFFFF;
-                    border: 1px #E6E5EA;
+                    border: 1px solid #E6E5EA;
                     border-radius: 4px;
-                    width: 400px;
+                    width: 225px;
                     min-width: 160px;
                     overflow: auto;
                     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                     z-index: 1;
                     color: black;
+                    border: 1px solid blue;
 
                     .desktop-nav-items-authdropdown-li {
                         cursor: pointer;
@@ -77,6 +86,16 @@
                         display: flex;
                         align-items: center;
                         padding: 20px 0px 20px 15px;
+
+                        &:hover {
+                            background: #F3F3F5;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .desktop-nav-items-authdropdown {
+                        display: block;
                     }
                 }
             }
