@@ -18,18 +18,20 @@ const initialState = {
     orderItems: [],
 };
 
-/* Actions: */
+/* Slice & Actions: */
 
 const ordersSlice = createSlice({
     name: "orders",
     initialState,
     reducers: {
-
+       /*  [getOrders.fulfilled]: (state, action) => {
+            state.orderItems = action.payload.orderItems
+        } */
     },
     extraReducers(builder) {
-        builder.addCase(getOrders.fullfilled, (state, action) => {
+        builder.addCase(getOrders.fulfilled, (state, action) => {
             state.status = 'succeeded'
-            state.orderItems = [...state.orderItems]
+            state.orderItems = [...state.orderItems.concat(action.payload.orderItems)]
         })
     }
 });
@@ -39,6 +41,5 @@ const ordersSlice = createSlice({
 /* Selectors: */
 
 export const selectOrders = (state) => state.orders.orderItems;
-
 
 export default ordersSlice.reducer;

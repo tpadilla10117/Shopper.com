@@ -9,6 +9,7 @@
     import authMessageReducer from '../reduxslices/authmessageSlice';
     import basketReducer from '../reduxslices/basketslice';
     import productReducer from '../reduxslices/productSlice.js';
+    import ordersReducer from '../reduxslices/ordersSlice';
     import loadingReducer from '../reduxslices/loadingSlice.js';
 
 
@@ -25,6 +26,7 @@
         auth: authReducer,
         basket: basketReducer,
         products: productReducer,
+        orders: ordersReducer,
         loader: loadingReducer,
     })
 

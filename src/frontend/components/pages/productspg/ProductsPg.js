@@ -7,6 +7,7 @@ import { setLoader, isLoading } from '../../../reduxslices/loadingSlice';
 import { ProductCards, Loading } from '../../utils';
 
 const ProductsPg = () => {
+  
 const dispatch = useDispatch();
 const items = useSelector(selectItems);
 const loadStatus = useSelector(setLoader);

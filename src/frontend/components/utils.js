@@ -41,7 +41,7 @@
 
         export { default as Loading } from '../components/layout/loading/Loading.jsx';
 
-        export { default as Orders } from '../components/layout/orders/Orders.js';
+        export { default as OrderCards } from '../components/layout/orderCards/OrderCards.js';
 
         export { default as Footer } from '../components/layout/footer/Footer.jsx';
 
