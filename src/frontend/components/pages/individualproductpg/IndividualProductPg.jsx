@@ -1,54 +1,31 @@
 import React from 'react';
-import { Add, Remove } from "@material-ui/icons";
+import { useParams } from "react-router-dom"
+import { IndividualProductCards } from '../../utils';
+import { useSelector } from 'react-redux';
+import { selectItems } from '../../../reduxslices/productSlice';
 
 function IndividualProductPg() {
-  return (
-    <section className='individualProductPg-parent-container'>
-        <div className='individualProductPg-wrapper'>
-            <figure
-                className='individualProductPg-img-container'
-            >
-                <img 
-                    src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-                    alt=''
-                />
-            </figure>
 
-            <div
-                className='individualProductPg-info-container'
-            >
+    const productItems = useSelector(selectItems);
 
-                <h1 className='individualProductPg-info-title'>
-                    Sample Product
-                </h1>
+/* useParams returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path> :*/
+    const { prodid } = useParams();
+    const productBasedOnRoute = productItems.find( product => product.productid === prodid);
 
-                <p
-                    className='individualProductPg-info-description'
-                >
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donecvenenatis, dolor in finibus malesuada, lectus ipsum porta nunc, atiaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.
-                </p>
-                <span className='individualProductPg-info-price'>$200
-                </span>
-
-                <div 
-                    className='individualProductPg-info-quantity-container'
-                >
-                    <div
-                        className='individualProductPg-info-quantity-totals'
-                    >
-                        <Remove />
-                        <span
-                            className='individualProductPg-info-quantity'
-                        >0
-                        </span>
-                        <Add />
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-  )
+    return (
+        <section className='individualProductPg-parent-container'>
+            <IndividualProductCards
+                id={productBasedOnRoute.id} 
+                title={productBasedOnRoute.title} 
+                description={productBasedOnRoute.description}
+                price={productBasedOnRoute.price}  
+                category={productBasedOnRoute.category}
+                subcategory={productBasedOnRoute.subcategory}
+                productid={productBasedOnRoute.productid}
+                image={productBasedOnRoute.image}
+            />
+        </section>
+    )
 }
 
 export default IndividualProductPg;

@@ -47,6 +47,8 @@
 
         export { default as Newsletter } from '../components/layout/newsletter/Newsletter.jsx';
 
+        export { default as IndividualProductCards } from '../components/layout/individualProductCards/IndividualProductCards.jsx';
+
 
 /* -------------------------------------------------------------------------- */
 

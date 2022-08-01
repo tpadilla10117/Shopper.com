@@ -13,10 +13,12 @@ import {
   Footer,
   IndividualProductPg
 } from './utils';
+
 import './App.scss';
 
 
 function App() {
+
   return (
     <main className="App">
       <CSSTransition timeout={300}>
@@ -33,9 +35,13 @@ function App() {
         <Route path='/products' element={<ProductsPg/>}/>
       
       {/* TODO: NEEDS TO BE DYNAMIC BASED ON UNIQUE productid eg. 93813718290 */}
-        <Route path='/products/:prodid' 
-          element={<IndividualProductPg/>} 
+
+        <Route path={`/products/:prodid`} 
+            element={
+              <IndividualProductPg/>
+            } 
         />
+         
 
 {/* TODO: Need to setup in db prior to finishing */}
       
