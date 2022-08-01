@@ -6,7 +6,7 @@ import {
 } from '../../utils';
 
 const ProductFeed = () => {
-
+/* TODO: BUGGGGG -> This renders, but relies on the Thunk on the /products route */
   const items = useSelector(selectItems);
 
   return (
@@ -23,9 +23,11 @@ const ProductFeed = () => {
               key={productCard.id} 
               title={productCard.title} 
               description={productCard.description}
-              category={productCard.category}
-              image={productCard.image}
               price={productCard.price}  
+              category={productCard.category}
+              subcategory={productCard.subcategory}
+              productid={productCard.productid}
+              image={productCard.image}
             />
           )
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const DesktopNav = (props) => {
+
+    let navigateRoutes = useNavigate();
 
 /* Actions & Selectors for authentication:  */
     const userToken = localStorage.getItem('user');
@@ -20,11 +22,14 @@ const DesktopNav = (props) => {
         dispatch(logout());
     };
 
+    
+/* Default State for authDropDown: */
 
     let authDropdownItems = [
         {
             id: 1,
-            name: 'Orders & Returns'
+            name: 'Orders & Returns',
+            clickHandler: () => navigateRoutes('/orders'),
         },
         {
             id: 2,

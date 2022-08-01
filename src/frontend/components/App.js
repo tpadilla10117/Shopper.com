@@ -33,7 +33,7 @@ function App() {
         <Route path='/products' element={<ProductsPg/>}/>
       
       {/* TODO: NEEDS TO BE DYNAMIC BASED ON UNIQUE productid eg. 93813718290 */}
-        <Route path='/products/prodid' 
+        <Route path='/products/:prodid' 
           element={<IndividualProductPg/>} 
         />
 
