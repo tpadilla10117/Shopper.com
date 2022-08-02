@@ -119,6 +119,10 @@
 - Persist and rehydrate a redux store
 - (https://www.npmjs.com/package/redux-persist)
 
+### `npm i reselect`
+- A library for creating memoized "selector" functions. Commonly used with Redux, but usable with any plain JS immutable data as well.
+- (https://www.npmjs.com/package/reselect)
+
 ### `npm install react-router-dom`
 
 ### `npm install react-transition-group`

@@ -1,5 +1,6 @@
 <!-- For Notes within the build: -->
     - create a new db with `createdb <NAME_OF_DB>`
+    - to drop a db, use DROP DATABASE "e-commerce_nodejs_template";
 
 <!-- Stack: -->
     - Frontend: SCSS, React.js, Redux, HTML5, Node.js, Stripe

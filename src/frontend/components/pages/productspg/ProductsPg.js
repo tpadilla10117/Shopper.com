@@ -30,6 +30,11 @@ useEffect(() => {
 
 if(loadStatus) return <Loading/>
 
+/* TODO: Need to fetch from my db:
+  - make a product_category table
+  - use redux dispatch to fetch categories
+*/
+
 return (
   <section className='productspg-parent-container'>
     
@@ -49,7 +54,8 @@ return (
       
     )}
 
-    <h1>{loadStatus}</h1>
+
+    {/* TODO: <ProductCategoriesPreview /> */}
 
   </section>
 )};

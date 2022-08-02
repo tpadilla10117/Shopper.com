@@ -51,6 +51,8 @@
 
         export { default as ProductNavSlider } from '../components/layout/productNavSlider/ProductNavSlider.jsx';
 
+        export { default as Spinner } from '../components/layout/spinner/Spinner.jsx';
+
 
 /* -------------------------------------------------------------------------- */
 

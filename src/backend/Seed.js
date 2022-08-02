@@ -58,6 +58,7 @@
             DROP TABLE IF EXISTS orders;
             DROP TABLE IF EXISTS users;
             DROP TABLE IF EXISTS products;
+            DROP TABLE IF EXISTS product_category;
             `)
         } catch (error) {
             console.log('Error Dropping Tables')
@@ -71,6 +72,12 @@
             console.log('Starting to build Tables...')
 
             await client.query(`
+                CREATE TABLE product_category(
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(100) NOT NULL,
+                    description VARCHAR(500) NOT NULL,
+                    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
                 CREATE TABLE products(
                     id SERIAL PRIMARY KEY,
                     title VARCHAR(255) NOT NULL,
@@ -115,11 +122,10 @@
                     quantity INTEGER NOT NULL DEFAULT (0)
                 );
                 
-            
             `)
             console.log("Finished building tables!")
         } catch (error) {
-            console.log("Error building tables", error);
+            console.log("Error building tables:", error);
         }
     }
 
