@@ -16,7 +16,7 @@ export const NavbarData = [
     },
     {
         title: 'Products',
-        path: '/products',
+        path: '/shop',
         /* icon: <AiIcons.AiOutlineUser />, */
         activeObject: null,
         id: 1,

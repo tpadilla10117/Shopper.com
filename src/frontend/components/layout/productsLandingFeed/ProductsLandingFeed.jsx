@@ -23,7 +23,7 @@ const ProductsLandingFeed = ({
     event.preventDefault();
     console.log('Clicked seach icon!')
     console.log(`My productId is ${productid} `)
-    navigateProductRoute(`/products/${productid}`)
+    navigateProductRoute(`/shop/products/${productid}`)
   }
 
   return (

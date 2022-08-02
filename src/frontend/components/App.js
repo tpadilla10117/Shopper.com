@@ -32,11 +32,11 @@ function App() {
       
         <Route path='/signin' element={<Signin />}/>
       
-        <Route path='/products' element={<ProductsPg/>}/>
+        <Route path='/shop/*' element={<ProductsPg/>}/>
       
       {/* TODO: NEEDS TO BE DYNAMIC BASED ON UNIQUE productid eg. 93813718290 */}
 
-        <Route path={`/products/:prodid`} 
+        <Route path={`/shop/products/:prodid`} 
             element={
               <IndividualProductPg/>
             } 

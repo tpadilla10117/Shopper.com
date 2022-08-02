@@ -1,7 +1,7 @@
 /* Routing for products: */
 
     const express = require('express');
-    const productsRouter = express.Router();
+    const shopRouter = express.Router();
 
 /* Import DB methods: */
     const {
@@ -12,7 +12,7 @@
 /* ------------------------------------------------------------ */
 /* THIS IS THE GET/products ROUTER */
 
-    productsRouter.get('/', async (req, res, next ) => {
+    shopRouter.get('/', async (req, res, next ) => {
         try {
             const products = await getAllProducts();
             res.send(products);
@@ -26,7 +26,7 @@
 /* ------------------------------------------------------------ */
 /* THIS IS TO GET AN INDIVIDUAL PRODUCT */
 
-    productsRouter.get('/prodid:productid', async (req, res, next ) => {
+    shopRouter.get('/prodid:productid', async (req, res, next ) => {
         const { productid } = req.params;
         try {
             const product = await getProductById(productid);
@@ -41,4 +41,4 @@
 /* ------------------------------------------------------------ */
 /* THIS IS THE POST /products (*admin) Only admins can create a new product */
 
-    module.exports = productsRouter;
+    module.exports = shopRouter;

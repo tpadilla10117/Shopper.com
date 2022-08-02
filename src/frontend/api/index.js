@@ -70,7 +70,7 @@
 /* Middleware where I attach my routers and handle requests...  */
     
     const usersRouter = require('./users');
-    apiRouter.use('/products', require('./products'));
+    apiRouter.use('/shop', require('./shop'));
     apiRouter.use('/orders', require('./orders'));
     apiRouter.use('/webhook', require('./webhook'));
     apiRouter.use('/users', usersRouter);
