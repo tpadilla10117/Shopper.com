@@ -1,5 +1,11 @@
 import React from 'react';
 
+/* TODO: Need to finish and populate: */
+/* - dynamic routing on click
+    - product categories
+    - product images
+    - subcaption
+*/
 function ProductNavSlider() {
 
   return (
@@ -16,7 +22,13 @@ function ProductNavSlider() {
             <div className='productNavSlider-slide'>
                 <img src='https://unsplash.it/1080/768' />
             </div>
-            {/* <div className='productNavSlider-slide'>
+            <div className='productNavSlider-slide'>
+                <img src='https://unsplash.it/1080/768' />
+            </div>
+            <div className='productNavSlider-slide'>
+                <img src='https://unsplash.it/1080/768' />
+            </div>
+            <div className='productNavSlider-slide'>
                 <img src='https://unsplash.it/1080/768' />
             </div>
             <div className='productNavSlider-slide'>
@@ -27,7 +39,7 @@ function ProductNavSlider() {
             </div>
             <div className='productNavSlider-slide'>
                 <img src='https://unsplash.it/1080/768' />
-            </div> */}
+            </div>
 
         </div>
     </section>
