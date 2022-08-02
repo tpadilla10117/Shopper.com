@@ -1,6 +1,7 @@
-/* Seed.js is where I seed the db with meaningful info: */
+/* Seed.js is where I seed the db with meaningful info via DDL (DATA Definition Language): */
 
     const { client } = require('./index.js');
+
     const {
         createUser, 
         getAllUsers,
@@ -16,6 +17,11 @@
     const {
         createOrder,
     } = require('./dbadapters/orders');
+
+    const {
+        getAllProductCategories,
+        createProductCategories
+    } = require('./dbadapters/product_category');
 
 /* Database Adapter Testing: */
     async function testDB() {
@@ -74,8 +80,8 @@
             await client.query(`
                 CREATE TABLE product_category(
                     id SERIAL PRIMARY KEY,
-                    name VARCHAR(100) NOT NULL,
-                    description VARCHAR(500) NOT NULL,
+                    category_name VARCHAR(255) NOT NULL,
+                    category_description VARCHAR(500) NOT NULL,
                     "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
                 CREATE TABLE products(
@@ -86,7 +92,8 @@
                     category VARCHAR(255) NOT NULL,
                     subcategory VARCHAR(255) NOT NULL,
                     productid VARCHAR(255) NOT NULL,
-                    image VARCHAR(255) DEFAULT 'https://icon-library.com/images/no-image-available-icon/no-image-available-icon-8.jpg'
+                    image VARCHAR(255) DEFAULT 'https://icon-library.com/images/no-image-available-icon/no-image-available-icon-8.jpg',
+                    "categoryId" INTEGER REFERENCES product_category(id)
                 );
                 CREATE TABLE users(
                     id SERIAL PRIMARY KEY,
@@ -142,6 +149,39 @@
         } catch (error) {
             console.log("There was an error creating users!");
             throw error;
+        }
+    }
+
+    async function seedInitialProductCategories() {
+        console.log('Starting to create product categories...');
+        try {
+            const productCategoriesToCreate = [
+                {
+                    id: 1,
+                    category_name: `men's clothing`,
+                    category_description: 'Items for men',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    id: 2,
+                    category_name: `women's clothing`,
+                    category_description: 'Items for women',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    id: 3,
+                    category_name: `accessories`,
+                    category_description: 'Accessories for men',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+            ];
+
+            const productCategories = await Promise.all(productCategoriesToCreate.map(createProductCategories));
+
+            console.log('Product Categories created! : ', productCategories);
+
+        } catch(error) {
+            console.error('Error creating product categories!');
         }
     }
 
@@ -254,6 +294,7 @@
             client.connect();
             await buildTables()
             .then (seedInitialUsers)
+            .then (seedInitialProductCategories)
             .then (seedInitialProducts)
             .then (seedInitialOrders)
             .then (testDB)
@@ -274,6 +315,7 @@
             dropTables,
             createTables,
             seedInitialUsers,
+            seedInitialProductCategories,
             seedInitialProducts,
             seedInitialOrders,
             testDB,
