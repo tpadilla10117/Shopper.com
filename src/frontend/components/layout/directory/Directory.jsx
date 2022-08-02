@@ -1,6 +1,5 @@
 /* The Section container for the menuItem components on the Landing Page: */
     import React, { useState } from 'react';
-    import './Directory.scss';
     import { MenuItem } from '../../utils.js';
     import { NavLink } from 'react-router-dom';
 

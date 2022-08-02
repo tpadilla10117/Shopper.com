@@ -4,12 +4,14 @@ import {
   Directory, 
   HeroBanner2,
   ProductFeed,
-  Newsletter
+  Newsletter,
+  ProductNavSlider
 } from '../../utils';
 
 const Landing = () => {
   return (
     <section className='landing-parent-container'>
+      <ProductNavSlider />
       <HeroBanner2 />
       <Directory />
       <ProductFeed />

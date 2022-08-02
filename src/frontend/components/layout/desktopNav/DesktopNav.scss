@@ -1,8 +1,9 @@
 .desktopNav-parent-container {
     position: fixed;
-    height: 80px;
+    height: 100px;
     width: 100%;
     background-color: $background-primary;
+    box-shadow: 0px 3px 16px 0px rgba(0,0,0,0.2);
 
     .desktop-nav-items-container {
         transform: translate(0%, 50%);

@@ -55,9 +55,9 @@ function IndividualProductCards( {
     
 
     return (
-        <div className='individualProductPg-wrapper'>
+        <div className='individualProductCards-wrapper'>
             <figure
-                className='individualProductPg-img-container'
+                className='individualProductCards-img-container'
             >
                 <img 
                     src={image}
@@ -66,31 +66,31 @@ function IndividualProductCards( {
             </figure>
 
             <div
-                className='individualProductPg-info-container'
+                className='individualProductCards-info-container'
             >
 
-                <h1 className='individualProductPg-info-title'>
+                <h1 className='individualProductCards-info-title'>
                     {title}
                 </h1>
 
                 <p
-                    className='individualProductPg-info-description'
+                    className='individualProductCards-info-description'
                 >
                     {description}
                 </p>
-                <span className='individualProductPg-info-price'>${price}</span>
+                <span className='individualProductCards-info-price'>${price}</span>
 
                 <div 
-                    className='individualProductPg-info-quantity-container'
+                    className='individualProductCards-info-quantity-container'
                 >
                     <div
-                        className='individualProductPg-info-quantity-totals'
+                        className='individualProductCards-info-quantity-totals'
                     >
-                        <Remove onClick={removeItemFromBasket}/>
+                        <Remove onClick={removeItemFromBasket} className='individualProductCards-removebtn'/>
                     
-                        <span className='individualProductPg-info-quantity'>{productCount}</span>
+                        <span className='individualProductCards-info-quantity'>{productCount}</span>
 
-                        <Add onClick={addItemToBasket}/>
+                        <Add onClick={addItemToBasket} className='individualProductCards-addbtn'/>
 
                     </div>
                 </div>

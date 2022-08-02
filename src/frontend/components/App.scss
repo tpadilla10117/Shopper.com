@@ -53,6 +53,7 @@ $p-txt-med: 16px;
   
 }
 
+@import "layout/directory/Directory.scss";
 @import "layout/desktopNav/DesktopNav.scss";
 @import "layout/heroBanner/HeroBanner.scss";
 @import "layout/nav/Nav.scss";
@@ -74,4 +75,5 @@ $p-txt-med: 16px;
 @import "layout/productsLandingFeed/ProductsLandingFeed.scss";
 @import "layout/newsletter/Newsletter.scss";
 @import "layout/individualProductCards/IndividualProductCards.scss";
+@import "layout/productNavSlider/ProductNavSlider.scss";
 

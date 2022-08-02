@@ -4,7 +4,9 @@
     flex: 1;
     margin: 3px;
     height: 70vh;
+    width: 100%;
     position: relative;
+    /* border: 5px solid red; */
 
     &:hover {
         cursor: pointer;

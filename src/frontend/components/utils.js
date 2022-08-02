@@ -49,6 +49,8 @@
 
         export { default as IndividualProductCards } from '../components/layout/individualProductCards/IndividualProductCards.jsx';
 
+        export { default as ProductNavSlider } from '../components/layout/productNavSlider/ProductNavSlider.jsx';
+
 
 /* -------------------------------------------------------------------------- */
 
