@@ -21,7 +21,7 @@
         try {
             const { rows: [product] } = await client.query(`
             INSERT INTO products(id, title, description, price, category, subcategory, productid, image)
-            VALUES($1,$2,$3,$4,$5,$6,$7, $8)
+            VALUES($1,$2,$3,$4,$5,$6,$7,$8)
             RETURNING *
         `, [id, title, description, price, category, subcategory, productid, image]);
 

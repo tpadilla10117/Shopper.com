@@ -97,15 +97,16 @@
                 );
                 CREATE TABLE users(
                     id SERIAL PRIMARY KEY,
-                    firstname VARCHAR(255) NOT NULL,
-                    lastname VARCHAR (255) NOT NULL,
-                    email VARCHAR (255) UNIQUE NOT NULL,
+                    firstname VARCHAR(50) NOT NULL,
+                    lastname VARCHAR (50) NOT NULL,
+                    email VARCHAR (50) UNIQUE NOT NULL,
                     imageURL VARCHAR (255) DEFAULT NULL,
-                    username VARCHAR (255) UNIQUE NOT NULL,
+                    username VARCHAR (50) UNIQUE NOT NULL,
                     password VARCHAR (255) UNIQUE NOT NULL,
                     isAdmin BOOLEAN DEFAULT false,
                     active boolean DEFAULT true,
-                    location VARCHAR(255) NOT NULL
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -139,8 +140,15 @@
     async function seedInitialUsers() {
         try {
             const seedUsers = [
-                {firstname:'trin', lastname:'padilla', email:'trinp@example.com', username:'trin', password:'padilla123', isAdmin: true,
-                id: 1, location: 'Tatooine',
+                {
+                    firstname:'trin', 
+                    lastname:'padilla', 
+                    email:'trinp@example.com', 
+                    username:'trin', 
+                    password:'padilla123', 
+                    isAdmin: true, 
+                    active: true,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss')
                 }
             ]
 

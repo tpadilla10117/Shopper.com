@@ -6,17 +6,17 @@
 //THESE ARE THE USER METHODS:
 
 
-    async function createUser( {firstname, lastname, email, imageURL, username, password, isAdmin, location, active} ) {
+    async function createUser( {firstname, lastname, email, imageURL, username, password, isAdmin, active, created_at} ) {
         const hashedPassword = await bcrypt.hash(
             password, SALT_COUNT
         );
 
         try {
             const { rows: [user] } = await client.query(`
-            INSERT INTO users (firstname, lastname, email, imageURL, username, password, isAdmin, location, active)
+            INSERT INTO users (firstname, lastname, email, imageURL, username, password, isAdmin, active, created_at)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING *;
-            `, [firstname, lastname, email, imageURL, username, hashedPassword, isAdmin, location, active]);
+            `, [firstname, lastname, email, imageURL, username, hashedPassword, isAdmin, active, created_at]);
 
             return user;
         } catch (error) {
