@@ -11,6 +11,11 @@
     } = require('./dbadapters/users');
 
     const {
+        createUserAddressByUser,
+        getUserAddress,
+    } = require('./dbadapters/user_addresses');
+
+    const {
         createProducts,
     } = require('./dbadapters/products');
 
@@ -60,11 +65,12 @@
         console.log('Dropping all tables...')
         try {
             await client.query(`
-            DROP TABLE IF EXISTS order_products;
-            DROP TABLE IF EXISTS orders;
-            DROP TABLE IF EXISTS users;
-            DROP TABLE IF EXISTS products;
-            DROP TABLE IF EXISTS product_category;
+                DROP TABLE IF EXISTS order_products;
+                DROP TABLE IF EXISTS orders;
+                DROP TABLE IF EXISTS user_addresses;
+                DROP TABLE IF EXISTS users;
+                DROP TABLE IF EXISTS products;
+                DROP TABLE IF EXISTS product_category;
             `)
         } catch (error) {
             console.log('Error Dropping Tables')
@@ -107,6 +113,17 @@
                     active boolean DEFAULT true,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                     modified_at TIMESTAMP
+                );
+                CREATE TABLE user_addresses(
+                    id SERIAL PRIMARY KEY,
+                    user_id INTEGER REFERENCES users(id),
+                    address_line1 VARCHAR(100) NOT NULL,
+                    address_line2 VARCHAR(100) DEFAULT NULL,
+                    city VARCHAR(50) NOT NULL,
+                    postal_code VARCHAR(100) NOT NULL,
+                    state VARCHAR(50) NOT NULL,
+                    country VARCHAR(100) NOT NULL,
+                    mobile_number VARCHAR(50) DEFAULT NULL
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -158,6 +175,38 @@
             console.log("There was an error creating users!");
             throw error;
         }
+    };
+
+    async function seedUserAddress() {
+        console.log('Starting to create user address...');
+        try {
+
+        /* Retrieve the user's id to pass into seedAddress obj: */
+            const user = await getUser({
+                username: 'trin',
+                password: 'padilla123'
+            });
+
+
+            const seedAddress = [
+                {
+                    address_line1: 'One Apple Park Way',
+                    address_line2: '',
+                    city: 'Cupertino',
+                    postal_code: '95014',
+                    state: 'CA',
+                    country: 'US',
+                    mobile_number: '916-222-2210',
+                    user_id: user.id
+                }
+            ];
+
+            const userAddress = await Promise.all(seedAddress.map(createUserAddressByUser));
+            console.log("Created a user address: ", userAddress);
+
+        } catch(error) {
+            console.error('Error creating user address!');
+        }
     }
 
     async function seedInitialProductCategories() {
@@ -165,19 +214,16 @@
         try {
             const productCategoriesToCreate = [
                 {
-                    id: 1,
                     category_name: `men's clothing`,
                     category_description: 'Items for men',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
-                    id: 2,
                     category_name: `women's clothing`,
                     category_description: 'Items for women',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
-                    id: 3,
                     category_name: `accessories`,
                     category_description: 'Accessories for men',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
@@ -302,6 +348,7 @@
             client.connect();
             await buildTables()
             .then (seedInitialUsers)
+            .then(seedUserAddress)
             .then (seedInitialProductCategories)
             .then (seedInitialProducts)
             .then (seedInitialOrders)
@@ -323,6 +370,7 @@
             dropTables,
             createTables,
             seedInitialUsers,
+            seedUserAddress,
             seedInitialProductCategories,
             seedInitialProducts,
             seedInitialOrders,
