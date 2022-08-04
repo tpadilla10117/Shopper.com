@@ -52,6 +52,10 @@
             const username = await getUserByUsername("trin");
             console.log("The result of calling getUserByUsername:", username);
 
+            
+            const userAddress = await getUserAddress(1);
+            console.log('My user address: ', userAddress);
+
             console.log("Finished testing Database!")
         } catch (error) {
             console.log("Error testing Database!")
@@ -70,7 +74,7 @@
                 DROP TABLE IF EXISTS user_addresses;
                 DROP TABLE IF EXISTS users;
                 DROP TABLE IF EXISTS products;
-                DROP TABLE IF EXISTS product_category;
+                DROP TABLE IF EXISTS product_categories;
             `)
         } catch (error) {
             console.log('Error Dropping Tables')
@@ -84,11 +88,13 @@
             console.log('Starting to build Tables...')
 
             await client.query(`
-                CREATE TABLE product_category(
+                CREATE TABLE product_categories(
                     id SERIAL PRIMARY KEY,
                     category_name VARCHAR(255) NOT NULL,
                     category_description VARCHAR(500) NOT NULL,
-                    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP DEFAULT NULL
                 );
                 CREATE TABLE products(
                     id SERIAL PRIMARY KEY,

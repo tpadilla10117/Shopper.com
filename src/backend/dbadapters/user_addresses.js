@@ -1,15 +1,16 @@
 /* File for user_addresses table  */
     const { client } = require('../index');
-    const bcrypt = require('bcrypt');
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE user_addresses METHODS:
 
-    async function getUserAddress( { user_id } ) {
+    async function getUserAddress( user_id ) {
+
         try {
             const { rows: [user_addresses] } = await client.query(`
                 SELECT * FROM user_addresses WHERE user_id=$1
             `, [user_id]);
+
             return user_addresses;
 
         } catch (error) {
@@ -20,7 +21,7 @@
 
     /* TO ADD AN ADDRESS VIA A FORM:*/
     /*  - Frontend needs to request the userobject for the user.id */
-    
+
     async function createUserAddressByUser(user_addresses) {
         const {
             address_line1,

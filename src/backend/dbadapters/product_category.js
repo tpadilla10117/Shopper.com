@@ -18,7 +18,6 @@ const { client } = require('../index');
     async function createProductCategories(product_category) {
 
         const {
-            id,
             category_name,
             category_description,
             created_at
@@ -26,10 +25,10 @@ const { client } = require('../index');
 
         try {
             const { rows: [product_category] } = await client.query(`
-                INSERT INTO product_category(id, category_name, category_description, "created_at")
-                VALUES($1, $2, $3, $4)
+                INSERT INTO product_categories(category_name, category_description,"created_at")
+                VALUES($1, $2, $3)
                 RETURNING *
-            `, [id, category_name, category_description, created_at]);
+            `, [category_name, category_description, created_at]);
 
             return product_category;
 
