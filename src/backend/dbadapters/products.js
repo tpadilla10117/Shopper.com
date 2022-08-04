@@ -32,12 +32,12 @@
         }
     }
 
-    async function getProductById(productid) {
+    async function getProductById(id) {
         try {
             const { rows: [product] } = await client.query(`
-            SELECT * FROM products WHERE productid=$1
+            SELECT * FROM products WHERE id=$1
             
-            `, [productid]);
+            `, [id]);
 
             return product;
         } catch (error) {

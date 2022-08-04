@@ -38,10 +38,35 @@ const { client } = require('../index');
         } catch(error) {
             throw error;
         }
-    }
+    };
+
+    async function getAProductReviewById(id) {
+        try{
+            const {rows: reviews} = await client.query(`
+            SELECT * FROM product_reviews
+            WHERE id = $1
+            `,[id])
+
+            return reviews;
+        } catch(error){
+            throw error;
+        };
+    };
+
+    /* TODO: */
+
+    async function getAProductReviewByUser(userId) {
+        try {
+
+        } catch(error) {
+            throw error;
+        }
+    };
 
 
 module.exports = {
     createProductReview,
     getAllProductReviews,
+    getAProductReviewById,
+    getAProductReviewByUser
 };

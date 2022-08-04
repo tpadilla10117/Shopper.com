@@ -17,6 +17,7 @@
 
     const {
         createProducts,
+        getProductById,
     } = require('./dbadapters/products');
 
     const {
@@ -32,6 +33,16 @@
         getAllProductCategories,
         createProductCategories
     } = require('./dbadapters/product_category');
+
+    const {
+        addItemsToCart
+    } = require('./dbadapters/user_carts');
+
+    const {
+        getAllProductReviews,
+        createProductReview,
+        getAProductReviewById,
+    } = require('./dbadapters/product_reviews');
 
 /* Database Adapter Testing: */
     async function testDB() {
@@ -61,6 +72,12 @@
             const userAddress = await getUserAddress(1);
             console.log('My user address: ', userAddress);
 
+            const retrieveAReview = await getAProductReviewById(1);
+            console.log('I retrieved a review! :', retrieveAReview);
+
+            const allReviews = await getAllProductReviews();
+            console.log('Result of getAllProductReviews! :', allReviews);
+
             console.log("Finished testing Database!")
         } catch (error) {
             console.log("Error testing Database!")
@@ -77,6 +94,7 @@
                 DROP TABLE IF EXISTS product_reviews;
                 DROP TABLE IF EXISTS order_products;
                 DROP TABLE IF EXISTS orders;
+                DROP TABLE IF EXISTS user_carts;
                 DROP TABLE IF EXISTS saved_products;
                 DROP TABLE IF EXISTS user_addresses;
                 DROP TABLE IF EXISTS users;
@@ -145,6 +163,16 @@
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
 
+                );
+                CREATE TABLE user_carts(
+                    id SERIAL PRIMARY KEY,
+                    user_id INTEGER REFERENCES users(id),
+                    product_id INTEGER REFERENCES products(id),
+                    quantity INTEGER NOT NULL,
+                    totalcost INTEGER NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -395,7 +423,62 @@
             console.error('Error seeding orders!')
             throw error;
         }
-    }
+    };
+
+    async function seedProductReviews() {
+        console.log('Creating reviews...');
+
+        try {
+
+            const user = await getUser({
+                username: 'trin',
+                password: 'padilla123'
+            });
+
+            const product = await getProductById(3);
+
+            const productReviewData = [
+                {
+                    title: 'Nice Shirt!',
+                    description: 'This jacket perfectly fits my style.  It is snug, feels comfortable, and has a great overall texture!  Only giving it 4 stars because it is a bit pricey.',
+                    rating: 4,
+                    user_id: user.id,
+                    product_id: product.id,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                }
+            ];
+
+            const reviews = await Promise.all(productReviewData.map(createProductReview));
+
+            console.log('Reviews were created! :', reviews);
+
+        } catch(error) {
+            console.error('Error creating reviews...');
+            throw error;
+        }
+    };
+
+/* TODO: THIS WILL BE FOR INDIVIDUAL CART ITEMS */
+    async function seedInitialCartItem() {
+
+        const sampleProducts = [1, 3];
+
+        try {
+            const cartData = [
+                {
+                    user_id: 1,
+                    product_id: 1,
+                    quantity: 1,
+                    totalcost: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                }
+            ];
+
+        } catch(error) {
+            console.error('Error building a cart!');
+            throw error;
+        }
+    };
 
 
     async function buildTables() {
@@ -413,13 +496,14 @@
         /* TODO: When running Jest, comment this client out: */
             client.connect();
             await buildTables()
-            .then (seedInitialUsers)
+            .then(seedInitialUsers)
             .then(seedUserAddress)
-            .then (seedInitialProductCategories)
-            .then (seedInitialProducts)
+            .then(seedInitialProductCategories)
+            .then(seedInitialProducts)
             .then(seedSavedProducts)
-            .then (seedInitialOrders)
-            .then (testDB)
+            .then(seedInitialOrders)
+            .then(seedProductReviews)
+            .then(testDB)
             
         } catch (error) {
             console.error("Error during rebuildDB");
@@ -442,6 +526,7 @@
             seedInitialProducts,
             seedSavedProducts,
             seedInitialOrders,
+            seedProductReviews,
             testDB,
         }
         
