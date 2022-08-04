@@ -20,6 +20,11 @@
     } = require('./dbadapters/products');
 
     const {
+        createSavedProduct,
+        getSavedProducts,
+    } = require('./dbadapters/saved_products');
+
+    const {
         createOrder,
     } = require('./dbadapters/orders');
 
@@ -71,6 +76,7 @@
             await client.query(`
                 DROP TABLE IF EXISTS order_products;
                 DROP TABLE IF EXISTS orders;
+                DROP TABLE IF EXISTS saved_products;
                 DROP TABLE IF EXISTS user_addresses;
                 DROP TABLE IF EXISTS users;
                 DROP TABLE IF EXISTS products;
@@ -129,6 +135,15 @@
                     state VARCHAR(50) NOT NULL,
                     country VARCHAR(100) NOT NULL,
                     mobile_number VARCHAR(50) DEFAULT NULL
+                );
+                CREATE TABLE saved_products(
+                    id SERIAL PRIMARY KEY,
+                    product_id INTEGER REFERENCES products(id),
+                    user_id INTEGER REFERENCES users(id),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
+
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -296,6 +311,7 @@
                     category_id: 1,
                     subcategory: "shirts",
                     price: 15.99,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 5,
@@ -306,6 +322,7 @@
                     category_id: 4,
                     price: 695,
                     subcategory: "jewelery",
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ]
             
@@ -314,6 +331,29 @@
             console.log(products)
         } catch (error) {
             console.error('Error creating Products!')
+        }
+    };
+
+    async function seedSavedProducts() {
+        console.log('Creating Saved Products...');
+
+        try {
+
+            const savedProduct = [
+                {
+                    product_id: 3,
+                    user_id: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                }
+            ];
+
+            const products = await Promise.all(savedProduct.map(createSavedProduct));
+
+            console.log('Saved Product created! : ', products)
+
+        } catch(error) {
+            console.error('Error creating saved products...');
+            throw error;
         }
     };
 
@@ -365,6 +405,7 @@
             .then(seedUserAddress)
             .then (seedInitialProductCategories)
             .then (seedInitialProducts)
+            .then(seedSavedProducts)
             .then (seedInitialOrders)
             .then (testDB)
             
@@ -387,6 +428,7 @@
             seedUserAddress,
             seedInitialProductCategories,
             seedInitialProducts,
+            seedSavedProducts,
             seedInitialOrders,
             testDB,
         }
