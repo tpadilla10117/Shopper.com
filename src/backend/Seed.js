@@ -74,6 +74,7 @@
         console.log('Dropping all tables...')
         try {
             await client.query(`
+                DROP TABLE IF EXISTS product_reviews;
                 DROP TABLE IF EXISTS order_products;
                 DROP TABLE IF EXISTS orders;
                 DROP TABLE IF EXISTS saved_products;
@@ -166,6 +167,17 @@
                     price INTEGER NOT NULL,
                     quantity INTEGER NOT NULL DEFAULT (0)
                 );
+                CREATE TABLE product_reviews(
+                    id SERIAL PRIMARY KEY,
+                    title VARCHAR(100) NOT NULL,
+                    description TEXT NOT NULL,
+                    rating INTEGER NOT NULL CHECK (1 <= 5),
+                    user_id INTEGER REFERENCES users(id),
+                    product_id INTEGER REFERENCES products(id),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
+                )
                 
             `)
             console.log("Finished building tables!")
