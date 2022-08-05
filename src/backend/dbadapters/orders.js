@@ -21,7 +21,7 @@ async function getOrderById(id) {
     try {
         const { rows: [ order ] } = await client.query(`
             SELECT * FROM orders
-            WHERE id = #1
+            WHERE id = $1
         `, [id])
         return order;
     } catch(error) {

@@ -26,7 +26,12 @@
     } = require('./dbadapters/saved_products');
 
     const {
+        createOrderItems,
+    } = require('./dbadapters/order_items');
+
+    const {
         createOrder,
+        getOrderById,
     } = require('./dbadapters/orders');
 
     const {
@@ -85,6 +90,9 @@
 
             const sampleSessionRetrieval = await retrieveShoppingSessionItemById(1);
             console.log('Result of sampleSessionRetrieval! :', sampleSessionRetrieval);
+
+            const retrieveAOrder = await getOrderById(1);
+            console.log('Here is a specific order by Id: ', retrieveAOrder);
 
             console.log("Finished testing Database!")
         } catch (error) {
@@ -175,7 +183,7 @@
                 CREATE TABLE shopping_sessions(
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id),
-                    totalcost INTEGER NOT NULL,
+                    totalcost DECIMAL (6,2),
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
@@ -419,7 +427,7 @@
             const seedOrders = [
                 {
                     user_id: 1,
-                    amount_total: 200.99,
+                    amount_total: 125.94,
                     currency: 'usd',
                     status: 'completed',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
@@ -435,6 +443,34 @@
             throw error;
         }
     };
+
+    async function seedOrderItems() {
+        console.log('Creating order_Items...');
+
+        try {
+
+            const orderItemsData = [
+                {
+                    orders_id: 1,
+                    product_id: 1,
+                    quantity: 1,
+                },
+                {
+                    orders_id: 1,
+                    product_id: 4,
+                    quantity: 1,
+                },
+            ];
+
+            const createdOrderItems = await Promise.all(orderItemsData.map(createOrderItems));
+
+            console.log('order_items sucessfully created! :', createdOrderItems);
+            
+        } catch(error) {
+            console.error('There was an error creating order_items!');
+            throw error;
+        }
+    }
 
     async function seedProductReviews() {
         console.log('Creating reviews...');
@@ -480,7 +516,7 @@
             const sessionData = [
                 {
                     user_id: user.id,
-                    totalcost: 109,
+                    totalcost: 125.94,
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ];
@@ -559,6 +595,7 @@
             .then(seedShoppingSession)
             .then(seedInitialCartItem)
             .then(seedInitialOrders)
+            .then(seedOrderItems)
             .then(seedProductReviews)
             .then(testDB)
             
@@ -585,6 +622,7 @@
             seedShoppingSession,
             seedInitialCartItem,
             seedInitialOrders,
+            seedOrderItems,
             seedProductReviews,
             testDB,
         }
