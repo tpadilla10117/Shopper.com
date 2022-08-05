@@ -35,8 +35,13 @@
     } = require('./dbadapters/product_category');
 
     const {
+        createShoppingSession,
+        retrieveShoppingSessionItemById,
+    } = require('./dbadapters/shopping_sessions');
+
+    const {
         addItemsToCart
-    } = require('./dbadapters/user_carts');
+    } = require('./dbadapters/cart_items');
 
     const {
         getAllProductReviews,
@@ -78,6 +83,9 @@
             const allReviews = await getAllProductReviews();
             console.log('Result of getAllProductReviews! :', allReviews);
 
+            const sampleSessionRetrieval = await retrieveShoppingSessionItemById(1);
+            console.log('Result of sampleSessionRetrieval! :', sampleSessionRetrieval);
+
             console.log("Finished testing Database!")
         } catch (error) {
             console.log("Error testing Database!")
@@ -92,9 +100,9 @@
         try {
             await client.query(`
                 DROP TABLE IF EXISTS product_reviews;
-                DROP TABLE IF EXISTS order_products;
+                DROP TABLE IF EXISTS cart_items;
+                DROP TABLE IF EXISTS shopping_sessions;
                 DROP TABLE IF EXISTS orders;
-                DROP TABLE IF EXISTS user_carts;
                 DROP TABLE IF EXISTS saved_products;
                 DROP TABLE IF EXISTS user_addresses;
                 DROP TABLE IF EXISTS users;
@@ -162,17 +170,6 @@
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
-
-                );
-                CREATE TABLE user_carts(
-                    id SERIAL PRIMARY KEY,
-                    user_id INTEGER REFERENCES users(id),
-                    product_id INTEGER REFERENCES products(id),
-                    quantity INTEGER NOT NULL,
-                    totalcost INTEGER NOT NULL,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-                    modified_at TIMESTAMP,
-                    deleted_at TIMESTAMP
                 );
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
@@ -188,12 +185,24 @@
                     currency VARCHAR(20) NOT NULL,
                     amountTotal INTEGER NOT NULL
                 );
-                CREATE TABLE order_products(
+                CREATE TABLE shopping_sessions(
                     id SERIAL PRIMARY KEY,
-                    "productId" INTEGER REFERENCES products(id),
-                    "orderId" INTEGER REFERENCES orders(id),
-                    price INTEGER NOT NULL,
-                    quantity INTEGER NOT NULL DEFAULT (0)
+                    user_id INTEGER REFERENCES users(id),
+                    totalcost INTEGER NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
+                );
+                CREATE TABLE cart_items(
+                    id SERIAL PRIMARY KEY,
+                    session_id INTEGER REFERENCES shopping_sessions(id),
+                    user_id INTEGER REFERENCES users(id),
+                    product_id INTEGER REFERENCES products(id),
+                    quantity INTEGER NOT NULL,
+                    totalcost INTEGER NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
                 );
                 CREATE TABLE product_reviews(
                     id SERIAL PRIMARY KEY,
@@ -458,21 +467,65 @@
         }
     };
 
-/* TODO: THIS WILL BE FOR INDIVIDUAL CART ITEMS */
-    async function seedInitialCartItem() {
-
-        const sampleProducts = [1, 3];
+    async function seedShoppingSession() {
 
         try {
-            const cartData = [
+            const user = await getUser({
+                username: 'trin',
+                password: 'padilla123'
+            });
+
+            const sessionData = [
                 {
-                    user_id: 1,
-                    product_id: 1,
-                    quantity: 1,
-                    totalcost: 1,
+                    user_id: user.id,
+                    totalcost: 109,
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ];
+
+            const createdSession = await Promise.all(sessionData.map(createShoppingSession));
+
+            console.log('Created a shopping Session! :', createdSession);
+
+        } catch(error) {
+            console.error('Error creating a shopping session!');
+            throw error;
+        }
+    }
+
+/* TODO: THIS WILL BE FOR INDIVIDUAL CART ITEMS */
+    async function seedInitialCartItem() {
+
+        const sampleProduct = [1,3];
+
+        try {
+            const user = await getUser({
+                username: 'trin',
+                password: 'padilla123'
+            });
+
+            const cartData = [
+                {
+                    session_id: 1,
+                    user_id: user.id,
+                    product_id: sampleProduct[0],
+                    quantity: 1,
+                    totalcost: 109,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    session_id: 1,
+                    user_id: user.id,
+                    product_id: sampleProduct[1],
+                    quantity: 1,
+                    totalcost: 200,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                }
+            ];
+
+            const createdCartItem = await Promise.all(cartData.map(addItemsToCart));
+
+            console.log('Created a cart Item! : ', createdCartItem);
 
         } catch(error) {
             console.error('Error building a cart!');
@@ -502,6 +555,8 @@
             .then(seedInitialProducts)
             .then(seedSavedProducts)
             .then(seedInitialOrders)
+            .then(seedShoppingSession)
+            .then(seedInitialCartItem)
             .then(seedProductReviews)
             .then(testDB)
             
@@ -526,6 +581,8 @@
             seedInitialProducts,
             seedSavedProducts,
             seedInitialOrders,
+            seedShoppingSession,
+            seedInitialCartItem,
             seedProductReviews,
             testDB,
         }
