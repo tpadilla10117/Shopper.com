@@ -24,6 +24,7 @@ const { client } = require('../index');
         }
     };
 
+/* Retrieve a cart by a session_id: */
     async function retrieveShoppingSessionItemById(id) {
         try {
             const { rows: cart_items } = await client.query(`

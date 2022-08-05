@@ -100,9 +100,10 @@
         try {
             await client.query(`
                 DROP TABLE IF EXISTS product_reviews;
+                DROP TABLE IF EXISTS order_items;
+                DROP TABLE IF EXISTS orders;
                 DROP TABLE IF EXISTS cart_items;
                 DROP TABLE IF EXISTS shopping_sessions;
-                DROP TABLE IF EXISTS orders;
                 DROP TABLE IF EXISTS saved_products;
                 DROP TABLE IF EXISTS user_addresses;
                 DROP TABLE IF EXISTS users;
@@ -171,20 +172,6 @@
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
                 );
-                CREATE TABLE orders(
-                    id SERIAL PRIMARY KEY,
-                    status VARCHAR(255) DEFAULT 'complete',
-                    "userId" INTEGER REFERENCES users(id), 
-                    "orderDate" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    shippingStreet VARCHAR(100) NOT NULL,
-                    shippingStreet2 VARCHAR(200) DEFAULT NULL,
-                    shippingZip VARCHAR(100) NOT NULL,
-                    shippingCity VARCHAR(50) NOT NULL,
-                    shippingCountry VARCHAR(50) NOT NULL,
-                    shippingState VARCHAR(50) NOT NULL,
-                    currency VARCHAR(20) NOT NULL,
-                    amountTotal INTEGER NOT NULL
-                );
                 CREATE TABLE shopping_sessions(
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id),
@@ -200,6 +187,25 @@
                     product_id INTEGER REFERENCES products(id),
                     quantity INTEGER NOT NULL,
                     totalcost INTEGER NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
+                );
+                CREATE TABLE orders(
+                    id SERIAL PRIMARY KEY,
+                    user_id INTEGER REFERENCES users(id),
+                    amount_total DECIMAL (6,2),
+                    currency VARCHAR(50) NOT NULL,
+                    status VARCHAR(255) DEFAULT 'complete',
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+                    modified_at TIMESTAMP,
+                    deleted_at TIMESTAMP
+                );
+                CREATE TABLE order_items(
+                    id SERIAL PRIMARY KEY,
+                    orders_id INTEGER REFERENCES orders(id),
+                    product_id INTEGER REFERENCES products(id),
+                    quantity INTEGER NOT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
@@ -412,16 +418,12 @@
         try {
             const seedOrders = [
                 {
-                    id: 1,
-                    userId: 1,
-                    orderDate: '2022-07-28 18:10:25-07',
-                    shippingStreet: 'One Apple Park Way',
-                    shippingZip: '95014',
-                    shippingCity: 'Cupertino',
-                    shippingCountry: 'US',
-                    shippingState: 'CA',
+                    user_id: 1,
+                    amount_total: 200.99,
                     currency: 'usd',
-                    amountTotal: 200,
+                    status: 'completed',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    
                 }
             ]
 
@@ -554,9 +556,9 @@
             .then(seedInitialProductCategories)
             .then(seedInitialProducts)
             .then(seedSavedProducts)
-            .then(seedInitialOrders)
             .then(seedShoppingSession)
             .then(seedInitialCartItem)
+            .then(seedInitialOrders)
             .then(seedProductReviews)
             .then(testDB)
             
@@ -580,9 +582,9 @@
             seedInitialProductCategories,
             seedInitialProducts,
             seedSavedProducts,
-            seedInitialOrders,
             seedShoppingSession,
             seedInitialCartItem,
+            seedInitialOrders,
             seedProductReviews,
             testDB,
         }
