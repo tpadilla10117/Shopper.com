@@ -30,7 +30,7 @@ const {
             
             `, [user_id] );
 
-
+/* TODO: Need to retrieve the order_items on each order */
             const { rows: order_items } = await client.query(`
                 SELECT order_items.id, orders_id, product_id, quantity FROM order_items
                 JOIN orders ON order_items.orders_id = orders.id
@@ -39,7 +39,10 @@ const {
 
            /*  orders.order_items = await Promise.all(orders.map(getOrderItemsByOrdersId(user_id))); */
 
+
             return orders;
+            
+            
         } catch (error) {
             throw error;
         }
