@@ -26,12 +26,15 @@
     } = require('./dbadapters/saved_products');
 
     const {
+        getAllOrderItems,
         createOrderItems,
     } = require('./dbadapters/order_items');
 
     const {
         createOrder,
         getOrderById,
+        getOrderItemsByOrdersId,
+        getAllOrdersByAUserId,
     } = require('./dbadapters/orders');
 
     const {
@@ -59,7 +62,7 @@
         try {
             console.log("Starting to test Database!")
 
-            console.log("Calling getUser...");
+           /*  console.log("Calling getUser...");
             const user = await getUser({
                 username: 'trin',
                 password: 'padilla123'
@@ -80,19 +83,27 @@
 
             
             const userAddress = await getUserAddress(1);
-            console.log('My user address: ', userAddress);
+            console.log('My user address: ', userAddress); */
 
-            const retrieveAReview = await getAProductReviewById(1);
-            console.log('I retrieved a review! :', retrieveAReview);
+            /* const retrieveAReview = await getAProductReviewById(1);
+            console.log('I retrieved a review! :', retrieveAReview); */
 
-            const allReviews = await getAllProductReviews();
-            console.log('Result of getAllProductReviews! :', allReviews);
+            /* const allReviews = await getAllProductReviews();
+            console.log('Result of getAllProductReviews! :', allReviews); */
 
-            const sampleSessionRetrieval = await retrieveShoppingSessionItemById(1);
-            console.log('Result of sampleSessionRetrieval! :', sampleSessionRetrieval);
+          /*   const sampleSessionRetrieval = await retrieveShoppingSessionItemById(1);
+            console.log('Result of sampleSessionRetrieval! :', sampleSessionRetrieval); */
 
             const retrieveAOrder = await getOrderById(1);
             console.log('Here is a specific order by Id: ', retrieveAOrder);
+
+            const retrieveOrderItemsByOrdersId = await getOrderItemsByOrdersId(1);
+            console.log('Here are order_items by the orders_id: ', retrieveOrderItemsByOrdersId);
+
+
+            console.log('Here are all my order Items: ', await getAllOrderItems() );
+
+            console.log('Here are all a users orders: ', await getAllOrdersByAUserId(1) );
 
             console.log("Finished testing Database!")
         } catch (error) {
@@ -427,12 +438,26 @@
             const seedOrders = [
                 {
                     user_id: 1,
-                    amount_total: 125.94,
+                    amount_total: 109.95,
                     currency: 'usd',
                     status: 'completed',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    /* These below come from redux: */
+                    product_id: 1,
+                    quantity: 1
                     
-                }
+                },
+                {
+                    user_id: 1,
+                    amount_total: 22.30,
+                    currency: 'usd',
+                    status: 'completed',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    /* These below come from redux: */
+                    product_id: 2,
+                    quantity: 5
+                    
+                },
             ]
 
             const orders = await Promise.all(seedOrders.map(createOrder));
@@ -595,7 +620,6 @@
             .then(seedShoppingSession)
             .then(seedInitialCartItem)
             .then(seedInitialOrders)
-            .then(seedOrderItems)
             .then(seedProductReviews)
             .then(testDB)
             
@@ -622,7 +646,6 @@
             seedShoppingSession,
             seedInitialCartItem,
             seedInitialOrders,
-            seedOrderItems,
             seedProductReviews,
             testDB,
         }

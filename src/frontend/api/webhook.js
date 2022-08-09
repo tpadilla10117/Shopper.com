@@ -17,6 +17,13 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
 
 /* TODO: Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
 
+/* WILL HAVE TO GET LINE ITEMS FOR THIS TO WORK 
+
+- from session can get: quantity of each item
+- from my frontend can get: quantity each item, product_id
+
+*/
+
     const fulfillOrder = async ( session ) => {
 
        /*  try {
