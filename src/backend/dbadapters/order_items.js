@@ -18,6 +18,36 @@ const { client } = require('../index');
         }
     };
 
+
+/* I only create unique products for an order when I Create an Order via completed Stripe Checkout (data inputted from my webhook) : */
+
+/* GOAL:
+[
+  order_items: [
+    {
+        id: 1,
+        orders_id: 1,
+        product_id: 1,
+        quantity: 1,
+        created_at: "2022-08-09T17:20:07.146Z",
+        modified_at: null,
+        deleted_at: null
+    },
+    {
+        id: 2,
+        orders_id: 1,
+        product_id: 2,
+        quantity: 5,
+        created_at: "2022-08-09T17:20:07.146Z",
+        modified_at: null,
+        deleted_at: null
+    },
+
+  ]
+]
+
+*/
+
 /* Items retrieved (via webhook) from completed Stripe Checkout Session: */
     async function createOrderItems(order_items) {
 
@@ -29,13 +59,15 @@ const { client } = require('../index');
         } = order_items;
 
         try {
+        
             const { rows: [ items ] } = await client.query(`
                 INSERT INTO order_items(orders_id, product_id, quantity)
                 VALUES($1, $2, $3)
                 RETURNING *
-            `, [ orders_id, product_id, quantity]);
+            `, [ orders_id, product_id, quantity ]);
+           
+           return items;
 
-            return items;
 
         } catch(error) {
             throw error;
@@ -45,23 +77,6 @@ const { client } = require('../index');
 
 
 /* TODO: NEED TO RETRIEVE PRODUCT DATA: */
-
-    /* async function retrieveProductsInAnOrder(id) {
-        try {
-
-            const { rows: products } = await client.query(`
-            
-                SELECT id, title, description FROM products
-                WHERE products.id = $1
-            
-            `, [ products ]);
-
-            return products;
-
-        } catch(error) {
-            throw error;
-        }
-    } */
 
 
     async function getOrderItems(id) {

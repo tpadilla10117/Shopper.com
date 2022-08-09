@@ -1,7 +1,7 @@
 /* File for orders table db adapters using SQL Queries: */
 const { client } = require('../index');
 const {
-    createOrderItems
+    createOrderItems,
 } = require('./order_items');
 
 /* ----------------------------------------------------------------------------- */
@@ -87,9 +87,7 @@ const {
         currency,
         status,
         created_at,
-        product_id,
-        quantity,
-        products
+        order_items
         } ) 
     {
         try {
@@ -111,25 +109,34 @@ const {
             - order_items will be a table with rows that correspond to one product each
             - TODO: This data is the part of the INPUT from the fullfill order function in the webhook
     */
-        
 
-            let orderItemsData = [ 
-                /* TODO: This first portion works, but need to see if can add multiple order_items to an order */
-                /* {
-                    orders_id: order.id,
-                    product_id: product_id, 
-                    quantity: quantity,
-                }, */
+            /* 
+            order.id = 1, represents the order's identifier
+            product_id represents the array of products, [ 1, 2]
+            quantities represents the total of each product, [1, 1]
+            
+            */
+
+            /* let orderItemsData = [ 
                 {
                     orders_id: order.id,
-                    product_id: products.forEach( (element) => element ), 
-                    quantity: quantity,
+                    product_id: products, 
+                    quantity: quantities,
                 },
-            ];
+            ]; */
+            
+        /* Mutate the orders_id to be the dynamic value from each orders.id: */
 
-            order.order_items = await Promise.all(orderItemsData.map(createOrderItems));
+            let mutateOrdersId = await Promise.all(order_items).then((values) => {
+                values.map( element => element.orders_id = order.id );
+                return (values)
+            });
+
+        /* Create order_items with the new dataset: */
+            order.order_items = await Promise.all(mutateOrdersId.map(createOrderItems));
 
             return order;
+            
 
         } catch(error) {
             throw error;

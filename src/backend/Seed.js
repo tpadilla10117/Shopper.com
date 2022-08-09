@@ -27,7 +27,6 @@
 
     const {
         getAllOrderItems,
-        createOrderItems,
     } = require('./dbadapters/order_items');
 
     const {
@@ -104,6 +103,8 @@
             console.log('Here are all my order Items: ', await getAllOrderItems() );
 
             console.log('Here are all a users orders: ', await getAllOrdersByAUserId(1) );
+
+            /* console.log('output from uniqueProducts: ', await createUniqueOrderItem([3, 4])) */
 
             console.log("Finished testing Database!")
         } catch (error) {
@@ -224,7 +225,7 @@
                     id SERIAL PRIMARY KEY,
                     orders_id INTEGER REFERENCES orders(id),
                     product_id INTEGER REFERENCES products(id),
-                    quantity INTEGER NOT NULL,
+                    quantity INTEGER /* NOT NULL */,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
                     modified_at TIMESTAMP,
                     deleted_at TIMESTAMP
@@ -447,35 +448,42 @@
                     status: 'completed',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                     /* These below come from redux: */
-                    product_id: 1,
-                    quantity: 1,
-                    products: [ 1, 2 ]
+                    order_items: [
+                        {
+                            orders_id: null,
+                            product_id: 1,
+                            quantity: 1,
+                        },
+                        {
+                            orders_id: null,
+                            product_id: 2,
+                            quantity: 1,
+                        },
+                    ]
                     
                 },
                 {
                     user_id: 1,
-                    amount_total: 22.30,
+                    amount_total: 78.29,
                     currency: 'usd',
                     status: 'completed',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-                    /* These below come from redux: */
-                    product_id: 2,
-                    quantity: 5,
-                    products: [ 2 ]
+                    
+                    order_items: [
+                        {
+                            orders_id: null,
+                            product_id: 2,
+                            quantity: 1,
+                        },
+                        {
+                            orders_id: null,
+                            product_id: 3,
+                            quantity: 1,
+                        },
+                    ]
                     
                 },
-                {
-                    user_id: 1,
-                    amount_total: 71.98,
-                    currency: 'usd',
-                    status: 'completed',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-                    /* These below come from redux: */
-                    product_id: 3,
-                    quantity: 5,
-                    products: [3, 4]
-                    
-                },
+               
             ]
 
             const orders = await Promise.all(seedOrders.map(createOrder));
@@ -487,33 +495,6 @@
         }
     };
 
-    async function seedOrderItems() {
-        console.log('Creating order_Items...');
-
-        try {
-
-            const orderItemsData = [
-                {
-                    orders_id: 1,
-                    product_id: 1,
-                    quantity: 1,
-                },
-                {
-                    orders_id: 1,
-                    product_id: 4,
-                    quantity: 1,
-                },
-            ];
-
-            const createdOrderItems = await Promise.all(orderItemsData.map(createOrderItems));
-
-            console.log('order_items sucessfully created! :', createdOrderItems);
-            
-        } catch(error) {
-            console.error('There was an error creating order_items!');
-            throw error;
-        }
-    }
 
     async function seedProductReviews() {
         console.log('Creating reviews...');
