@@ -5,6 +5,7 @@ const { client } = require('../index');
 //THESE ARE THE order_items METHODS: TODO: NEED TO TEST ONCE ROUTES SET UP
 
 /* Retrieve all order_items: */
+/* TESTED: COMPLETE / WORKS */
     async function getAllOrderItems() {
         try {
             const { rows: order_items } = await client.query(`

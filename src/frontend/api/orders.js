@@ -3,10 +3,13 @@
     const express = require('express');
     const ordersRouter = express.Router();
 
+    const ApiError = require('./errors/apierror');
+
 /* Import DB methods: */
     const {
         getAllOrders,
-        getOrderById
+        getOrderById,
+        getAllOrdersByAUserId,
     } = require('../../backend/dbadapters/orders');
 
 /* ------------------------------------------------------------ */
@@ -22,6 +25,30 @@
             next(error)
         }
     });
+
+/* Route for a user's orders: */
+/* TODO: Error handling */
+    ordersRouter.get(`/:userId`, async (req, res, next) => {
+        const { userId } = req.params;
+
+        try {
+            const orders = await getAllOrdersByAUserId(userId);
+
+          /*   if( userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+
+                return;
+            } else {
+                res.send(orders);
+                return orders;
+            } */
+            res.send(orders);
+            return orders;
+
+        } catch(error) {
+            next(error)
+        }
+    })
 
 
     module.exports = ordersRouter;

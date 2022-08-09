@@ -21,7 +21,8 @@ const {
         }
     };
 
-/* To search for orders by a user: */
+/* To search for orders by a user, */
+/* & Retrieve the order_items on each order */
     async function getAllOrdersByAUserId(user_id) {
         try {
             const { rows: orders } = await client.query(`
@@ -30,17 +31,11 @@ const {
             
             `, [user_id] );
 
-/* TODO: Need to retrieve the order_items on each order */
-            const { rows: order_items } = await client.query(`
-                SELECT order_items.id, orders_id, product_id, quantity FROM order_items
-                JOIN orders ON order_items.orders_id = orders.id
-                WHERE orders.id = $1
-            `, [user_id])
-
-           /*  orders.order_items = await Promise.all(orders.map(getOrderItemsByOrdersId(user_id))); */
-
-
-            return orders;
+            const allOrders = await Promise.all(orders.map(
+                x => getOrderById(x.id)
+            ))
+        
+            return allOrders;
             
             
         } catch (error) {
@@ -94,6 +89,7 @@ const {
         created_at,
         product_id,
         quantity,
+        products
         } ) 
     {
         try {
@@ -118,9 +114,15 @@ const {
         
 
             let orderItemsData = [ 
-                {
+                /* TODO: This first portion works, but need to see if can add multiple order_items to an order */
+                /* {
                     orders_id: order.id,
                     product_id: product_id, 
+                    quantity: quantity,
+                }, */
+                {
+                    orders_id: order.id,
+                    product_id: products.forEach( (element) => element ), 
                     quantity: quantity,
                 },
             ];
