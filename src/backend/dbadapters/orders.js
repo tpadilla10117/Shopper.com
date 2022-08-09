@@ -128,7 +128,7 @@ const {
         /* Mutate the orders_id to be the dynamic value from each orders.id: */
 
             let mutateOrdersId = await Promise.all(order_items).then((values) => {
-                values.map( element => element.orders_id = order.id );
+                values.forEach( element => element.orders_id = order.id );
                 return (values)
             });
 

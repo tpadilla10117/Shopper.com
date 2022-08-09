@@ -437,10 +437,7 @@
 
         try {
             const seedOrders = [
-                /* TODO: Need to make sure can add multiple order_items to an order and not just one
-                
-                products is an array of products.id that is being used as a test/placeho;der
-                */
+            
                 {
                     user_id: 1,
                     amount_total: 109.95,
@@ -480,6 +477,28 @@
                             product_id: 3,
                             quantity: 1,
                         },
+                    ]
+                    
+                },
+                {
+                    user_id: 1,
+                    amount_total: 156.58,
+                    currency: 'usd',
+                    status: 'completed',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    
+                    order_items: [
+                        {
+                            orders_id: null,
+                            product_id: 2,
+                            quantity: 2,
+                        },
+                        {
+                            orders_id: null,
+                            product_id: 3,
+                            quantity: 2,
+                        },
+                       
                     ]
                     
                 },
