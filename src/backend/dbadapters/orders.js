@@ -5,7 +5,7 @@ const {
 } = require('./order_items');
 
 /* ----------------------------------------------------------------------------- */
-//THESE ARE THE ORDER METHODS: TODO: NEED TO TEST ONCE ROUTES SET UP
+//THESE ARE THE ORDER METHODS:
 
 /* To search for ALL orders: */
 /* TESTED: COMPLETE / WORKS */
@@ -104,27 +104,7 @@ const {
                 created_at 
             ])
 
-    /*2) Populate order with its order_items: 
-    
-            - order_items will be a table with rows that correspond to one product each
-            - TODO: This data is the part of the INPUT from the fullfill order function in the webhook
-    */
-
-            /* 
-            order.id = 1, represents the order's identifier
-            product_id represents the array of products, [ 1, 2]
-            quantities represents the total of each product, [1, 1]
-            
-            */
-
-            /* let orderItemsData = [ 
-                {
-                    orders_id: order.id,
-                    product_id: products, 
-                    quantity: quantities,
-                },
-            ]; */
-            
+    /*Populate order with its order_items: 
         /* Mutate the orders_id to be the dynamic value from each orders.id: */
 
             let mutateOrdersId = await Promise.all(order_items).then((values) => {

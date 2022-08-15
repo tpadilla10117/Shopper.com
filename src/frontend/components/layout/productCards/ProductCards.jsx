@@ -8,8 +8,10 @@ function ProductCards({
     id,
     title,
     description,
-    category,
+    productid,
     image,
+    category_id,
+    subcategory,
     price
 }) {
 
@@ -17,19 +19,21 @@ function ProductCards({
 
     const addItemToBasket = () => {
         const product = {
-            id, 
-            title, 
-            price, 
-            description, 
-            category, 
+            id,
+            title,
+            description,
+            productid,
             image,
+            category_id,
+            subcategory,
+            price
         };
         dispatch(addToBasket(product) )
     };
 
   return (
     <div className='productcard-parent-container' key={id}>
-        <p className='productcard-category'>{category}</p>
+        <p className='productcard-category'>{subcategory}</p>
 
         <figure className='productcard-img-wrapper'>
             <img src={image} className='productcard-img' alt={title}/>

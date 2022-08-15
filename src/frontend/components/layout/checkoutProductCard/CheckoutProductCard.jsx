@@ -4,12 +4,29 @@ import { useDispatch } from 'react-redux';
 import { addToBasket, removeFromBasket } from '../../../reduxslices/basketslice';
 import { Add, Remove } from "@material-ui/icons";
 
-function CheckoutProductCard({ id, title, description, category, image, price, productid }) {
+function CheckoutProductCard({ 
+    id,
+    title,
+    description,
+    productid,
+    image,
+    category_id,
+    subcategory,
+    price
+}) {
 
     const dispatch = useDispatch();
 
     const addItemToBasket = () => {
-        const product = { id, title, description, category, image, price };
+        const product = { 
+            id,
+            title,
+            description,
+            productid,
+            image,
+            category_id,
+            subcategory,
+            price };
         dispatch(addToBasket(product))
     };
 

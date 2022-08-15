@@ -1,5 +1,7 @@
 /* const express = require('express');
 const webhookRouter = express.Router(); */
+/* const { useSelector } = require('react-redux');
+const { selectItems } = require('../reduxslices/basketslice'); */
 
 const { createOrder } = require('../../backend/dbadapters/orders');
 
@@ -20,18 +22,40 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
 /* WILL HAVE TO GET LINE ITEMS FOR THIS TO WORK 
 
 - from session can get: quantity of each item
-- from my frontend can get: quantity each item, product_id
+- from my frontend can get: quantity each item, product_id -> selectTotal from basketSlice works for amount_total.
+
+- 8/15/22 -> WORKS, but need to resolve syntax conflicts with ES6 modules so I can use my redux code for the fulfullOrder arguments
 
 */
+   /*  const items = useSelector( selectItems );
+    console.log(items) */
 
     const fulfillOrder = async ( session ) => {
-
+        
        /*  try {
             await getUserById
         } */
-    
+
         return createOrder( {
-            id: 3,
+            user_id: 1,
+            /* TODO: useSelectTotal for cart Total */
+            /* amount_total: session.amount_total, */
+            amount_total: 165.94,
+            currency: session.currency,
+            status: session.status,
+            created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+            /* TODO: Need to use redux selectItems here */
+            order_items: [
+                {
+                    orders_id: null,
+                    product_id: 2,
+                    quantity: 2,
+                },
+            ]
+
+        })
+    
+        /* return createOrder( {
             userId: 1,
             orderDate: '2022-07-28 18:10:25-07',
             shippingStreet: session.customer_details.address.line1,
@@ -41,7 +65,7 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
             shippingState: session.customer_details.address.state,
             currency: session.currency,
             amountTotal: session.amount_total,
-        })
+        }) */
         
         
     };

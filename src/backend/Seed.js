@@ -93,18 +93,16 @@
           /*   const sampleSessionRetrieval = await retrieveShoppingSessionItemById(1);
             console.log('Result of sampleSessionRetrieval! :', sampleSessionRetrieval); */
 
-            const retrieveAOrder = await getOrderById(1);
-            console.log('Here is a specific order by Id: ', retrieveAOrder);
+            /* const retrieveAOrder = await getOrderById(1);
+            console.log('Here is a specific order by Id: ', retrieveAOrder); */
 
-            const retrieveOrderItemsByOrdersId = await getOrderItemsByOrdersId(1);
-            console.log('Here are order_items by the orders_id: ', retrieveOrderItemsByOrdersId);
+           /*  const retrieveOrderItemsByOrdersId = await getOrderItemsByOrdersId(1);
+            console.log('Here are order_items by the orders_id: ', retrieveOrderItemsByOrdersId); */
 
-
+/* 
             console.log('Here are all my order Items: ', await getAllOrderItems() );
-
+ */
             console.log('Here are all a users orders: ', await getAllOrdersByAUserId(1) );
-
-            /* console.log('output from uniqueProducts: ', await createUniqueOrderItem([3, 4])) */
 
             console.log("Finished testing Database!")
         } catch (error) {

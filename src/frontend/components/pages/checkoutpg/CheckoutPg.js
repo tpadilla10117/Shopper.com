@@ -25,6 +25,8 @@
       const dispatch = useDispatch();
       const stripePromise = loadStripe('pk_test_51KepPXD7lX2ovvhcjTQAGgIsYzdaGEnKEYrKcbbfT4GXc29gwu6FrvlYZsdIEIDJLyFIlUBH3qxr0v6tWew3gN4a00mUeJLoOd');
 
+      console.log('Here are my items: ', items)
+
       const handleGuestCheckout = async () => {
         const stripe = await stripePromise;
 
@@ -82,16 +84,18 @@
             <div className="checkoutpg-bottomsection">
 
               <div className="checkoutpg-infosection">
-
+          {/* TODO: Need to update with new info: */}
                 {items.map( (item, index) => (
                     <CheckoutProductCard 
                       key={index}
                       id={item.id}
                       title={item.title}
                       description={item.description}
-                      price={item.price}
-                      category={item.category}
+                      productid={item.productid}
                       image={item.image}
+                      category_id={item.category_id}
+                      subcategory={item.subcategory}
+                      price={item.price}
                     />
                 ))}
                 

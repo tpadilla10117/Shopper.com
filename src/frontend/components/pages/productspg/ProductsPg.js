@@ -45,9 +45,12 @@ return (
           key={productCard.id} 
           title={productCard.title} 
           description={productCard.description}
-          category={productCard.category}
+          productid={productCard.productid}
           image={productCard.image}
+          category_id={productCard.category_id}
+          subcategory={productCard.subcategory}
           price={productCard.price}  
+          created_at={productCard.created_at}
         />
       )
     }
@@ -61,3 +64,14 @@ return (
 )};
 
 export default ProductsPg;
+
+//TODO: This was BEFORE I made edits
+/* <ProductCards 
+          id={productCard.id} 
+          key={productCard.id} 
+          title={productCard.title} 
+          description={productCard.description}
+          category={productCard.category}
+          image={productCard.image}
+          price={productCard.price}  
+        /> */
