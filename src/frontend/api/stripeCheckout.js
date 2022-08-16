@@ -30,7 +30,7 @@
         }));
 
         console.log("My transformed Items: ", transformedItems)
-        console.log("My transformed Items productid: ", transformedItems[0].price_data.product_data.metadata.productid)
+        console.log("My transformed Items productid: ", transformedItems[0].price_data.product_data.metadata)
 
     /* Check if req.body has items and email: */
         if(!items || !email) {
@@ -56,6 +56,7 @@
                 shipping_address_collection: { allowed_countries: ['GB', 'US']}
 
             });
+
             res.status(200).json({ sessionId: session.id } )
         } catch (error) {
             console.log(error);

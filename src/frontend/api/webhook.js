@@ -1,12 +1,3 @@
-
-/* const basketSlice = import('../reduxslices/basketslice'); */
-const { useSelector } = require('react-redux');
-/* const { selectItems } = require('../reduxslices/basketslice'); */
-
-/* basketSlice.then(condit => {
-
-}) */
-
 const { createOrder } = require('../../backend/dbadapters/orders');
 
 const { getUserById } = require('../../backend/dbadapters/users');
@@ -25,21 +16,26 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
 
 /* WILL HAVE TO GET LINE ITEMS FOR THIS TO WORK 
 
-- from session can get: quantity of each item
-- from my frontend can get: quantity each item, product_id -> selectTotal from basketSlice works for amount_total.
-
-- 8/15/22 -> WORKS, but need to resolve syntax conflicts with ES6 modules so I can use my redux code for the fulfullOrder arguments
+    - 8/16 -> retrieving via the session object, then loop for the order_items
 
 */
-   /*  const items = useSelector( selectItems );
-    console.log(items) */
 
-    const fulfillOrder = async ( session ) => {
+
+    const fulfillOrder = async ( session, retrievedSessionObjectWithLineItems ) => {
         
        /*  try {
             await getUserById
         } */
-       
+
+        
+        let retrievedLineItems = retrievedSessionObjectWithLineItems.line_items.data;
+        
+        console.log('Line_items from fulfillOrder: ', retrievedLineItems)
+
+       console.log('Metadata from a lineItem: ', retrievedLineItems[0].price.metadata);
+
+       console.log('Metadata (quantity) from a lineItem: ', retrievedLineItems[0].quantity);
+
         return createOrder( {
             user_id: 1,
             /* TODO: useSelectTotal for cart Total */
@@ -57,19 +53,6 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
             ]
 
         })
-    
-        /* return createOrder( {
-            userId: 1,
-            orderDate: '2022-07-28 18:10:25-07',
-            shippingStreet: session.customer_details.address.line1,
-            shippingZip: session.customer_details.address.postal_code,
-            shippingCity: session.customer_details.address.city,
-            shippingCountry: session.customer_details.address.country,
-            shippingState: session.customer_details.address.state,
-            currency: session.currency,
-            amountTotal: session.amount_total,
-        }) */
-        
         
     };
 
@@ -102,10 +85,20 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
                 const session = event.data.object;
                 console.log("Checkout Session ID: ", session.id)
                 console.log("Checkout Session object: ", session)
+
+    /* Retrieve my line_items */
+                const retrievedLineItems = await stripe.checkout.sessions.retrieve(
+                    session.id, 
+                    {
+                        expand: ['line_items']
+                    }
+                )
+                
+                console.log('Here are my line items retrieved: ', retrievedLineItems)
                 
     //Fulfill an order:
-
-                return fulfillOrder(session)
+                
+                return fulfillOrder(session, retrievedLineItems)
                     .then( () => res.status(200).end() )
                     .catch( (err) => res.status(400).send(`Error in Webhook: ${err.message}`));
                 
