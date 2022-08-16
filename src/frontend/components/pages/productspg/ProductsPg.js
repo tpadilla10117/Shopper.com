@@ -51,6 +51,7 @@ return (
           subcategory={productCard.subcategory}
           price={productCard.price}  
           created_at={productCard.created_at}
+          quantity={1}
         />
       )
     }

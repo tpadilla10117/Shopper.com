@@ -1,5 +1,5 @@
 /* The redux slice for my shopping basket: */
-    import { createSlice } from "@reduxjs/toolkit";
+    import { createSlice , current } from "@reduxjs/toolkit";
 
 /* Initialize state of the slice: */
     const initialState = {
@@ -26,7 +26,7 @@
 
                 //make a copy of the current basket...
                 let newBasket = [...state.items];
-
+                
                 if (index >= 0) {
                     newBasket.splice(index, 1)
                 } else {
@@ -36,12 +36,43 @@
             },
             clearBasket: (state, action) => {
                 state.items = [];
-            }
+            },
+            addCartItemCount: (state, action) => {
+                console.log('My payload: ', action.payload)
+                console.log('The right item: ', current(state))
+
+                const existingCartItem = state.items.find(
+                    (cartItem) => cartItem.productid === action.payload.productid
+                );
+                
+                if(existingCartItem) {
+                    
+                    return {
+                        ...state,
+                        items: state.items.map(item => item.productid === action.payload.productid
+                            ? {
+                                ...item,
+                                quantity: item.quantity + 1,
+                            }
+                            : item
+                        ),
+                    }
+                }
+
+                return {
+                    ...state,
+                    items: [...state.items, action.payload]
+                }
+              
+            },
+            removeCartItemCount: ( state, action ) => {
+
+            },
         },
     });
 
 /* Export my actions: */
-    export const { addToBasket, removeFromBasket, clearBasket } = basketSlice.actions;
+    export const { addToBasket, removeFromBasket, clearBasket, addCartItemCount, removeCartItemCount } = basketSlice.actions;
 
 /* Selectors - how to pull info from Global store slice: */
     export const selectItems = (state) => state.basket.items;

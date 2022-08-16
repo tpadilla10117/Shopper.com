@@ -1,7 +1,14 @@
 /* The Product Cards Rendered on the Checkout Pg: */
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToBasket, removeFromBasket } from '../../../reduxslices/basketslice';
+import { useDispatch, useSelector } from 'react-redux';
+import { 
+    addToBasket, 
+    removeFromBasket,
+    addCartItemCount,
+    removeCartItemCount 
+} from '../../../reduxslices/basketslice';
+
+import { selectItems } from '../../../reduxslices/basketslice';
 import { Add, Remove } from "@material-ui/icons";
 
 function CheckoutProductCard({ 
@@ -12,10 +19,14 @@ function CheckoutProductCard({
     image,
     category_id,
     subcategory,
-    price
+    price,
+    quantity
 }) {
 
     const dispatch = useDispatch();
+    const items = useSelector(selectItems);
+
+    console.log(items)
 
     const addItemToBasket = () => {
         const product = { 
@@ -33,6 +44,22 @@ function CheckoutProductCard({
     const removeItemFromBasket = () => {
         dispatch(removeFromBasket( {id} ) );
     };
+
+    const addItemHandler = () => {
+        const product = { 
+            id,
+            title,
+            description,
+            productid,
+            image,
+            category_id,
+            subcategory,
+            price,
+            quantity 
+        };
+       
+        dispatch(addCartItemCount( product ));
+    }
 
   return (
     <div className='checkoutproductcard-parent-container'>
@@ -55,11 +82,21 @@ function CheckoutProductCard({
 
         <div className='checkoutproductcard-pricedetails'>
             <div className='checkoutproductcard-productamount-container'>
-                <Add onClick={addItemToBasket}  />
+                {/* <Add onClick={addItemToBasket}  /> */}
                 
                 <Remove onClick={removeItemFromBasket}/>
 
             </div>
+            <span className='quantity'>
+                <div className='arrow' /* onClick={removeItemHandler} */>
+                    &#10094;
+                </div>
+                <span className='value'>quantity: {quantity}</span>
+                <div className='arrow' onClick={addItemHandler}>
+                    &#10095;
+                </div>
+            </span>
+            <br/>
             <div className='checkoutproductcard-productprice'>
                 <h3>{price}</h3>
             </div>

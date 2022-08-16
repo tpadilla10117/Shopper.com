@@ -12,7 +12,8 @@ function ProductCards({
     image,
     category_id,
     subcategory,
-    price
+    price,
+    quantity
 }) {
 
     const dispatch = useDispatch();
@@ -26,7 +27,8 @@ function ProductCards({
             image,
             category_id,
             subcategory,
-            price
+            price,
+            quantity
         };
         dispatch(addToBasket(product) )
     };

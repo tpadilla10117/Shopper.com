@@ -96,6 +96,7 @@
                       category_id={item.category_id}
                       subcategory={item.subcategory}
                       price={item.price}
+                      quantity={1}
                     />
                 ))}
                 
