@@ -14,7 +14,7 @@
         const transformedItems = items.map( item => ({
         
         /* if group items together, need to change quantity logic */
-            quantity: 1,
+            quantity: item.quantity,
             price_data: {
                 currency: 'usd',
                 unit_amount: item.price * 100,

@@ -43,8 +43,11 @@ function CheckoutProductCard({ cartItem }) {
     }; */
 
     const addItemHandler = () => {
-       
         dispatch(addCartItemCount( cartItem ));
+    };
+
+    const removeItemHandler = () => {
+        dispatch(removeCartItemCount ( cartItem ));
     }
 
   return (
@@ -74,7 +77,7 @@ function CheckoutProductCard({ cartItem }) {
 
             </div>
             <span className='quantity'>
-                <div className='arrow' /* onClick={removeItemHandler} */>
+                <div className='arrow' onClick={removeItemHandler}>
                     &#10094;
                 </div>
                 <span className='value'>{quantity}</span>

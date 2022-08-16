@@ -71,7 +71,7 @@
                   Shopping Bag ({items.length})
                 </span>
                {/*  <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} /> */}
-               {total}
+               Total: ${total}
               </div>
 
               <button className="checkoutpg-topbtn"

@@ -1,5 +1,5 @@
 /* The redux slice for my shopping basket: */
-    import { createSlice , current } from "@reduxjs/toolkit";
+    import { createNextState, createSlice } from "@reduxjs/toolkit";
 
 /* Initialize state of the slice: */
     const initialState = {
@@ -19,7 +19,7 @@
                 //push payload in global store (contains dispatched product)
                 state.items = [...state.items, action.payload];
             },
-        /* TODO: Need to finish Remove basket.. */
+        /* Removes a specific item from basket: */
             removeFromBasket: (state, action) => {
                 //look for index of item want to remove...
                 const index = state.items.findIndex( basketItem => basketItem.id === action.payload.id);
@@ -37,9 +37,8 @@
             clearBasket: (state, action) => {
                 state.items = [];
             },
+        /* Increments count of a cart item: */
             addCartItemCount: (state, action) => {
-                console.log('My payload: ', action.payload)
-                console.log('The right item: ', current(state))
 
                 const existingCartItem = state.items.find(
                     (cartItem) => cartItem.productid === action.payload.productid
@@ -65,8 +64,26 @@
                 }
               
             },
+        /* Lowers the count of a cart item: */
             removeCartItemCount: ( state, action ) => {
+                const existingCartItem = state.items.find(
+                    (cartItem) => cartItem.productid === action.payload.productid
+                );
 
+                if(existingCartItem.quantity === 1) {
+                    state.items.filter( (cartItem ) => cartItem.productid !== action.payload.productid)
+                };
+
+                return {
+                    ...state,
+                    items: state.items.map(item => item.productid === action.payload.productid
+                        ? {
+                            ...item,
+                            quantity: item.quantity - 1,
+                        }
+                        : item
+                    ),
+                }
             },
         },
     });
@@ -77,15 +94,11 @@
 /* Selectors - how to pull info from Global store slice: */
     export const selectItems = (state) => state.basket.items;
 
-/* use .reduce to loop through items in the array -> each time we iterate, add item price to the total */
-/* TODO: total is not adding up properly */
-
-/*     export const selectTotal = (state) => state.basket.items.reduce( (total, item) => Number(total) + Number(item.price), 0); */
-
-/* TODO: Need to create a new total based on the incremented arrows */
-
+    
     export const selectTotal = (state) => state.basket.items.reduce(
-        (total, item) => total + item.quantity * item.price
-    )
+        (total, item) => total + item.quantity * item.price, 0
+    );
+        
+    /*     export const selectTotal = (state) => state.basket.items.reduce( (total, item) => Number(total) + Number(item.price), 0); */
 
     export default basketSlice.reducer;
