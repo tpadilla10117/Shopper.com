@@ -72,7 +72,7 @@
     const usersRouter = require('./users');
     apiRouter.use('/shop', require('./shop'));
     apiRouter.use('/orders', require('./orders'));
-    apiRouter.use('/webhook', require('./webhook'));
+    apiRouter.use('/webhook', require('./webhook.js'));
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);

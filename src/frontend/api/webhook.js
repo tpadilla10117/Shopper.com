@@ -1,6 +1,11 @@
 
+/* const basketSlice = import('../reduxslices/basketslice'); */
 const { useSelector } = require('react-redux');
 /* const { selectItems } = require('../reduxslices/basketslice'); */
+
+/* basketSlice.then(condit => {
+
+}) */
 
 const { createOrder } = require('../../backend/dbadapters/orders');
 

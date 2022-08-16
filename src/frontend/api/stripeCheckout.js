@@ -21,12 +21,16 @@
                 product_data: {
                     name: item.title,
                     description: item.description,
-                    images: [item.image]
+                    images: [item.image],
+                    metadata: {
+                        productid: item.productid
+                    }
                 }
             }
         }));
 
         console.log("My transformed Items: ", transformedItems)
+        console.log("My transformed Items productid: ", transformedItems[0].price_data.product_data.metadata.productid)
 
     /* Check if req.body has items and email: */
         if(!items || !email) {
