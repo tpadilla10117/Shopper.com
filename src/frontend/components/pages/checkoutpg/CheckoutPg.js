@@ -70,7 +70,8 @@
                 <span className="checkoutpg-toptext">
                   Shopping Bag ({items.length})
                 </span>
-                <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} />
+               {/*  <CurrencyFormat value={total} prefix={'$'} isNumericString={true} displayType={'text'} thousandSeparator={true} /> */}
+               {total}
               </div>
 
               <button className="checkoutpg-topbtn"
@@ -88,7 +89,8 @@
                 {items.map( (item, index) => (
                     <CheckoutProductCard 
                       key={index}
-                      id={item.id}
+                      cartItem={item}
+                      /* id={item.id}
                       title={item.title}
                       description={item.description}
                       productid={item.productid}
@@ -96,7 +98,7 @@
                       category_id={item.category_id}
                       subcategory={item.subcategory}
                       price={item.price}
-                      quantity={1}
+                      quantity={1} */
                     />
                 ))}
                 

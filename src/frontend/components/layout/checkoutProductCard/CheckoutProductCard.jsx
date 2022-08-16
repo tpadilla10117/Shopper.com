@@ -11,24 +11,21 @@ import {
 import { selectItems } from '../../../reduxslices/basketslice';
 import { Add, Remove } from "@material-ui/icons";
 
-function CheckoutProductCard({ 
-    id,
-    title,
-    description,
-    productid,
-    image,
-    category_id,
-    subcategory,
-    price,
-    quantity
-}) {
+function CheckoutProductCard({ cartItem }) {
+
+    const  {
+        title,
+        image,
+        price,
+        quantity 
+    } = cartItem;
 
     const dispatch = useDispatch();
     const items = useSelector(selectItems);
 
     console.log(items)
 
-    const addItemToBasket = () => {
+    /* const addItemToBasket = () => {
         const product = { 
             id,
             title,
@@ -39,26 +36,15 @@ function CheckoutProductCard({
             subcategory,
             price };
         dispatch(addToBasket(product))
-    };
+    }; */
 
-    const removeItemFromBasket = () => {
+    /* const removeItemFromBasket = () => {
         dispatch(removeFromBasket( {id} ) );
-    };
+    }; */
 
     const addItemHandler = () => {
-        const product = { 
-            id,
-            title,
-            description,
-            productid,
-            image,
-            category_id,
-            subcategory,
-            price,
-            quantity 
-        };
        
-        dispatch(addCartItemCount( product ));
+        dispatch(addCartItemCount( cartItem ));
     }
 
   return (
@@ -84,14 +70,14 @@ function CheckoutProductCard({
             <div className='checkoutproductcard-productamount-container'>
                 {/* <Add onClick={addItemToBasket}  /> */}
                 
-                <Remove onClick={removeItemFromBasket}/>
+                {/* <Remove onClick={removeItemFromBasket}/> */}
 
             </div>
             <span className='quantity'>
                 <div className='arrow' /* onClick={removeItemHandler} */>
                     &#10094;
                 </div>
-                <span className='value'>quantity: {quantity}</span>
+                <span className='value'>{quantity}</span>
                 <div className='arrow' onClick={addItemHandler}>
                     &#10095;
                 </div>

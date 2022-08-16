@@ -2,7 +2,7 @@ import React from 'react';
 import { CtaButton } from '../../utils';
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch } from 'react-redux';
-import { addToBasket } from '../../../reduxslices/basketslice';
+import { addCartItemCount } from '../../../reduxslices/basketslice';
 
 function ProductCards({
     id,
@@ -30,7 +30,7 @@ function ProductCards({
             price,
             quantity
         };
-        dispatch(addToBasket(product) )
+        dispatch(addCartItemCount(product) )
     };
 
   return (
