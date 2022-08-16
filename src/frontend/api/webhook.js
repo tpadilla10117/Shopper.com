@@ -1,7 +1,6 @@
-/* const express = require('express');
-const webhookRouter = express.Router(); */
-/* const { useSelector } = require('react-redux');
-const { selectItems } = require('../reduxslices/basketslice'); */
+
+const { useSelector } = require('react-redux');
+/* const { selectItems } = require('../reduxslices/basketslice'); */
 
 const { createOrder } = require('../../backend/dbadapters/orders');
 

@@ -1,5 +1,5 @@
 /* This is where connection to PostgreSQL client occurs: */
-
+    
     require('dotenv').config();
 
     //1) Connect client to the PostgreSQL db:

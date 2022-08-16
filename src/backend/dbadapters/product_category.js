@@ -1,4 +1,5 @@
 /* File for product_category table db adapters using SQL Queries (DQL, Data Query Langauge): */
+
 const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */

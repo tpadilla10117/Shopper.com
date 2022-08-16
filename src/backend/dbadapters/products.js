@@ -1,4 +1,5 @@
 /* File for products table db adapters using SQL Queries: */
+
     const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */

@@ -1,4 +1,5 @@
 /* File for shopping_sessions table db adapters using SQL Queries: */
+
 const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */

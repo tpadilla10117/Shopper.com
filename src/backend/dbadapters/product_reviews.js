@@ -1,4 +1,5 @@
 /* File for product_reviews table db adapters using SQL Queries: */
+
 const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */

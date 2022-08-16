@@ -1,4 +1,5 @@
 /* File for admin table db adapters: */
+
     const {client} = require('../index');
 
 /* To update a user's info: */

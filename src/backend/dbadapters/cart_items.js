@@ -1,5 +1,6 @@
 /* File for user_carts table db adapters using SQL Queries: */
 /* cart_items holds individual products and works with shopping_sessions */
+
 const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */
