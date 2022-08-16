@@ -212,7 +212,7 @@
                 CREATE TABLE orders(
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER REFERENCES users(id),
-                    amount_total DECIMAL (6,2),
+                    amount_total DECIMAL (15,2),
                     currency VARCHAR(50) NOT NULL,
                     status VARCHAR(255) DEFAULT 'complete',
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,

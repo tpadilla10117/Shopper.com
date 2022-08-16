@@ -1,5 +1,5 @@
 /* The redux slice for my shopping basket: */
-    import { createSlice, current } from "@reduxjs/toolkit";
+    import { createSlice } from "@reduxjs/toolkit";
 
 /* Initialize state of the slice: */
     const initialState = {
@@ -108,7 +108,5 @@
     export const selectTotal = (state) => state.basket.items.reduce(
         (total, item) => total + item.quantity * item.price, 0
     );
-        
-    /*     export const selectTotal = (state) => state.basket.items.reduce( (total, item) => Number(total) + Number(item.price), 0); */
 
     export default basketSlice.reducer;

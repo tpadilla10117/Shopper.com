@@ -35,12 +35,11 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
        /*  try {
             await getUserById
         } */
-
+       
         return createOrder( {
             user_id: 1,
             /* TODO: useSelectTotal for cart Total */
-            /* amount_total: session.amount_total, */
-            amount_total: 165.94,
+            amount_total: Number( (session.amount_total / 100).toFixed(2) ),
             currency: session.currency,
             status: session.status,
             created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
