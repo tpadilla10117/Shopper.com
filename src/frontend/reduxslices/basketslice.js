@@ -1,5 +1,5 @@
 /* The redux slice for my shopping basket: */
-    import { createNextState, createSlice } from "@reduxjs/toolkit";
+    import { createSlice, current } from "@reduxjs/toolkit";
 
 /* Initialize state of the slice: */
     const initialState = {
@@ -70,13 +70,22 @@
                     (cartItem) => cartItem.productid === action.payload.productid
                 );
 
+            // check if quantity is equal to 1, if it is remove that item from the cart
                 if(existingCartItem.quantity === 1) {
-                    state.items.filter( (cartItem ) => cartItem.productid !== action.payload.productid)
-                };
 
+                    return {
+                        ...state,
+                        items: state.items.filter( (cartItem) => 
+                            cartItem.productid !== action.payload.productid 
+                        ) 
+                    } 
+                }
+
+
+            // return back cartitems with matching cart item with reduced quantity
                 return {
                     ...state,
-                    items: state.items.map(item => item.productid === action.payload.productid
+                    items: state.items.map((item) => item.productid === action.payload.productid
                         ? {
                             ...item,
                             quantity: item.quantity - 1,
@@ -84,6 +93,7 @@
                         : item
                     ),
                 }
+               
             },
         },
     });
