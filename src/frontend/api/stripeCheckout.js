@@ -29,8 +29,63 @@
             }
         }));
 
+    /* Used to extract a prdouctId: */
+        /* const transformedItemsMetadata = items.map( item => ({
+            metadata: {
+                productid: item.productid.toString()
+            }
+        })); */
+        
+        const transformedItemsMetadata = items.map( item => ({
+            
+            productid: item.productid.toString()
+            
+        }));
+
+      
+/* TODO: Need to return an object, not an array of objects
+
+        - that is why Object.values doesnt work
+*/
+        function individualMetadata(arr) {
+            let orderItemObject = {};
+
+            for(let i = 0; i < arr.length; i++) {
+                let itemObject = arr[i];
+            
+                orderItemObject[i] = itemObject;
+                console.log('my items from individualmetadata:', orderItemObject[i])
+
+            }
+            console.log('from the return : ', orderItemObject) 
+            /* return Object.values(orderItemObject) */
+        }
+
+        /* 
+        let orderItemObject = {};
+
+            for(let i = 0; i < arr.length; i++) {
+                let itemObject = arr[i];
+            
+            orderItemObject[i] = {
+                orders_id: null,
+                
+                product_id: 2,
+                quantity: itemObject.quantity,
+              }
+          
+            }
+        
+            return Object.values(orderItemObject)
+        */
+
+
         console.log("My transformed Items: ", transformedItems)
-        console.log("My transformed Items productid: ", transformedItems[0].price_data.product_data.metadata)
+        console.log("My transformed Items with metadara: ", transformedItemsMetadata)
+        console.log("My transformed Items with metadara: ", typeof transformedItemsMetadata)
+       /*  console.log("My transformed Items with metadara 2nd loop: ",  individualMetadata)
+        console.log("My transformed Items with metadara 2nd loop: ", typeof individualMetadata) */
+        /* console.log("My transformed Items productid: ", transformedItems[0].price_data.product_data.metadata) */
 
     /* Check if req.body has items and email: */
         if(!items || !email) {
@@ -46,6 +101,7 @@
                 payment_method_types: ['card'],
                 mode: 'payment',
                 line_items: transformedItems,
+                metadata: individualMetadata(transformedItemsMetadata),
                 /* line_items,
                 customer_email,
                 */

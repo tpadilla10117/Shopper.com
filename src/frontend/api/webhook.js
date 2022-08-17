@@ -31,6 +31,7 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
         
         let retrievedLineItems = retrievedSessionObjectWithLineItems.line_items.data;
 
+    /* Create dynamic objects to populate an order: */
         function generateOrderItemsObjects(arr) {
             let orderItemObject = {};
 
@@ -50,11 +51,12 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
         };
 
         
-       /*  console.log('Line_items from fulfillOrder: ', retrievedLineItems)
+        console.log('Line_items from fulfillOrder: ', retrievedLineItems[0].price)
+        console.log('Line_items from fulfillOrder: ', retrievedLineItems[0].price.product)
 
-       console.log('Metadata from a lineItem: ', retrievedLineItems[0].price.metadata);
+      /*  console.log('Metadata from a lineItem: ', retrievedLineItems[0].price.metadata); */
 
-       console.log('Metadata (quantity) from a lineItem: ', retrievedLineItems[0].quantity); */
+       /* console.log('Metadata (quantity) from a lineItem: ', retrievedLineItems[0].quantity); */
 
        console.log('Testing the generateOrderITems function:', generateOrderItemsObjects(retrievedLineItems))
 
