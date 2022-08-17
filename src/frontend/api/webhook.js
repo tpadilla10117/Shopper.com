@@ -31,6 +31,8 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
         
         let retrievedLineItems = retrievedSessionObjectWithLineItems.line_items.data;
 
+        /* TODO: generate will have to obtain the metadata either directly from the session, or if I can get it nested in the line_items */
+
     /* Create dynamic objects to populate an order: */
         function generateOrderItemsObjects(arr) {
             let orderItemObject = {};
@@ -53,6 +55,7 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
         
         console.log('Line_items from fulfillOrder: ', retrievedLineItems[0].price)
         console.log('Line_items from fulfillOrder: ', retrievedLineItems[0].price.product)
+        console.log('Line_items metadata from fulfillOrder: ', retrievedLineItems[0].price.metadata)
 
       /*  console.log('Metadata from a lineItem: ', retrievedLineItems[0].price.metadata); */
 
@@ -125,6 +128,16 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
                 )
                 
                 console.log('Here are my line items retrieved: ', retrievedLineItems)
+
+    /* Expand the line_items 'product' property to get metadata:*/
+                const lineItemsProductDataExpanded = await stripe.checkout.sessions.listLineItems(
+                    session.id,
+                    {
+                        expand: ['data.price.product'],
+                    }
+                );
+
+                console.log('Here is my listLineItems: ', lineItemsProductDataExpanded)
                 
     //Fulfill an order:
                 

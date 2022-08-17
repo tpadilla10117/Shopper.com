@@ -54,11 +54,12 @@
                 let itemObject = arr[i];
             
                 orderItemObject[i] = itemObject;
+                console.log('Type of? :', orderItemObject)
                 console.log('my items from individualmetadata:', orderItemObject[i])
 
             }
             console.log('from the return : ', orderItemObject) 
-            /* return Object.values(orderItemObject) */
+            return orderItemObject
         }
 
         /* 
@@ -101,7 +102,8 @@
                 payment_method_types: ['card'],
                 mode: 'payment',
                 line_items: transformedItems,
-                metadata: individualMetadata(transformedItemsMetadata),
+                /* metadata: individualMetadata(transformedItemsMetadata), */
+                metadata: { productid: '93813718291'},
                 /* line_items,
                 customer_email,
                 */
