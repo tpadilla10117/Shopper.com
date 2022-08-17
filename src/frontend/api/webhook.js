@@ -22,6 +22,7 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
 
 
     const fulfillOrder = async ( session, retrievedSessionObjectWithLineItems ) => {
+
         
        /*  try {
             await getUserById
@@ -29,12 +30,33 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
 
         
         let retrievedLineItems = retrievedSessionObjectWithLineItems.line_items.data;
+
+        function generateOrderItemsObjects(arr) {
+            let orderItemObject = {};
+
+            for(let i = 0; i < arr.length; i++) {
+                let itemObject = arr[i];
+            /* TODO: JUST NEED THE METADATA (productid) */
+                orderItemObject[i] = {
+                  orders_id: null,
+                  /* product_id: itemObject.price.metadata, */
+                  product_id: 2,
+                  quantity: itemObject.quantity,
+                }
+            
+              }
+          
+              return Object.values(orderItemObject)
+        };
+
         
-        console.log('Line_items from fulfillOrder: ', retrievedLineItems)
+       /*  console.log('Line_items from fulfillOrder: ', retrievedLineItems)
 
        console.log('Metadata from a lineItem: ', retrievedLineItems[0].price.metadata);
 
-       console.log('Metadata (quantity) from a lineItem: ', retrievedLineItems[0].quantity);
+       console.log('Metadata (quantity) from a lineItem: ', retrievedLineItems[0].quantity); */
+
+       console.log('Testing the generateOrderITems function:', generateOrderItemsObjects(retrievedLineItems))
 
         return createOrder( {
             user_id: 1,
@@ -43,14 +65,20 @@ const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805d
             currency: session.currency,
             status: session.status,
             created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-            /* TODO: Need to use redux selectItems here */
+            /* TODO: Need to retrieve metadata from the session object */
+            
+            
+            order_items: generateOrderItemsObjects(retrievedLineItems),
+            
+           
+/* 
             order_items: [
                 {
                     orders_id: null,
                     product_id: 2,
                     quantity: 2,
                 },
-            ]
+            ] */
 
         })
         
