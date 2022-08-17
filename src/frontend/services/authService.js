@@ -42,7 +42,7 @@
 
     const logout = () => {
         console.log('logout from auth service')
-       return localStorage.removeItem("user");
+        return localStorage.removeItem("user");
         
     };
 

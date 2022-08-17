@@ -48,7 +48,7 @@
         };
 
         return createOrder( {
-            user_id: 1,
+            user_id: Number(session.client_reference_id),
             amount_total: Number( (session.amount_total / 100).toFixed(2) ),
             currency: session.currency,
             status: session.status,
@@ -85,7 +85,7 @@
         /* Retrieve a Stripe Checkout session and its id: */
             case 'checkout.session.completed':
                 const session = event.data.object;
-
+console.log('Here is my session object', session)
     /* Expand the line_items 'product' property to get metadata:*/
                 const lineItemsProductDataExpanded = await stripe.checkout.sessions.listLineItems(
                     session.id,

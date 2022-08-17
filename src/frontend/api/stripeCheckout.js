@@ -5,8 +5,7 @@
 /* My line_items and email to send to Stripe: */
     async function createStripeCheckoutSession(req, res) {
         const domainURL = process.env.WEB_APP_URL;
-    
-        const { items, email } = req.body;
+        const { items, email, user_id } = req.body;
 
     /* I transform data in my array so it reflects the format Stripe wants: */
         const transformedItems = items.map( item => ({
@@ -38,11 +37,12 @@
         /* Session Object gets created (https://stripe.com/docs/api/checkout/sessions/object#checkout_session_object-success_url): */
 
         /* Need to Change domainURL to whatever url you deploy application to - remember to change success and cancel URLs: */
-        
+
             const session = await stripeApi.checkout.sessions.create({
                 payment_method_types: ['card'],
                 mode: 'payment',
                 line_items: transformedItems,
+                client_reference_id: user_id,
                 customer_email: email,
                 /* success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_id}` */
                 success_url: `http://localhost:3001/success`,

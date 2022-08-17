@@ -33,7 +33,8 @@
       /* Call backend to create a checkout session: */
         const checkoutSession = await axios.post('http://localhost:3000/create-checkout-session', {
           items: items,
-          email: user.email
+          email: user.email,
+          user_id: user.recoveredData.id
         });
 
       /* Redirect the customer to the Stripe Checkout pg: */
