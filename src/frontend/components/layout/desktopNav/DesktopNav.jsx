@@ -81,7 +81,7 @@ const DesktopNav = (props) => {
 
             <div className='desktop-nav-items-right'>
                 <NavLink
-                    to='/products'
+                    to='/shop'
                     className='desktopNav-nav-item'
                     exact="true"
                     activeclassname='active'

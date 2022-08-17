@@ -24,10 +24,11 @@ const ProductFeed = () => {
               title={productCard.title} 
               description={productCard.description}
               price={productCard.price}  
-              category={productCard.category}
+              category_id={productCard.category_id}
               subcategory={productCard.subcategory}
               productid={productCard.productid}
               image={productCard.image}
+              quantity={1}
             />
           )
         }

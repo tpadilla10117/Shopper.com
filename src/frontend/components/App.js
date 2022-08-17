@@ -62,14 +62,8 @@ function App() {
       
         <Route path='/shop/*' element={<ProductsPg/>}/>
       
-      {/* TODO: NEEDS TO BE DYNAMIC BASED ON UNIQUE subcategory and productid eg. hats/93813718290 */}
-
-       {/*  <Route path={`/shop/products/:prodid`} 
-            element={
-              <IndividualProductPg/>
-            } 
-        /> */}
-        <Route path={`/shop/products/:subcategory/:prodid`} 
+    {/* Routing is unique based on params from ProductsLandingFeed.jsx: */}
+        <Route path={`/shop/products/:subcategory/:title/:prodid`} 
             element={
               <IndividualProductPg/>
             } 
