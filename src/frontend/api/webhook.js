@@ -85,14 +85,6 @@
         /* Retrieve a Stripe Checkout session and its id: */
             case 'checkout.session.completed':
                 const session = event.data.object;
-              
-    /* Retrieve my line_items */
-                const retrievedLineItems = await stripe.checkout.sessions.retrieve(
-                    session.id, 
-                    {
-                        expand: ['line_items']
-                    }
-                );
 
     /* Expand the line_items 'product' property to get metadata:*/
                 const lineItemsProductDataExpanded = await stripe.checkout.sessions.listLineItems(
