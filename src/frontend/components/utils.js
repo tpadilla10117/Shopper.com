@@ -77,6 +77,10 @@
 
         export { default as IndividualProductPg } from '../components/pages/individualproductpg/IndividualProductPg.jsx';
 
+        export { default as MyAccountPg } from '../components/pages/myaccountpg/MyAccountPg.jsx';
+
+        export { default as SavedItemsPg } from '../components/pages/saveditemspg/SavedItemsPg.jsx';
+
 
 /* -------------------------------------------------------------------------- */
 /* Functions: */

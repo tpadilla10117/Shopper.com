@@ -6,6 +6,8 @@ import {
   Landing,
   About,
   Signin,
+  MyAccountPg,
+  SavedItemsPg,
   CheckoutPg,
   ProductsPg,
   OrderPg,
@@ -68,6 +70,11 @@ function App() {
               <IndividualProductPg/>
             } 
         />
+
+    {/* TODO: Create route and UI components */}
+        <Route path='/my-account' element={<MyAccountPg />} />
+
+        <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
          
 
 {/* TODO: Need to setup in db prior to finishing */}

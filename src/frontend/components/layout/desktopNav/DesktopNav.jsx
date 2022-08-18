@@ -33,7 +33,8 @@ const DesktopNav = (props) => {
         },
         {
             id: 2,
-            name: 'Saved Items'
+            name: 'Saved Items',
+            clickHandler: () => navigateRoutes('/my-account/saved-items'),
         },
         {
             id: 3,
