@@ -3,7 +3,7 @@
     import savedItemsService  from '../services/savedItemsService.js';
 
     export const retrieveUsersSavedItems = createAsyncThunk(
-        "savedItems",
+        "items/retrieveUsersSavedItems",
         async () => {
             try {
                 const data = await savedItemsService.userSavedItemsRequest();
@@ -21,14 +21,16 @@
     const initialState = {
         savedItems: [],
     };
-
+console.log('saved items: ', initialState.savedItems)
 /* Actions for UI components: */
     const savedItemsSlice = createSlice({
-        name: "userSavedItems",
+        name: "items",
         initialState,
         reducers: {
             //actions:
-           
+            [retrieveUsersSavedItems.fulfilled]: (state, action) => {
+                state.savedItems = action.payload.savedItems;
+            }
         },
         extraReducers(builder) {
             builder
@@ -40,7 +42,7 @@
     });
 
 /* Selectors: */
-    
-    export const selectUsersSavedItems = (state) => state.userSavedItems.savedItems;
+    /* TODO: need to check this THUNK */
+    export const selectUsersSavedItems = (state) => state.items;
 
     export default savedItemsSlice.reducer;

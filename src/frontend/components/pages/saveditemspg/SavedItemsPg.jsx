@@ -12,8 +12,8 @@ import {
 
 function SavedItemsPg() {
 
-    /* const usersSavedItems = useSelector(selectUsersSavedItems);
-    console.log(usersSavedItems) */
+    const usersSavedItems = useSelector(selectUsersSavedItems);
+    console.log(usersSavedItems)
 
     return (
         <section className='saveditemspg-parent-container'>
