@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
 
 import {
   FavoriteBorderOutlined,
@@ -11,21 +12,33 @@ import {
 
 function SavedItemsPg() {
 
-  return (
-    <section className='saveditemspg-parent-container'>
-        <h1 className='saveditemspg-title'>
-            Saved Items
-        </h1>
-        <div className='saveditemspg-subtitle-wrapper'>
-            <p className='saveditemspg-subtitle'>
-                Miss something? Use this page to easily keep track of any items you like or wish to save for later.
-            </p>
-        </div>
+    const usersSavedItems = useSelector(selectUsersSavedItems);
+    console.log(usersSavedItems)
 
-        {/* TODO: Saved Products are [ {}, {} ] */}
+    return (
+        <section className='saveditemspg-parent-container'>
+            <h1 className='saveditemspg-title'>
+                Saved Items
+            </h1>
+            <div className='saveditemspg-subtitle-wrapper'>
+                <p className='saveditemspg-subtitle'>
+                    Miss something? Use this page to easily keep track of any items you like or wish to save for later.
+                </p>
+            </div>
 
-    </section>
-  )
+            {/* TODO: Saved Products are [ {}, {} ] */}
+            {
+                usersSavedItems && usersSavedItems.map(items => {
+                    return (
+                        <div id={items.id}>
+                            <p>{items.product_id}</p>
+                        </div>
+                    )
+                }
+            )}
+
+        </section>
+    )
 }
 
 export default SavedItemsPg;

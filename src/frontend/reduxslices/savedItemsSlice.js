@@ -1,6 +1,6 @@
 /* Redux slice for savedItems: */
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-    import { savedItemsService } from '../services/savedItemsService';
+    import savedItemsService  from '../services/savedItemsService.js';
 
     export const retrieveUsersSavedItems = createAsyncThunk(
         "savedItems",
@@ -16,3 +16,30 @@
             }
         }
     );
+
+/* Initial State: */
+    const initialState = {
+        savedItems: [],
+    };
+
+/* Actions for UI components: */
+    const savedItemsSlice = createSlice({
+        name: "savedItems",
+        initialState,
+        reducers: {
+            //actions:
+        },
+        extraReducers(builder) {
+            builder
+                .addCase(retrieveUsersSavedItems.fulfilled, (state, action) => {
+                    state.status = 'succeeded'
+                    state.savedItems = [...state.savedItems.concat(action.payload.items)]
+                });
+        }
+    });
+
+/* Selectors: */
+    
+    export const selectUsersSavedItems = (state) => state.savedItems.savedItems;
+
+    export default savedItemsSlice.reducer;

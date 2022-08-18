@@ -11,6 +11,7 @@
     import productReducer from '../reduxslices/productSlice.js';
     import ordersReducer from '../reduxslices/ordersSlice';
     import loadingReducer from '../reduxslices/loadingSlice.js';
+    import savedItemsReducer from '../reduxslices/savedItemsSlice.js';
     import { productCategoriesReducer } from "../reduxslices/productCategories/productCategories.reducer.js";
 
 
@@ -30,6 +31,7 @@
         orders: ordersReducer,
         loader: loadingReducer,
         productCategories: productCategoriesReducer,
+        savedItems: savedItemsReducer,
     })
 
     const persistedReducer = persistReducer(persistConfig, rootReducer);
