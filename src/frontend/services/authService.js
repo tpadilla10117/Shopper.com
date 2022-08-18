@@ -35,13 +35,20 @@
         .then( (response) => {
             if (response.data.token) {
                 localStorage.setItem("user", JSON.stringify(response.data.token));
-            }
+            };
+
+            if(response.data.token) {
+                localStorage.setItem("user_id", JSON.stringify(response.data.recoveredData.id));
+            };
+
             return response.data;
         })
     };
 
     const logout = () => {
         console.log('logout from auth service')
+        
+        localStorage.removeItem("user_id");
         return localStorage.removeItem("user");
         
     };
