@@ -12,8 +12,8 @@ import {
 
 function SavedItemsPg() {
 
-    const usersSavedItems = useSelector(selectUsersSavedItems);
-    console.log(usersSavedItems)
+    /* const usersSavedItems = useSelector(selectUsersSavedItems);
+    console.log(usersSavedItems) */
 
     return (
         <section className='saveditemspg-parent-container'>
@@ -27,7 +27,7 @@ function SavedItemsPg() {
             </div>
 
             {/* TODO: Saved Products are [ {}, {} ] */}
-            {
+          {/*   {
                 usersSavedItems && usersSavedItems.map(items => {
                     return (
                         <div id={items.id}>
@@ -35,7 +35,7 @@ function SavedItemsPg() {
                         </div>
                     )
                 }
-            )}
+            )} */}
 
         </section>
     )

@@ -24,22 +24,23 @@
 
 /* Actions for UI components: */
     const savedItemsSlice = createSlice({
-        name: "savedItems",
+        name: "userSavedItems",
         initialState,
         reducers: {
             //actions:
+           
         },
         extraReducers(builder) {
             builder
                 .addCase(retrieveUsersSavedItems.fulfilled, (state, action) => {
                     state.status = 'succeeded'
-                    state.savedItems = [...state.savedItems.concat(action.payload.items)]
+                    state.savedItems = [...state.savedItems.concat(action.payload.savedItems)]
                 });
         }
     });
 
 /* Selectors: */
     
-    export const selectUsersSavedItems = (state) => state.savedItems.savedItems;
+    export const selectUsersSavedItems = (state) => state.userSavedItems.savedItems;
 
     export default savedItemsSlice.reducer;
