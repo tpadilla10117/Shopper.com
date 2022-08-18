@@ -3,7 +3,7 @@
     import axios from "axios";
 
     /* const FAKESTORE_API_URL = "https://fakestoreapi.com/"; */
-    const MY_API_URL = "http://localhost:3000/shop"
+    const MY_API_URL = "http://localhost:3000/shop";
     
 
 /* Logic to request products from fakestoreapi.com : */

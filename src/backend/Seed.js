@@ -23,6 +23,7 @@
     const {
         createSavedProduct,
         getSavedProducts,
+        getSavedProductsByUserId,
     } = require('./dbadapters/saved_products');
 
     const {
@@ -103,6 +104,8 @@
             console.log('Here are all my order Items: ', await getAllOrderItems() );
  */
             console.log('Here are all a users orders: ', await getAllOrdersByAUserId(1) );
+
+            console.log('Here are all a users saved items: ', await getSavedProductsByUserId(1) );
 
             console.log("Finished testing Database!")
         } catch (error) {
@@ -417,7 +420,28 @@
                     product_id: 3,
                     user_id: 1,
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-                }
+                },
+                {
+                    product_id: 1,
+                    user_id: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    product_id: 5,
+                    user_id: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    product_id: 4,
+                    user_id: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                {
+                    product_id: 2,
+                    user_id: 1,
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+        
             ];
 
             const products = await Promise.all(savedProduct.map(createSavedProduct));

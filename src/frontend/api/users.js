@@ -10,6 +10,11 @@
         getUserById,
         getUserByUsername
     } = require('../../backend/dbadapters/users');
+
+    const { 
+        getSavedProductsByUserId,
+    } = require('../../backend/dbadapters/saved_products');
+
     const {
         updateUser
     } = require('../../backend/dbadapters/admin');
@@ -170,6 +175,29 @@ class TypeError extends Error {
                 res.send(user);
                 console.log("Here is my user: ", user);
             }
+        } catch (error) {
+           next(error)
+        }
+    });
+
+/* Get a user's saved-items by their id: */
+    usersRouter.get('/:userId/my-account/saved-items', async (req, res, next) => {
+        const { userId } = req.params;
+
+        try {
+            const user = await getUserById(userId);
+
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const usersSavedProducts = await getSavedProductsByUserId(user.id);
+
+                res.send(usersSavedProducts);
+            };
+
+
         } catch (error) {
            next(error)
         }

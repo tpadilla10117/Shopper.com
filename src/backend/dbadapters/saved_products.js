@@ -36,10 +36,25 @@ const { client } = require('../index');
         } catch(error) {
             throw error;
         }
-    }
+    };
+
+    async function getSavedProductsByUserId(user_id) {
+        try {
+            const { rows: saved_products } = await client.query(`
+                SELECT * FROM saved_products
+                WHERE saved_products.user_id = $1
+            `, [user_id] );
+
+            return saved_products;
+            
+        } catch(error) {
+            throw error;
+        }
+    };
 
 
 module.exports = {
     createSavedProduct,
     getSavedProducts,
+    getSavedProductsByUserId,
 };
