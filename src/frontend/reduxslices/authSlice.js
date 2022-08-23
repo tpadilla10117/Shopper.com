@@ -32,11 +32,11 @@
             "auth/login",
             async ({username, password}, thunkAPI) => {
                 try {
-                    console.log("From middleware: ", username)
-                    console.log("From middleware: ", typeof username)
+                   
                     const data = await authService.login(username, password);
-                    console.log( {user: data})
+                    
                     return { user: data };
+
                 } catch (error) {
                     const message = (error.response && 
                         error.response.data &&
@@ -51,15 +51,12 @@
 
 /* Logout Thunk: */
         export const logout = createAsyncThunk("auth/logout", async () => {
-            console.log('Am I hitting the logout thunk?')
             await authService.logout();
         });
 
 /* Create initial state: */
         const initialState = user ? { isLoggedIn: true, user }
         : { isLoggedIn: false, user: null};
-console.log('My user', initialState)
-console.log('from localstorage:', user)
 
 /* Create actions for UI components: */
         const authSlice = createSlice({
@@ -111,5 +108,7 @@ console.log('from localstorage:', user)
         export const userData = (state) => state.auth.user;
 
         export const testData = (state) => state.auth;
+
+        export const reduxStateObject = (state) => state;
 
         export default authSlice.reducer;

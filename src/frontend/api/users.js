@@ -106,14 +106,6 @@ class TypeError extends Error {
     usersRouter.post('/login', async (req, res, next) => {
         const { username, password } = req.body;
 
-        //request must have both a username and a password:
-        if (!username || !password ) {
-            next ({
-                name: 'MissingCredentialsError',
-                message: 'Please supply both a valid username and password'
-            });
-        }
-
         try {
             const user = await getUserByUsername(username);
 
@@ -137,7 +129,7 @@ class TypeError extends Error {
                     name: 'IncorrectCredentialsError',
                     message: 'Username or password is incorrect!'
                 });
-            }
+            } 
 
         } catch (error) {
             console.log(error);

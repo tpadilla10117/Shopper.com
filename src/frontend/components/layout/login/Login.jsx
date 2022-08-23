@@ -1,14 +1,16 @@
 import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CtaButton } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../reduxslices/authSlice';
+import { login, reduxStateObject } from '../../../reduxslices/authSlice';
 import { clearMessage } from '../../../reduxslices/authmessageSlice';
 
 function Login() {
   
   const { message } = useSelector( (state) => state.message);
-
+  const reduxObject = useSelector(reduxStateObject);
   const dispatch = useDispatch();
+  const navigateHome = useNavigate();
   const nameRef = useRef();
   const pwordRef = useRef();
 
@@ -21,8 +23,15 @@ function Login() {
     event.preventDefault();
     const username = nameRef.current?.value;
     const password = pwordRef.current?.value;
-    dispatch(login( { username, password }))
+    dispatch(login( { username, password }));
   };
+
+/* Page Redirect when a user successfully logs in: */
+  useEffect( () => {
+    if(reduxObject.auth.isLoggedIn === true) {
+      navigateHome('/');
+    }
+  }, [reduxObject, navigateHome])
   
   return (
     <section className='login-parent-container'>    
