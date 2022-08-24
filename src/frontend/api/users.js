@@ -13,6 +13,7 @@
 
     const { 
         getSavedProductsByUserId,
+        deleteSavedProductByProductid,
     } = require('../../backend/dbadapters/saved_products');
 
     const {
@@ -192,6 +193,29 @@ class TypeError extends Error {
 
         } catch (error) {
            next(error)
+        }
+    });
+
+/* TODO: Remove a user's saved Item by a product_id: */
+    usersRouter.delete('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
+        const { userId, productid } = req.params;
+        try {
+            
+            console.log('productid from api', productid)
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const removeItem = await deleteSavedProductByProductid(productid);
+
+                res.send(removeItem);
+                
+                console.log('From the delete router: ', req.body)
+            };
+
+        } catch(error) {
+            next(error);
         }
     });
 

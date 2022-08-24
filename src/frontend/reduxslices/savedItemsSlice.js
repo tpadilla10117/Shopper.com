@@ -18,6 +18,24 @@
         }
     );
 
+    export const deleteAUsersSavedItem = createAsyncThunk(
+        "delete/item",
+        async ( {user_id, product_id} ) => {
+            try {
+                console.log('product_id from thunk', product_id)
+                console.log('user_id from thunk', user_id)
+                const data = await savedItemsService.removeSavedItem(user_id, product_id);
+
+                console.log("From deleteAUsersSavedItem Thunk:", data)
+
+                return { savedItems: data };
+
+            } catch(error) {
+                console.error(error);
+            }
+        }
+    );
+
     export const emptyUsersSavedItems = createAsyncThunk(
         "removeItems",
         async () => {
@@ -46,7 +64,11 @@
                 .addCase(emptyUsersSavedItems.fulfilled, (state, action) => {
                     state.status = 'succeeded'
                     state.savedItems = []
-                });
+                })
+                .addCase(deleteAUsersSavedItem.fulfilled, (state, action) => {
+                    state.status = 'succeeded'
+                    state.savedItems = [...state.savedItems]
+                })
         }
     });
 

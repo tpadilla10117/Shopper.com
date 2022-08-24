@@ -59,8 +59,24 @@ const {
         }
     };
 
+/* Remove a specific saved item: */
+/* TESTED: 9/24 */
+    async function deleteSavedProductByProductid(product_id) {
+        try {
+            const { rows: saved_products } = await client.query(`
+                DELETE FROM saved_products
+                WHERE product_id = $1
+            `, [product_id])
+
+            return saved_products;
+        } catch(error) {
+            throw error;
+        }
+    };
+
 module.exports = {
     createSavedProduct,
     getSavedProducts,
     getSavedProductsByUserId,
+    deleteSavedProductByProductid,
 };

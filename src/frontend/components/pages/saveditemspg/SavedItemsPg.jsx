@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 /* import { useNavigate, useLocation } from 'react-router-dom'; */
 import { useSelector, useDispatch } from 'react-redux';
-import { retrieveUsersSavedItems, selectUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import { 
+    retrieveUsersSavedItems, 
+    selectUsersSavedItems, 
+    deleteAUsersSavedItem
+} from '../../../reduxslices/savedItemsSlice';
+
 import { userData } from '../../../reduxslices/authSlice';
 
 import {
@@ -23,6 +28,15 @@ function SavedItemsPg() {
         }
       
     }, [dispatch, user, usersSavedItems])
+
+/* To remove saved_products: */
+    function removeSavedItemHandler(event, product_id) {
+        event.preventDefault();
+        
+        const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
+
+        dispatch(deleteAUsersSavedItem( thunkArguments ));
+    };
 
 
 /* Below I render saved products : */
@@ -58,6 +72,7 @@ function SavedItemsPg() {
 
                                         <FavoriteBorderOutlined 
                                             className='saveditemspg-favoriteborderoutlined'
+                                            onClick={(event) => removeSavedItemHandler(event, items.product_id)}
                                         />
                                         {/* <ShoppingCartOutlined 
                                             className='saveditemspg-shoppingcartoutlined'

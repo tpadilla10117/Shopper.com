@@ -24,6 +24,7 @@
         createSavedProduct,
         getSavedProducts,
         getSavedProductsByUserId,
+        deleteSavedProductByProductid
     } = require('./dbadapters/saved_products');
 
     const {
@@ -106,6 +107,9 @@
             console.log('Here are all a users orders: ', await getAllOrdersByAUserId(1) );
 
             console.log('Here are all a users saved items: ', await getSavedProductsByUserId(1) );
+
+            /* console.log('testing deletess: ', await deleteSavedProductByProductid(1) ); */
+
 
             console.log("Finished testing Database!")
         } catch (error) {
