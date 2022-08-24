@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { retrieveUsersSavedItems, selectUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
-import { selectItems } from '../../../reduxslices/productSlice';
 import { userData } from '../../../reduxslices/authSlice';
 
 import {
   FavoriteBorderOutlined,
-  SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 
@@ -15,12 +13,8 @@ import {
 function SavedItemsPg() {
 
     const dispatch = useDispatch();
-/* TODO: NEED to comnpare the items in all products to the ones in savedITems, or find some way to retireve the info from products tabl;e:  */
     const user = useSelector(userData);
-    const allProducts = useSelector(selectItems);
     const usersSavedItems = useSelector(selectUsersSavedItems);
-    /* console.log(usersSavedItems) */
-    
 
 /* Render the existing savedItems once & send user_id: */
     useEffect( () => {
@@ -30,9 +24,8 @@ function SavedItemsPg() {
       
     }, [dispatch, user, usersSavedItems])
 
-    
 
-
+/* Below I render saved products : */
     return (
         <section className='saveditemspg-parent-container'>
             <h1 className='saveditemspg-title'>
@@ -44,13 +37,27 @@ function SavedItemsPg() {
                 </p>
             </div>
 
-            {/* TODO: Saved Products are [ {}, {} ] */}
             {
                 usersSavedItems && usersSavedItems.map(items => {
                     return (
-                        <div id={items.id} key={items.id}>
-                            <p>{items.product_id}</p>
-                            {/* {filterSavedProductsOutOfAllProducts(items.product_id)} */}
+                        <div 
+                            id={items.id} 
+                            key={items.id}
+                            className='saveditemspg-information-parent-container'
+                        >
+                            
+                            <img
+                                src={items.image}
+                                alt=''
+                                className='saveditemspg-img'
+                            />
+                            <div className='saveditemspg-information'>
+                                <FavoriteBorderOutlined />
+                                <ShoppingCartOutlined />
+                                <h4>{items.title}</h4>
+                                <h5>${items.price}</h5>
+
+                            </div>
                         </div>
                     )
                 }
