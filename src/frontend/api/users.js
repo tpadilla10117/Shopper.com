@@ -211,7 +211,6 @@ class TypeError extends Error {
 
                 res.send(removeItem);
                 
-                console.log('From the delete router: ', req.body)
             };
 
         } catch(error) {

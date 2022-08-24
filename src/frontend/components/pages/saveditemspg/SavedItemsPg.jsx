@@ -29,6 +29,8 @@ function SavedItemsPg() {
       
     }, [dispatch, user, usersSavedItems])
 
+    console.log(usersSavedItems)
+
 /* To remove saved_products: */
     function removeSavedItemHandler(event, product_id) {
         event.preventDefault();

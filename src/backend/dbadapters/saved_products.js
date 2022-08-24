@@ -66,6 +66,7 @@ const {
             const { rows: saved_products } = await client.query(`
                 DELETE FROM saved_products
                 WHERE product_id = $1
+                RETURNING *;
             `, [product_id])
 
             return saved_products;

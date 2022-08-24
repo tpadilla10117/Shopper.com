@@ -22,12 +22,11 @@
         "delete/item",
         async ( {user_id, product_id} ) => {
             try {
-                console.log('product_id from thunk', product_id)
-                console.log('user_id from thunk', user_id)
+                
                 const data = await savedItemsService.removeSavedItem(user_id, product_id);
 
-                console.log("From deleteAUsersSavedItem Thunk:", data)
-
+            /* Returns an array of the removed item that I filter out in the extraReducer: */
+            
                 return { savedItems: data };
 
             } catch(error) {
@@ -67,7 +66,7 @@
                 })
                 .addCase(deleteAUsersSavedItem.fulfilled, (state, action) => {
                     state.status = 'succeeded'
-                    state.savedItems = [...state.savedItems]
+                    state.savedItems = [...state.savedItems.filter( (element) => element.product_id !== action.payload.savedItems[0].product_id)]
                 })
         }
     });
