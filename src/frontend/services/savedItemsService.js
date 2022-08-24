@@ -16,8 +16,14 @@
         });
     };
 
+/* Works with authService - dispatched alongside logout() */
+    const emptyStateArray = () => {
+        return;
+    };
+
     const savedItemsService = {
-        userSavedItemsRequest
+        userSavedItemsRequest,
+        emptyStateArray
     };
 
     export default savedItemsService;

@@ -2,6 +2,7 @@
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
     import savedItemsService  from '../services/savedItemsService.js';
+    
 
     export const retrieveUsersSavedItems = createAsyncThunk(
         "items",
@@ -15,6 +16,13 @@
             } catch(error) {
                 console.error(error)
             }
+        }
+    );
+
+    export const emptyUsersSavedItems = createAsyncThunk(
+        "removeItems",
+        async () => {
+            await savedItemsService.emptyStateArray();
         }
     );
 
@@ -35,6 +43,10 @@
                 .addCase(retrieveUsersSavedItems.fulfilled, (state, action) => {
                     state.status = 'succeeded'
                     state.savedItems = [...state.savedItems.concat(action.payload.savedItems)]
+                })
+                .addCase(emptyUsersSavedItems.fulfilled, (state, action) => {
+                    state.status = 'succeeded'
+                    state.savedItems = []
                 });
         }
     });

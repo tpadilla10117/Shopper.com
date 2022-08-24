@@ -5,6 +5,7 @@ import '../../App.scss';
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
+import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
 
 
 const DesktopNav = (props) => {
@@ -20,6 +21,8 @@ const DesktopNav = (props) => {
 
     function logoutUser() {
         dispatch(logout());
+        dispatch(emptyUsersSavedItems());
+        navigateRoutes('/');
     };
 
     

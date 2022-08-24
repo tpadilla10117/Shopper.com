@@ -29,7 +29,9 @@ function Login() {
 /* Page Redirect when a user successfully logs in: */
   useEffect( () => {
     if(reduxObject.auth.isLoggedIn === true) {
-      navigateHome('/');
+     return navigateHome('/');
+    } else {
+      return;
     }
   }, [reduxObject, navigateHome])
   
