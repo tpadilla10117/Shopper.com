@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+/* import { useNavigate, useLocation } from 'react-router-dom'; */
 import { useSelector, useDispatch } from 'react-redux';
 import { retrieveUsersSavedItems, selectUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
 import { userData } from '../../../reduxslices/authSlice';
@@ -37,31 +37,45 @@ function SavedItemsPg() {
                 </p>
             </div>
 
-            {
-                usersSavedItems && usersSavedItems.map(items => {
-                    return (
-                        <div 
-                            id={items.id} 
-                            key={items.id}
-                            className='saveditemspg-information-parent-container'
-                        >
-                            
-                            <img
-                                src={items.image}
-                                alt=''
-                                className='saveditemspg-img'
-                            />
-                            <div className='saveditemspg-information'>
-                                <FavoriteBorderOutlined />
-                                <ShoppingCartOutlined />
-                                <h4>{items.title}</h4>
-                                <h5>${items.price}</h5>
+            <div className='saveditemspg-information-parent-container'>
+                {
+                    usersSavedItems && usersSavedItems.map(items => {
+                        return (
+                            <div 
+                                id={items.id} 
+                                key={items.id}
+                                className='saveditemspg-saveditem-wrapper'
+                            >
+                                
+                                <img
+                                    src={items.image}
+                                    alt=''
+                                    className='saveditemspg-img'
+                                />
+                                <div className='saveditemspg-information'>
 
+                                    <div className='saveditemspg-icon-parent-container'>
+
+                                        <FavoriteBorderOutlined 
+                                            className='saveditemspg-favoriteborderoutlined'
+                                        />
+                                        <ShoppingCartOutlined 
+                                        
+                                        />
+                                    </div>
+
+                                    <p className='saveditemspg-itemtitle'>{items.title}
+                                    </p>
+
+                                    <h5 className='saveditemspg-itemprice'>${items.price}</h5>
+
+                                </div>
                             </div>
-                        </div>
-                    )
-                }
-            )}
+                        )
+                    }
+                )}
+            </div>
+
 
         </section>
     )
