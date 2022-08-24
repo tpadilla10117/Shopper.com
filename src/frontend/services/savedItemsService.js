@@ -29,10 +29,21 @@
         });
     };
 
+    const addSavedItem = (user_id, product_id) => {
+        const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items/${product_id}`;
+
+        return axios.post(MY_API_URL)
+
+        .then( (response) => {
+            return response.data;
+        });
+    };
+
     const savedItemsService = {
         userSavedItemsRequest,
         emptyStateArray,
         removeSavedItem,
+        addSavedItem,
     };
 
     export default savedItemsService;

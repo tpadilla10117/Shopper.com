@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-/* import { useNavigate, useLocation } from 'react-router-dom'; */
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
     retrieveUsersSavedItems, 
@@ -20,6 +20,7 @@ function SavedItemsPg() {
     const dispatch = useDispatch();
     const user = useSelector(userData);
     const usersSavedItems = useSelector(selectUsersSavedItems);
+    const navigateProductRoute = useNavigate();
 
 /* Render the existing savedItems once & send user_id: */
     useEffect( () => {
@@ -29,8 +30,6 @@ function SavedItemsPg() {
       
     }, [dispatch, user, usersSavedItems])
 
-    console.log(usersSavedItems)
-
 /* To remove saved_products: */
     function removeSavedItemHandler(event, product_id) {
         event.preventDefault();
@@ -38,6 +37,13 @@ function SavedItemsPg() {
         const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
 
         dispatch(deleteAUsersSavedItem( thunkArguments ));
+    };
+
+/* To route a user to the IndividualProductPage.jsx: */
+    function routeToProductPage(event, item) {
+        event.preventDefault();
+        const { subcategory, title, productid} = item;
+        navigateProductRoute(`/shop/products/${subcategory}/${title}/${productid}`)
     };
 
 
@@ -61,6 +67,7 @@ function SavedItemsPg() {
                                 id={items.id} 
                                 key={items.id}
                                 className='saveditemspg-saveditem-wrapper'
+                                onClick={(event) => routeToProductPage(event, items)}
                             >
                                 
                                 <img

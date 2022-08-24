@@ -14,6 +14,7 @@
     const { 
         getSavedProductsByUserId,
         deleteSavedProductByProductid,
+        createSavedProduct,
     } = require('../../backend/dbadapters/saved_products');
 
     const {
@@ -196,7 +197,7 @@ class TypeError extends Error {
         }
     });
 
-/* TODO: Remove a user's saved Item by a product_id: */
+/* Remove a user's saved Item by a product_id: */
     usersRouter.delete('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
         const { userId, productid } = req.params;
         try {
@@ -213,6 +214,32 @@ class TypeError extends Error {
                 
             };
 
+        } catch(error) {
+            next(error);
+        }
+    });
+
+/* TODO: Add a saved item based on product_id & user_id: */
+    usersRouter.post('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
+        const { userId, productid } = req.params;
+
+        try {
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const productObject = { 
+                    product_id: productid, 
+                    user_id: userId, 
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss') 
+                };
+
+                const createASavedProduct = await createSavedProduct(productObject);
+
+                res.send(createASavedProduct);
+                
+            };
         } catch(error) {
             next(error);
         }

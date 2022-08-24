@@ -47,6 +47,13 @@ const ProductsLandingFeed = ({
     dispatch(addCartItemCount(product))
   };
 
+/* Lets a user save a product for later: */
+  function addItemToSavedProducts(event,) {
+    event.preventDefault();
+    console.log('clicked heart icon')
+    /* dispatch() */
+  };
+
   return (
     <article className='productsLandingFeed-parent-container'>
         <img 
@@ -71,7 +78,9 @@ const ProductsLandingFeed = ({
           </div>
           {/* TODO: When click this icon, add to faves */}
           <div className='productsLandingFeed-icon-parent-container'>
-            <FavoriteBorderOutlined />
+            <FavoriteBorderOutlined 
+              onClick={(event) => addItemToSavedProducts(event, )}
+            />
           </div>
 
         </div>
