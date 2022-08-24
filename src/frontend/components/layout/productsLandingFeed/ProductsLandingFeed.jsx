@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCartItemCount } from '../../../reduxslices/basketslice';
+import{ userData } from '../../../reduxslices/authSlice';
+import { addASavedItem } from '../../../reduxslices/savedItemsSlice';
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
@@ -22,6 +24,7 @@ const ProductsLandingFeed = ({
 
   let navigateProductRoute = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector(userData);
 
   const product = {
     id,
@@ -48,10 +51,10 @@ const ProductsLandingFeed = ({
   };
 
 /* Lets a user save a product for later: */
-  function addItemToSavedProducts(event,) {
+  function addItemToSavedProducts(event, product_id) {
     event.preventDefault();
-    console.log('clicked heart icon')
-    /* dispatch() */
+    const productObject = {user_id: user.recoveredData.id, product_id: product_id};
+    dispatch(addASavedItem(productObject));
   };
 
   return (
@@ -79,7 +82,7 @@ const ProductsLandingFeed = ({
           {/* TODO: When click this icon, add to faves */}
           <div className='productsLandingFeed-icon-parent-container'>
             <FavoriteBorderOutlined 
-              onClick={(event) => addItemToSavedProducts(event, )}
+              onClick={(event) => addItemToSavedProducts(event, id )}
             />
           </div>
 

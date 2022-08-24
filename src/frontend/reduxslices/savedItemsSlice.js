@@ -35,6 +35,21 @@
         }
     );
 
+    export const addASavedItem = createAsyncThunk(
+        "post/item",
+        async ( { user_id, product_id } ) => {
+            try {
+                const data = await savedItemsService.addSavedItem(user_id, product_id);
+
+                console.log(data)
+
+                return { savedItems: data };
+            } catch(error) {
+                console.error(error);
+            }
+        }
+    );
+
     export const emptyUsersSavedItems = createAsyncThunk(
         "removeItems",
         async () => {
@@ -67,6 +82,10 @@
                 .addCase(deleteAUsersSavedItem.fulfilled, (state, action) => {
                     state.status = 'succeeded'
                     state.savedItems = [...state.savedItems.filter( (element) => element.product_id !== action.payload.savedItems[0].product_id)]
+                })
+                .addCase(addASavedItem.fulfilled, (state, action) => {
+                    state.status = 'succeeded'
+                    state.savedItems = [...state.savedItems.concat(action.payload.savedItems)]
                 })
         }
     });

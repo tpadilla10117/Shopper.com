@@ -431,11 +431,6 @@
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
-                    product_id: 5,
-                    user_id: 1,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-                },
-                {
                     product_id: 4,
                     user_id: 1,
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),

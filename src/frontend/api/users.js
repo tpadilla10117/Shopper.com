@@ -15,6 +15,7 @@
         getSavedProductsByUserId,
         deleteSavedProductByProductid,
         createSavedProduct,
+        getASavedProductByUserId,
     } = require('../../backend/dbadapters/saved_products');
 
     const {
@@ -222,8 +223,9 @@ class TypeError extends Error {
 /* TODO: Add a saved item based on product_id & user_id: */
     usersRouter.post('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
         const { userId, productid } = req.params;
-
+        
         try {
+            console.log('productid from api', productid)
             if(userId === null || typeof userId === undefined || !userId ) {
                 next(ApiError.badRequest('Incorrect type'));
                 return;
@@ -235,9 +237,13 @@ class TypeError extends Error {
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss') 
                 };
 
-                const createASavedProduct = await createSavedProduct(productObject);
+                const savedProduct = await createSavedProduct(productObject);
 
-                res.send(createASavedProduct);
+                /* res.send(savedProduct); */
+
+                const usersSavedProducts = await getASavedProductByUserId(savedProduct);
+
+                res.send(usersSavedProducts);
                 
             };
         } catch(error) {

@@ -42,7 +42,7 @@ const {
         }
     };
 
-/* Retrieve saved items for a user: */
+/* Retrieve all saved items for a user: */
     async function getSavedProductsByUserId(user_id) {
         try {
           
@@ -58,6 +58,22 @@ const {
             throw error;
         }
     };
+
+/* TODO: Retrieve a single saved item for a user: */
+    async function getASavedProductByUserId({user_id, product_id}) {
+        try {
+            const { rows: saved_product } = await client.query(`
+                SELECT * FROM products
+                INNER JOIN saved_products ON saved_products.product_id = products.id
+                WHERE user_id = $1
+                AND product_id = $2
+            `, [user_id, product_id]);
+
+            return saved_product;
+        } catch(error) {
+            throw error;
+        }
+    }
 
 /* Remove a specific saved item: */
 /* TESTED: 9/24 */
@@ -80,4 +96,5 @@ module.exports = {
     getSavedProducts,
     getSavedProductsByUserId,
     deleteSavedProductByProductid,
+    getASavedProductByUserId,
 };
