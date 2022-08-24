@@ -59,9 +59,9 @@ function SavedItemsPg() {
                                         <FavoriteBorderOutlined 
                                             className='saveditemspg-favoriteborderoutlined'
                                         />
-                                        <ShoppingCartOutlined 
-                                        
-                                        />
+                                        {/* <ShoppingCartOutlined 
+                                            className='saveditemspg-shoppingcartoutlined'
+                                        /> */}
                                     </div>
 
                                     <p className='saveditemspg-itemtitle'>{items.title}
