@@ -2,13 +2,12 @@
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
     import savedItemsService  from '../services/savedItemsService.js';
-    
 
     export const retrieveUsersSavedItems = createAsyncThunk(
         "items",
-        async () => {
+        async (user_id) => {
             try {
-                const data = await savedItemsService.userSavedItemsRequest();
+                const data = await savedItemsService.userSavedItemsRequest(user_id);
                 console.log("From retrieveUsersSavedItems Thunk:", data)
 
                 return { savedItems: data };

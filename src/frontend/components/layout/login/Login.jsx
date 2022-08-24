@@ -30,9 +30,7 @@ function Login() {
   useEffect( () => {
     if(reduxObject.auth.isLoggedIn === true) {
      return navigateHome('/');
-    } else {
-      return;
-    }
+    } 
   }, [reduxObject, navigateHome])
   
   return (

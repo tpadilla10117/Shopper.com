@@ -22,7 +22,7 @@ const DesktopNav = (props) => {
     function logoutUser() {
         dispatch(logout());
         dispatch(emptyUsersSavedItems());
-        navigateRoutes('/');
+        navigateRoutes('/', { replace: true });
     };
 
     

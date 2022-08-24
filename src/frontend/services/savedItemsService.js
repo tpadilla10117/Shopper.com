@@ -2,11 +2,8 @@
 
     import axios from "axios";
     
-    const user_id = localStorage.getItem('user_id');
-
-    const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items`;
-
-    const userSavedItemsRequest = () => {
+    const userSavedItemsRequest = (user_id) => {
+        const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items`;
 
         return axios.get(MY_API_URL)
         

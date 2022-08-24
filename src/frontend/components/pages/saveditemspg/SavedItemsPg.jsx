@@ -21,18 +21,13 @@ function SavedItemsPg() {
     const usersSavedItems = useSelector(selectUsersSavedItems);
     /* console.log(usersSavedItems) */
     
-    
-    /* const location = useLocation();
-    console.log(location) */
 
-    
-
-/* TODO: Need to only render the existing savedItems once, and then re-render if additional items added */
+/* Render the existing savedItems once & send user_id: */
     useEffect( () => {
         if(usersSavedItems.length === 0 && user) {
-            dispatch(retrieveUsersSavedItems())
+            dispatch(retrieveUsersSavedItems(user.recoveredData.id))
         }
-        console.log('from the savedItems page useEffect')
+      
     }, [dispatch, user, usersSavedItems])
 
     
