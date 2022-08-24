@@ -86,6 +86,7 @@ function IndividualProductCards( {
                     <div
                         className='individualProductCards-info-quantity-totals'
                     >
+                        {/* TODO: These buttons add to the cart incorrectly */}
                         <Remove onClick={removeItemFromBasket} className='individualProductCards-removebtn'/>
                     
                         <span className='individualProductCards-info-quantity'>{productCount}</span>

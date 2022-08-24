@@ -1,6 +1,9 @@
 /* File for saved_products table db adapters using SQL Queries: */
 
 const { client } = require('../index');
+const {
+    getProductById
+} = require('./products');
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE saved_prodcts METHODS:
@@ -26,6 +29,7 @@ const { client } = require('../index');
         }
     };
 
+/* Merely return all savedProducts across every user: */
     async function getSavedProducts() {
         try {
             const { rows } = await client.query(`
@@ -45,7 +49,14 @@ const { client } = require('../index');
                 WHERE saved_products.user_id = $1
             `, [user_id] );
 
-            return saved_products;
+        /* Have to retrieve product information based on the id (primary key): */
+
+            const allProductInformation = await Promise.all(saved_products.map( element => getProductById(element.product_id)));
+
+            
+            return allProductInformation;
+
+            /* return saved_products; */
             
         } catch(error) {
             throw error;

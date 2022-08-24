@@ -5,6 +5,7 @@
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE PRODUCT METHODS:
 
+/* Return all products in the db: */
     async function getAllProducts() {
         try {
             const { rows } = await client.query(`
@@ -16,6 +17,7 @@
         }
     }
 
+/* Create additional products in the db:  */
     async function createProducts(product) {
         const {title, description, productid, image, category_id, subcategory, price} = product;
 
@@ -33,6 +35,7 @@
         }
     }
 
+/* Return a single product by its id (Primary Key) : */
     async function getProductById(id) {
         try {
             const { rows: [product] } = await client.query(`
