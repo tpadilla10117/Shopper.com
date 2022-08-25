@@ -11,6 +11,8 @@
 
         export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';
 
+        export { default as CtaBanner } from '../components/layout/ctaBanner/CtaBanner.jsx';
+
         export { default as CtaButton } from '../components/layout/ctabutton/CtaButton.jsx';
 
         export { default as Modal } from '../components/layout/modal/Modal.jsx';
