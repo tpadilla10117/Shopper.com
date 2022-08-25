@@ -203,7 +203,6 @@ class TypeError extends Error {
         const { userId, productid } = req.params;
         try {
             
-            console.log('productid from api', productid)
             if(userId === null || typeof userId === undefined || !userId ) {
                 next(ApiError.badRequest('Incorrect type'));
                 return;
@@ -220,12 +219,12 @@ class TypeError extends Error {
         }
     });
 
-/* TODO: Add a saved item based on product_id & user_id: */
+/* Add a saved item based on product_id & user_id: */
     usersRouter.post('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
         const { userId, productid } = req.params;
         
         try {
-            console.log('productid from api', productid)
+            
             if(userId === null || typeof userId === undefined || !userId ) {
                 next(ApiError.badRequest('Incorrect type'));
                 return;
@@ -238,8 +237,6 @@ class TypeError extends Error {
                 };
 
                 const savedProduct = await createSavedProduct(productObject);
-
-                /* res.send(savedProduct); */
 
                 const usersSavedProducts = await getASavedProductByUserId(savedProduct);
 

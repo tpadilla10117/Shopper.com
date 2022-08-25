@@ -59,7 +59,8 @@ const {
         }
     };
 
-/* TODO: Retrieve a single saved item for a user: */
+/* Retrieve a single saved item for a user: */
+/* TESTED: 9/24 */
     async function getASavedProductByUserId({user_id, product_id}) {
         try {
             const { rows: saved_product } = await client.query(`

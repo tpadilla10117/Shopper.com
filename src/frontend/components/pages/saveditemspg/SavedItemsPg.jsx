@@ -33,7 +33,7 @@ function SavedItemsPg() {
 /* To remove saved_products: */
     function removeSavedItemHandler(event, product_id) {
         event.preventDefault();
-        
+        event.stopPropagation();
         const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
 
         dispatch(deleteAUsersSavedItem( thunkArguments ));
@@ -75,18 +75,18 @@ function SavedItemsPg() {
                                     alt=''
                                     className='saveditemspg-img'
                                 />
+                                 <div className='saveditemspg-icon-parent-container'>
+
+                                    <FavoriteBorderOutlined 
+                                        className='saveditemspg-favoriteborderoutlined'
+                                        onClick={(event) => removeSavedItemHandler(event, items.product_id)}
+                                    />
+                                    {/* <ShoppingCartOutlined 
+                                        className='saveditemspg-shoppingcartoutlined'
+                                    /> */}
+                                </div>
+
                                 <div className='saveditemspg-information'>
-
-                                    <div className='saveditemspg-icon-parent-container'>
-
-                                        <FavoriteBorderOutlined 
-                                            className='saveditemspg-favoriteborderoutlined'
-                                            onClick={(event) => removeSavedItemHandler(event, items.product_id)}
-                                        />
-                                        {/* <ShoppingCartOutlined 
-                                            className='saveditemspg-shoppingcartoutlined'
-                                        /> */}
-                                    </div>
 
                                     <p className='saveditemspg-itemtitle'>{items.title}
                                     </p>

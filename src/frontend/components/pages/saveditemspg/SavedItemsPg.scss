@@ -15,7 +15,7 @@
     }
 
     .saveditemspg-information-parent-container {
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         margin: 25px 0 0 0;
         max-width: 100%;
         max-height: 100%;
@@ -32,6 +32,12 @@
             width: 100%;
             height: 350px;
             position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 40px -12px rgba(0,0,0,0.3);
+
+            &:hover {
+                cursor: pointer;
+            }
     
             .saveditemspg-img {
                 /* display: none; */
@@ -41,34 +47,44 @@
                 height: 75%;
                 /* display: flex; */
             }
+
+            .saveditemspg-icon-parent-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                flex-direction: column;
+                /* justify-content: space-around; */
+                height: 100%;
+                
+
+                .saveditemspg-favoriteborderoutlined {
+                    border: 1px solid orange;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    padding: 10px;
+                    background-color: white;
+                    margin: 10px 10px 0 0;
+                    z-index: 10;
+                    transition: all 0.5s ease;
+                    color: red;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #e9f5f5;
+                        color: black;
+                        transform: scale(1.1);
+                    }
+                }
+
+                /* .saveditemspg-shoppingcartoutlined {
+                    border: 1px solid orange;
+                } */
+            }
     
             .saveditemspg-information {
 
-                .saveditemspg-icon-parent-container {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    display: flex;
-                    flex-direction: column;
-                    /* justify-content: space-around; */
-                    height: 100%;
-                    
-
-                    .saveditemspg-favoriteborderoutlined {
-                        border: 1px solid orange;
-                        height: 30px;
-                        width: 30px;
-                        border-radius: 50%;
-                        padding: 10px;
-                        background-color: white;
-                        margin: 10px 10px 0 0;
-                        /* color: red; */
-                    }
-
-                    /* .saveditemspg-shoppingcartoutlined {
-                        border: 1px solid orange;
-                    } */
-                }
     
                 .saveditemspg-itemtitle {
                     font-size: 12px;
