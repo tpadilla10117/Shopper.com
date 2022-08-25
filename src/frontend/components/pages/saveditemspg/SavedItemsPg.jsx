@@ -21,7 +21,7 @@ function SavedItemsPg() {
     const user = useSelector(userData);
     const usersSavedItems = useSelector(selectUsersSavedItems);
     const navigateProductRoute = useNavigate();
-
+    
 /* Render the existing savedItems once & send user_id: */
     useEffect( () => {
         if(usersSavedItems.length === 0 && user) {
@@ -35,7 +35,7 @@ function SavedItemsPg() {
         event.preventDefault();
         event.stopPropagation();
         const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
-
+        
         dispatch(deleteAUsersSavedItem( thunkArguments ));
     };
 

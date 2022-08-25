@@ -40,8 +40,6 @@ const ProductsLandingFeed = ({
 
   function searchOutlineHandler(event, productid) {
     event.preventDefault();
-    console.log('Clicked seach icon!')
-    console.log(`My productId is ${productid} `)
     navigateProductRoute(`/shop/products/${subcategory}/${title}/${productid}`)
   }
 
@@ -53,8 +51,13 @@ const ProductsLandingFeed = ({
 /* Lets a user save a product for later: */
   function addItemToSavedProducts(event, product_id) {
     event.preventDefault();
-    const productObject = {user_id: user.recoveredData.id, product_id: product_id};
-    dispatch(addASavedItem(productObject));
+
+    if(user === null || !user.token) {
+      navigateProductRoute('/signin')
+    } else {
+      const productObject = {user_id: user.recoveredData.id, product_id: product_id};
+      dispatch(addASavedItem(productObject));
+    }
   };
 
   return (
