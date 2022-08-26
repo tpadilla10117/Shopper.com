@@ -1,10 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 
 /* TODO: Need to finish and populate: */
 /* - dynamic routing on click
     - product categories
     - product images
     - subcaption
+    - DOUBLE CHECK YOUR SELECTORS for productCategories
 */
 function ProductNavSlider() {
 
