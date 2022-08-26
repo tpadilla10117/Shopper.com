@@ -1,4 +1,5 @@
 import React from 'react';
+import { CtaButton } from '../../utils';
 
 function CtaBanner( {
     figureClassName,
@@ -11,7 +12,7 @@ function CtaBanner( {
     titleRef,
     description,
     descriptionClassName,
-    descriptionRef
+    descriptionRef,
 } ) {
 
   return (
@@ -30,6 +31,12 @@ function CtaBanner( {
                 <p className={descriptionClassName}>
                     {description}
                 </p>
+
+                <CtaButton 
+                    text='Shop Mens'
+                    myClass={'ctaBanner-ctaButton'}
+                    /* onClick={''} */
+                />
             </figcaption>
 
         </figure>
