@@ -2,6 +2,7 @@ import React from 'react';
 import { CtaButton } from '../../utils';
 
 function CtaBanner( {
+    parentContainerClassName,
     figureClassName,
     image,
     imageClassName,
@@ -16,7 +17,7 @@ function CtaBanner( {
 } ) {
 
   return (
-    <section className='ctaBanner-parent-container'>
+    <section className={parentContainerClassName}>
         <figure className={figureClassName}>
             <img
                 className={imageClassName}
@@ -34,7 +35,7 @@ function CtaBanner( {
 
                 <CtaButton 
                     text='Shop Mens'
-                    myClass={'ctaBanner-ctaButton'}
+                    myClass={'ctaBanner-ctaButton-groomsmen'}
                     /* onClick={''} */
                 />
             </figcaption>

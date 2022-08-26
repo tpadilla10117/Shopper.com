@@ -17,7 +17,8 @@ const Landing = () => {
       <HeroBanner2 />
       <Directory />
       <ProductFeed />
-      <CtaBanner 
+      <CtaBanner
+        parentContainerClassName={'ctaBanner-parent-container-groomsmen'}
         figureClassName={'ctaBanner-img-wrapper-groomesmen'}
         image={Groomsmen}
         imageClassName={'ctaBanner-img-groomsmen'}
