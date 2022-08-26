@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CtaButton } from '../../utils';
 
 function CtaBanner( {
@@ -16,33 +17,40 @@ function CtaBanner( {
     descriptionRef,
 } ) {
 
-  return (
-    <section className={parentContainerClassName}>
-        <figure className={figureClassName}>
-            <img
-                className={imageClassName}
-                alt={imagealt}
-                src={image}
-            />
+    const navigateRoutes = useNavigate();
 
-            <figcaption className={figCaptionClassName}>
-                <h1 className={titleClassName}>
-                    {title}
-                </h1>
-                <p className={descriptionClassName}>
-                    {description}
-                </p>
+    function ctaButtonClickHandler(event, routeString) {
+        event.preventDefault();
+        navigateRoutes(routeString);
+    };
 
-                <CtaButton 
-                    text='Shop Mens'
-                    myClass={'ctaBanner-ctaButton-groomsmen'}
-                    /* onClick={''} */
+    return (
+        <section className={parentContainerClassName}>
+            <figure className={figureClassName}>
+                <img
+                    className={imageClassName}
+                    alt={imagealt}
+                    src={image}
                 />
-            </figcaption>
 
-        </figure>
-    </section>
-  )
+                <figcaption className={figCaptionClassName}>
+                    <h1 className={titleClassName}>
+                        {title}
+                    </h1>
+                    <p className={descriptionClassName}>
+                        {description}
+                    </p>
+
+                    <CtaButton 
+                        text='Shop Mens'
+                        myClass={'ctaBanner-ctaButton-groomsmen'}
+                        onClick={(event) => ctaButtonClickHandler(event,'/shop')}
+                    />
+                </figcaption>
+
+            </figure>
+        </section>
+    )
 }
 
 export default CtaBanner;
