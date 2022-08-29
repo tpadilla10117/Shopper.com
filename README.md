@@ -18,13 +18,13 @@
 - TBD
 
 ## Cloning Instructions:
--1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
+- 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
 
 - 2) In the terminal for the project, `npm i dotenv` to install .env.
     1a) Create a .env file
     1b) `npm i node-modules` In the terminal
 
--3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
+- 3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
     - Once you have an account, follow instructions to generate keys
 
 - NOTES:
