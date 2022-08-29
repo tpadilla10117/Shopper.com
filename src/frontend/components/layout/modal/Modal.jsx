@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { handleModalVisibility } from '../../../reduxslices/modalSlice';
 
@@ -9,22 +9,7 @@ const Modal = ( {children} ) => {
 
         const modalToggle = () => {
             dispatch(handleModalVisibility())
-            console.log('clicked');
         };
-
-/* Allows me to click anywhere outside the Modal to close it: */
-
-   /*  useEffect( () => {
-
-        function handleClick(event) {
-            if(!modalReference.current?.contains(event.target)) {
-                modalToggle();
-            }
-        }
-
-        document.addEventListener("click", handleClick);
-        return () => document.removeEventListener("click", handleClick);
-    }, ); */
 
   return (
       

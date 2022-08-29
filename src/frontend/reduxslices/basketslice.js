@@ -19,14 +19,14 @@
                 //push payload in global store (contains dispatched product)
                 state.items = [...state.items, action.payload];
             },
-        /* TODO: Need to finish Remove basket.. */
+        /* Removes a specific item from basket: */
             removeFromBasket: (state, action) => {
                 //look for index of item want to remove...
                 const index = state.items.findIndex( basketItem => basketItem.id === action.payload.id);
 
                 //make a copy of the current basket...
                 let newBasket = [...state.items];
-
+                
                 if (index >= 0) {
                     newBasket.splice(index, 1)
                 } else {
@@ -36,19 +36,77 @@
             },
             clearBasket: (state, action) => {
                 state.items = [];
-            }
+            },
+        /* Increments count of a cart item: */
+            addCartItemCount: (state, action) => {
+
+                const existingCartItem = state.items.find(
+                    (cartItem) => cartItem.productid === action.payload.productid
+                );
+                
+                if(existingCartItem) {
+                    
+                    return {
+                        ...state,
+                        items: state.items.map(item => item.productid === action.payload.productid
+                            ? {
+                                ...item,
+                                quantity: item.quantity + 1,
+                            }
+                            : item
+                        ),
+                    }
+                }
+
+                return {
+                    ...state,
+                    items: [...state.items, action.payload]
+                }
+              
+            },
+        /* Lowers the count of a cart item: */
+            removeCartItemCount: ( state, action ) => {
+                const existingCartItem = state.items.find(
+                    (cartItem) => cartItem.productid === action.payload.productid
+                );
+
+            // check if quantity is equal to 1, if it is remove that item from the cart
+                if(existingCartItem.quantity === 1) {
+
+                    return {
+                        ...state,
+                        items: state.items.filter( (cartItem) => 
+                            cartItem.productid !== action.payload.productid 
+                        ) 
+                    } 
+                }
+
+
+            // return back cartitems with matching cart item with reduced quantity
+                return {
+                    ...state,
+                    items: state.items.map((item) => item.productid === action.payload.productid
+                        ? {
+                            ...item,
+                            quantity: item.quantity - 1,
+                        }
+                        : item
+                    ),
+                }
+               
+            },
         },
     });
 
 /* Export my actions: */
-    export const { addToBasket, removeFromBasket, clearBasket } = basketSlice.actions;
+    export const { addToBasket, removeFromBasket, clearBasket, addCartItemCount, removeCartItemCount } = basketSlice.actions;
 
 /* Selectors - how to pull info from Global store slice: */
     export const selectItems = (state) => state.basket.items;
 
-/* use .reduce to loop through items in the array -> each time we iterate, add item price to the total */
-/* TODO: total is not adding up properly */
-
-    export const selectTotal = (state) => state.basket.items.reduce( (total, item) => Number(total) + Number(item.price), 0);
+    
+    export const selectTotal = (state) => state.basket.items.reduce(
+        (total, item) => total + item.quantity * item.price, 0
+    );
 
     export default basketSlice.reducer;

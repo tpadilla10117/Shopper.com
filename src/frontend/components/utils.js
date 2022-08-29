@@ -11,6 +11,8 @@
 
         export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';
 
+        export { default as CtaBanner } from '../components/layout/ctaBanner/CtaBanner.jsx';
+
         export { default as CtaButton } from '../components/layout/ctabutton/CtaButton.jsx';
 
         export { default as Modal } from '../components/layout/modal/Modal.jsx';
@@ -29,7 +31,7 @@
 
         export { default as MenuItem } from '../components/layout/menuItem/menuItem.js';
 
-        export { default as Directory } from '../components/layout/directory/Directory.js';
+        export { default as Directory } from '../components/layout/directory/Directory.jsx';
 
         export { default as LandingLogin } from '../components/layout/landingLogin/LandingLogin.jsx';
 
@@ -41,10 +43,17 @@
 
         export { default as Loading } from '../components/layout/loading/Loading.jsx';
 
-        export { default as Orders } from '../components/layout/orders/Orders.js';
+        export { default as OrderCards } from '../components/layout/orderCards/OrderCards.js';
 
         export { default as Footer } from '../components/layout/footer/Footer.jsx';
 
+        export { default as Newsletter } from '../components/layout/newsletter/Newsletter.jsx';
+
+        export { default as IndividualProductCards } from '../components/layout/individualProductCards/IndividualProductCards.jsx';
+
+        export { default as ProductNavSlider } from '../components/layout/productNavSlider/ProductNavSlider.jsx';
+
+        export { default as Spinner } from '../components/layout/spinner/Spinner.jsx';
 
 
 /* -------------------------------------------------------------------------- */
@@ -52,7 +61,7 @@
 
     /* "pages" components: */
 
-        export { default as Landing } from '../components/pages/Landing';
+        export { default as Landing } from '../components/pages/landing/Landing.jsx';
 
         export { default as About } from '../components/pages/about/About.js';
 
@@ -68,7 +77,11 @@
 
         export { default as SuccessPg } from '../components/pages/successpg/SuccessPg.js';
 
+        export { default as IndividualProductPg } from '../components/pages/individualproductpg/IndividualProductPg.jsx';
 
+        export { default as MyAccountPg } from '../components/pages/myaccountpg/MyAccountPg.jsx';
+
+        export { default as SavedItemsPg } from '../components/pages/saveditemspg/SavedItemsPg.jsx';
 
 
 /* -------------------------------------------------------------------------- */

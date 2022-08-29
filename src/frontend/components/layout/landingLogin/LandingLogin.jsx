@@ -6,16 +6,11 @@
     import { handleModalVisibility, handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
     import { Modal, SignupModal, Login, Signup } from '../../utils';
 
-    /* function storeCurrentToken(token) {
-        localStorage.setItem('token', JSON.stringify(token));
-    }; */
-
     const LandingLogin = () => {
         const dispatch = useDispatch();
 
         const modalToggle = () => {
             dispatch(handleModalVisibility())
-            /* console.log('clicked'); */
         };
 
         const signUpModalToggle = () => {
@@ -25,7 +20,6 @@
 
         const signInHandler = () => {
             modalToggle();
-            /* console.log("I clicked sign in!"); */
         };
 
         const signUpHandler = () => {
@@ -37,9 +31,6 @@
         
     /* Toggler for Signup Modal: */
         const signUpModalIsToggled = useSelector(state => state.modal.signUpModalVisibility);
-
-    /* const [ password, setPassword ] = useState(''); */
- 
 
     return (
         <section id='landing-login-parent-container'>
@@ -54,7 +45,7 @@
             </p>
 
 
-        {/* TODO: Need to finish styling the modal to test */}
+        
     {/* The modal appears when clicking 'mobile-signin-button: */}
 
         {modalIsToggled && 
@@ -65,7 +56,7 @@
         }
 
         {signUpModalIsToggled &&
-            /* TODO: Need to make a Sign Up modal */
+            
             <SignupModal>
                 <Signup/>
             </SignupModal>

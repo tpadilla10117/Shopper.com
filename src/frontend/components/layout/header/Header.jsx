@@ -1,7 +1,11 @@
 /* Header Component is to contain the navigation components: */
 
     import React, {useState, useEffect} from 'react';
-    import {Nav, DesktopNav, Sidebar} from '../../utils';
+    import {
+        Nav, 
+        DesktopNav, 
+        Sidebar,
+    } from '../../utils';
     import './Header.scss';
 
     const Header = () => {
@@ -29,7 +33,8 @@
 
         <header className="header-parent-wrapper">
             {isDesktop ?
-                (<DesktopNav /* isOpen={isOpen} */ /* navToggle={navToggle} *//>)
+                (<DesktopNav /* isOpen={isOpen} */ /* navToggle={navToggle} *//>
+                )
         
                 :
 

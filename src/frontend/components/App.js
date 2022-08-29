@@ -1,24 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   Header, 
-  Login,
   Landing,
   About,
-  Cart,
   Signin,
-  LandingLogin,
+  MyAccountPg,
+  SavedItemsPg,
   CheckoutPg,
   ProductsPg,
   OrderPg,
   SuccessPg,
-  Footer
+  Footer,
+  IndividualProductPg,
+  Spinner
 } from './utils';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts, selectItems } from '../reduxslices/productSlice';
+import { isLoading, setLoader } from '../reduxslices/loadingSlice';
+
 import './App.scss';
 
 
 function App() {
+
+/* Server-Side render of my product data: */
+  const dispatch = useDispatch();
+  const items = useSelector(selectItems);
+  const loadStatus = useSelector(setLoader)
+
+  useEffect(() => {
+
+    if(items.length === 0 ) {
+      dispatch(isLoading(true))
+      setTimeout(() => {
+        dispatch(isLoading(false))
+      }, 2000);
+      dispatch(getProducts());
+      
+    } else {
+      return;
+    }
+  
+  },[dispatch, items])
+
+/* My Loading Spinner: */
+  if(loadStatus) return <Spinner />
+
   return (
     <main className="App">
       <CSSTransition timeout={300}>
@@ -30,15 +60,22 @@ function App() {
       
         <Route path='/about' element={<About />}/>
       
-        {/* <Route path='/cart' element={<Cart />} /> */}
-        {/* <Route exact path='/cart'>
-          <Navigate to='/cart' />
-        </Route> */}
-      
         <Route path='/signin' element={<Signin />}/>
       
-        <Route path='/products' element={<ProductsPg/>}/>
+        <Route path='/shop/*' element={<ProductsPg/>}/>
       
+    {/* Routing is unique based on params from ProductsLandingFeed.jsx: */}
+        <Route path={`/shop/products/:subcategory/:title/:prodid`} 
+            element={
+              <IndividualProductPg/>
+            } 
+        />
+
+    {/* TODO: Create route and UI components */}
+        <Route path='/my-account' element={<MyAccountPg />} />
+
+        <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
+         
 
 {/* TODO: Need to setup in db prior to finishing */}
       

@@ -1,4 +1,5 @@
 /* I DEFINE AN API ROUTER HERE, AND ATTACH THE OTHER ROUTERS */
+    
     const express = require('express');
     const apiRouter = express.Router();
 
@@ -38,7 +39,17 @@
         }
     });
 
-/* Use .use to add middleware */
+/* Use .use to add middleware: */
+
+    apiRouter.use((req, res, next) => {
+        if (req.originalUrl === '/webhook') {
+        next();
+        } else {
+        express.json()(req, res, next);
+        console.log("Here is original URL: ", req.originalUrl);
+        }
+    });
+
     apiRouter.use( (req, res, next) => {
         if (req.user) {
             console.log('User is set: ', req.user);
@@ -46,32 +57,12 @@
         next();
     })
 
-    apiRouter.get('/', (req, res) => {
+   /*  apiRouter.get('/', (req, res) => {
         res.send({
             message: "Greetings from api/"
         })
-    })
+    }) */
 
-/* Webhook TODO: */
-    apiRouter.post('/webhook', (req, res) => {
-    /* extract some events from stripe: */
-        const event = req.body;
-        console.log("Here is my req.body from webhook: ",req.body)
-
-        switch(event.type) {
-            case 'checkout.session.completed':
-                const session = event.data.object;
-                console.log("Checkout Session ID: ", session.id)
-                break;
-            case 'payment_intent.created':
-                const paymentIntent = event.data.object;
-                console.log("PatmentIntent Created: ", paymentIntent.id);
-                break;
-            default:
-                console.log('Unkown event type: ' + event.type)
-        }
-        res.send({ message: 'success from webhook!'})
-    });
 
 /* Testing Stripe checkout Route: */
     apiRouter.post('/create-checkout-session', createStripeCheckoutSession);
@@ -79,7 +70,9 @@
 /* Middleware where I attach my routers and handle requests...  */
     
     const usersRouter = require('./users');
-    apiRouter.use('/products', require('./products'));
+    apiRouter.use('/shop', require('./shop'));
+    apiRouter.use('/orders', require('./orders'));
+    apiRouter.use('/webhook', require('./webhook.js'));
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);

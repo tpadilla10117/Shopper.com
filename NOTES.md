@@ -1,5 +1,6 @@
 <!-- For Notes within the build: -->
     - create a new db with `createdb <NAME_OF_DB>`
+    - to drop a db, use DROP DATABASE "e-commerce_nodejs_template";
 
 <!-- Stack: -->
     - Frontend: SCSS, React.js, Redux, HTML5, Node.js, Stripe
@@ -111,3 +112,79 @@
         - (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
         - (https://hackthestuff.com/article/what-is-manifest-json-file-and-how-it-is-useful#:~:text=The%20manifest.,Add%20to%20Home%20Screen%20prompt.&text=json%20provides%20to%20the%20browser,the%20name%2C%20icons%2C%20etc.)
+
+<!-- WebHook Process For Deployed Apps (Stripe) -->
+    - 1) go to your Stripe Dashboard -> Developers -> Webhooks -> Add endpoint
+    - 2) Paste in your endpoint from backend
+    - 3) Look at options, can select events to Listen to on backend
+    - 4) Copy POST request and paste into project
+
+<!-- WebHook Process For Local Environments using Striple CLI  (https://github.com/stripe/stripe-cli) -->
+
+
+
+<!-- API  -->
+    - If change primary endpoint '/', need to update stripecheckoutsession in stripeCheckout.js
+
+<!-- SQL QUERIES in DB ADAPTERS -->
+    - 1) The e.g. const {rows: [product] } is client-side code that represents our request to query the product table
+    - 2) Insert data into the table with 'INSERT INTO'
+    - 3) Specify which table you want to access.  In the example, we have 'products' table
+    - 4) Specify which columns you want to access in your table. In the example we have (id, title, description...image)
+    - 5) the VALUES $1, $2...etc are placeholders to specify values of each column
+    - 6) We make sure to add an argument to define the placeholder's value.  This is indicated with the brackets after the ``
+        - e.g. `INSERT INTO ... RETURNING *`, [id, title, description...items]
+
+    - e.g. Sample Query:
+            const { rows: [product] } = await client.query(`
+                INSERT INTO products(id, title, description, price, category, subcategory, productid, image)
+                VALUES($1,$2,$3,$4,$5,$6,$7, $8)
+                RETURNING *
+        `, [id, title, description, price, category, subcategory, productid, image]);
+
+
+<!-- Stripe API LifeCycles & DOCS: -->
+    - 1) Checkout Lifecycle (https://stripe.com/docs/payments/checkout/how-checkout-works):
+
+        - Then need to handle a checkout.session.completed event
+
+    - 2) Fulfill Orders With Checkout (https://stripe.com/docs/payments/checkout/fulfill-orders):
+
+        - Now that you have the basic structure and security in place to make sure any event you process came from Stripe, you can handle the checkout.session.completed event. This event includes the Checkout Session object, which contains details about your customer and their payment.
+
+        - 1) Create a Webhook endpoint
+        - 2) Install and set up the Stripe CLI
+        - 3) Test your webhook locally
+            e.g. testing a payment intent: (https://stripe.com/docs/api/payment_intents/object)
+
+            e.g. testing a checkout session and getting its object: (https://stripe.com/docs/api/checkout/sessions)
+
+        - 4) Deploy your webhook endpoint
+
+        **ORDER: Trigger session -> if complete, use webhook to push data into DB & redirect to success page
+
+<!-- Unused code: -->
+    - API calls in Redux with Thunks:
+     /* const FAKESTORE_API_URL = "https://fakestoreapi.com/"; */
+
+  /* Logic to request products from fakestoreapi.com : */
+      /* const productRequest = () => {
+          return axios.get(FAKESTORE_API_URL + "products?limit=5")
+          .then(res => {
+            const reqProducts = res.data;
+            setProducts(reqProducts);
+          })
+      }; */
+
+     /*  useEffect(() => {
+        productRequest();
+      }, [])  */
+
+      /* async function getAllProducts() {
+        try {
+          const { data } = await axios.get('/api/products');
+          return data;
+        } catch (error) {
+          throw error;
+        }
+      }; */

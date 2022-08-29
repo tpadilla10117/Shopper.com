@@ -10,6 +10,14 @@
         getUserById,
         getUserByUsername
     } = require('../../backend/dbadapters/users');
+
+    const { 
+        getSavedProductsByUserId,
+        deleteSavedProductByProductid,
+        createSavedProduct,
+        getASavedProductByUserId,
+    } = require('../../backend/dbadapters/saved_products');
+
     const {
         updateUser
     } = require('../../backend/dbadapters/admin');
@@ -101,14 +109,6 @@ class TypeError extends Error {
     usersRouter.post('/login', async (req, res, next) => {
         const { username, password } = req.body;
 
-        //request must have both a username and a password:
-        if (!username || !password ) {
-            next ({
-                name: 'MissingCredentialsError',
-                message: 'Please supply both a valid username and password'
-            });
-        }
-
         try {
             const user = await getUserByUsername(username);
 
@@ -124,7 +124,7 @@ class TypeError extends Error {
                 res.send( {
                     message: 'Login Success!',
                     recoveredData,
-                    /* token: token, */
+                    token: token,
                     email: user.email,
                 });
             } else if (isMatch === false) {
@@ -132,7 +132,7 @@ class TypeError extends Error {
                     name: 'IncorrectCredentialsError',
                     message: 'Username or password is incorrect!'
                 });
-            }
+            } 
 
         } catch (error) {
             console.log(error);
@@ -172,6 +172,79 @@ class TypeError extends Error {
             }
         } catch (error) {
            next(error)
+        }
+    });
+
+/* Get a user's saved-items by their id: */
+    usersRouter.get('/:userId/my-account/saved-items', async (req, res, next) => {
+        const { userId } = req.params;
+
+        try {
+            const user = await getUserById(userId);
+
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const usersSavedProducts = await getSavedProductsByUserId(user.id);
+
+                res.send(usersSavedProducts);
+            };
+
+
+        } catch (error) {
+           next(error)
+        }
+    });
+
+/* Remove a user's saved Item by a product_id: */
+    usersRouter.delete('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
+        const { userId, productid } = req.params;
+        try {
+            
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const removeItem = await deleteSavedProductByProductid(productid);
+
+                res.send(removeItem);
+                
+            };
+
+        } catch(error) {
+            next(error);
+        }
+    });
+
+/* Add a saved item based on product_id & user_id: */
+    usersRouter.post('/:userId/my-account/saved-items/:productid', async(req, res, next) => {
+        const { userId, productid } = req.params;
+        
+        try {
+            
+            if(userId === null || typeof userId === undefined || !userId ) {
+                next(ApiError.badRequest('Incorrect type'));
+                return;
+                
+            } else {
+                const productObject = { 
+                    product_id: productid, 
+                    user_id: userId, 
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss') 
+                };
+
+                const savedProduct = await createSavedProduct(productObject);
+
+                const usersSavedProducts = await getASavedProductByUserId(savedProduct);
+
+                res.send(usersSavedProducts);
+                
+            };
+        } catch(error) {
+            next(error);
         }
     });
 

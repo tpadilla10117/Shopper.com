@@ -1,24 +1,14 @@
 .menu-item {
-   /*  min-width: 30%;
-    height: 240px;
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    margin: 0 7.5px 15px;
     overflow: hidden;
-    z-index: 0;
-    position: relative;
-    border-radius: 5px; */
+    border-radius: 5px;
     flex: 1;
     margin: 3px;
     height: 70vh;
+    width: 100%;
     position: relative;
+    /* border: 5px solid red; */
 
-   
-
-   /*  &:hover {
+    &:hover {
         cursor: pointer;
 
         .menu-item-background-image {
@@ -29,21 +19,14 @@
         .menu-item-content {
             opacity: 0.9;
         }
-    } */
+    }
 
  
     .menu-item-background-image {
-      /*   width: 100%;
+        width: 100%;
         height: 100%;
         background-position: center;
         background-size: cover;
-         */
-
-         width: 100%;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
-
 
         @media screen and (max-width: 760px) {
             height: 25vh;
@@ -51,48 +34,35 @@
     }
 
     .menu-item-content {
-        /* height: 90px;
-        padding: 0 25px;
+    
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid black;
-        background-color: $background-primary;
-        opacity: 0.7;
-        position: absolute; */
-        position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        background-color: hsla(0,0%,10%,.52);
 
         .menu-item-title {
-            /* font-weight: bold;
-            margin-bottom: 6px;
-            font-size: 22px;
-            color: $text-cardmask; */
-            color:white;
-    margin-bottom: 20px;
-    font-size: 49px;
+            color: $text-secondary;
+            margin-bottom: 20px;
+            font-size: $extralarge-heading-h1;
+            letter-spacing: 2px;
 
-    @media screen and (max-width: 760px) {
-        font-size: 29px;
-    }
+            @media screen and (max-width: 760px) {
+                font-size: 29px;
+            }
             
         }
 
         .menu-item-subtitle {
-            /* font-size: $p-txt-med;
-            color: $text-primary; */
-            border:none;
+            border: none;
             padding: 20px;
-            background-color: white;
-            color:gray;
+            background-color: $background-primary;
+            color: $text-primary;
             cursor: pointer;
             font-weight: 600;
             font-size: 29px;

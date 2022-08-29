@@ -1,6 +1,13 @@
 .productFeed-parent-container {
-    display: flex;
     padding: 20px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+    .productFeed-h2 {
+        margin: 0px 0px 10px 0;
+    }
+    
+   .productFeed-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+   }
 }

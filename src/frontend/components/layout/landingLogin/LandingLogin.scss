@@ -1,17 +1,26 @@
 #landing-login-parent-container {
     display: flex;
-    /* position: relative; */ /* TODO: ruins masking */
     flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    padding: 2rem;
-    /* border: 10px solid red; */
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+    background-size: cover;
 
     .landing-login-h1 {
         color: #000000;
+        text-align: center;
+        margin: 40px 0 20px 0;
+        font-size: 24px;
+        font-weight: 300;
     }
 
     .landing-login-h3 {
@@ -21,27 +30,33 @@
     .mobile-signup-button {
         line-height: 25.2px;
         font-size: 18px;
-        /* position: absolute; */
         background-color: #1AC1DD;
         color: #fff;
-        border-radius: 50px;
         width: 280px;
-        height: 60px;
-       /*  left: 55px;
-        top: 362px; */
+        height: 60px;       
+        border: none;
+        padding: 15px 20px;
+        cursor: pointer;
+        margin: 20px 0 20px 0;
     }
 
-    .mobile-signin-button {
-        line-height: 25.2px;
-        font-size: 18px;
-        /* position: absolute; */
-        background-color: #fff;
-        border: 1px solid black;
-        color: #1AC1DD;
-        border-radius: 50px;
-        width: 280px;
-        height: 60px;
-        /* left: 55px;
-        top: 536px; */
+    .login-forgotpassword {
+        display: flex;
+        flex-direction: column;
+        
+        .mobile-signin-button {
+            line-height: 25.2px;
+            font-size: 18px;
+            background-color: #fff;
+            border: 1px solid black;
+            color: #1AC1DD;
+            width: 280px;
+            height: 60px;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            margin: 20px 0 20px 0;
+        }
     }
+
 }

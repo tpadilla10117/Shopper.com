@@ -2,7 +2,7 @@
 
     import axios from "axios";
 
-    const API_URL = "http://localhost:3000/api/users/";
+    const API_URL = "http://localhost:3000/users/";
 
 /* TODO: Register logic */
     const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active ) => {
@@ -31,16 +31,26 @@
             username,
             password
         })
+        /* TODO: This token is never used -> we make a post request each time above */
         .then( (response) => {
             if (response.data.token) {
                 localStorage.setItem("user", JSON.stringify(response.data.token));
-            }
+            };
+
+            if(response.data.token) {
+                localStorage.setItem("user_id", JSON.stringify(response.data.recoveredData.id));
+            };
+
             return response.data;
         })
     };
 
     const logout = () => {
-        localStorage.removeItem("user");
+        console.log('logout from auth service')
+        
+        localStorage.removeItem("user_id");
+        return localStorage.removeItem("user");
+        
     };
 
     const authService = {

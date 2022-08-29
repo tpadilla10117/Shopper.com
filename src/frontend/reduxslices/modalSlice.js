@@ -15,11 +15,9 @@
             //Actions:
             handleModalVisibility: (state) => {
                 state.modalVisibility = !state.modalVisibility
-                console.log(`The value of ${state.modalVisibility}`)
             },
             handleSignUpModalVisibility: (state) => {
                 state.signUpModalVisibility = !state.signUpModalVisibility
-                console.log(`The value of ${state.signUpModalVisibility}`)
             }
         }
     });

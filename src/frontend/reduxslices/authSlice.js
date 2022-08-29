@@ -19,9 +19,9 @@
                 const message = (error.response &&
                     error.response.data &&
                     error.response.data.message ) ||
-                error.message ||
-                error.toString();
-                thunkAPI.dispatch(setMessage(message));
+                    error.message ||
+                    error.toString();
+                    thunkAPI.dispatch(setMessage(message));
                 return thunkAPI.rejectWithValue();
             }
         }
@@ -32,10 +32,11 @@
             "auth/login",
             async ({username, password}, thunkAPI) => {
                 try {
-                    console.log("From middleware: ", username)
-                    console.log("From middleware: ", typeof username)
+                   
                     const data = await authService.login(username, password);
+                    
                     return { user: data };
+
                 } catch (error) {
                     const message = (error.response && 
                         error.response.data &&
@@ -63,7 +64,7 @@
             initialState,
             reducers: {
                 //actions:
-                [register.fulfilled]: (state, action) => {
+                /* [register.fulfilled]: (state, action) => {
                     state.isLoggedIn = true;
                     state.user = action.payload.user
                 },
@@ -73,15 +74,15 @@
                 [login.fulfilled]: (state, action) => {
                     state.isLoggedIn = true;
                     state.user = action.payload.user;
-                  },
-                  [login.rejected]: (state, action) => {
+                },
+                [login.rejected]: (state, action) => {
                     state.isLoggedIn = false;
                     state.user = null;
-                  },
-                  [logout.fulfilled]: (state, action) => {
+                },
+                [logout.fulfilled]: (state, action) => {
                     state.isLoggedIn = false;
                     state.user = null;
-                  },
+                }, */
             },
             extraReducers(builder) {
                 builder
@@ -95,10 +96,19 @@
                         state.status = 'succeeded'
                         state.user = action.payload.user
                     })
+                    .addCase(logout.fulfilled, (state, action) => {
+                        state.isLoggedIn = false
+                        state.status = 'succeeded'
+                        state.user = null
+                    })
             }
         });
 
     /* User selector:  */
         export const userData = (state) => state.auth.user;
+
+        export const testData = (state) => state.auth;
+
+        export const reduxStateObject = (state) => state;
 
         export default authSlice.reducer;

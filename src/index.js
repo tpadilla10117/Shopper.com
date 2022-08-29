@@ -13,7 +13,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import reportWebVitals from './reportWebVitals';
 
 
-/* Create a Stripe Promise: TODO: process.env not working for whatever reason */
+/* Create a Stripe Promise: TODO: process.env not working for whatever reason -> 7/27 UPDATE
+ - need to use text: REACT_APP_STRIPE_PUBLISHABLE_KEY in my .env
+*/
 
 
 /* const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY); */

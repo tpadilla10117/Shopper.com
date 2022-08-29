@@ -1,9 +1,11 @@
-/* File for products table db adapters: */
+/* File for products table db adapters using SQL Queries: */
+
     const { client } = require('../index');
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE PRODUCT METHODS:
 
+/* Return all products in the db: */
     async function getAllProducts() {
         try {
             const { rows } = await client.query(`
@@ -15,15 +17,16 @@
         }
     }
 
+/* Create additional products in the db:  */
     async function createProducts(product) {
-        const {id, title, description, price, category, image} = product;
+        const {title, description, productid, image, category_id, subcategory, price} = product;
 
         try {
             const { rows: [product] } = await client.query(`
-            INSERT INTO products(id, title, description, price, category, image)
-            VALUES($1,$2,$3,$4,$5,$6)
+            INSERT INTO products(title, description, productid, image, category_id, subcategory, price)
+            VALUES($1,$2,$3,$4,$5,$6,$7)
             RETURNING *
-        `, [id, title, description, price, category, image]);
+        `, [title, description, productid, image, category_id, subcategory, price]);
 
         return product;
 
@@ -32,8 +35,23 @@
         }
     }
 
+/* Return a single product by its id (Primary Key) : */
+    async function getProductById(id) {
+        try {
+            const { rows: [product] } = await client.query(`
+            SELECT * FROM products WHERE id=$1
+            
+            `, [id]);
+
+            return product;
+        } catch (error) {
+            throw error;
+        }
+    }
+
   
     module.exports = {
         getAllProducts,
-        createProducts
+        createProducts,
+        getProductById,
     }

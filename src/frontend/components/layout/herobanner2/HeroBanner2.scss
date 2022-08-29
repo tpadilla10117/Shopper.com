@@ -73,7 +73,7 @@
 
                 @media screen and (max-width: 1060px) {
                     position: absolute;
-                    background-color: hsla(0,0%,42.7%,.52);
+                    background-color: hsla(0,0%,0%,.52);
                     width: 100%;
                 }
 
@@ -81,7 +81,7 @@
                     font-size: 70px;
 
                     @media screen and (max-width: 1060px) {
-                        color: #fff;
+                        color: $text-secondary;
                         font-size: 39px;
                      }
                 }
@@ -93,7 +93,7 @@
                     letter-spacing: 3px;
 
                     @media screen and (max-width: 1060px) {
-                       color: #fff;
+                       color: $text-secondary;
                        font-size: 16px;
                     }
                     
@@ -101,14 +101,14 @@
 
                 .herobanner2-btn {
                     padding: 10px;
-                    font-size: 20px;
+                    font-size: $text-paragraph;
                     background-color: transparent;
                     border: 2px solid;
                     border-radius: 2px;
                     cursor: pointer;
 
                     @media screen and (max-width: 1060px) {
-                        background-color: #fff;
+                        background-color: $background-primary;
                         border: none;
                     }
                 }

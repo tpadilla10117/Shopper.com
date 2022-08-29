@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 import { NavbarData } from '../../../seed';
@@ -7,23 +7,33 @@ import { useDispatch } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
 import "../../App.scss";
 
-const Sidebar = (/* props */) => {
+const Sidebar = () => {
 
-    /* const { isOpen, navToggle } = props */
     const isToggled = useSelector(state => state.nav.isOpen);
-    console.log("Value of isOpen: ", useSelector(state => state.nav.isOpen))
+    const nodeRef = useRef(null);
 
     const dispatch = useDispatch();
 
     const navToggle = () => {
         dispatch(navToggler())
-        console.log("clicked")
     }
 
+
     return (
-        <CSSTransition in={isToggled/* isOpen */} timeout={300} unmountOnExit onEnter={ () => /* navToggle */isToggled} onExited={ () => /* navToggle */isToggled} classNames="sidebar-transition">
-            <nav className='sidebar-parent-container'>
-                <div className='sidebar-icon-container'>
+        <CSSTransition 
+            in={isToggled} 
+            timeout={300} 
+            unmountOnExit onEnter={ () => navToggle} 
+            onExited={ () => navToggle} classNames="sidebar-transition"
+             nodeRef={nodeRef}
+        >
+            <nav className='sidebar-parent-container' 
+                ref={nodeRef}
+            >
+                <div 
+                    className='sidebar-icon-container'
+                    onClick={navToggle}
+                >
                     {/* TODO: svg className='close-icon' */}
 
                 </div>

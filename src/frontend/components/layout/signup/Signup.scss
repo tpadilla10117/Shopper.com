@@ -2,57 +2,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 600px;
     padding: 20px;
     overflow: hidden;
     box-shadow: 0 3px 30px rgb(0 0 0 / 10%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+    background-size: cover;
 
-    .signup-bg-img {
-        position: absolute;
-        top: -60px;
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
 
-    .signup-form-h1 {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    .signup-form-h3 {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .signup-form-input-wrapper {
-        display: flex;
-        flex-direction: column;
-        /* display: grid;
-        grid-template-columns: 50px 50px 50px 50px 50px;
-        grid-template-rows: auto; */
-
-        .signup-form-input-box {
-            height: 60px;
-            outline: none;
-            border-radius: 5px;
-            border: 1px solid $text-light;
-            padding: 0 10px;
-            background: $background-primary;
-            margin: 8px 0;
-            font-size: $p-txt-size;
-
-        /* TODO: Need to rearrange in a grid */
-           /*  &:nth-child(2) {
-                border: 1px solid red;
-            }
-
-            &:nth-child(3) {
-                border: 1px solid red;
-            } */
+    .signup-form-parent-container {
+        width: 400px;
+        
+        @media screen and (max-width: 760px) {
+            width: 100%;
+            
         }
+        
+        .signup-form-h1 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 24px;
+            font-weight: 300;
+        }
+    
+        .signup-form-h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .signup-form-input-wrapper {
+            display: flex;
+            flex-direction: column;
+    
+            .signup-form-input-box {
+                height: 60px;
+                outline: none;
+                border-radius: 5px;
+                border: 1px solid $text-light;
+                background: $background-primary;
+                font-size: $p-txt-size;
+                flex: 1;
+                min-width: 40%;
+                margin: 10px 0;
+                padding: 10px;
 
-
+                @media screen and (min-width: 760px) {
+                    /* width: 100%; */
+                }
+            }
+    
+    
+        }
     }
+
 
 }

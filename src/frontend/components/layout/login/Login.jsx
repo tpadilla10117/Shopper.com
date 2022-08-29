@@ -1,15 +1,16 @@
 import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CtaButton } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../reduxslices/authSlice';
+import { login, reduxStateObject } from '../../../reduxslices/authSlice';
 import { clearMessage } from '../../../reduxslices/authmessageSlice';
-import cabana from '../../../assets/images/cabana.jpg';
 
 function Login() {
   
   const { message } = useSelector( (state) => state.message);
-
+  const reduxObject = useSelector(reduxStateObject);
   const dispatch = useDispatch();
+  const navigateHome = useNavigate();
   const nameRef = useRef();
   const pwordRef = useRef();
 
@@ -22,26 +23,47 @@ function Login() {
     event.preventDefault();
     const username = nameRef.current?.value;
     const password = pwordRef.current?.value;
-    dispatch(login( { username, password }))
+    dispatch(login( { username, password }));
   };
+
+/* Page Redirect when a user successfully logs in: */
+  useEffect( () => {
+    if(reduxObject.auth.isLoggedIn === true) {
+     return navigateHome('/');
+    } 
+  }, [reduxObject, navigateHome])
   
   return (
-    <section className='login-parent-container'>
-{/* TODO: add in the img overlay*/}
-
-      {/* <img className='login-bg-img' src={cabana} alt='A cabana along a beach'></img>
- */}
-    {/* TODO: form needs an onSubmit event handler */}
-      <form /* ref={formRef} */ className="login-form-parent-container" onSubmit={handleLogin}>
+    <section className='login-parent-container'>    
+      <form 
+        className="login-form-parent-container" 
+        onSubmit={handleLogin}
+      >
         <h1 className='login-form-h1'>Sign in to Shop</h1>
         <h3 className='login-form-h3'>Please sign in to your account</h3>
-        <div className='login-form-input-wrapper'> {/* TODO: Inputs need onChange events to capture entered value */}
-          <input className="login-form-input-box" type="text" placeholder="Username" required ref={nameRef}/>
+        <div className='login-form-input-wrapper'> 
 
-          <input className="login-form-input-box" type="text" placeholder="Password" required ref={pwordRef}/>
+          <input 
+            id='login-form-input-box-username'
+            className="login-form-input-box" 
+            type="text" 
+            placeholder="Username" 
+            required 
+            ref={nameRef}
+          />
+          <label htmlFor='login-form-input-box-username'></label>
+
+          <input 
+            id='login-form-input-box-password'
+            className="login-form-input-box" 
+            type="text" 
+            placeholder="Password" 
+            required 
+            ref={pwordRef}
+          />
+          <label htmlFor='login-form-input-box-password'></label>
 
           <CtaButton text={'Sign in'} myClass={'signin-button'} />
-          {/* <CtaButton text={'Sign out'} myClass={"signout-button"} onClick={logOut}/> */}
 
         </div>
         

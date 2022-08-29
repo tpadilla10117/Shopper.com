@@ -2,34 +2,40 @@ import React from 'react';
 import { CtaButton } from '../../utils';
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch } from 'react-redux';
-import { addToBasket } from '../../../reduxslices/basketslice';
+import { addCartItemCount } from '../../../reduxslices/basketslice';
 
 function ProductCards({
     id,
     title,
     description,
-    category,
+    productid,
     image,
-    price
+    category_id,
+    subcategory,
+    price,
+    quantity
 }) {
 
     const dispatch = useDispatch();
 
     const addItemToBasket = () => {
         const product = {
-            id, 
-            title, 
-            price, 
-            description, 
-            category, 
+            id,
+            title,
+            description,
+            productid,
             image,
+            category_id,
+            subcategory,
+            price,
+            quantity
         };
-        dispatch(addToBasket(product) )
+        dispatch(addCartItemCount(product) )
     };
 
   return (
     <div className='productcard-parent-container' key={id}>
-        <p className='productcard-category'>{category}</p>
+        <p className='productcard-category'>{subcategory}</p>
 
         <figure className='productcard-img-wrapper'>
             <img src={image} className='productcard-img' alt={title}/>
