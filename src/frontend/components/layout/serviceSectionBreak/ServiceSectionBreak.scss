@@ -1,7 +1,8 @@
 .serviceSectionBreak-parent-container-landingServices {
     width: 100%;
-    height: 400px;
+    height: 450px;
     padding: 50px;
+    margin: 20px 0 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -11,6 +12,27 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 100px;
     };
+
+    .fade-in {
+        animation: fadeInDown;
+        animation-duration: 1s;
+
+        @keyframes fadeInDown {
+            from {
+            opacity: 0;
+            /* transform: translate3d(0, 0, 0); */
+            }
+        
+            to {
+            opacity: 1;
+            /* transform: translate3d(0, 0, 0); */
+            }
+        }
+    }
+
+    .serviceSectionBreak-rightwrapper-landingServices {
+        margin-top: 20px;
+    }
     
     .serviceSectionBreak-rightwrapper-landingServices, 
     .serviceSectionBreak-leftwrapper-landingServices {
