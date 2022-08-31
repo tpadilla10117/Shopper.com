@@ -333,6 +333,12 @@
                     description: 'Accessories for women',
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
                 },
+                {
+                    name: `hats`,
+                    description: 'Collection of headwear',
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
+                
             ];
 
             const productCategories = await Promise.all(productCategoriesToCreate.map(createProductCategories));
@@ -403,7 +409,18 @@
                     price: 695,
                     subcategory: "jewelery",
                     created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
-                }
+                },
+                {
+                    id: 6,
+                    title: "Brown Brim",
+                    description: "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+                    productid: 93813718295,
+                    image: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+                    category_id: 5,
+                    price: 25,
+                    subcategory: "hats",
+                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                },
             ]
             
             const products = await Promise.all(productsToCreate.map(createProducts));

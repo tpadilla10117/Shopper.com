@@ -1,6 +1,11 @@
 .saveditemspg-parent-container {
-    padding: 15px;
+    padding: 25px;
     width: 100%;
+    /* border: 1px solid blue; */
+
+    @media screen and (min-width: 1250px) {
+        padding: 50px;
+    }
 
     .saveditemspg-title {
 
@@ -18,42 +23,62 @@
         /* border-top: 1px solid rgba(0,0,0,0.1); */
         /* border: 1px solid blue; */
         margin: 25px 0 0 0;
-        max-width: 100%;
-        max-height: 100%;
-        /* display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
 
+        @media screen and (min-width: 750px) {
+            grid-template-columns: repeat(3, 1fr);
+        };
+    
+        @media screen and (min-width: 1250px) {
+            gap: 25px;
+        }
+
         .saveditemspg-saveditem-wrapper {
-            /* border: solid 1px red; */
+            border: solid 1px red;
             background-color: #F5F5F5;
-            padding: 10px;
-            width: 100%;
-            height: 350px;
+            /* padding: 10px; */
+            /* width: 100%; */
+            object-fit: contain;
+            height: 450px;
             position: relative;
             z-index: 1;
             /* box-shadow: 0 8px 40px -12px rgba(0,0,0,0.3); */
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            border-radius: 5px;
+            border-radius: 6px;
+
+            @media screen and (min-width: 1250px) {
+                /* width: 350px; */
+            }
             
             &:hover {
                 cursor: pointer;
             }
     
-            .saveditemspg-img {
-                /* display: none; */
+           /*  .saveditemspg-img-wrapper {
                 background-position: center;
                 background-size: cover;
-                width: 100%;
-                height: 75%;
-                display: flex;
-                
-            }
+                border: 1px solid yellow;
+ */
+                .saveditemspg-img {
+                    /* display: none; */
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    /* height: 75%;
+                    display: flex; */
+
+                    @media screen and (min-width: 1250px) {
+                        object-fit: scale-down;
+                    }
+                    
+                }
+            /* } */
 
             .saveditemspg-icon-parent-container {
                 position: absolute;
@@ -92,6 +117,7 @@
     
             .saveditemspg-information {
                 margin: 10px 0 0 0;
+                padding: 10px;
     
                 .saveditemspg-itemtitle {
                     font-size: 12px;
