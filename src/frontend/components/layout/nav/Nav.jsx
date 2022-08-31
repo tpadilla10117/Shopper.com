@@ -23,7 +23,7 @@ const Nav = (props) => {
 /* Box and transparent are referencing inline style properties: */
    const box = {
     background: '#fff',
-    boxShadow: '0 3px 30px rgb(0 0 0 / 10%)',
+    boxShadow: '0px 3px 16px 0px rgba(0,0,0,0.1)',
     backdropFilter: 'blur(5px)'
     };
 
