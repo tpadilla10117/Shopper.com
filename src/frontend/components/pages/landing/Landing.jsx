@@ -39,7 +39,13 @@ const Landing = () => {
         descriptionRef={'ctaBanner-descriptionref-groomsmen'}
       />
       <ServiceSectionBreak 
-      
+        uniqueClassName={'landingServices'}
+        leftHeading={'Free Shipping, Returns & Exchanges'}
+        leftDescription={`Not 100% sure it's a perfect fit?  We offer free shipping, exchanges, and returns both ways on all orders in the U.S.`}
+        leftCta={'See Details'}
+        rightHeading={'Fast & Friendly Customer Service'}
+        rightDescription={'If you have comments, questions, or issues, our Guids are always on call.  Need help?  Contact a Guide.'}
+        rightCta={'Contact Us'}
       />
       <Newsletter />
     </section>
