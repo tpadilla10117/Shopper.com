@@ -7,6 +7,8 @@ import {
   Newsletter,
   ProductNavSlider,
   CtaBanner,
+  ContentSectionBreak,
+  ServiceSectionBreak,
 } from '../../utils';
 import Groomsmen from '../../../assets/images/groomsmen.jpg';
 
@@ -17,6 +19,11 @@ const Landing = () => {
       <HeroBanner2 />
       <Directory />
       <ProductFeed />
+      <ContentSectionBreak 
+        Heading={`Men's Shop`}
+        sectionClassName={`mensShop`}
+        headingClassName={`mensShop`}
+      />
       <CtaBanner
         parentContainerClassName={'ctaBanner-parent-container-groomsmen'}
         figureClassName={'ctaBanner-img-wrapper-groomesmen'}
@@ -30,6 +37,9 @@ const Landing = () => {
         description={`Whether you're a guest, the groom, or a groomsman, show up in your best`}
         descriptionClassName={'ctaBanner-description-groomsmen'}
         descriptionRef={'ctaBanner-descriptionref-groomsmen'}
+      />
+      <ServiceSectionBreak 
+      
       />
       <Newsletter />
     </section>

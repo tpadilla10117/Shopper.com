@@ -1,5 +1,7 @@
 /* This components handles exports in the main App: */
 
+import { fromJSON } from 'postcss';
+
     /* "layout" components: */
         export { default as Nav } from '../components/layout/nav/Nav.jsx';
 
@@ -54,6 +56,10 @@
         export { default as ProductNavSlider } from '../components/layout/productNavSlider/ProductNavSlider.jsx';
 
         export { default as Spinner } from '../components/layout/spinner/Spinner.jsx';
+
+        export { default as ContentSectionBreak } from '../components/layout/contentSectionBreak/ContentSectionBreak.jsx';
+
+        export { default as ServiceSectionBreak } from '../components/layout/serviceSectionBreak/ServiceSectionBreak.jsx';
 
 
 /* -------------------------------------------------------------------------- */
