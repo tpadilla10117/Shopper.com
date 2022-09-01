@@ -17,6 +17,11 @@ const Landing = () => {
     <section className='landing-parent-container'>
       <ProductNavSlider />
       <HeroBanner2 />
+      <ContentSectionBreak 
+        Heading={`Featured Categories`}
+        sectionClassName={`featuredCategories`}
+        headingClassName={`featuredCategories`}
+      />
       <Directory />
       <ProductFeed />
       <ContentSectionBreak 
