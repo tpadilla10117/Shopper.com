@@ -1,4 +1,6 @@
 /* For default data to be used in project: */
+import antman from '../frontend/assets/images/antman.png';
+import victoria from '../frontend/assets/images/victoriajustice.png';
 
 export const NavbarData = [
 
@@ -77,7 +79,7 @@ export const carouselItems = [
     },
     {
       id: 2,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
+      img: `${victoria}`,
       title: "AUTUMN COLLECTION",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 25% OFF FOR NEW ARRIVALS.",
       bg: "#fcf1ed",
