@@ -1,12 +1,10 @@
 .menu-item {
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 6px;
     flex: 1;
-    margin: 3px;
     height: 70vh;
     width: 100%;
     position: relative;
-    /* border: 5px solid red; */
 
     &:hover {
         cursor: pointer;
@@ -21,21 +19,16 @@
         }
     }
 
- 
     .menu-item-background-image {
         width: 100%;
-        height: 500px;
+        height: 100%;
         background-position: center;
         background-size: cover;
         object-fit: cover;
 
-        @media screen and (min-width: 750px) {
-            height: 100%;
-        }
     }
 
     .menu-item-content {
-    
         position: absolute;
         top: 0;
         left: 0;

@@ -1,24 +1,33 @@
     
     .directory-parent-container {
-        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+        padding: 25px;
+
+        @media screen and (min-width: 1250px) {   
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            height: 800px;
+            padding: 20px;
+            /* margin-bottom: 50px; */
+        }
         
             .directory-nav-item {
-                /* min-width: 100%;
+               /*  min-width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border: 1px solid black;
-                overflow: hidden;
-                border-radius: 5px; */
-
+                overflow: hidden; */
+                padding: 0px 0px 10px 0px;
+                height: 100%;
                 display: flex;
-                padding: 20px;
+                flex-direction: column;
                 justify-content: space-between;
-
-                @media screen and (max-width: 760px) {
-                    padding: 8px;
-                    flex-direction: column;
-                }
+               
             }
         
     }
