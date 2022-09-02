@@ -1,15 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-
-/* TODO: Need to finish and populate: */
-/* - dynamic routing on click
-    - product categories
-    - product images
-    - subcaption
-    - DOUBLE CHECK YOUR SELECTORS for productCategories
-*/
 function ProductNavSlider() {
 
 /* Default data for slider: */
@@ -50,7 +41,7 @@ function ProductNavSlider() {
             name: 'Shoes',
             image: 'https://i.ibb.co/0jqHpnp/sneakers.png',
             alt: 'An assortment of sneakers',
-            clickHandler: () => navigateRoutes('/shop/products/'),
+            clickHandler: () => navigateRoutes('/shop/products/shoes'),
         },
         {
             id: 6,

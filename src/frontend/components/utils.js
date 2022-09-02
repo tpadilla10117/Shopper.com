@@ -1,7 +1,5 @@
 /* This components handles exports in the main App: */
 
-import { fromJSON } from 'postcss';
-
     /* "layout" components: */
         export { default as Nav } from '../components/layout/nav/Nav.jsx';
 
@@ -78,6 +76,10 @@ import { fromJSON } from 'postcss';
         export { default as OrderPg } from '../components/pages/orderpg/OrderPg.js';
 
         export { default as ProductsPg } from '../components/pages/productspg/ProductsPg.js';
+
+        export { default as ItemCategoriesPreviewPg } from '../components/pages/itemCategoriesPreviewPg/ItemCategoriesPreviewPg.jsx';
+
+        export { default as SingleItemCategoryPg } from '../components/pages/singleItemCategoryPg/SingleItemCategoryPg.jsx';
 
         export { default as CheckoutPg } from '../components/pages/checkoutpg/CheckoutPg.js';
 
