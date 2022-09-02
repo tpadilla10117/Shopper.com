@@ -6,7 +6,7 @@ import {
 } from '../../utils';
 
 const ProductFeed = () => {
-/* TODO: BUGGGGG -> This renders, but relies on the Thunk on the /products route */
+/* TODO: BUGGGGG -> This renders, but relies on the Thunk on the /products route -> need to adjust the render  */
   const items = useSelector(selectItems);
 
   return (
