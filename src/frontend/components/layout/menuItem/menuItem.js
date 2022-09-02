@@ -4,7 +4,7 @@ import React from 'react';
 function menuItem({ title, imageUrl }) {
   
   return (
-    <article className={`menu-item`}>
+    <article className={`menu-item ${title}`}>
         
         <figure className='menu-item-background-image' style={ {backgroundImage: `url(${imageUrl})`}}>
         </figure>

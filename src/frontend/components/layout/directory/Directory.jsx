@@ -1,10 +1,30 @@
 /* The Section container for the menuItem components on the Landing Page: */
-    import React, { useState } from 'react';
+    import React, { useState, useMemo } from 'react';
     import { MenuItem } from '../../utils.js';
     import { NavLink } from 'react-router-dom';
+    import { useInView } from 'react-intersection-observer';
 
     
     function Directory() {
+      /* Options for Intersection Observers: */
+        const intersectionOptions = useMemo( () => {
+          return {
+              threshold: .8,
+              root: null,
+              rootMargin: '0px 0px 300px 0px',
+              triggerOnce: true
+          }
+        }, []);
+
+        const { 
+          ref: leftDivRef, 
+          inView: isVisible
+        } = useInView(intersectionOptions);
+    
+        const { 
+          ref: rightDivRef, 
+          inView: isVisible2
+        } = useInView(intersectionOptions)
 
         const [sections] = useState([
            /*  {
@@ -17,13 +37,15 @@
               title: 'jackets',
               imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
               id: 2,
-              linkUrl: 'shop/products/jackets'
+              linkUrl: 'shop/products/jackets',
+              reference: leftDivRef,
             },
             {
               title: 'sneakers',
               imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
               id: 3,
-              linkUrl: 'shop/products/sneakers'
+              linkUrl: 'shop/products/sneakers',
+              reference: rightDivRef,
             },
             /* {
               title: 'womens',
@@ -44,17 +66,43 @@
         return (
           <section className='directory-parent-container'>
               
-                  {
-                      sections.map( ({id,...otherSectionProps}) => (
-                        <NavLink key={id} exact='true' to={otherSectionProps.linkUrl} activeclassname='active'
-                        className='directory-nav-item'>
-                          <MenuItem key={id} {...otherSectionProps}></MenuItem>
-                        </NavLink>
-                      ))
-                  }
+                  <NavLink
+                    key={sections[0].id} 
+                    exact='true' 
+                    to={sections[0].linkUrl} activeclassname='active'
+                    className={
+                      isVisible 
+                      ? 
+                      `directory-nav-item ${sections[0].title} fade-in` 
+                      : `directory-nav-item ${sections[0].title}` }
+                    ref={sections[0].reference}
+                  >
+                    <MenuItem 
+                      key={sections[0].id} 
+                      title={sections[0].title}
+                      imageUrl={sections[0].imageUrl}
+                    />
 
-              
+                  </NavLink>
+                  <NavLink
+                    key={sections[1].id} 
+                    exact='true' 
+                    to={sections[1].linkUrl} activeclassname='active'
+                    className={
+                      isVisible2 
+                      ? 
+                      `directory-nav-item ${sections[1].title} fade-in` 
+                      : `directory-nav-item ${sections[1].title}` }
+                    ref={sections[1].reference}
+                  >
+                    <MenuItem 
+                      key={sections[1].id} 
+                      title={sections[1].title}
+                      imageUrl={sections[1].imageUrl}
+                    />
 
+                  </NavLink>
+                  
           </section>
         )
     }

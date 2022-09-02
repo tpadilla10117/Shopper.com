@@ -27,6 +27,25 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                visibility: hidden;
+
+                &.fade-in {
+                    animation: fadeInDown;
+                    animation-duration: 1.5s;
+                    visibility: visible;
+            
+                    @keyframes fadeInDown {
+                        from {
+                        opacity: 0;
+                        /* transform: translate3d(0, 0, 0); */
+                        }
+                    
+                        to {
+                        opacity: 1;
+                        /* transform: translate3d(0, 0, 0); */
+                        }
+                    }
+                }
                
             }
         
