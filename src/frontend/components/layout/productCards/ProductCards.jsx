@@ -3,6 +3,9 @@ import { CtaButton } from '../../utils';
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch } from 'react-redux';
 import { addCartItemCount } from '../../../reduxslices/basketslice';
+import {
+    Favorite,
+} from "@material-ui/icons";
 
 function ProductCards({
     id,
@@ -35,20 +38,38 @@ function ProductCards({
 
   return (
     <div className='productcard-parent-container' key={id}>
-        <p className='productcard-category'>{subcategory}</p>
-
+        
         <figure className='productcard-img-wrapper'>
             <img src={image} className='productcard-img' alt={title}/>
         </figure>
 
-        <h4 className='productcard-title'>{title}</h4>
-        <p className='productcard-description'>{description}</p>
+        <div className='productcard-icon-parent-container'>
 
-        <div className='productcard-price-wrapper'>
-            <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} className='productcard-price'/>
+            <Favorite 
+                className='productcard-favoriteborderoutlined'
+                
+                /* onClick={(event) => removeSavedItemHandler(event, items.product_id)} */
+            />
+            {/* <ShoppingCartOutlined 
+                className='saveditemspg-shoppingcartoutlined'
+            /> */}
         </div>
 
-        <CtaButton className={'productcard-button'} text={"Add to Cart"} onClick={addItemToBasket}/>
+        <div className='productcard-details-wrapper'>
+
+            <h4 className='productcard-title'>{title}</h4>
+            {/* <p className='productcard-description'>{description}</p> */}
+
+            <div className='productcard-price-wrapper'>
+                <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} className='productcard-price'/>
+            </div>
+            
+        </div>
+
+
+        {/* TODO: Dont delete this YET - need to test an add to cart via clicking a product card first*/}
+
+        {/* <CtaButton className={'productcard-button'} text={"Add to Cart"} onClick={addItemToBasket}/> */}
 
     </div>
   )

@@ -7,7 +7,7 @@ function ItemCategoriesPreviewPg() {
     const items = useSelector(selectItems);
     return (
         <div>ItemCategoriesPreview
-
+        {/* TODO: Need to grab the categories, then map out a collection preview component  */}
             {items && items.map(productCard => {
                 return (
                     <ProductCards 
