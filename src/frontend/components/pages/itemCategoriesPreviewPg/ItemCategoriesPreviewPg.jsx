@@ -40,7 +40,7 @@ function ItemCategoriesPreviewPg() {
                 return (
                     <ItemCollectionPreview 
                         key={index}
-                        products={category}
+                        title={category}
                     />
                 )
             })}
