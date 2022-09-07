@@ -10,6 +10,10 @@
     margin: 25px;
     height: 500px;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     .productcard-category {
         font-size: $p-txt-size;
     }
