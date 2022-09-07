@@ -4,7 +4,6 @@
     position: relative;
     /* padding: 40px; */
     padding: 10px;
-    border: 1px solid red;
     border: 1px solid #ededed;
     border-radius: 6px;
     margin: 25px;
@@ -70,6 +69,10 @@
                 background-color: #e9f5f5;
                 color: red;
                 transform: scale(1.1);
+            }
+
+            .active {
+                color:red;
             }
         }
     }

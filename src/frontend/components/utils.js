@@ -25,6 +25,8 @@
 
         export { default as ProductCards } from '../components/layout/productCards/ProductCards.jsx';
 
+        export { default as ItemCollectionPreview } from '../components/layout/itemCollectionPreview/ItemCollectionPreview.jsx';
+
         export { default as CheckoutProductCard } from '../components/layout/checkoutProductCard/CheckoutProductCard.jsx';
 
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';

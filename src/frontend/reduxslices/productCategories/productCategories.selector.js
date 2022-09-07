@@ -1,22 +1,21 @@
-/* Memoize selector functions with reselect library: */
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect'; //memoizes selectors
 
 //input Selectors: give us parameters we need to determine selector output
-const selectProductCategoryReducer = (state) => state.categories;
+const selectCategoryReducer = (state) => state.categories;
 
 //memoize the selectCategories:
-export const selectProductCategories = createSelector(
-    [selectProductCategoryReducer],
+export const selectCategories = createSelector(
+    [selectCategoryReducer],
     (categoriesSlice) => categoriesSlice.categories
 );
 
 //Memoized Selector in Redux:
     //unless the array changes, just use a memoized value instead
-export const selectProductCategoriesMap = createSelector(
-    [selectProductCategories],
+export const selectCategoriesMap = createSelector(
+    [selectCategories],
     (categories) => categories.reduce( (acc, category) => {
         const { title, items } = category;
         acc[title.toLowerCase()] = items;
         return acc;
     }, [])
-) 
+); 

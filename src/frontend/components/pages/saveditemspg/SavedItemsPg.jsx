@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
-    retrieveUsersSavedItems, 
     selectUsersSavedItems, 
     deleteAUsersSavedItem
 } from '../../../reduxslices/savedItemsSlice';
@@ -10,8 +9,7 @@ import {
 import { userData } from '../../../reduxslices/authSlice';
 
 import {
-  FavoriteBorderOutlined,
-  ShoppingCartOutlined,
+  Favorite
 } from "@material-ui/icons";
 
 
@@ -69,13 +67,11 @@ function SavedItemsPg() {
                                 />
                                  <div className='saveditemspg-icon-parent-container'>
 
-                                    <FavoriteBorderOutlined 
+                                    <Favorite
                                         className='saveditemspg-favoriteborderoutlined'
                                         onClick={(event) => removeSavedItemHandler(event, items.product_id)}
                                     />
-                                    {/* <ShoppingCartOutlined 
-                                        className='saveditemspg-shoppingcartoutlined'
-                                    /> */}
+                                 
                                 </div>
 
                                 <div className='saveditemspg-information'>

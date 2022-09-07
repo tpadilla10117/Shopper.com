@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { CtaButton } from '../../utils';
+import React from 'react';
+/* import { CtaButton } from '../../utils'; */
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,9 +7,8 @@ import { addCartItemCount } from '../../../reduxslices/basketslice';
 import{ userData } from '../../../reduxslices/authSlice';
 import { addASavedItem } from '../../../reduxslices/savedItemsSlice';
 import { 
-    retrieveUsersSavedItems, 
     selectUsersSavedItems, 
-    deleteAUsersSavedItem
+    deleteAUsersSavedItem,
 } from '../../../reduxslices/savedItemsSlice';
 import {
     Favorite,
@@ -70,7 +69,6 @@ function ProductCards({
         event.preventDefault();
 
         const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
-        
         dispatch(deleteAUsersSavedItem( thunkArguments ));
     };
 
@@ -88,8 +86,8 @@ function ProductCards({
         
         let filteredId = filterOutAUsersItemHelper(productid);
 
-        if(/* user.recoveredData.id &&  */filteredId.length === 0) {
-            addItemToSavedProducts(event, productid)
+        if(filteredId.length === 0) {
+            addItemToSavedProducts(event, productid);
         } else if (user.recoveredData.id && filteredId[0].product_id === productid) {
             removeSavedItemHandler(event, productid);
         } else if(user === null || !user.token) {
@@ -110,8 +108,8 @@ function ProductCards({
 
             <div className='productcard-icon-parent-container'>
                 <Favorite 
-                    className='productcard-favoriteborderoutlined'
-                    /* TODO: savedItemToggler needs to be here: */
+                    className={ `productcard-favoriteborderoutlined` }
+
                     onClick={(event) => savedItemToggler(event, id)}
                 />
             </div>
