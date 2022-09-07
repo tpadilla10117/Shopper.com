@@ -30,7 +30,6 @@ function ProductCards({
     const dispatch = useDispatch();
     const user = useSelector(userData);
     const usersSavedItems = useSelector(selectUsersSavedItems);
-    const usersRetrievedItems = useSelector(retrieveUsersSavedItems);
     let navigateProductRoute = useNavigate();
 
     const addItemToBasket = () => {
@@ -75,13 +74,14 @@ function ProductCards({
     };
 
     function filterOutAUsersItemHelper(productid) {
-        console.log(usersSavedItems.filter( item => item.product_id === productid) );
-        return usersSavedItems.filter( item => item.product_id === productid);
+        let saved = usersSavedItems.filter( item => item.product_id === productid);
+        console.log(saved)
+        return saved;
     };
 
 /* TODO: Need to conditionally check the heart icon and save / remove */
     function savedItemToggler(event, productid ) {
-        /* If you are a logged in user and the item is saved (check by filtering for productid)
+        /* If you are a logged in user and the item is saved / currently exists in the array (check by filtering for productid)
         - unsave it on click
         - else save it onclick
         */
@@ -93,24 +93,14 @@ function ProductCards({
         let filteredId = filterOutAUsersItemHelper(productid);
         console.log('from filteredid: ', filteredId);
 
-        if(user.recoveredData.id && filteredId === productid) {
-            /* addItemToSavedProducts(event, productid) */
-            console.log(productid)
-        } else {
+        if(user.recoveredData.id && filteredId.length === 0) {
+            addItemToSavedProducts(event, productid)
+            console.log('Id be adding the product based on its id: ', productid, filteredId)
+        } else if (filteredId[0].product_id === productid) {
+            console.log('Removed!')
             removeSavedItemHandler(event, productid);
         }
     };
-
-/* Render the existing savedItems once & send user_id: */
-    /* useEffect( () => {
-        if(usersSavedItems.length === 0 && user) {
-            dispatch(retrieveUsersSavedItems(user.recoveredData.id))
-        }
-    
-    }, [dispatch, user, usersSavedItems]); */
-
-    console.log('My users saved items: ', usersSavedItems)
-    console.log('My users saved items: ', user)
 
     return (
         <div 
