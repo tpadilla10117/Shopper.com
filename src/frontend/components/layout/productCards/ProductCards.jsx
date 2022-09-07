@@ -47,6 +47,7 @@ function ProductCards({
         dispatch(addCartItemCount(product) )
     };
 
+/* Navigates a user to a product page:  */
     function productNavigationHandler(event, productid) {
         event.preventDefault();
         navigateProductRoute(`/shop/products/${subcategory}/${title}/${productid}`)
@@ -64,10 +65,10 @@ function ProductCards({
         }
     };
 
-    /* To remove saved_products: */
+/* To remove saved_products: */
     function removeSavedItemHandler(event, product_id) {
         event.preventDefault();
-        /* event.stopPropagation(); */
+
         const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
         
         dispatch(deleteAUsersSavedItem( thunkArguments ));
@@ -75,30 +76,24 @@ function ProductCards({
 
     function filterOutAUsersItemHelper(productid) {
         let saved = usersSavedItems.filter( item => item.product_id === productid);
-        console.log(saved)
         return saved;
     };
 
 /* TODO: Need to conditionally check the heart icon and save / remove */
+/* Allows a User to save an item / remove an item : */
     function savedItemToggler(event, productid ) {
-        /* If you are a logged in user and the item is saved / currently exists in the array (check by filtering for productid)
-        - unsave it on click
-        - else save it onclick
-        */
 
         event.preventDefault();
         event.stopPropagation();
-        console.log('The id from the props: ', productid)
         
         let filteredId = filterOutAUsersItemHelper(productid);
-        console.log('from filteredid: ', filteredId);
 
-        if(user.recoveredData.id && filteredId.length === 0) {
+        if(/* user.recoveredData.id &&  */filteredId.length === 0) {
             addItemToSavedProducts(event, productid)
-            console.log('Id be adding the product based on its id: ', productid, filteredId)
-        } else if (filteredId[0].product_id === productid) {
-            console.log('Removed!')
+        } else if (user.recoveredData.id && filteredId[0].product_id === productid) {
             removeSavedItemHandler(event, productid);
+        } else if(user === null || !user.token) {
+            navigateProductRoute('/signin')
         }
     };
 

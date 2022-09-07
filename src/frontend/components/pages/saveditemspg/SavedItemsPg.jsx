@@ -21,15 +21,6 @@ function SavedItemsPg() {
     const user = useSelector(userData);
     const usersSavedItems = useSelector(selectUsersSavedItems);
     const navigateProductRoute = useNavigate();
-    
-/* TODO: **THIS IS UNECCESARY AND JAS INFINITE LOOP** Render the existing savedItems once & send user_id: */
-   /*  useEffect( () => {
-        if(usersSavedItems.length > 0 && user) {
-            console.log('rerender')
-            dispatch(retrieveUsersSavedItems(user.recoveredData.id))
-        }
-      
-    }, [dispatch, user, usersSavedItems]) */
 
 /* To remove saved_products: */
     function removeSavedItemHandler(event, product_id) {
