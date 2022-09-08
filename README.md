@@ -7,7 +7,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 ![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/landing_mobile.png)
 
 #### Landing.jsx (Desktop View)
-[](src/frontend/assets/interfaceImages/landing_desktop.png%0D)
+![](src/frontend/assets/interfaceImages/landing_desktop.png)
 
 ## Table of Contents:
 * [Deployment](#Deployment)
