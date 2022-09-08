@@ -5,8 +5,8 @@
 
 ## Table of Contents:
 * [Deployment](#Deployment)
-* [Usage Instructions](#usage-instructions)
 * [Cloning Instructions](#cloning-instructions)
+* [Usage Instructions](#usage-instructions)
 * [Tech Stack](#tech-stack)
 * [ERD](#erd--system-design)
 * [Limitations](#limitations--future-iterations)
@@ -15,9 +15,6 @@
 
 ## Deployment:
 - N/A
-
-## Usage Instructions:
-- TBD
 
 ## Cloning Instructions:
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
@@ -29,6 +26,12 @@
 - 3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
     - Once you have an account, follow instructions to generate keys
 
+#### Stripe Processes
+
+- 4) In another terminal, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment 
+
+- 5) Receive a `STRIPE_SIGNING_SECRET` and place into environment variable
+
 - NOTES:
 
     - Once you have your secret API keys you can send requests from your application via a webhook.
@@ -38,6 +41,22 @@
     - Important: You should never expose API keys on the client side in production code because anyone on the internet will have access to your secret key and can make requests with your account. It is however acceptable for the purpose of this application and testing since it won’t be widely available and we don’t expect you to have a backend server.
 
     - You should consider using environment variables or a key manager to avoid committing your secret API key to your git repository. Check the documentation for your hosting provider for how to do this.
+
+## Usage Instructions:
+#### User Checkout Flow:
+- 1) Create an account via the 'Sign In' button / route at the top right corner of the page
+    - Click 'Sign Up with email' -> **NOTE: ONLY USE MOCK/FAKE INFO.  DO NOT ENTER IN YOUR REAL PII(Personally Identifiable Information)**
+    - Click the 'Continue' button
+- 2) Browse the website for products you are interested in
+    - When you locate a product, click the 'Add to Cart' button
+- 3) Click the shopping-cart icon in the top-right corner of the screen
+    - Adjust your totals as necessary
+    - When you are ready, click the 'Checkout Now' button to launch a checkout session
+- 4) When you are redirected to the Stripe Checkout Session:
+    - Fill out the form **NOTE: ONONLY USE MOCK/FAKE INFO.  DO NOT ENTER IN YOUR REAL PII(Personally Identifiable Information)**
+    - For payments use: `4242 4242 4242 4242` for card number -> this is to process a payment in Test Mode.
+- 5) After a successful checkout, you will be redirected to a 'Success Page'.
+    - Browse your orders via the 'Orders & Returns' tab under the navigation menu in the top-right portion of your screen
 
 ## Tech Stack:
 
@@ -52,8 +71,8 @@
 
 | Framework & Libraries                         | Description 
 | ---------------------------------- |-------
-| [Sass](https://sass-lang.com/libsass)  | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss).  SASS ('Syntactically Awesome Style Sheets'): an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster.
-| [MaterialUI](https://mui.com/)  | MUI offers a comprehensive suite of UI tools to help you ship new features faster. Start with Material UI, our fully-loaded component library, or bring your own design system to our production-ready components.
+| [Sass](https://sass-lang.com/libsass) | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss).  SASS ('Syntactically Awesome Style Sheets'): an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster.
+| [MaterialUI](https://mui.com/) | MUI offers a comprehensive suite of UI tools to help you ship new features faster. Start with Material UI, our fully-loaded component library, or bring your own design system to our production-ready components.
 
 #### Backend:
 
@@ -267,9 +286,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Stripe Processes:
-
-After login & authentication, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment -> receive a STRIPE_SIGNING_SECRET and place into environment variable
-
-For payments use: `4242 4242 4242 4242` for card number -> should give a success.
