@@ -41,6 +41,8 @@
 
 - Node.js, Express.js (API & Webhook), JS, React.js, HTML, SASS / SCSS, Redux, Jest, PostgreSQL, Material UI, Stripe API
 
+## ERD & System Design:
+
 
 ## Limitations & Future Iterations:
 
