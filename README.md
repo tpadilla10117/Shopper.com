@@ -1,18 +1,20 @@
 # App Description
 
-- A e-commerce web-application meant as a template for freelance clients.  Users can authenticate, browse collections of products, & mock a purchase-flow.
+- An e-commerce web-application meant as a template for freelance clients & for my personal portfolio.  
+- Users can authenticate, browse collections of products, & mock a purchase-flow.
 
 ## Table of Contents:
 * [Deployment](#Deployment)
 * [Usage Instructions](#usage-instructions)
 * [Cloning Instructions](#cloning-instructions)
 * [Tech Stack](#tech-stack)
+* [ERD](#erd--system-design)
 * [Limitations](#limitations--future-iterations)
 * [Dependencies](#dependencies)
 * [Scripts](#available-scripts)
 
 ## Deployment:
- - N/A
+- N/A
 
 ## Usage Instructions:
 - TBD
@@ -21,8 +23,8 @@
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
 
 - 2) In the terminal for the project, `npm i dotenv` to install .env.
-    1a) Create a .env file
-    1b) `npm i node-modules` In the terminal
+    - 1a) Create a .env file
+    - 1b) `npm i node-modules` In the terminal
 
 - 3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
     - Once you have an account, follow instructions to generate keys
@@ -40,6 +42,20 @@
 ## Tech Stack:
 
 - Node.js, Express.js (API & Webhook), JS, React.js, HTML, SASS / SCSS, Redux, Jest, PostgreSQL, Material UI, Stripe API
+
+    #### Frontend JS Frameworks (Business Logic, UI):
+
+    | Framework & Libraries                         | Description 
+    | ---------------------------------- |-------
+    | [Node.js] | Underlying runtime environment which executes javascript server code
+    | [Express.js] | Server web application framework & REST API.  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+    | [React.js] | Main structure of frontend application logic, including user experience and backend communication
+    | [Redux] | Open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
+
+
+
+<!-- | [Sass](https://sass-lang.com/libsass)  | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss)  -->
+
 
 ## ERD & System Design:
 ![](src/backend/assets/E-commerce%20Template_ERD.png)
