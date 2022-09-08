@@ -6,6 +6,10 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import {
+    KeyboardArrowDown
+} from '@material-ui/icons';
+;
 
 
 const DesktopNav = (props) => {
@@ -64,6 +68,26 @@ const DesktopNav = (props) => {
             category: 'Shirts',
             clickHandler: () => navigateRoutes('/'),
         },
+        {
+            id: 2,
+            category: 'Pants',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 3,
+            category: 'Jackets',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 4,
+            category: 'Accessories',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 5,
+            category: 'Shoes',
+            clickHandler: () => navigateRoutes('/'),
+        },
     ];
 
     
@@ -99,7 +123,7 @@ const DesktopNav = (props) => {
                     activeclassname='active'
                     style={ {textDecoration: 'none'}}
                 >
-                    PRODUCTS
+                    Products
                 </NavLink>
                 
             {/* TODO: Refactor to give unauth state the dropdown items: */}
@@ -113,7 +137,8 @@ const DesktopNav = (props) => {
                         style={ {textDecoration: 'none'}}
                     >
                         <span>Hi, {isUserLoggedIn.recoveredData.username}
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg> */}
+                        <KeyboardArrowDown className='desktop-nav-items-authdropdown-btnicon'/>
                         
                         </span>
                         <ul className='desktop-nav-items-authdropdown'>
@@ -135,7 +160,7 @@ const DesktopNav = (props) => {
                         activeclassname='active'
                         style={ {textDecoration: 'none'}}
                     >
-                        SIGN IN
+                        Sign In
 
                     </NavLink>
 
