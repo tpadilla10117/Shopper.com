@@ -41,20 +41,33 @@
 
 ## Tech Stack:
 
-- Node.js, Express.js (API & Webhook), JS, React.js, HTML, SASS / SCSS, Redux, Jest, PostgreSQL, Material UI, Stripe API
+#### Frontend JS Frameworks (Business Logic, UI):
 
-    #### Frontend JS Frameworks (Business Logic, UI):
+| Framework & Libraries                         | Description 
+| ---------------------------------- |-------
+| [React.js](https://reactjs.org/) | Main structure of frontend application logic, including user experience and backend communication
+| [Redux](https://redux.js.org/) | Open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
 
-    | Framework & Libraries                         | Description 
-    | ---------------------------------- |-------
-    | [Node.js] | Underlying runtime environment which executes javascript server code
-    | [Express.js] | Server web application framework & REST API.  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-    | [React.js] | Main structure of frontend application logic, including user experience and backend communication
-    | [Redux] | Open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
+#### Frontend CSS Frameworks & Libraries (UI):
 
+| Framework & Libraries                         | Description 
+| ---------------------------------- |-------
+| [Sass](https://sass-lang.com/libsass)  | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss).  SASS ('Syntactically Awesome Style Sheets'): an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster.
+| [MaterialUI](https://mui.com/)  | MUI offers a comprehensive suite of UI tools to help you ship new features faster. Start with Material UI, our fully-loaded component library, or bring your own design system to our production-ready components.
 
+#### Backend:
 
-<!-- | [Sass](https://sass-lang.com/libsass)  | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss)  -->
+| Framework & Libraries                         | Description 
+| ---------------------------------- |-------
+| [Node.js](https://nodejs.org/en/) | Underlying runtime environment which executes javascript server code
+| [Express.js](https://expressjs.com/) | Server web application framework & REST API.  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+| [PostgreSQL](https://www.postgresql.org/) | PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance. 
+
+#### Third-Party APIs / Integrations:
+
+| Integration                       | Description 
+| ---------------------------------- |-------
+| [Stripe](https://stripe.com/docs/development/get-started) | Stripe is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes. Accept payments and scale faster.
 
 
 ## ERD & System Design:
