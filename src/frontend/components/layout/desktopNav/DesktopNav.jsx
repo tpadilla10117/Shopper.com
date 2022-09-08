@@ -237,7 +237,55 @@ const DesktopNav = (props) => {
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
             >
-                <span>New & Featured</span>
+                <span>Jewelry</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Hats</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Shoes</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Accessories</span>
                 
                 {/*  <ul className='desktop-nav-items-dropdown'>
                     {menDropdownItems.map( (items, index) => {
