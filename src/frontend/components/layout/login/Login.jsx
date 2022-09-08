@@ -4,6 +4,10 @@ import { CtaButton } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, reduxStateObject } from '../../../reduxslices/authSlice';
 import { clearMessage } from '../../../reduxslices/authmessageSlice';
+import { userData } from '../../../reduxslices/authSlice';
+import { 
+  retrieveUsersSavedItems, 
+} from '../../../reduxslices/savedItemsSlice';
 
 function Login() {
   
@@ -13,6 +17,7 @@ function Login() {
   const navigateHome = useNavigate();
   const nameRef = useRef();
   const pwordRef = useRef();
+  const user = useSelector(userData);
 
   useEffect( () => {
     dispatch(clearMessage());
@@ -26,12 +31,13 @@ function Login() {
     dispatch(login( { username, password }));
   };
 
-/* Page Redirect when a user successfully logs in: */
+/* Page Redirect when a user successfully logs in, & retrieve items: */
   useEffect( () => {
     if(reduxObject.auth.isLoggedIn === true) {
-     return navigateHome('/');
+      dispatch(retrieveUsersSavedItems(user.recoveredData.id))
+      return navigateHome('/');
     } 
-  }, [reduxObject, navigateHome])
+  }, [reduxObject, navigateHome, dispatch, user])
   
   return (
     <section className='login-parent-container'>    

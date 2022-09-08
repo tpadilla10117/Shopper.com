@@ -1,5 +1,5 @@
-//Abstract away product category types:
+//Abstracting away my types:
 
-export const PRODUCT_CATEGORIES_ACTION_TYPES = {
-    SET_PRODUCT_CATEGORIES: 'category/SET_PRODUCT_CATEGORIES',
+export const CATEGORIES_ACTION_TYPES = {
+    SET_CATEGORIES: 'category/SET_CATEGORIES',
 };

@@ -6,6 +6,10 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import {
+    KeyboardArrowDown
+} from '@material-ui/icons';
+;
 
 
 const DesktopNav = (props) => {
@@ -58,6 +62,34 @@ const DesktopNav = (props) => {
         },
     ];
 
+    let menDropdownItems = [
+        {
+            id: 1,
+            category: 'Shirts',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 2,
+            category: 'Pants',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 3,
+            category: 'Jackets',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 4,
+            category: 'Accessories',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 5,
+            category: 'Shoes',
+            clickHandler: () => navigateRoutes('/'),
+        },
+    ];
+
     
     
   return (
@@ -91,46 +123,48 @@ const DesktopNav = (props) => {
                     activeclassname='active'
                     style={ {textDecoration: 'none'}}
                 >
-                    PRODUCTS
+                    Products
                 </NavLink>
+                
             {/* TODO: Refactor to give unauth state the dropdown items: */}
 
-            {
-                userToken ? 
+                {
+                    userToken ? 
 
-                <div
-                    className='desktop-nav-items-authdropdown-container'
-                    activeclassname='active'
-                    style={ {textDecoration: 'none'}}
-                >
-                    <span>Hi, {isUserLoggedIn.recoveredData.username}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
-                    
-                    </span>
-                    <ul className='desktop-nav-items-authdropdown'>
-                        {authDropdownItems.map( (items, index) => {
-                            return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
-                                {items.name}
-                            </li>
-                        })}
-                    </ul>
-            
-                </div>
+                    <div
+                        className='desktop-nav-items-authdropdown-container'
+                        activeclassname='active'
+                        style={ {textDecoration: 'none'}}
+                    >
+                        <span>Hi, {isUserLoggedIn.recoveredData.username}
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg> */}
+                        <KeyboardArrowDown className='desktop-nav-items-authdropdown-btnicon'/>
+                        
+                        </span>
+                        <ul className='desktop-nav-items-authdropdown'>
+                            {authDropdownItems.map( (items, index) => {
+                                return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                                    {items.name}
+                                </li>
+                            })}
+                        </ul>
+                
+                    </div>
 
-                :
+                    :
 
-               <NavLink
-                    to='/signin'
-                    className='desktopNav-nav-item'
-                    exact="true"
-                    activeclassname='active'
-                    style={ {textDecoration: 'none'}}
-                >
-                    SIGN IN
+                    <NavLink
+                        to='/signin'
+                        className='desktopNav-nav-item'
+                        exact="true"
+                        activeclassname='active'
+                        style={ {textDecoration: 'none'}}
+                    >
+                        Sign In
 
-                </NavLink>
+                    </NavLink>
 
-            }
+                }
                 
                 <NavLink
                     to='/checkout'
@@ -143,10 +177,125 @@ const DesktopNav = (props) => {
                         <ShoppingCartOutlined />
                     {/* </Badge> */}
                 </NavLink>
+
             </div>
 
+        </div>
 
-
+        <div className='desktop-nav-items-container2'>
+                
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Men</span>
+                
+                <ul className='desktop-nav-items-container2-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.category}
+                        </li>
+                    })}
+                </ul>
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Women</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Kids</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Jewelry</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Hats</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Shoes</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
+            <div
+                className='desktop-nav-items-container2-dropdown-container'
+                activeclassname='active'
+                style={ {textDecoration: 'none'}}
+            >
+                <span>Accessories</span>
+                
+                {/*  <ul className='desktop-nav-items-dropdown'>
+                    {menDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                            {items.name}
+                        </li>
+                    })}
+                </ul> */}
+        
+            </div>
         </div>
 
 

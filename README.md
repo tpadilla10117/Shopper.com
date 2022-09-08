@@ -41,6 +41,8 @@
 
 - Node.js, Express.js (API & Webhook), JS, React.js, HTML, SASS / SCSS, Redux, Jest, PostgreSQL, Material UI, Stripe API
 
+## ERD & System Design:
+![](src/backend/assets/E-commerce%20Template_ERD.png)
 
 ## Limitations & Future Iterations:
 
@@ -131,6 +133,10 @@
 
 - React component for animating vertical scrolling
 - (https://www.npmjs.com/package/react-scroll)
+
+### `npm i react-intersection-observer`
+- { https://www.npmjs.com/package/react-intersection-observer }
+- React implmentation of the Inersection Observer API to tell you when an element enters or leaves the viewport.
 
 ### `npm i react-responsive-carousel`
 - for carousel dependency

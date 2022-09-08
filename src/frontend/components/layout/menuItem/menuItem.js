@@ -1,10 +1,10 @@
 /* The Section cards rendered in the Directory.jsx component: */
 import React from 'react';
 
-function menuItem({ title, imageUrl, size }) {
+function menuItem({ title, imageUrl }) {
   
   return (
-    <article className={`${size} menu-item`}>
+    <article className={`menu-item ${title}`}>
         
         <figure className='menu-item-background-image' style={ {backgroundImage: `url(${imageUrl})`}}>
         </figure>

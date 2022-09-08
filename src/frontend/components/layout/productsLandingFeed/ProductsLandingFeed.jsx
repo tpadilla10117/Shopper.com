@@ -61,7 +61,7 @@ const ProductsLandingFeed = ({
   };
 
   return (
-    <article className='productsLandingFeed-parent-container'>
+    <figure className='productsLandingFeed-parent-container'>
         <img 
           src={image} 
           alt=''
@@ -91,7 +91,7 @@ const ProductsLandingFeed = ({
 
         </div>
 
-    </article>
+    </figure>
   )
 }
 

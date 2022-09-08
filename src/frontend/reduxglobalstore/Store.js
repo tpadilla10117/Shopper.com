@@ -12,7 +12,7 @@
     import ordersReducer from '../reduxslices/ordersSlice';
     import loadingReducer from '../reduxslices/loadingSlice.js';
     import savedItemsReducer from '../reduxslices/savedItemsSlice.js';
-    import { productCategoriesReducer } from "../reduxslices/productCategories/productCategories.reducer.js";
+    import { categoriesReducer} from "../reduxslices/productCategories/productCategories.reducer.js";
 
 
 /* Config for redux persist: */
@@ -30,7 +30,7 @@
         products: productReducer,
         orders: ordersReducer,
         loader: loadingReducer,
-        productCategories: productCategoriesReducer,
+        productCategories: categoriesReducer,
         savedItems: savedItemsReducer,
     })
 

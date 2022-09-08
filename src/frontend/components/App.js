@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
 
-    if(items.length === 0 ) {
+    if(items.length === 0 || null ) {
       dispatch(isLoading(true))
       setTimeout(() => {
         dispatch(isLoading(false))

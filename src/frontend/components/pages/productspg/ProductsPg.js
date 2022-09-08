@@ -1,39 +1,21 @@
-/* This page is a generic products page: */
+/* This page distinguishes renders between single product subcategories and all products: */
 
   import React from 'react';
-  import { useSelector } from 'react-redux';
-  import { selectItems } from '../../../reduxslices/productSlice';
-  import { ProductCards } from '../../utils';
+  import { Routes, Route } from 'react-router-dom';
+  import { 
+    ItemCategoriesPreviewPg, 
+    SingleItemCategoryPg,
+  } from '../../utils';
 
   const ProductsPg = () => {
-    
-  const items = useSelector(selectItems);
 
   return (
     <section className='productspg-parent-container'>
-      
-      {items && items.map(productCard => {
-        return (
-          <ProductCards 
-            id={productCard.id} 
-            key={productCard.id} 
-            title={productCard.title} 
-            description={productCard.description}
-            productid={productCard.productid}
-            image={productCard.image}
-            category_id={productCard.category_id}
-            subcategory={productCard.subcategory}
-            price={productCard.price}  
-            created_at={productCard.created_at}
-            quantity={1}
-          />
-        )
-      }
-        
-      )}
 
-
-      {/* TODO: <ProductCategoriesPreview /> */}
+      <Routes>
+        <Route index element={<ItemCategoriesPreviewPg/>} />
+        <Route path="products/:subcategory" element={<SingleItemCategoryPg />}/>
+      </Routes>
 
     </section>
   )};

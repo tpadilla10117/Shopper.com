@@ -4,7 +4,7 @@
 
     const API_URL = "http://localhost:3000/users/";
 
-/* TODO: Register logic */
+/* Register logic */
     const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active ) => {
         return axios.post(API_URL + "register", {
             username,
@@ -31,7 +31,7 @@
             username,
             password
         })
-        /* TODO: This token is never used -> we make a post request each time above */
+       
         .then( (response) => {
             if (response.data.token) {
                 localStorage.setItem("user", JSON.stringify(response.data.token));
@@ -46,7 +46,6 @@
     };
 
     const logout = () => {
-        console.log('logout from auth service')
         
         localStorage.removeItem("user_id");
         return localStorage.removeItem("user");

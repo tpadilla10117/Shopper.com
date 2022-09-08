@@ -1,16 +1,18 @@
-import { PRODUCT_CATEGORIES_ACTION_TYPES } from "./productCategories.type";
+import { CATEGORIES_ACTION_TYPES } from "./productCategories.type";
 
-export const PRODUCT_CATEGORIES_INITIAL_STATE = {
-    productCategories: []
+export const CATEGORIES_INITIAL_STATE = {
+    /* categoriesMap: {} */
+    categories: []
 };
 
-export const productCategoriesReducer = (state = PRODUCT_CATEGORIES_INITIAL_STATE, action = {} ) => {
+export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {} ) => {
     const { type, payload } = action;
 
     switch(type) {
-        case PRODUCT_CATEGORIES_ACTION_TYPES.SET_PRODUCT_CATEGORIES:
-            return {...state, productCategories: payload};
-        default: 
+        case CATEGORIES_ACTION_TYPES.SET_CATEGORIES:
+            return {...state, categories: payload};
+        default:
             return state;
+        
     }
 };

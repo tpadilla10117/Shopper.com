@@ -86,11 +86,10 @@
                 .addCase(addASavedItem.fulfilled, (state, action) => {
                     state.status = 'succeeded'
                     state.savedItems = [...state.savedItems.concat(action.payload.savedItems)]
+                    
                 })
         }
     });
-
-/* Selectors: */
     
     export const selectUsersSavedItems = (state) => state.savedItems.savedItems;
 

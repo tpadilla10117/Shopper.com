@@ -25,6 +25,8 @@
 
         export { default as ProductCards } from '../components/layout/productCards/ProductCards.jsx';
 
+        export { default as ItemCollectionPreview } from '../components/layout/itemCollectionPreview/ItemCollectionPreview.jsx';
+
         export { default as CheckoutProductCard } from '../components/layout/checkoutProductCard/CheckoutProductCard.jsx';
 
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
@@ -55,6 +57,10 @@
 
         export { default as Spinner } from '../components/layout/spinner/Spinner.jsx';
 
+        export { default as ContentSectionBreak } from '../components/layout/contentSectionBreak/ContentSectionBreak.jsx';
+
+        export { default as ServiceSectionBreak } from '../components/layout/serviceSectionBreak/ServiceSectionBreak.jsx';
+
 
 /* -------------------------------------------------------------------------- */
 
@@ -72,6 +78,10 @@
         export { default as OrderPg } from '../components/pages/orderpg/OrderPg.js';
 
         export { default as ProductsPg } from '../components/pages/productspg/ProductsPg.js';
+
+        export { default as ItemCategoriesPreviewPg } from '../components/pages/itemCategoriesPreviewPg/ItemCategoriesPreviewPg.jsx';
+
+        export { default as SingleItemCategoryPg } from '../components/pages/singleItemCategoryPg/SingleItemCategoryPg.jsx';
 
         export { default as CheckoutPg } from '../components/pages/checkoutpg/CheckoutPg.js';
 
