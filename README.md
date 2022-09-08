@@ -1,13 +1,12 @@
-[](src/frontend/assets/interfaceImages/landing_desktop.png%0D) [](README.md) 
+[](src/frontend/assets/interfaceImages/landing_desktop.png%0D)
 
 # App Description
 - An e-commerce web-application meant as a template for freelance clients & for my personal portfolio.  
 - Users can authenticate, browse collections of products, & mock a purchase-flow.
 
-Langing.jsx (Mobile View)         |  CTABanner.jsx (Mobile View)
+CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 :-------------------------:|:-------------------------:
-![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/featured_mobile.png)
-
+![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/landing_mobile.png)
 
 ## Table of Contents:
 * [Deployment](#Deployment)
