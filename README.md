@@ -1,7 +1,13 @@
-# App Description
+[](src/frontend/assets/interfaceImages/landing_desktop.png%0D) [](README.md) 
 
+# App Description
 - An e-commerce web-application meant as a template for freelance clients & for my personal portfolio.  
 - Users can authenticate, browse collections of products, & mock a purchase-flow.
+
+Langing.jsx (Mobile View)         |  CTABanner.jsx (Mobile View)
+:-------------------------:|:-------------------------:
+![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/featured_mobile.png)
+
 
 ## Table of Contents:
 * [Deployment](#Deployment)
@@ -14,7 +20,7 @@
 * [Scripts](#available-scripts)
 
 ## Deployment:
-- N/A
+- Coming Soon via AWS!
 
 ## Cloning Instructions:
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
@@ -53,7 +59,7 @@
     - Adjust your totals as necessary
     - When you are ready, click the 'Checkout Now' button to launch a checkout session
 - 4) When you are redirected to the Stripe Checkout Session:
-    - Fill out the form **NOTE: ONONLY USE MOCK/FAKE INFO.  DO NOT ENTER IN YOUR REAL PII(Personally Identifiable Information)**
+    - Fill out the form **NOTE: ONLY USE MOCK/FAKE INFO.  DO NOT ENTER IN YOUR REAL PII(Personally Identifiable Information)**
     - For payments use: `4242 4242 4242 4242` for card number -> this is to process a payment in Test Mode.
 - 5) After a successful checkout, you will be redirected to a 'Success Page'.
     - Browse your orders via the 'Orders & Returns' tab under the navigation menu in the top-right portion of your screen
@@ -94,7 +100,7 @@
 
 ## Limitations & Future Iterations:
 
-- 
+- TBD
 
 ## Dependencies:
 
