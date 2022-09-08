@@ -1,5 +1,3 @@
-[](src/frontend/assets/interfaceImages/landing_desktop.png%0D)
-
 # App Description
 - An e-commerce web-application meant as a template for freelance clients & for my personal portfolio.  
 - Users can authenticate, browse collections of products, & mock a purchase-flow.
@@ -7,6 +5,9 @@
 CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 :-------------------------:|:-------------------------:
 ![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/landing_mobile.png)
+
+#### Landing.jsx (Desktop View)
+[](src/frontend/assets/interfaceImages/landing_desktop.png%0D)
 
 ## Table of Contents:
 * [Deployment](#Deployment)
@@ -31,11 +32,21 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 - 3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
     - Once you have an account, follow instructions to generate keys
 
+- 4) In another terminal, run `npm run start:dev` to start up the Express server.  See [package.json](https://github.com/tpadilla10117/Shopper.com/blob/main/package.json) for more information.
+
+- 5) Install & Configure PostgreSQL: { https://www.postgresql.org/download/ }
+
+- 6) Once your PostgreSQL is configured & downloaded, in a separate terminal, create a database with the command: `createdb e-commerce_nodejs_template`
+
+- 7) Once the database is configured, run the command `npm run seed:dev` to seed the PostgreSQL database with Products.  See [Seed.js](https://github.com/tpadilla10117/Shopper.com/blob/main/src/backend/Seed.js) for more information.
+
+- 8) In another terminal, run the command `npm run start:react` to launch the User Interface.  See [package.json](https://github.com/tpadilla10117/Shopper.com/blob/main/package.json) for more information.
+
 #### Stripe Processes
 
-- 4) In another terminal, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment 
+- 9) In another terminal, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment 
 
-- 5) Receive a `STRIPE_SIGNING_SECRET` and place into environment variable
+- 10) Receive a `STRIPE_SIGNING_SECRET` and place into environment variable
 
 - NOTES:
 
@@ -101,121 +112,43 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 - TBD
 
-## Dependencies:
+## Dependencies & Installs:
 
-### `npm i node-modules`
-- (https://www.npmjs.com/package/node-modules)
+##### For a full list of project dependencies:
+- See [package.json](https://github.com/tpadilla10117/Shopper.com/blob/main/package.json)
 
-### `npm i nodemon`
-- monitors files and auto restart server when changes made to server
-
-### `npm i cors`
-- (https://www.npmjs.com/package/cors)
-- (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
-- CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
-
-### `npm install axios` 
-- promise based HTTP client for browser and node.js
-- { https://www.npmjs.com/package/axios } 
-
-### `npm i pg`
-- the database
-
-### `npm i --save-dev jest`
-- add jest (JS) testing library to dev dependency for unit tests
-
-### `npm i jsonwebtoken`
-- jsonwebtoken
-
-### `npm i morgan`
-- (https://www.npmjs.com/package/morgan)
-- HTTP request logger middleware for node.js
-
-### `npm i body-parser`
-- Node.js body parsing middleware.
-
-- Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
-
-- (https://www.npmjs.com/package/body-parser)
-
-### `npm i express`
-- for web-server & API
-
-### `npm i bcrypt`
-- for pw hashing
-
-### `npm install classnames`
-
-- A simple JavaScript utility for conditionally joining classNames together.
-(https://www.npmjs.com/package/classnames)
-
-### `npm i dotenv`
-- To load environment variables from `.env` file to `process.env` object
-
-### `npm install react-redux`
-- React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state. (https://react-redux.js.org/introduction/getting-started)
-
-### `npm install @reduxjs/toolkit`
-- Redux is a predictable state container for JavaScript apps.  It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience. (https://redux.js.org/introduction/getting-started)
-
-### `npm i redux-persist`
-- Persist and rehydrate a redux store
-- (https://www.npmjs.com/package/redux-persist)
-
-### `npm i reselect`
-- A library for creating memoized "selector" functions. Commonly used with Redux, but usable with any plain JS immutable data as well.
-- (https://www.npmjs.com/package/reselect)
-
-### `npm install react-router-dom`
-
-### `npm install react-transition-group`
-
-- Exposes simple components useful for defining entering and exiting transitions. React Transition Group is not an animation library like React-Motion, it does not animate styles by itself. Instead it exposes transition stages, manages classes and group elements and manipulates the DOM in useful ways, making the implementation of actual visual transitions much easier.
-
-### `npm install sass`
-
-- Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
-(https://sass-lang.com/documentation)
-
-### `npm i emailjs.com`
-
-- Email.js (email server provider library)
--(https://www.emailjs.com/docs/sdk/installation/)
-
-### `npm i react-scroll`
-
-- React component for animating vertical scrolling
-- (https://www.npmjs.com/package/react-scroll)
-
-### `npm i react-intersection-observer`
-- { https://www.npmjs.com/package/react-intersection-observer }
-- React implmentation of the Inersection Observer API to tell you when an element enters or leaves the viewport.
-
-### `npm i react-responsive-carousel`
-- for carousel dependency
-
-### `npm install react-currency-format`
-- for currency fortmatter dependency
-- (https://www.npmjs.com/package/react-currency-format)
-
-### `npm install moment`
-- A JavaScript date library for parsing, validating, manipulating, and formatting dates
-
-### `npm install --save stripe` 
-- to install the Stripe library
-
-### `npm install @stripe/stripe-js`
-- install Stripe.js Module to make server-side requests to to Stripe API and to provide methods for including Stripe.js in client-side code
-
-### `npm install --save @stripe/react-stripe-js @stripe/stripe-js`
-- (https://stripe.com/docs/stripe-js/react)
-- React Stripe.js is a thin wrapper around Stripe Elements.  It allows you to add Elements to any React app.
-
-### `npm install -D markdown-notes-tree`
-(https://github.com/mistermicheels/markdown-notes-tree)
-- If you have a folder structure with Markdown notes, you can use this tool to generate Markdown trees that act as a table of contents for the folder structure.
-
-
+| Dependencies                        | Description 
+| ---------------------------------- |-------
+| [node-modules](https://www.npmjs.com/package/node-modules) | Node.js module and cli tool for searching node-modules.com
+| [nodemon](https://www.npmjs.com/package/nodemon) | Monitors files and auto restart server when changes made to server
+| [cors](https://www.npmjs.com/package/cors) | CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.  Use command `npm i cors` to install.  { https://en.wikipedia.org/wiki/Cross-origin_resource_sharing }
+| [axios](https://www.npmjs.com/package/axios) | Promise based HTTP client for browser and node.js.  Use command `npm i axios` to install.
+| [PostgreSQL](https://www.postgresql.org/) | PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance.  Use command `npm i pg` to install.
+| [Jest](https://jestjs.io/) | Jest is a delightful JavaScript Testing Framework with a focus on simplicity.  It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!.  Use command `npm i --save-dev jest` to install.
+| [morgan](https://www.npmjs.com/package/morgan) | HTTP request logger middleware for node.js.  Use command `npm i morgan` to install.
+| [body-parser](https://www.npmjs.com/package/body-parser) | Node.js body parsing middleware.  Parse incoming request bodies in a middleware before your handlers, available under the req.body property.  Use command `npm i body-parser` to install.
+| [Express.js](https://expressjs.com/) | Server web application framework & REST API.  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.  Use command `npm i express` to install.
+| [bcrypt](https://www.npmjs.com/package/bcrypt) | A library to help you hash passwords.  You can read about bcrypt on [Wikipedia](https://en.wikipedia.org/wiki/Bcrypt) as well as [How To Safely Store A Password](https://codahale.com/how-to-safely-store-a-password/) Use command `npm i bcrypt` to install.
+| [Sass](https://sass-lang.com/libsass) | An enhanced version of css, allowing for programmatic, extendible, compiled css (sass/scss).  SASS ('Syntactically Awesome Style Sheets'): an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster.  Use command `npm install sass` to install.
+| [MaterialUI](https://mui.com/) | MUI offers a comprehensive suite of UI tools to help you ship new features faster. Start with Material UI, our fully-loaded component library, or bring your own design system to our production-ready components.
+| [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) | An implementation of [jsonwebtoken](https://www.rfc-editor.org/rfc/rfc7519).  Use command `npm i jsonwebtoken` to install.
+| [classnames](https://www.npmjs.com/package/classnames) | A simple JavaScript utility for conditionally joining classNames together.  Use command `npm i classnames` to install.
+| [dotenv](https://www.npmjs.com/package/dotenv) | To load environment variables from `.env` file to `process.env` object.  Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.  Use command `npm i dotenv` to install.
+| [react-redux](https://react-redux.js.org/introduction/getting-started) | React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.  Use command `npm install react-redux` to install.
+| [Redux](https://redux.js.org/introduction/getting-started) | Redux is a predictable state container for JavaScript apps.  It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience.  Use command `npm install @reduxjs/toolkit` to install.
+| [redux-persist](https://www.npmjs.com/package/redux-persist) | Persist and rehydrate a redux store.  Use command `npm i redux-persist` to install.
+| [reselect](https://www.npmjs.com/package/reselect) | A library for creating memoized "selector" functions. Commonly used with Redux, but usable with any plain JS immutable data as well.  Use command `npm i reselect` to install.
+| [react-transition-group](https://www.npmjs.com/package/react-transition-group) | Exposes simple components useful for defining entering and exiting transitions. React Transition Group is not an animation library like React-Motion, it does not animate styles by itself. Instead it exposes transition stages, manages classes and group elements and manipulates the DOM in useful ways, making the implementation of actual visual transitions much easier.  Use command `npm install react-transition-group` to install.
+| [react-scroll](https://www.npmjs.com/package/react-scroll) | React component for animating vertical scrolling.  Use command `npm i react-scroll` to install.
+| [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer) | React implmentation of the Inersection Observer API to tell you when an element enters or leaves the viewport.  Use command `npm i react-intersection-observer` to install.
+| [react-currency-format](https://www.npmjs.com/package/react-currency-format) | For currency fortmatter dependency.  Use command `npm install react-currency-format` to install.
+| [React Router Dom](https://www.npmjs.com/package/react-router-dom) | The react-router-dom package contains bindings for using React Router in web applications.  Use command `npm install react-router-dom` to install.
+| [Email JS](https://www.emailjs.com/docs/sdk/installation/) | Email.js (email server provider library).  Use command `npm i emailjs.com` to install.
+| [Moment](https://www.npmjs.com/package/moment) | A JavaScript date library for parsing, validating, manipulating, and formatting dates.  Use command `npm install moment` to install.
+| [Stripe](https://www.npmjs.com/package/stripe) | The Stripe Node library provides convenient access to the Stripe API from applications written in server-side JavaScript.  For collecting customer and payment information in the browser, use [Stripe](https://stripe.com/docs/js)  Use command `npm install --save stripe` to install.
+| [Stripe,js ES Module](https://www.npmjs.com/package/@stripe/stripe-js) | Make server-side requests to to Stripe API and to provide methods for including Stripe.js in client-side code.  Use Stripe.js as an ES module.  Note: To be PCI compliant, you must load Stripe.js directly from https://js.stripe.com. You cannot include it in a bundle or host it yourself. This package wraps the global Stripe function provided by the Stripe.js script as an ES module.  Use command `npm install @stripe/stripe-js` to install.
+| [React Stripe.js](https://www.npmjs.com/package/@stripe/react-stripe-js) | React Stripe.js is a thin wrapper around Stripe Elements.  It allows you to add Elements to any React app.  Use command `npm install --save @stripe/react-stripe-js` to install.
+| [Markdown Notes Tree](https://github.com/mistermicheels/markdown-notes-tree) | If you have a folder structure with Markdown notes, you can use this tool to generate Markdown trees that act as a table of contents for the folder structure.  Use command `npm install -D markdown-notes-tree` to install.
 
 ## Available Scripts
 

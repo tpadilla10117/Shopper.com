@@ -1,6 +1,6 @@
 <!-- For Notes within the build: -->
     - create a new db with `createdb <NAME_OF_DB>`
-    - 1) Need to be in psql termibal -> to drop a db, use DROP DATABASE "e-commerce_nodejs_template";
+    - 1) Need to be in psql terminal -> to drop a db, use DROP DATABASE "e-commerce_nodejs_template";
 
 <!-- Stack: -->
     - Frontend: SCSS, React.js, Redux, HTML5, Node.js, Stripe
