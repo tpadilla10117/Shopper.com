@@ -1,24 +1,20 @@
+/* This page renders out products of a single subcategory: */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectItems } from '../../../reduxslices/productSlice';
 import { ProductCards } from '../../utils';
-/* import { selectProductCategoriesMap } from '../../../reduxslices/productCategories/productCategories.selector'; */
 
-/* TODO: This is meant to render all of the products belonging to a subcategory */
 function SingleItemCategoryPg() {
     const items = useSelector(selectItems);
     
     const { subcategory } = useParams();
-    console.log(subcategory)
-    console.log(items)
     
+/* Filters out a subcategory based on requestparams: */
     const filteredItems = items.filter( targettedSubcategory => targettedSubcategory.subcategory === subcategory);
 
-    console.log(filteredItems)
-
     return (
-        <div>singleItemCategoryPg
+        <div>
             {filteredItems && filteredItems.map(productCard => {
                 return (
                 <ProductCards 
