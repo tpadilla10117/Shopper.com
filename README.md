@@ -14,6 +14,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 * [Cloning Instructions](#cloning-instructions)
 * [Usage Instructions](#usage-instructions)
 * [Tech Stack](#tech-stack)
+* [User Flows](#user-flows)
 * [ERD](#erd--system-design)
 * [Limitations](#limitations--future-iterations)
 * [Dependencies](#dependencies)
@@ -104,6 +105,9 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 | ---------------------------------- |-------
 | [Stripe](https://stripe.com/docs/development/get-started) | Stripe is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes. Accept payments and scale faster.
 
+## User Flows:
+#### Main Purchase Flow (User Checkout Flow):
+![](src/diagrams/ux/User%20flow_%20Shopper.com_MainPurchaseFlow.pptx%20(1).png)
 
 ## ERD & System Design:
 ![](src/backend/assets/E-commerce%20Template_ERD.png)
