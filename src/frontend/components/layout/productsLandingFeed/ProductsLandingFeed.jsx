@@ -59,13 +59,13 @@ const ProductsLandingFeed = ({
 
     if(user === null || !user.token) {
       navigateProductRoute('/signin')
-    } else /* if(user || user.token && ) */ {
+    } else {
       const productObject = {user_id: user.recoveredData.id, product_id: product_id};
       dispatch(addASavedItem(productObject));
     }
   };
 
-  /* To remove saved_products & ensure only one card saved: */
+/* To remove saved_products & ensure only one card saved: */
   function removeSavedItemHandler(event, product_id) {
     event.preventDefault();
 

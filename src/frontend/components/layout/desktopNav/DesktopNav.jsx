@@ -15,6 +15,13 @@ import {
 const DesktopNav = (props) => {
 
     let navigateRoutes = useNavigate();
+    function toggleSubMenu(event) {
+        event.preventDefault();
+       /*  if(event.keydown) {
+            console.log('pressed enter')
+        } */
+        console.log('Clicked the submenu by mouse')
+    };
 
 /* Actions & Selectors for authentication:  */
     const userToken = localStorage.getItem('user');
@@ -149,7 +156,7 @@ const DesktopNav = (props) => {
     
     
   return (
-    <nav className='desktopNav-parent-container'>
+    <nav className='desktopNav-parent-container' aria-label='Main Navigation'>
         <div className='desktop-nav-items-container'>
             
 
@@ -191,7 +198,7 @@ const DesktopNav = (props) => {
                         className='desktop-nav-items-authdropdown-container'
                         activeclassname='active'
                         style={ {textDecoration: 'none'}}
-                        tabindex='0'
+                        tabIndex='0'
                     >
                         <span>Hi, {isUserLoggedIn.recoveredData.username}
                         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg> */}
@@ -245,9 +252,11 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
             >
-                <span>Men</span>
+            {/* TODO: Use button for submenus instead of div */}
+                <span onClick={(event) => toggleSubMenu(event)}
+                tabIndex="0" role="button" aria-pressed="false"
+                >Men</span>
                 
                 <nav className='desktop-nav-items-container2-dropdown'>
                     {menDropdownItems.map( (items, index) => {
@@ -263,7 +272,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Women</span>
                 
@@ -281,7 +290,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Kids</span>
                 
@@ -299,7 +308,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Jewelry</span>
                 
@@ -316,7 +325,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Hats</span>
                 
@@ -333,7 +342,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Shoes</span>
                 
@@ -350,7 +359,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabindex='0'
+                tabIndex='0'
             >
                 <span>Accessories</span>
                 
