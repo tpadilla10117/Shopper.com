@@ -90,6 +90,62 @@ const DesktopNav = (props) => {
         },
     ];
 
+    let kidsDropdownItems = [
+        {
+            id: 1,
+            category: 'Shirts',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 2,
+            category: 'Pants',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 3,
+            category: 'Jackets',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 4,
+            category: 'Accessories',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 5,
+            category: 'Shoes',
+            clickHandler: () => navigateRoutes('/'),
+        },
+    ];
+
+    let womenDropdownItems = [
+        {
+            id: 1,
+            category: 'Shirts',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 2,
+            category: 'Pants',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 3,
+            category: 'Jackets',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 4,
+            category: 'Accessories',
+            clickHandler: () => navigateRoutes('/'),
+        },
+        {
+            id: 5,
+            category: 'Shoes',
+            clickHandler: () => navigateRoutes('/'),
+        },
+    ];
+
     
     
   return (
@@ -211,13 +267,14 @@ const DesktopNav = (props) => {
             >
                 <span>Women</span>
                 
-                {/*  <ul className='desktop-nav-items-dropdown'>
-                    {menDropdownItems.map( (items, index) => {
-                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
-                            {items.name}
+                <nav className='desktop-nav-items-container2-dropdown'>
+                    {womenDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li'
+                        onClick={items.clickHandler}>
+                            {items.category}
                         </li>
                     })}
-                </ul> */}
+                </nav>
         
             </div>
             <div
@@ -228,13 +285,14 @@ const DesktopNav = (props) => {
             >
                 <span>Kids</span>
                 
-                {/*  <ul className='desktop-nav-items-dropdown'>
-                    {menDropdownItems.map( (items, index) => {
-                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
-                            {items.name}
+                <nav className='desktop-nav-items-container2-dropdown'>
+                    {kidsDropdownItems.map( (items, index) => {
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li'
+                        onClick={items.clickHandler}>
+                            {items.category}
                         </li>
                     })}
-                </ul> */}
+                </nav>
         
             </div>
             <div
