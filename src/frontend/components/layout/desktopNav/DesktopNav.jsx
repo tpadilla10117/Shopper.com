@@ -135,6 +135,7 @@ const DesktopNav = (props) => {
                         className='desktop-nav-items-authdropdown-container'
                         activeclassname='active'
                         style={ {textDecoration: 'none'}}
+                        tabindex='0'
                     >
                         <span>Hi, {isUserLoggedIn.recoveredData.username}
                         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg> */}
@@ -188,22 +189,25 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Men</span>
                 
-                <ul className='desktop-nav-items-container2-dropdown'>
+                <nav className='desktop-nav-items-container2-dropdown'>
                     {menDropdownItems.map( (items, index) => {
-                        return <li key={items.id} className='desktop-nav-items-authdropdown-li' onClick={items.clickHandler}>
+                        return <li key={items.id} className='desktop-nav-items-authdropdown-li'
+                        onClick={items.clickHandler}>
                             {items.category}
                         </li>
                     })}
-                </ul>
+                </nav>
         
             </div>
             <div
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Women</span>
                 
@@ -220,6 +224,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Kids</span>
                 
@@ -236,6 +241,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Jewelry</span>
                 
@@ -252,6 +258,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Hats</span>
                 
@@ -268,6 +275,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Shoes</span>
                 
@@ -284,6 +292,7 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
+                tabindex='0'
             >
                 <span>Accessories</span>
                 
