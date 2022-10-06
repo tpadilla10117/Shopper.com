@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartItemCount } from '../../../reduxslices/basketslice';
 import{ userData } from '../../../reduxslices/authSlice';
-import { addASavedItem } from '../../../reduxslices/savedItemsSlice';
+import { 
+  addASavedItem, 
+  selectUsersSavedItems,
+  deleteAUsersSavedItem 
+} from '../../../reduxslices/savedItemsSlice';
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
@@ -25,6 +29,7 @@ const ProductsLandingFeed = ({
   let navigateProductRoute = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(userData);
+  const usersSavedItems = useSelector(selectUsersSavedItems);
 
   const product = {
     id,
@@ -60,6 +65,35 @@ const ProductsLandingFeed = ({
     }
   };
 
+/* To remove saved_products & ensure only one card saved: */
+  function removeSavedItemHandler(event, product_id) {
+    event.preventDefault();
+
+    const thunkArguments = { user_id: user.recoveredData.id, product_id: product_id}
+    dispatch(deleteAUsersSavedItem( thunkArguments ));
+  };
+
+  function filterOutAUsersItemHelper(productid) {
+      let saved = usersSavedItems.filter( item => item.product_id === productid);
+      return saved;
+  };
+
+  function savedItemToggler(event, productid ) {
+
+    event.preventDefault();
+    event.stopPropagation();
+    
+    let filteredId = filterOutAUsersItemHelper(productid);
+
+    if(filteredId.length === 0) {
+        addItemToSavedProducts(event, productid);
+    } else if (user.recoveredData.id && filteredId[0].product_id === productid) {
+        removeSavedItemHandler(event, productid);
+    } else if(user === null || !user.token) {
+        navigateProductRoute('/signin')
+    }
+  };
+
   return (
     <figure className='productsLandingFeed-parent-container'>
         <img 
@@ -85,7 +119,7 @@ const ProductsLandingFeed = ({
           {/* TODO: When click this icon, add to faves */}
           <div className='productsLandingFeed-icon-parent-container'>
             <FavoriteBorderOutlined 
-              onClick={(event) => addItemToSavedProducts(event, id )}
+              onClick={(event) => savedItemToggler(event, id )}
             />
           </div>
 

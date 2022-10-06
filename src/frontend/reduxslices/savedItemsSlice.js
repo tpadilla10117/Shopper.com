@@ -41,8 +41,6 @@
             try {
                 const data = await savedItemsService.addSavedItem(user_id, product_id);
 
-                console.log(data)
-
                 return { savedItems: data };
             } catch(error) {
                 console.error(error);

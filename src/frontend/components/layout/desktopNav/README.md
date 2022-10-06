@@ -6,4 +6,6 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
+<!-- NOTES FOR ACCESSIBILITY: -->
+<!-- https://blog.hubspot.com/website/accessible-drop-down-menus -->
 
