@@ -15,11 +15,10 @@ import {
 const DesktopNav = (props) => {
 
     let navigateRoutes = useNavigate();
+    
     function toggleSubMenu(event) {
         event.preventDefault();
-       /*  if(event.keydown) {
-            console.log('pressed enter')
-        } */
+      
         console.log('Clicked the submenu by mouse')
     };
 
@@ -254,9 +253,11 @@ const DesktopNav = (props) => {
                 style={ {textDecoration: 'none'}}
             >
             {/* TODO: Use button for submenus instead of div */}
-                <span onClick={(event) => toggleSubMenu(event)}
+                {/* <span onClick={(event) => toggleSubMenu(event)}
                 tabIndex="0" role="button" aria-pressed="false"
-                >Men</span>
+                >Men</span> */}
+                <button onClick={(event) => toggleSubMenu(event)}
+                >Men</button>
                 
                 <nav className='desktop-nav-items-container2-dropdown'>
                     {menDropdownItems.map( (items, index) => {
@@ -272,9 +273,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Women</span>
+                <button>Women</button>
                 
                 <nav className='desktop-nav-items-container2-dropdown'>
                     {womenDropdownItems.map( (items, index) => {
@@ -290,9 +291,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Kids</span>
+                <button>Kids</button>
                 
                 <nav className='desktop-nav-items-container2-dropdown'>
                     {kidsDropdownItems.map( (items, index) => {
@@ -308,9 +309,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Jewelry</span>
+                <button>Jewelry</button>
                 
                 {/*  <ul className='desktop-nav-items-dropdown'>
                     {menDropdownItems.map( (items, index) => {
@@ -325,9 +326,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Hats</span>
+                <button>Hats</button>
                 
                 {/*  <ul className='desktop-nav-items-dropdown'>
                     {menDropdownItems.map( (items, index) => {
@@ -342,9 +343,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Shoes</span>
+                <button>Shoes</button>
                 
                 {/*  <ul className='desktop-nav-items-dropdown'>
                     {menDropdownItems.map( (items, index) => {
@@ -359,9 +360,9 @@ const DesktopNav = (props) => {
                 className='desktop-nav-items-container2-dropdown-container'
                 activeclassname='active'
                 style={ {textDecoration: 'none'}}
-                tabIndex='0'
+                /* tabIndex='0' */
             >
-                <span>Accessories</span>
+                <button>Accessories</button>
                 
                 {/*  <ul className='desktop-nav-items-dropdown'>
                     {menDropdownItems.map( (items, index) => {
