@@ -31,7 +31,7 @@
 
         export { default as ProductFeed } from '../components/layout/productFeed/ProductFeed.jsx';
 
-        export { default as MenuItem } from '../components/layout/menuItem/menuItem.js';
+        export { default as MenuItem } from '../components/layout/menuItem/menuItem.jsx';
 
         export { default as Directory } from '../components/layout/directory/Directory.jsx';
 
