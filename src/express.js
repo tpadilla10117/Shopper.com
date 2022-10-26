@@ -1,6 +1,6 @@
 //THIS IS WHERE I LAUNCH THE express.js web server:
 
-    /* require('dotenv').config(); */
+    require('dotenv').config();
     const bodyParser = require('body-parser');
     const morgan = require('morgan');
     const express = require('express');

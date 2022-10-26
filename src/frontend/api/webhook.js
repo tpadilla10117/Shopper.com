@@ -6,12 +6,12 @@
 
     const webhookRouter = require('express')();
 
-    const stripe = require('stripe')('sk_test_51KepPXD7lX2ovvhcicz2AvcKBiAuLYyJga2nf6rSF0QiwHTgiQ81zuwVvynSFfxxNjsxvQ7WVx6cztwHeCOIINRP00kJUGG5gh');
+    const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
         
     const bodyParser = require('body-parser');
 
     /* Webhook Secret: */
-    const webhookEndpointSecret = 'whsec_613cad032f31e2eb00c8668fe4cfe5691d8ef7e805dad8ea1e585cfb9eea5862';
+    const webhookEndpointSecret = process.env.REACT_APP_STRIPE_CLI_SECRET_KEY;
 
 
 /* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
