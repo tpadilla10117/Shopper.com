@@ -5,7 +5,7 @@
 
     const jwt = require('jsonwebtoken');
     const { getUserById } = require('../../backend/dbadapters/users');
-    const {JWT_SECRET} = process.env;
+    const {REACT_APP_JWT_SECRET} = process.env;
     const apiErrorHandler = require('./errors/apirerrorhandler');
     const createStripeCheckoutSession = require('./stripeCheckout');
 
@@ -21,7 +21,7 @@
 
             try {
                 //read the token and attempt to decrypt...
-                const { id } = jwt.verify(token, JWT_SECRET);
+                const { id } = jwt.verify(token, REACT_APP_JWT_SECRET);
 
                 if (id) {
                     req.user = await getUserById(id);

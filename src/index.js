@@ -13,16 +13,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import reportWebVitals from './reportWebVitals';
 
 
-/* Create a Stripe Promise: TODO: process.env not working for whatever reason -> 7/27 UPDATE
- - need to use text: REACT_APP_STRIPE_PUBLISHABLE_KEY in my .env
-*/
+/* Create a Stripe Promise:*/
 
-
-/* const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY); */
-const stripePromise = loadStripe("pk_test_51KepPXD7lX2ovvhcjTQAGgIsYzdaGEnKEYrKcbbfT4GXc29gwu6FrvlYZsdIEIDJLyFIlUBH3qxr0v6tWew3gN4a00mUeJLoOd")
-
-/* console.log("Sample: ", process.env.stripe_publishable_key); */
-
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 function ScrollToTop() {
   const { pathname } = useLocation();

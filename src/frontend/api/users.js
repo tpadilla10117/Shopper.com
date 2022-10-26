@@ -2,6 +2,7 @@
 
     const express = require('express');
     const usersRouter = express.Router();
+
     const { requireUser } = require('./utils');
     const {
         createUser, 
@@ -92,7 +93,7 @@ class TypeError extends Error {
                 id: user.id,
                 username,
                 
-            }, process.env.JWT_SECRET);
+            }, process.env.REACT_APP_JWT_SECRET);
 
             res.send({
                 user,
@@ -116,9 +117,9 @@ class TypeError extends Error {
 
             if (isMatch === true) {
                 //create token & return to the user
-                let token = jwt.sign( {id: user.id, username}, process.env.JWT_SECRET);
+                let token = jwt.sign( {id: user.id, username}, process.env.REACT_APP_JWT_SECRET);
 
-                const recoveredData = jwt.verify(token, process.env.JWT_SECRET);
+                const recoveredData = jwt.verify(token, process.env.REACT_APP_JWT_SECRET);
 
                 //the recovered data...
                 res.send( {

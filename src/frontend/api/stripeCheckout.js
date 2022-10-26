@@ -4,7 +4,7 @@
     
 /* My line_items and email to send to Stripe: */
     async function createStripeCheckoutSession(req, res) {
-        const domainURL = process.env.WEB_APP_URL;
+        const domainURL = process.env.REACT_APP_WEB_APP_URL;
         const { items, email, user_id } = req.body;
 
     /* I transform data in my array so it reflects the format Stripe wants: */
