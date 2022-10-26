@@ -188,3 +188,12 @@
           throw error;
         }
       }; */
+
+<!-- Design System Notes: -->
+- Buttons:
+    - CTA: 
+        - width: 200px
+        - padding: 20px;
+        - background-color: $background-primary
+        
+    - Primary:

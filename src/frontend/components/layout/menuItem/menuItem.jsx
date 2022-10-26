@@ -10,8 +10,12 @@ function menuItem({ title, imageUrl }) {
         </figure>
 
         <div className='menu-item-content'>
-            <h1 className='menu-item-title'>{title.toUpperCase()}</h1>
-            <span className='menu-item-subtitle'>Shop Now</span>
+            <h2 className='menu-item-title'>{title.toUpperCase()}</h2>
+            <button 
+              type='button'
+              className='menu-item-subtitle'>
+              Shop {title}
+            </button>
         </div>
 
     </article>

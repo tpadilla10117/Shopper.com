@@ -54,7 +54,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node express.js",
+    "start": "node ./src/express.js",
     "seed:dev": "nodemon ./src/backend/seed.js",
     "start:dev": "nodemon ./src/express.js",
     "db:build": "node ./src/backend/seed.js",
