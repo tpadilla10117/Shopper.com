@@ -6,7 +6,10 @@
     const { Client } = require('pg');
 
     //2) Give a name to the db, and a location:
-    const DB_NAME = 'localhost:5432/e-commerce_nodejs_template';
+    /* const DB_NAME = 'localhost:5432/e-commerce_nodejs_template'; */
+    const DB_NAME = 'trin:3zxurXDWNdgqOne4ZEY9WO4YRN4CtMCc@dpg-cdcuasmn6mpu5pbls6a0-a/shopperdb_hm2d';
+    
+    
     const DB_URL = process.env.DATABASE_URL || `postgres://${DB_NAME}`;
     const client = new Client(DB_URL);
 
