@@ -4,10 +4,10 @@
     
     const userSavedItemsRequest = (user_id) => {
     /*TODO: For Testing Routing in Local Environment:  */
-        /* const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items`; */
+        const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items`;
 
     /*TODO: For Routing in Deployed app:  */
-        const MY_API_URL = `https://shopper-nodejs.onrender.com/users/${user_id}/my-account/saved-items`;
+        /* const MY_API_URL = `https://shopper-nodejs.onrender.com/users/${user_id}/my-account/saved-items`; */
 
         return axios.get(MY_API_URL)
         
@@ -24,10 +24,10 @@
 
     const removeSavedItem = (user_id, product_id) => {
     /*TODO: For Testing Routing in Local Environment:  */
-        /* const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items/${product_id}`; */
+        const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items/${product_id}`;
 
     /*TODO: For Routing in Deployed app:  */
-        const MY_API_URL = `https://shopper-nodejs.onrender.com/users/${user_id}/my-account/saved-items/${product_id}`;
+        /* const MY_API_URL = `https://shopper-nodejs.onrender.com/users/${user_id}/my-account/saved-items/${product_id}`; */
         
         return axios.delete(MY_API_URL)
 
