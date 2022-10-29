@@ -23,7 +23,10 @@
       const total = useSelector ( selectTotal );
       const user = useSelector( userData);
       const dispatch = useDispatch();
-      const stripePromise = loadStripe('pk_test_51KepPXD7lX2ovvhcjTQAGgIsYzdaGEnKEYrKcbbfT4GXc29gwu6FrvlYZsdIEIDJLyFIlUBH3qxr0v6tWew3gN4a00mUeJLoOd');
+      const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+
+      const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
+      /* const MY_LOCAL_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
 
       console.log('Here are my items: ', items)
 
@@ -31,7 +34,13 @@
         const stripe = await stripePromise;
 
       /* Call backend to create a checkout session: */
-        const checkoutSession = await axios.post('http://localhost:3000/create-checkout-session', {
+       /*  const checkoutSession = await axios.post(`${MY_LOCAL_API_URL}/create-checkout-session`, {
+          items: items,
+          email: user.email,
+          user_id: user.recoveredData.id
+        }); */
+
+        const checkoutSession = await axios.post(`${MY_API_URL}/create-checkout-session`, {
           items: items,
           email: user.email,
           user_id: user.recoveredData.id
