@@ -14,16 +14,16 @@ const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
 const ordersRequest = () => {
     return axios.get(`${MY_API_URL}/orders`)
     .then ( (response) => {
-        console.log('My orders data from the ordersService: ', response.data);
+     
         return response.data;
     })
 };
 
 const individualUsersOrdersRequest = (user_id) => {
+    
     return axios.get(`${MY_API_URL}/orders/${user_id}`)
     
     .then( (response) => {
-        console.log('My individual users orders data from the ordersService: ', response.data);
         return response.data;
     });
 };

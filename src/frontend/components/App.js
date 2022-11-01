@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   Header, 
   Landing,

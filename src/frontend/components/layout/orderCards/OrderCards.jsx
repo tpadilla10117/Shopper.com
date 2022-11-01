@@ -4,11 +4,9 @@ function OrderCards( {
     orderDate, 
     amounttotal, 
     status,
-    userId,
-    shippingstreet
-
+    orderNumber
     } ) {
-    console.log(orderDate)
+    
     return (
         <div className='ordercards-container'>
 
@@ -16,9 +14,9 @@ function OrderCards( {
 
             <p>Order Total: ${amounttotal} </p>
 
-            <p>Status</p>
+            <p>Status {status}</p>
 
-            <p>Order Number</p>
+            <p>Order Number {orderNumber}</p>
 
             {/* TODO: Shipment Number */}
 

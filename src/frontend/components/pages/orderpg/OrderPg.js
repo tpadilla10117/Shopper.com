@@ -2,30 +2,28 @@
     import React, { useEffect } from 'react';
     import { OrderCards } from '../../utils.js';
     import { useSelector, useDispatch } from 'react-redux';
-    import { selectOrders, getOrders, selectUsersOrders, getAUsersOrders } from '../../../reduxslices/ordersSlice';
+    import { selectUsersOrders, getAUsersOrders } from '../../../reduxslices/ordersSlice';
+    import { userData } from '../../../reduxslices/authSlice';
     
     function OrderPg() {
 
   /* Dispatch async request from the Thunk: */
     const dispatch = useDispatch();
-    const orderItems = useSelector(selectOrders);
-    /* console.log(orderItems) */
-    /* console.log(orderItems[0].order_items) */
-
+    const user = useSelector(userData);
     const usersOrderItems = useSelector(selectUsersOrders);
-    console.log('a users orders: ', usersOrderItems);
+    console.log(usersOrderItems[0])
+    
 
 
     useEffect( () => {
-        if(orderItems.length === 0 ) {
+        if(usersOrderItems.length === 0 ) {
             
-            /* dispatch(getOrders()); */
-            dispatch(getAUsersOrders())
+            dispatch(getAUsersOrders(user.recoveredData.id))
             
           } else {
             return;
           }
-    }, [dispatch, orderItems]);
+    }, [dispatch, usersOrderItems, user]);
 
 
         
@@ -37,24 +35,26 @@
             <p className='orderpg-subheading'>Tracking. Details. Returns. View all of your order information here.</p>
 
             <div className='ordercards-parent-wrapper'>
-              {orderItems && orderItems.map( orderCard => {
-                console.log(orderCard)
+              {usersOrderItems && usersOrderItems.map( orderCard => {
+                
                 return (
                   <OrderCards 
                     key={orderCard.id}
+                    orderNumber={orderCard.id}
                     orderDate={orderCard.created_at}
                     amounttotal={orderCard.amount_total}
                     status={orderCard.status}
                     userId={orderCard.user_id}
                     currency={orderCard.currency}
+                    order_items={orderCard.order_items}
 
                   /* TODO: Where will i get this info? */
-                    shippingstreet={orderCard.shippingstreet}
+                   /*  shippingstreet={orderCard.shippingstreet}
                     shippingstreet2={orderCard.shippingstreet2}
                     shippingzip={orderCard.shippingzip}
                     shippingcity={orderCard.shippingcity}
                     shippingcountry={orderCard.shippingcountry}
-                    shippingstate={orderCard.shippingstate}
+                    shippingstate={orderCard.shippingstate} */
                   />
                 )
               })}

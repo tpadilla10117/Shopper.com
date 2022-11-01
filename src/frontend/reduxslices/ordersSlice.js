@@ -5,7 +5,6 @@ import ordersService from '../services/ordersService';
 export const getOrders = createAsyncThunk("orders", async () => {
     try {
         const orderData = await ordersService.ordersRequest();
-        console.log("From the getOrders Thunk: ", orderData);
 
         return { orderItems: orderData };
 
@@ -17,10 +16,9 @@ export const getOrders = createAsyncThunk("orders", async () => {
 /* GET Thunk for an Individual User's Orders: */
 export const getAUsersOrders = createAsyncThunk("get/usersOrders", async (user_id) => {
     try {
-
+        
         const usersOrderData = await ordersService.individualUsersOrdersRequest(user_id);
-        console.log('Fetching a users orders: ', usersOrderData);
-
+        
         return { usersOrderItems: usersOrderData};
 
     } catch (error) {
