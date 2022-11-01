@@ -50,7 +50,7 @@
     const apiRouter = require('./frontend/api');
 
 /* My default endpoint for routes: */
-    server.use('/*', apiRouter);
+    server.use('/', apiRouter);
 
     module.exports = {
         server
