@@ -21,6 +21,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 * [Scripts](#available-scripts)
 
 ## Deployment:
+
 - MVP Deploy: (https://shopper-react.onrender.com/)
 
 ## Cloning Instructions:
