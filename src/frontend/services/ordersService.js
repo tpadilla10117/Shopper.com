@@ -19,9 +19,14 @@ const ordersRequest = () => {
     })
 };
 
-const individualUsersOrdersRequest = () => {
-    return axios.get(`${MY_API_URL}/orders/`)
-}
+const individualUsersOrdersRequest = (user_id) => {
+    return axios.get(`${MY_API_URL}/orders/${user_id}`)
+    
+    .then( (response) => {
+        console.log('My individual users orders data from the ordersService: ', response.data);
+        return response.data;
+    });
+};
 
 const ordersService = {
     ordersRequest,

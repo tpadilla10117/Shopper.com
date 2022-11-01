@@ -61,6 +61,8 @@
 
         export { default as ServiceSectionBreak } from '../components/layout/serviceSectionBreak/ServiceSectionBreak.jsx';
 
+        export { default as PrivateRoutes } from '../components/layout/privateRoutes/PrivateRoutes.js';
+
 
 /* -------------------------------------------------------------------------- */
 

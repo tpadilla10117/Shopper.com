@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import {
   Header, 
   Landing,
@@ -14,12 +14,14 @@ import {
   SuccessPg,
   Footer,
   IndividualProductPg,
-  Spinner
+  Spinner,
+  PrivateRoutes,
 } from './utils';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, selectItems } from '../reduxslices/productSlice';
 import { isLoading, setLoader } from '../reduxslices/loadingSlice';
+import { userData } from '../reduxslices/authSlice';
 
 import './App.scss';
 
@@ -29,7 +31,10 @@ function App() {
 /* Server-Side render of my product data: */
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
-  const loadStatus = useSelector(setLoader)
+  const loadStatus = useSelector(setLoader);
+  let navigateRoutes = useNavigate();
+  const user = useSelector(userData);
+  /* console.log('users data from the landing page: ', user.recoveredData) */
 
   useEffect(() => {
 
@@ -79,7 +84,11 @@ function App() {
 
 {/* TODO: Need to setup in db prior to finishing */}
       
-        <Route path='/orders' element={<OrderPg />}/>
+        {/* <Route path='/orders/:userid' element={<OrderPg />}/> */}
+
+        <Route element={<PrivateRoutes />}>
+          <Route path='/orders/:userid' element={<OrderPg />} exact/>
+        </Route>
       
         <Route path='/success' element={<SuccessPg />} />
       

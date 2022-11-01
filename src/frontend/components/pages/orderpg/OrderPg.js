@@ -2,20 +2,25 @@
     import React, { useEffect } from 'react';
     import { OrderCards } from '../../utils.js';
     import { useSelector, useDispatch } from 'react-redux';
-    import { selectOrders, getOrders } from '../../../reduxslices/ordersSlice';
+    import { selectOrders, getOrders, selectUsersOrders, getAUsersOrders } from '../../../reduxslices/ordersSlice';
     
     function OrderPg() {
 
   /* Dispatch async request from the Thunk: */
     const dispatch = useDispatch();
     const orderItems = useSelector(selectOrders);
-    console.log(orderItems)
-    console.log(orderItems[0].order_items)
+    /* console.log(orderItems) */
+    /* console.log(orderItems[0].order_items) */
+
+    const usersOrderItems = useSelector(selectUsersOrders);
+    console.log('a users orders: ', usersOrderItems);
+
 
     useEffect( () => {
         if(orderItems.length === 0 ) {
             
-            dispatch(getOrders());
+            /* dispatch(getOrders()); */
+            dispatch(getAUsersOrders())
             
           } else {
             return;
