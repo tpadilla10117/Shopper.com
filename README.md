@@ -21,7 +21,8 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 * [Scripts](#available-scripts)
 
 ## Deployment:
-- Sample Deploy: (https://shopper-react.onrender.com/)
+
+- MVP Deploy: (https://shopper-react.onrender.com/)
 
 ## Cloning Instructions:
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }

@@ -4,7 +4,7 @@
     
 /* My line_items and email to send to Stripe: */
     async function createStripeCheckoutSession(req, res) {
-        const domainURL = process.env.REACT_APP_WEB_APP_URL;
+        /* const domainURL = process.env.REACT_APP_WEB_APP_URL; */
         const websiteURL = process.env.REACT_APP_FRONTEND_URL;
         const { items, email, user_id } = req.body;
 
@@ -48,7 +48,7 @@
                 /* success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_id}` */
                 /* success_url: `http://localhost:3001/success`, */
                 success_url: `${websiteURL}/success`,
-                cancel_url: `${domainURL}/canceled`,
+                cancel_url: `${websiteURL}/canceled`,
                 shipping_address_collection: { allowed_countries: ['GB', 'US']}
 
             });
