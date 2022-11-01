@@ -8,21 +8,25 @@ function OrderCards( {
     shippingstreet
 
     } ) {
-    
+    console.log(orderDate)
     return (
-        <div>
+        <div className='ordercards-container'>
 
-            <p>ORDER PLACED: {orderDate}</p>
-            {/* TODO: Order Number */}
+            <p>Order Placed On: {orderDate}</p>
+
+            <p>Order Total: ${amounttotal} </p>
+
+            <p>Status</p>
+
+            <p>Order Number</p>
 
             {/* TODO: Shipment Number */}
 
-            <p>Shipping Address:
+            {/* <p>Shipping Address:
                 {shippingstreet}
 
-            </p>
+            </p> */}
 
-            <p>ORDER TOTAL: ${amounttotal} </p>
 
             {/* TODO: Product */}
 

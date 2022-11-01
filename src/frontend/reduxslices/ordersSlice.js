@@ -12,10 +12,25 @@ export const getOrders = createAsyncThunk("orders", async () => {
     } catch (error) {
         console.error(error);
     }
-})
+});
+
+/* GET Thunk for an Individual User's Orders: */
+export const getAUsersOrders = createAsyncThunk("get/usersOrders", async () => {
+    try {
+
+        const usersOrderData = await ordersService.individualUsersOrdersRequest();
+        console.log('Fetching a users orders: ', usersOrderData);
+
+        return { usersOrderItems: usersOrderData};
+
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 const initialState = {
     orderItems: [],
+    usersOrderItems: [],
 };
 
 /* Slice & Actions: */

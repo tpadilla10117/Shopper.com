@@ -1,0 +1,16 @@
+.orderpg-parent-wrapper {
+    display: flex;
+    flex-direction: column;
+    
+    .orderpg-h1 {
+        margin: 0 0 0 10px;
+    }
+
+    .orderpg-subheading {
+        margin: 10px 0 10px 10px;
+    }
+
+    .ordercards-parent-wrapper {
+        margin: 10px 0 10px 10px;
+    }
+}

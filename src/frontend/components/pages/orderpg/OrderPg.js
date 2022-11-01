@@ -9,7 +9,8 @@
   /* Dispatch async request from the Thunk: */
     const dispatch = useDispatch();
     const orderItems = useSelector(selectOrders);
-    
+    console.log(orderItems)
+    console.log(orderItems[0].order_items)
 
     useEffect( () => {
         if(orderItems.length === 0 ) {
@@ -24,32 +25,38 @@
 
         
       return (
-        <main>
-          <section>
-            <h1>Your Orders</h1>
+      
+          <section className='orderpg-parent-wrapper'>
+            <h1 className='orderpg-h1'>Orders & Returns</h1>
 
-            {orderItems && orderItems.map( orderCard => {
-              return (
-                <OrderCards 
-                  key={orderCard.id}
-                  orderDate={orderCard.orderDate}
-                  amounttotal={orderCard.amounttotal}
-                  status={orderCard.status}
-                  userId={orderCard.userId}
-                  shippingstreet={orderCard.shippingstreet}
-                  shippingstreet2={orderCard.shippingstreet2}
-                  shippingzip={orderCard.shippingzip}
-                  shippingcity={orderCard.shippingcity}
-                  shippingcountry={orderCard.shippingcountry}
-                  shippingstate={orderCard.shippingstate}
-                  currency={orderCard.currency}
-                />
-              )
-            })}
+            <p className='orderpg-subheading'>Tracking. Details. Returns. View all of your order information here.</p>
+
+            <div className='ordercards-parent-wrapper'>
+              {orderItems && orderItems.map( orderCard => {
+                console.log(orderCard)
+                return (
+                  <OrderCards 
+                    key={orderCard.id}
+                    orderDate={orderCard.created_at}
+                    amounttotal={orderCard.amount_total}
+                    status={orderCard.status}
+                    userId={orderCard.user_id}
+                    currency={orderCard.currency}
+
+                  /* TODO: Where will i get this info? */
+                    shippingstreet={orderCard.shippingstreet}
+                    shippingstreet2={orderCard.shippingstreet2}
+                    shippingzip={orderCard.shippingzip}
+                    shippingcity={orderCard.shippingcity}
+                    shippingcountry={orderCard.shippingcountry}
+                    shippingstate={orderCard.shippingstate}
+                  />
+                )
+              })}
+            </div>
 
           </section>
         
-        </main>
       )
     }
     

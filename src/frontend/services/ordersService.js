@@ -19,8 +19,13 @@ const ordersRequest = () => {
     })
 };
 
+const individualUsersOrdersRequest = () => {
+    return axios.get(`${MY_API_URL}/orders/`)
+}
+
 const ordersService = {
-    ordersRequest
+    ordersRequest,
+    individualUsersOrdersRequest
 };
 
 export default ordersService;
