@@ -21,7 +21,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, selectItems } from '../reduxslices/productSlice';
 import { isLoading, setLoader } from '../reduxslices/loadingSlice';
-import { userData } from '../reduxslices/authSlice';
 
 import './App.scss';
 
@@ -32,9 +31,6 @@ function App() {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const loadStatus = useSelector(setLoader);
-  let navigateRoutes = useNavigate();
-  const user = useSelector(userData);
-  /* console.log('users data from the landing page: ', user.recoveredData) */
 
   useEffect(() => {
 
@@ -76,18 +72,13 @@ function App() {
             } 
         />
 
-    {/* TODO: Create route and UI components */}
-        <Route path='/my-account' element={<MyAccountPg />} />
 
-        <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
-         
-
-{/* TODO: Need to setup in db prior to finishing */}
-      
-        {/* <Route path='/orders/:userid' element={<OrderPg />}/> */}
+{/* TODO: Protected / Authenticated Routes: */}
 
         <Route element={<PrivateRoutes />}>
           <Route path='/orders/:userid' element={<OrderPg />} exact/>
+          <Route path='/my-account' element={<MyAccountPg />} />
+          <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
         </Route>
       
         <Route path='/success' element={<SuccessPg />} />
