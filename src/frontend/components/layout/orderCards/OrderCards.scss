@@ -1,3 +1,22 @@
 .ordercards-container {
     margin: 0 0 10px 0;
+    border: 1px solid grey;
+    padding: 10px;
+
+    .ordercards-ordertotals-container, .ordercards-orderstatus-container {
+        /* border: 1px solid blue; */
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            width: 25%;
+        }
+    }
+    
+
+    .ordercards-orderdetails-container {
+        display: flex;
+        justify-content: center;
+    }
+
 }

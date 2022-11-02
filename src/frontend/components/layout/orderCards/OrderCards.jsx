@@ -10,13 +10,30 @@ function OrderCards( {
     return (
         <div className='ordercards-container'>
 
-            <p>Order Placed On: {orderDate}</p>
+            <div 
+            className='ordercards-ordertotals-container'
+            >
+                <p>Order Placed On: {orderDate}</p>
+                <p>Order Total: ${amounttotal} </p>
+            </div>
 
-            <p>Order Total: ${amounttotal} </p>
+            <div 
+            className='ordercards-orderstatus-container'
+            >
+                <p>Status {status}</p>
+                <p>Order Number {orderNumber}</p>
+            </div>
 
-            <p>Status {status}</p>
-
-            <p>Order Number {orderNumber}</p>
+            <div
+            className='ordercards-orderdetails-container'
+            >
+                <button
+                    className='ordercards-orderdetails-btn'
+                    type='button'
+                >
+                    VIEW ORDER DETAILS
+                </button>
+            </div>
 
             {/* TODO: Shipment Number */}
 
