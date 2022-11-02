@@ -2,14 +2,7 @@
 
     import axios from "axios";
 
-/* TODO: Use for Local Environment: */
-    /* const API_URL = "http://localhost:3000/users/"; */
-    /* const API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
-
-/*TODO: For Routing in Deployed app:  */
-
-    /* const API_URL = "https://shopper-nodejs.onrender.com/users/" */
-    const API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
+    const API_URL = process.env.REACT_APP_WEB_APP_URL;
 
 /* Register logic */
     const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active ) => {

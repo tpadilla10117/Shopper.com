@@ -10,10 +10,8 @@
         
     const bodyParser = require('body-parser');
 
-    /* Webhook Secret: */
-    /* TODO: this is the local Secret key: */
-    /* const webhookEndpointSecret = process.env.REACT_APP_STRIPE_CLI_SECRET_KEY; */
-    const webhookEndpointSecret = process.env.REACT_APP_STRIPE_DEPLOYED_SECRET_KEY;
+/* Webhook Secret: */    
+    const webhookEndpointSecret = process.env.REACT_APP_STRIPE_SIGNING_SECRET_KEY;
 
 
 /* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */

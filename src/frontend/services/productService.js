@@ -2,12 +2,8 @@
 
     import axios from "axios";
 
-/*TODO: For Testing Routing in Local Environment:  */
-    /* const MY_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
+    const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
-/*TODO: For Routing in deployed app:  */
-    const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
-console.log(MY_API_URL)
 /* Logic to request products from fakestoreapi.com : */
     const productRequest = () => {
         /* return axios.get(FAKESTORE_API_URL + "products?limit=5") */

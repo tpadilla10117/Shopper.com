@@ -55,19 +55,13 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 - 9) **MISSION CRITICAL STEP:** Local/development environments need to be updated so user's can run project locally
 
     - a) Create a local url and save to an enviroment variable e.g. *https://localhost:3000*
-    - b) Replace the *REACT_APP_WEB_APP_DEPLOYED_URL* with your newly created environment variable in the following files:
 
-        - **stripeCheckout.js**: e-commerce_nodejs_template/src/frontend/api/stripeCheckout.js
+        - Replace the *REACT_APP_WEB_APP_URL* with your newly created environment variable in the following files:
 
-        - **CheckoutPage.js**: e-commerce_nodejs_template/src/frontend/components/pages/checkoutpg/CheckoutPg.js
+    - b) In your Environment Variables, create a *REACT_APP_SIGNING_SECRET_KEY* variable and assign it your Signing Secret Key from Stripe.com
 
-        - **authService.js**: e-commerce_nodejs_template/src/frontend/services/authService.js
-
-        - **ordersService.js**: e-commerce_nodejs_template/src/frontend/services/ordersService.js
-
-        - **productService.js**: e-commerce_nodejs_template/src/frontend/services/productService.js
-
-        - **savedItems.js**: e-commerce_nodejs_template/src/frontend/services/savedItemsService.js
+    - c) In your Environment Variables, create a *REACT_APP_FRONTEND_URL* variable and assign it the url where you are running your ui 
+        - e.g. *https://localhost:3001*
 
 #### Stripe Processes
 
