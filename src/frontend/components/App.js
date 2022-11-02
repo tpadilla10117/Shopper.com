@@ -14,7 +14,8 @@ import {
   SuccessPg,
   Footer,
   IndividualProductPg,
-  Spinner
+  Spinner,
+  PrivateRoutes,
 } from './utils';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +30,7 @@ function App() {
 /* Server-Side render of my product data: */
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
-  const loadStatus = useSelector(setLoader)
+  const loadStatus = useSelector(setLoader);
 
   useEffect(() => {
 
@@ -71,15 +72,14 @@ function App() {
             } 
         />
 
-    {/* TODO: Create route and UI components */}
-        <Route path='/my-account' element={<MyAccountPg />} />
 
-        <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
-         
+{/* TODO: Protected / Authenticated Routes: */}
 
-{/* TODO: Need to setup in db prior to finishing */}
-      
-        <Route path='/orders' element={<OrderPg />}/>
+        <Route element={<PrivateRoutes />}>
+          <Route path='/orders/:userid' element={<OrderPg />} exact/>
+          <Route path='/my-account' element={<MyAccountPg />} />
+          <Route path='/my-account/saved-items' element={<SavedItemsPg />} />
+        </Route>
       
         <Route path='/success' element={<SuccessPg />} />
       

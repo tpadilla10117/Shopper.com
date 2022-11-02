@@ -5,17 +5,30 @@ import ordersService from '../services/ordersService';
 export const getOrders = createAsyncThunk("orders", async () => {
     try {
         const orderData = await ordersService.ordersRequest();
-        console.log("From the getOrders Thunk: ", orderData);
 
         return { orderItems: orderData };
 
     } catch (error) {
         console.error(error);
     }
-})
+});
+
+/* GET Thunk for an Individual User's Orders: */
+export const getAUsersOrders = createAsyncThunk("get/usersOrders", async (user_id) => {
+    try {
+        
+        const usersOrderData = await ordersService.individualUsersOrdersRequest(user_id);
+        
+        return { usersOrderItems: usersOrderData};
+
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 const initialState = {
     orderItems: [],
+    usersOrderItems: [],
 };
 
 /* Slice & Actions: */
@@ -29,10 +42,15 @@ const ordersSlice = createSlice({
         } */
     },
     extraReducers(builder) {
-        builder.addCase(getOrders.fulfilled, (state, action) => {
-            state.status = 'succeeded'
-            state.orderItems = [...state.orderItems.concat(action.payload.orderItems)]
-        })
+        builder
+            .addCase(getOrders.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                state.orderItems = [...state.orderItems.concat(action.payload.orderItems)]
+            })
+            .addCase(getAUsersOrders.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                state.usersOrderItems = [...state.usersOrderItems.concat(action.payload.usersOrderItems)]
+            })
     }
 });
 
@@ -41,5 +59,7 @@ const ordersSlice = createSlice({
 /* Selectors: */
 
 export const selectOrders = (state) => state.orders.orderItems;
+
+export const selectUsersOrders = (state) => state.orders.usersOrderItems;
 
 export default ordersSlice.reducer;

@@ -45,7 +45,7 @@
 
         export { default as Loading } from '../components/layout/loading/Loading.jsx';
 
-        export { default as OrderCards } from '../components/layout/orderCards/OrderCards.js';
+        export { default as OrderCards } from '../components/layout/orderCards/OrderCards.jsx';
 
         export { default as Footer } from '../components/layout/footer/Footer.jsx';
 
@@ -60,6 +60,8 @@
         export { default as ContentSectionBreak } from '../components/layout/contentSectionBreak/ContentSectionBreak.jsx';
 
         export { default as ServiceSectionBreak } from '../components/layout/serviceSectionBreak/ServiceSectionBreak.jsx';
+
+        export { default as PrivateRoutes } from '../components/layout/privateRoutes/PrivateRoutes.js';
 
 
 /* -------------------------------------------------------------------------- */
