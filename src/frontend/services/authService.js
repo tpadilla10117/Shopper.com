@@ -5,7 +5,7 @@
     const API_URL = process.env.REACT_APP_WEB_APP_URL;
 
 /* Register logic */
-    const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active ) => {
+    const register = (username, password, firstname, lastname, location, email, isAdmin, imageURL, active, created_at ) => {
         return axios.post(`${API_URL}/users/register`, {
             username,
             password,
@@ -15,7 +15,8 @@
             active,
             firstname,
             lastname,
-            location
+            location,
+            created_at
         })
         .then ( (response) => {
             if (response.data.token) {

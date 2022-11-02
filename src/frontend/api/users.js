@@ -65,7 +65,7 @@ class TypeError extends Error {
 
 /* Register Route for new user creation: */
     usersRouter.post('/register', async (req, res, next) => {
-        const { username, password, firstname, lastname, location, isAdmin, email, imageURL, active } = req.body;
+        const { username, password, firstname, lastname, location, isAdmin, email, imageURL, active, created_at } = req.body;
 
         try {
             const _user = await getUserByUsername(username);
@@ -86,7 +86,8 @@ class TypeError extends Error {
                 email,
                 isAdmin,
                 imageURL,
-                active
+                active,
+                created_at,
             });
 
             const token = jwt.sign({

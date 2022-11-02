@@ -28,6 +28,7 @@ const DesktopNav = (props) => {
     const dispatch = useDispatch();
 
     const isUserLoggedIn = useSelector(userData);
+    console.log('my user data from isUserLoggedIn: ', isUserLoggedIn)
 
     function logoutUser() {
         dispatch(logout());

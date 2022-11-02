@@ -25,6 +25,7 @@
             const isAdmin = 'false';
             const location = "Place";
             const active = 'true';
+            const created_at = require('moment')().format('YYYY-MM-DD HH:mm:ss');
 
 
             dispatch(register( {
@@ -36,7 +37,8 @@
                 image,
                 isAdmin,
                 location,
-                active
+                active,
+                created_at
             }))
         }
 
