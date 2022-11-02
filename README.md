@@ -10,6 +10,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 ![](src/frontend/assets/interfaceImages/landing_desktop.png)
 
 ## Table of Contents:
+* [Limitations](#limitations--future-iterations)
 * [Deployment](#Deployment)
 * [Cloning Instructions](#cloning-instructions)
 * [Usage Instructions](#usage-instructions)
@@ -17,13 +18,19 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 * [User Flows](#user-flows)
 * [ERD](#erd--system-design)
 * [Web Architecture](#web-architecture)
-* [Limitations](#limitations--future-iterations)
 * [Dependencies](#dependencies)
 * [Scripts](#available-scripts)
 
+## Limitations & Future Iterations:
+
+- Bugs 11/2/22: Deployed project currently not accessible through routing outside of main URL.  When a user clicks a link, some JavaScript runs that manipulates the URL in the address bar, without causing a page refresh, which in turn causes React Router to perform a page transition on the client-side.  When I copy-paste a URL ( e.g. https://shopper-react.onrender.com/signin ) in the address bar and e-mail it to a friend, react router is NOT running on their machine yet. The browser makes a server request to https://shopper-react.onrender.com/signin , but no files are served.
+
+- Possible Solutions 11/2/22: SSR or Isomorphic routing (*optimal for SEO)
+
 ## Deployment:
 
-- MVP Deploy: (https://shopper-react.onrender.com/)
+- Limited Deploy: (https://shopper-react.onrender.com/)
+- **For full experience, follow cloning instructions below**
 
 ## Cloning Instructions:
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
@@ -118,10 +125,6 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 ## Redux Flow (State Management):
 ![](https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
-
-## Limitations & Future Iterations:
-
-- TBD
 
 ## Dependencies & Installs:
 
