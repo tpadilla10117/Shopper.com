@@ -119,7 +119,7 @@
     - 3) Look at options, can select events to Listen to on backend
     - 4) Copy POST request and paste into project
 
-<!-- WebHook Process For Local Environments using Striple CLI  (https://github.com/stripe/stripe-cli) -->
+<!-- WebHook Process For Local Environments using Stripe CLI  (https://github.com/stripe/stripe-cli) -->
 
 
 
