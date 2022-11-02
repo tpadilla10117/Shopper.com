@@ -3,13 +3,8 @@
     import axios from "axios";
     
     const userSavedItemsRequest = (user_id) => {
-    /*TODO: For Testing Routing in Local Environment:  */
 
-        /* const MY_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
-
-    /*TODO: For Routing in Deployed app:  */
-
-        const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
+        const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
         
         return axios.get(`${MY_API_URL}/users/${user_id}/my-account/saved-items`)
         
@@ -25,15 +20,8 @@
     };
 
     const removeSavedItem = (user_id, product_id) => {
-    /*TODO: For Testing Routing in Local Environment:  */
-        /* const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items/${product_id}`; */
 
-        /* const MY_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
-
-    /*TODO: For Routing in Deployed app:  */
-        /* const MY_API_URL = `https://shopper-nodejs.onrender.com/users/${user_id}/my-account/saved-items/${product_id}`; */
-
-        const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
+        const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
         
         return axios.delete(`${MY_API_URL}/users/${user_id}/my-account/saved-items/${product_id}`)
 
@@ -43,11 +31,8 @@
     };
 
     const addSavedItem = (user_id, product_id) => {
-        /* const MY_API_URL = `http://localhost:3000/users/${user_id}/my-account/saved-items/${product_id}`; */
 
-        /* const MY_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
-
-        const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
+        const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
         return axios.post(`${MY_API_URL}/users/${user_id}/my-account/saved-items/${product_id}`)
 

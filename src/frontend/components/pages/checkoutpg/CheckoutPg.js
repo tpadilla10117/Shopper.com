@@ -25,9 +25,8 @@
       const dispatch = useDispatch();
       const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
-      const MY_API_URL = process.env.REACT_APP_WEB_APP_DEPLOYED_URL;
-      /* const MY_LOCAL_API_URL = process.env.REACT_APP_WEB_APP_LOCAL_URL; */
-
+      const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
+      console.log(MY_API_URL)
       console.log('Here are my items: ', items)
 
       const handleGuestCheckout = async () => {
