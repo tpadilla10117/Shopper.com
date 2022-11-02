@@ -52,6 +52,23 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 - 8) In another terminal, run the command `npm run start:react` to launch the User Interface.  See [package.json](https://github.com/tpadilla10117/Shopper.com/blob/main/package.json) for more information.
 
+- 9) **MISSION CRITICAL STEP:** Local/development environments need to be updated so user's can run project locally
+
+    - a) Create a local url and save to an enviroment variable e.g. *https://localhost:3000*
+    - b) Replace the *REACT_APP_WEB_APP_DEPLOYED_URL* with your newly created environment variable in the following files:
+
+        - **stripeCheckout.js**: e-commerce_nodejs_template/src/frontend/api/stripeCheckout.js
+
+        - **CheckoutPage.js**: e-commerce_nodejs_template/src/frontend/components/pages/checkoutpg/CheckoutPg.js
+
+        - **authService.js**: e-commerce_nodejs_template/src/frontend/services/authService.js
+
+        - **ordersService.js**: e-commerce_nodejs_template/src/frontend/services/ordersService.js
+
+        - **productService.js**: e-commerce_nodejs_template/src/frontend/services/productService.js
+
+        - **savedItems.js**: e-commerce_nodejs_template/src/frontend/services/savedItemsService.js
+
 #### Stripe Processes
 
 - 9) In another terminal, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment 
