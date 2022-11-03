@@ -3,12 +3,12 @@
     const express = require('express');
     const ordersRouter = express.Router();
 
-    const ApiError = require('./errors/apierror');
+    /* const ApiError = require('./errors/apierror'); */
 
 /* Import DB methods: */
     const {
         getAllOrders,
-        getOrderById,
+        /* getOrderById, */
         getAllOrdersByAUserId,
     } = require('../../backend/dbadapters/orders');
 

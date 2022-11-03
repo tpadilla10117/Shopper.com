@@ -1,7 +1,7 @@
 /* Success page rendered when a user completes an order: */    
 
-import React, { useEffect } from 'react';
-import { withRouter, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SuccessPg() {
 

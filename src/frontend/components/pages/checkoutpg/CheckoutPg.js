@@ -26,18 +26,12 @@
       const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
       const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
-      console.log(MY_API_URL)
-      console.log('Here are my items: ', items)
-
+      
+console.log(user)
       const handleGuestCheckout = async () => {
         const stripe = await stripePromise;
 
       /* Call backend to create a checkout session: */
-       /*  const checkoutSession = await axios.post(`${MY_LOCAL_API_URL}/create-checkout-session`, {
-          items: items,
-          email: user.email,
-          user_id: user.recoveredData.id
-        }); */
 
         const checkoutSession = await axios.post(`${MY_API_URL}/create-checkout-session`, {
           items: items,

@@ -96,11 +96,15 @@ class TypeError extends Error {
                 
             }, process.env.REACT_APP_JWT_SECRET);
 
-            let recoveredData = user;
+            const recoveredData = jwt.verify(token, process.env.REACT_APP_JWT_SECRET);
 
+            /* let recoveredData = user; */
             res.send({
+                user,
+                message: `Thank you for signing up ${username}!`,
+                token,
                 recoveredData,
-                message: `Thank you for signing up ${username}!`,token
+                email
             });
 
         } catch ( {name, message} ) {

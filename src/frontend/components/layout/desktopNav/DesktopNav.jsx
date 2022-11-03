@@ -27,15 +27,14 @@ const DesktopNav = (props) => {
     const userToken = localStorage.getItem('user');
     
     const dispatch = useDispatch();
-
     const isUserLoggedIn = useSelector(userData);
-    console.log('my user data from isUserLoggedIn: ', isUserLoggedIn)
 
+
+/* Logout function chain: */
     function logoutUser() {
         dispatch(logout());
         dispatch(emptyUsersSavedItems());
         dispatch(emptyUsersOrderItems());
-        /* TODO: Need to clear redux data on the frontend for ORders */
         navigateRoutes('/', { replace: true });
     };
 
