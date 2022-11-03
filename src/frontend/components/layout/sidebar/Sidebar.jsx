@@ -1,22 +1,43 @@
 import React, {useRef} from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { NavbarData } from '../../../seed';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
+import { userData, logout } from '../../../reduxslices/authSlice';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice';
+import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
 import "../../App.scss";
 
 const Sidebar = () => {
 
     const isToggled = useSelector(state => state.nav.isOpen);
     const nodeRef = useRef(null);
+    const navigateRoutes = useNavigate();
 
     const dispatch = useDispatch();
+    const isUserLoggedIn = useSelector(userData);
 
+/* Toggles the sidebar component: */
     const navToggle = () => {
         dispatch(navToggler())
     }
+
+/* Logout function chain: */
+    function logOutUser() {
+        dispatch(logout());
+        dispatch(emptyUsersSavedItems());
+        dispatch(emptyUsersOrderItems());
+        navigateRoutes('/', { replace: true});
+    };
+
+    function userAuthToggler() {
+        if(isUserLoggedIn) {
+            logOutUser();
+        } else {
+           return;
+        }
+    };
 
 
     return (
@@ -25,7 +46,7 @@ const Sidebar = () => {
             timeout={300} 
             unmountOnExit onEnter={ () => navToggle} 
             onExited={ () => navToggle} classNames="sidebar-transition"
-             nodeRef={nodeRef}
+            nodeRef={nodeRef}
         >
             <nav className='sidebar-parent-container' 
                 ref={nodeRef}
@@ -53,6 +74,18 @@ const Sidebar = () => {
                                     </NavLink>
                                 )
                             })}
+
+                            <NavLink
+                                to={isUserLoggedIn ? '/' : '/signin'}
+                                className='nav-item'
+                                activeclassname='active'
+                                style={ {textDecoration: 'none'} }
+                                onClick={navToggle}
+                            >
+                                <span
+                                    onClick={userAuthToggler}
+                                >{isUserLoggedIn ? 'Sign Out' : 'Sign In'}</span>
+                            </NavLink>
 
                         </div>
 

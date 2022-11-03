@@ -1,5 +1,6 @@
 /* For default data to be used in project: */
-import antman from '../frontend/assets/images/antman.png';
+
+/* import antman from '../frontend/assets/images/antman.png'; */
 import victoria from '../frontend/assets/images/victoriajustice.png';
 
 export const NavbarData = [
@@ -48,19 +49,6 @@ export const NavbarData = [
         cName: 'nav-text',
         activeObject: null,
         id: 3,
-        smooth: true,
-        duration: 500,
-        spy: true,
-        exact: 'true',
-        offset: -80
-    },
-    {
-        title: 'Login',
-        path: '/signin',
-        /* icon: <AiIcons.AiOutlineFilePdf />, */
-        cName: 'nav-text',
-        activeObject: null,
-        id: 4,
         smooth: true,
         duration: 500,
         spy: true,
