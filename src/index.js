@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './frontend/components/App';
+import App from './frontend/components/App.js';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { Provider } from 'react-redux';
@@ -10,7 +10,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals.js';
 
 
 /* Create a Stripe Promise:*/

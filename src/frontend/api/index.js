@@ -7,6 +7,8 @@
     import { createStripeCheckoutSession } from "./stripeCheckout.js";
     import { usersRouter } from "./users.js";
     import { shopRouter } from "./shop.js";
+    import { ordersRouter } from "./orders.js";
+    import { webhookRouter } from "./webhook.js";
 
 
     export const apiRouter = express.Router();
@@ -74,8 +76,8 @@
 /* Middleware where I attach my routers and handle requests...  */
     
     apiRouter.use('/shop', shopRouter);
-    /* apiRouter.use('/orders', require('./orders')); */
-    /* apiRouter.use('/webhook', require('./webhook.js')); */
+    apiRouter.use('/orders', ordersRouter);
+    apiRouter.use('/webhook', webhookRouter);
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);

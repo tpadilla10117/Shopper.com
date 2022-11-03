@@ -1,16 +1,14 @@
 /* Routing for orders: */
 
-    const express = require('express');
-    const ordersRouter = express.Router();
-
-    /* const ApiError = require('./errors/apierror'); */
-
-/* Import DB methods: */
-    const {
+    import express from "express";
+    import {
         getAllOrders,
         /* getOrderById, */
         getAllOrdersByAUserId,
-    } = require('../../backend/dbadapters/orders');
+    } from "../../backend/dbadapters/orders.js";
+    /* import { ApiError } from "./errors/apierror.js"; */
+
+    export const ordersRouter = express.Router();
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE GET/orders ROUTER */
@@ -49,6 +47,3 @@
             next(error)
         }
     })
-
-
-    module.exports = ordersRouter;

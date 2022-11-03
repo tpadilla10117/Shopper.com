@@ -1,16 +1,18 @@
 /* Webhook used to retrieve data from Stripe API: */
-
-    const { createOrder } = require('../../backend/dbadapters/orders');
+    import Stripe from 'stripe';
+    import {
+        createOrder
+    } from '../../backend/dbadapters/orders.js';
+    import bodyParser from 'body-parser';
+    import express from 'express';
 
     /* const { getUserById } = require('../../backend/dbadapters/users'); */
 
-    const webhookRouter = require('express')();
-
-    const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
-        
-    const bodyParser = require('body-parser');
-
+    
+    const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
+    
 /* Webhook Secret: */    
+    export const webhookRouter = express();
     const webhookEndpointSecret = process.env.REACT_APP_STRIPE_SIGNING_SECRET_KEY;
 
 
@@ -117,5 +119,3 @@ console.log('Here is my session object', session)
 
 
     webhookRouter.listen(4242, () => console.log('Webhook Running on port 4242'));
-
-module.exports = webhookRouter;

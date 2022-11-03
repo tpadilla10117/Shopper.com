@@ -16,11 +16,11 @@ import {
   IndividualProductPg,
   Spinner,
   PrivateRoutes,
-} from './utils';
+} from './utils.js';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, selectItems } from '../reduxslices/productSlice';
-import { isLoading, setLoader } from '../reduxslices/loadingSlice';
+import { getProducts, selectItems } from '../reduxslices/productSlice.js';
+import { isLoading, setLoader } from '../reduxslices/loadingSlice.js';
 
 import './App.scss';
 
