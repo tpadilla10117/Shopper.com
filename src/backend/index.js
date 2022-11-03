@@ -1,14 +1,11 @@
 /* This is where connection to PostgreSQL client occurs: */
-    
-    require('dotenv').config();
+    import dotenv from "dotenv";
 
-    //1) Connect client to the PostgreSQL db:
-    const { Client } = require('pg');
+//1) Connect client to the PostgreSQL db:
+    import pg from 'pg';
+    const { Client } = pg;
 
-    //2) Give a name to the db, and a location (check .env file): 
-    
+//2) Give a name to the db, and a location (check .env file): 
+    dotenv.config();
     const DB_URL = `postgres://${process.env.REACT_APP_DB_NAME}`;
-    const client = new Client(DB_URL);
-
-    // Exports:
-    module.exports = {client};
+    export const client = new Client(DB_URL);

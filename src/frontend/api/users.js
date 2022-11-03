@@ -1,31 +1,17 @@
 /* That path/router for my API at the users endpoint: */
 
-    const express = require('express');
-    const usersRouter = express.Router();
+    import express from "express";
+    import { requireUser } from "./utils.js";
+    import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "../../backend/dbadapters/users.js";
+    import { getSavedProductsByUserId, deleteSavedProductByProductid, createSavedProduct, getASavedProductByUserId } from "../../backend/dbadapters/saved_products.js";
+    import { updateUser } from "../../backend/dbadapters/admin.js";
 
-    const { requireUser } = require('./utils');
-    const {
-        createUser, 
-        getAllUsers,
-        getUser,
-        getUserById,
-        getUserByUsername
-    } = require('../../backend/dbadapters/users');
+    import jwt from "jsonwebtoken";
+    import bcrypt from "bcrypt";
+    import { ApiError } from "./errors/apierror.js";
 
-    const { 
-        getSavedProductsByUserId,
-        deleteSavedProductByProductid,
-        createSavedProduct,
-        getASavedProductByUserId,
-    } = require('../../backend/dbadapters/saved_products');
+    export const usersRouter = express.Router();
 
-    const {
-        updateUser
-    } = require('../../backend/dbadapters/admin');
-
-    const jwt = require('jsonwebtoken');
-    const bcrypt = require('bcrypt');
-    const ApiError = require('./errors/apierror');
     /* const {JWT_SECRET} = process.env || 'notSoSecret'; */
 
 
@@ -310,5 +296,3 @@ usersRouter.patch('/:userId', async (req, res, next) => {
     }
   });
 
-
-    module.exports = usersRouter;

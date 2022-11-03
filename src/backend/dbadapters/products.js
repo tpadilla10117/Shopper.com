@@ -1,12 +1,12 @@
 /* File for products table db adapters using SQL Queries: */
 
-    const { client } = require('../index');
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE PRODUCT METHODS:
 
 /* Return all products in the db: */
-    async function getAllProducts() {
+    export async function getAllProducts() {
         try {
             const { rows } = await client.query(`
                 SELECT * FROM products
@@ -18,7 +18,7 @@
     }
 
 /* Create additional products in the db:  */
-    async function createProducts(product) {
+    export async function createProducts(product) {
         const {title, description, productid, image, category_id, subcategory, price} = product;
 
         try {
@@ -36,7 +36,7 @@
     }
 
 /* Return a single product by its id (Primary Key) : */
-    async function getProductById(id) {
+    export async function getProductById(id) {
         try {
             const { rows: [product] } = await client.query(`
             SELECT * FROM products WHERE id=$1
@@ -49,9 +49,9 @@
         }
     }
 
-  
+  /* 
     module.exports = {
         getAllProducts,
         createProducts,
         getProductById,
-    }
+    } */

@@ -1,12 +1,12 @@
 /* File for users table db adapters: */
-    const {client} = require('../index');
-    const bcrypt = require('bcrypt');
+    import { client } from "../index.js";
+    import bcrypt from "bcrypt";
     const SALT_COUNT = 10;
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE USER METHODS:
 
 
-    async function createUser( {firstname, lastname, email, imageURL, username, password, isAdmin, active, created_at} ) {
+    export async function createUser( {firstname, lastname, email, imageURL, username, password, isAdmin, active, created_at} ) {
         const hashedPassword = await bcrypt.hash(
             password, SALT_COUNT
         );
@@ -25,7 +25,7 @@
     };
 
 //This function allows us to get all our users:
-    async function getAllUsers() {
+    export async function getAllUsers() {
         try {
             const { rows } = await client.query(`
             SELECT * FROM users
@@ -38,7 +38,7 @@
     };
 
 /* This function allows us to get a specific user: */
-    async function getUser( {username, password} ) {
+   export async function getUser( {username, password} ) {
         try {
             const {rows: [user] } = await client.query(`
             SELECT * FROM users WHERE username=$1
@@ -59,7 +59,7 @@
     }
 
 /* This function retrieves a user by id: */
-    async function getUserById(id) {
+    export async function getUserById(id) {
         try {
             const { rows: [user] } = await client.query(`
             SELECT * FROM users WHERE id=$1
@@ -72,7 +72,7 @@
     }
 
 /* This function retrives a user by username: */
-    async function getUserByUsername(username) {
+    export async function getUserByUsername(username) {
         try {
             const { rows } = await client.query(`
             SELECT * FROM users
@@ -92,10 +92,10 @@
 /* TODO: updateUser() ? */
 
 
-    module.exports = {
+    /* module.exports = {
         createUser,
         getAllUsers,
         getUser,
         getUserById,
         getUserByUsername
-    }
+    } */

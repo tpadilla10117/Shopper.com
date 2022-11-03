@@ -1,13 +1,11 @@
 /* Routing for products: */
-
-    const express = require('express');
-    const shopRouter = express.Router();
-
-/* Import DB methods: */
-    const {
+    import express from "express";
+    import {
         getAllProducts,
-        getProductById
-    } = require('../../backend/dbadapters/products');
+        getProductById,
+    } from '../../backend/dbadapters/products.js';
+
+    export const shopRouter = express.Router();
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE GET/products ROUTER */
@@ -40,5 +38,3 @@
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE POST /products (*admin) Only admins can create a new product */
-
-    module.exports = shopRouter;

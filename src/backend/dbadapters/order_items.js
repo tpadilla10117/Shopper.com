@@ -1,13 +1,13 @@
 /* File for order_items table db adapters using SQL Queries: */
 
-const { client } = require('../index');
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE order_items METHODS: TODO: NEED TO TEST ONCE ROUTES SET UP
 
 /* Retrieve all order_items: */
 /* TESTED: COMPLETE / WORKS */
-    async function getAllOrderItems() {
+    export async function getAllOrderItems() {
         try {
             const { rows: order_items } = await client.query(`
                 SELECT * FROM order_items
@@ -50,7 +50,7 @@ const { client } = require('../index');
 */
 
 /* Items retrieved (via webhook) from completed Stripe Checkout Session: */
-    async function createOrderItems(order_items) {
+    export async function createOrderItems(order_items) {
 
         const {
             orders_id,
@@ -80,7 +80,7 @@ const { client } = require('../index');
 /* TODO: NEED TO RETRIEVE PRODUCT DATA: */
 
 
-    async function getOrderItems(id) {
+    export async function getOrderItems(id) {
         try {
 
             const { rows: order_items } = await client.query(`
@@ -96,8 +96,8 @@ const { client } = require('../index');
     }
 
 
-module.exports = {
+/* module.exports = {
     getAllOrderItems,
     createOrderItems,
     getOrderItems,
-};
+}; */

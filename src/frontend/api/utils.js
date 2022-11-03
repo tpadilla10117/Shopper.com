@@ -1,7 +1,7 @@
 /* Middleware: */
 
 //Middleware for Errors with no user:
-    function requireUser(req, res, next) {
+    export function requireUser(req, res, next) {
         console.log('Here is req.user from utils: ', req.user)
         if(!req.user) {
             next({
@@ -13,7 +13,7 @@
     };
 
 // Middleware for Errors with no active user:
-    function requireActiveUser(req, res, next) {
+    export function requireActiveUser(req, res, next) {
         if(!req.user.active || !req.user) {
             next({
                 name: "UserNotActiveError",
@@ -24,7 +24,7 @@
     };
 
 
-    module.exports = {
+   /*  module.exports = {
         requireUser,
         requireActiveUser
-    }
+    } */

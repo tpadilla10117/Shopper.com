@@ -1,13 +1,17 @@
 /* I DEFINE AN API ROUTER HERE, AND ATTACH THE OTHER ROUTERS */
     
-    const express = require('express');
-    const apiRouter = express.Router();
+    import express from "express";
+    import jwt from "jsonwebtoken";
+    import { getUserById } from "../../backend/dbadapters/users.js";
+    import { apiErrorHandler } from "./errors/apirerrorhandler.js";
+    import { createStripeCheckoutSession } from "./stripeCheckout.js";
+    import { usersRouter } from "./users.js";
+    import { shopRouter } from "./shop.js";
 
-    const jwt = require('jsonwebtoken');
-    const { getUserById } = require('../../backend/dbadapters/users');
+
+    export const apiRouter = express.Router();
+
     const {REACT_APP_JWT_SECRET} = process.env;
-    const apiErrorHandler = require('./errors/apirerrorhandler');
-    const createStripeCheckoutSession = require('./stripeCheckout');
 
 /* For API Requests...*/
     apiRouter.use(async (req, res, next) => {
@@ -69,12 +73,9 @@
 
 /* Middleware where I attach my routers and handle requests...  */
     
-    const usersRouter = require('./users');
-    apiRouter.use('/shop', require('./shop'));
-    apiRouter.use('/orders', require('./orders'));
-    apiRouter.use('/webhook', require('./webhook.js'));
+    apiRouter.use('/shop', shopRouter);
+    /* apiRouter.use('/orders', require('./orders')); */
+    /* apiRouter.use('/webhook', require('./webhook.js')); */
     apiRouter.use('/users', usersRouter);
 
     apiRouter.use(apiErrorHandler);
-
-    module.exports = apiRouter;

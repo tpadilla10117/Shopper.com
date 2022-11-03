@@ -1,5 +1,6 @@
 {
   "name": "turtles_v.1",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

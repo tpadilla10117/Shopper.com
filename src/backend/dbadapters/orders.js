@@ -1,16 +1,14 @@
 /* File for orders table db adapters using SQL Queries: */
 
-const { client } = require('../index');
-const {
-    createOrderItems,
-} = require('./order_items');
+import { client } from "../index.js";
+import { createOrderItems } from "./order_items.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE ORDER METHODS:
 
 /* To search for ALL orders: */
 /* TESTED: COMPLETE / WORKS */
-    async function getAllOrders() {
+    export async function getAllOrders() {
         try {
             const { rows } = await client.query(`
                 SELECT * FROM orders
@@ -24,7 +22,7 @@ const {
 
 /* To search for orders by a user, */
 /* & Retrieve the order_items on each order */
-    async function getAllOrdersByAUserId(user_id) {
+    export async function getAllOrdersByAUserId(user_id) {
         try {
             const { rows: orders } = await client.query(`
                 SELECT * FROM orders
@@ -47,7 +45,7 @@ const {
 /* To search an order by id: */
 /* TESTED: COMPLETE / WORKS */
 
-    async function getOrderById(id) {
+    export async function getOrderById(id) {
 
         try {
             const { rows: [ order ] } = await client.query(`
@@ -67,7 +65,7 @@ const {
 
 /* To get order_items by an orders_id: */
 /* TESTED: COMPLETE / WORKS */
-    async function getOrderItemsByOrdersId(order_id) {
+    export async function getOrderItemsByOrdersId(order_id) {
         try {
             const { rows: items } = await client.query(`
                 SELECT * FROM order_items
@@ -82,7 +80,7 @@ const {
     };
 
 /* To create Orders: */
-    async function createOrder( {
+   export async function createOrder( {
         user_id,
         amount_total,
         currency,
@@ -124,10 +122,10 @@ const {
         }
     };
 
-module.exports = {
+/* module.exports = {
    getAllOrders,
    getOrderById,
    createOrder,
    getOrderItemsByOrdersId,
    getAllOrdersByAUserId
-}
+} */

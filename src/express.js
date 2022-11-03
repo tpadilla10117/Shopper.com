@@ -1,41 +1,20 @@
 //THIS IS WHERE I LAUNCH THE express.js web server:
 
-   /*  import dotenv from 'dotenv';
-    import bodyParser from 'body-parser';
-    import morgan from 'morgan';
-    import express from 'express';
-    import cors from 'cors';
-    import { apiRouter } from './frontend/api';
-    import { client } from './backend/index';
+    import dotenv from "dotenv";
+    import bodyParser from "body-parser";
+    import morgan from "morgan";
+    import express from "express";
+    import cors from "cors";
+    import { client } from "./backend/index.js";
 
-    export const server = express();
-    dotenv.config(); */
+/* ApiRouter: */
+    import { apiRouter } from "./frontend/api/index.js";
     
-
-
-/* TODO: this is an attempt to do SRR with my react app: */
-/* 
-    const React = require('react');
-    const renderToString = require('react-dom/server').renderToString;
-    const App = require('./frontend/components/App');
-    const ReactDOMServer = require('react-dom/server'); */
-
-    require('dotenv').config();
-    
-    const bodyParser = require('body-parser');
-    const morgan = require('morgan');
-    const express = require('express');
-    const server = express();
-
-    const cors = require('cors');
-
-    /* ApiRouter: */
-    const apiRouter = require('./frontend/api');
-    server.use(cors());
-
 /* This is where I connect to the client (database) : */
 
-    const { client } = require('./backend/index');
+    const server = express();
+    server.use(cors());
+    dotenv.config();
 
     // connect to the server
     const PORT = process.env.PORT || 3000;
@@ -73,6 +52,6 @@
 /* My default endpoint for routes: */
     server.use('/', apiRouter);
 
-    module.exports = {
+   /*  module.exports = {
         server
-    };
+    }; */

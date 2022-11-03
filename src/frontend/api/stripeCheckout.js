@@ -1,9 +1,10 @@
 /* Where I create a stripe checkout session: */
+    import { stripe }  from './stripe.js';
 
-    const stripeApi = require('./stripe');
+    const stripeApi = stripe;
     
 /* My line_items and email to send to Stripe: */
-    async function createStripeCheckoutSession(req, res) {
+    export async function createStripeCheckoutSession(req, res) {
         const websiteURL = process.env.REACT_APP_FRONTEND_URL;
         const { items, email, user_id } = req.body;
        
@@ -58,4 +59,4 @@
         }
     };
 
-    module.exports = createStripeCheckoutSession;
+    /* module.exports = createStripeCheckoutSession; */

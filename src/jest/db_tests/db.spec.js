@@ -1,13 +1,9 @@
 /* This is where I test my db adapters with jest: */
     
-const { client } = require('../../backend/index');
-const { getAllUsers } = require('../../backend/dbadapters/users');
+import { client } from "../../backend/index";
+import { getAllUsers } from "../../backend/dbadapters/users";
 
-const {
-    dropTables,
-    createTables,
-    /* seedInitialUsers */
-} = require('../../backend/seed');
+import { dropTables, createTables } from '../../backend/seed';
 
     describe('Database', () => {
 

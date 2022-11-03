@@ -1,10 +1,10 @@
 /* File for user_addresses table  */
-    const { client } = require('../index');
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE user_addresses METHODS:
 
-    async function getUserAddress( user_id ) {
+    export async function getUserAddress( user_id ) {
 
         try {
             const { rows: [user_addresses] } = await client.query(`
@@ -22,7 +22,7 @@
     /* TO ADD AN ADDRESS VIA A FORM:*/
     /*  - Frontend needs to request the userobject for the user.id */
 
-    async function createUserAddressByUser(user_addresses) {
+    export async function createUserAddressByUser(user_addresses) {
         const {
             address_line1,
             address_line2,
@@ -60,7 +60,7 @@
     };
 
 
-    module.exports = {
+   /*  module.exports = {
         getUserAddress,
         createUserAddressByUser
-    };
+    }; */

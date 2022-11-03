@@ -1,11 +1,11 @@
 /* File for product_category table db adapters using SQL Queries (DQL, Data Query Langauge): */
 
-const { client } = require('../index');
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE product_category METHODS:
 
-    async function getAllProductCategories() {
+    export async function getAllProductCategories() {
         try {
             const { rows } = await client.query(`
                 SELECT * FROM product_category
@@ -16,7 +16,7 @@ const { client } = require('../index');
         }
     };
 
-    async function createProductCategories(product_category) {
+   export async function createProductCategories(product_category) {
 
         const {
             name,
@@ -38,8 +38,8 @@ const { client } = require('../index');
         }
     };
 
-
+/* 
     module.exports = {
         getAllProductCategories,
         createProductCategories
-    };
+    }; */

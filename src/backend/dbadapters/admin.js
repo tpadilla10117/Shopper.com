@@ -1,9 +1,9 @@
 /* File for admin table db adapters: */
 
-    const {client} = require('../index');
+import { client } from "../index.js";
 
 /* To update a user's info: */
-    const updateUser = async({id, ...fields}) => {
+    export const updateUser = async({id, ...fields}) => {
         const setString = Object.keys(fields).map(
             (key, index) => `${ key }=$${ index + 1}`
         ).join(', ');
@@ -28,6 +28,6 @@
         };
     };
 
-    module.exports = {
+  /*   module.exports = {
         updateUser,
-    }
+    } */

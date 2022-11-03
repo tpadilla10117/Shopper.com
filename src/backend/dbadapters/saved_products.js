@@ -1,14 +1,12 @@
 /* File for saved_products table db adapters using SQL Queries: */
 
-const { client } = require('../index');
-const {
-    getProductById
-} = require('./products');
+import { client } from "../index.js";
+import { getProductById } from "./products.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE saved_prodcts METHODS:
 
-    async function createSavedProduct(saved_product) {
+    export async function createSavedProduct(saved_product) {
         const {
             product_id,
             user_id,
@@ -30,7 +28,7 @@ const {
     };
 
 /* Merely return all savedProducts across every user: */
-    async function getSavedProducts() {
+    export async function getSavedProducts() {
         try {
             const { rows } = await client.query(`
                 SELECT * FROM saved_products
@@ -43,7 +41,7 @@ const {
     };
 
 /* Retrieve all saved items for a user: */
-    async function getSavedProductsByUserId(user_id) {
+    export async function getSavedProductsByUserId(user_id) {
         try {
           
             const { rows: saved_products } = await client.query(`
@@ -61,7 +59,7 @@ const {
 
 /* Retrieve a single saved item for a user: */
 /* TESTED: 9/24 */
-    async function getASavedProductByUserId({user_id, product_id}) {
+    export async function getASavedProductByUserId({user_id, product_id}) {
         try {
             const { rows: saved_product } = await client.query(`
                 SELECT * FROM products
@@ -78,7 +76,7 @@ const {
 
 /* Remove a specific saved item: */
 /* TESTED: 9/24 */
-    async function deleteSavedProductByProductid(product_id) {
+   export async function deleteSavedProductByProductid(product_id) {
         try {
             const { rows: saved_products } = await client.query(`
                 DELETE FROM saved_products
@@ -92,10 +90,10 @@ const {
         }
     };
 
-module.exports = {
+/* module.exports = {
     createSavedProduct,
     getSavedProducts,
     getSavedProductsByUserId,
     deleteSavedProductByProductid,
     getASavedProductByUserId,
-};
+}; */

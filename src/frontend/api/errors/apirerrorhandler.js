@@ -1,7 +1,7 @@
     
-    const ApiError = require("./apierror");
+    import { ApiError } from "./apierror.js";
 
-    function apiErrorHandler(err, req, res, next) {
+    export function apiErrorHandler(err, req, res, next) {
         // in production, don't use console.log or console.err
         //isn't async
         console.error(err);
@@ -15,4 +15,4 @@
         res.status(500).json('Something went wrong');
     };
 
-    module.exports = apiErrorHandler;
+    /* module.exports = apiErrorHandler; */
