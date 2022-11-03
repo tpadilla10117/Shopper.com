@@ -10,9 +10,9 @@
 /* Register Thunk: */
     export const register = createAsyncThunk(
         "auth/register",
-        async ({username, password, firstname, lastname, location, email, isAdmin, imgURL, active } , thunkAPI) => {
+        async ({username, password, firstname, lastname, location, email, isAdmin, imgURL, active, created_at } , thunkAPI) => {
             try {
-                const data = await authService.register(username, password, firstname, lastname, location, email, isAdmin, imgURL, active);
+                const data = await authService.register(username, password, firstname, lastname, location, email, isAdmin, imgURL, active, created_at);
                 return {user:data};
 
             } catch (error) {

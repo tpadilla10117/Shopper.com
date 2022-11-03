@@ -26,6 +26,12 @@ export const getAUsersOrders = createAsyncThunk("get/usersOrders", async (user_i
     }
 });
 
+export const emptyUsersOrderItems = createAsyncThunk("removeUsersOrders",
+    async () => {
+        await ordersService.emptyUsersOrderItemsArray();
+    }
+);
+
 const initialState = {
     orderItems: [],
     usersOrderItems: [],
@@ -50,6 +56,10 @@ const ordersSlice = createSlice({
             .addCase(getAUsersOrders.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 state.usersOrderItems = [...state.usersOrderItems.concat(action.payload.usersOrderItems)]
+            })
+            .addCase(emptyUsersOrderItems.fulfilled, (state, action) => {
+                state.status = 'succeeded'
+                state.usersOrderItems = []
             })
     }
 });

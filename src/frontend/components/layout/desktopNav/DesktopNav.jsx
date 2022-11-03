@@ -6,6 +6,7 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice';
 import {
     KeyboardArrowDown
 } from '@material-ui/icons';
@@ -26,12 +27,14 @@ const DesktopNav = (props) => {
     const userToken = localStorage.getItem('user');
     
     const dispatch = useDispatch();
-
     const isUserLoggedIn = useSelector(userData);
 
+
+/* Logout function chain: */
     function logoutUser() {
         dispatch(logout());
         dispatch(emptyUsersSavedItems());
+        dispatch(emptyUsersOrderItems());
         navigateRoutes('/', { replace: true });
     };
 

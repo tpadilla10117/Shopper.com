@@ -11,10 +11,10 @@
     const dispatch = useDispatch();
     const user = useSelector(userData);
     const usersOrderItems = useSelector(selectUsersOrders);
-    console.log(usersOrderItems[0])
+    console.log(usersOrderItems)
     
 
-
+/* TODO: need to update the page when a new item is added */
     useEffect( () => {
         if(usersOrderItems.length === 0 ) {
             
