@@ -21,9 +21,14 @@ const individualUsersOrdersRequest = (user_id) => {
     });
 };
 
+const emptyUsersOrderItemsArray = () => {
+    return;
+}
+
 const ordersService = {
     ordersRequest,
-    individualUsersOrdersRequest
+    individualUsersOrdersRequest,
+    emptyUsersOrderItemsArray,
 };
 
 export default ordersService;

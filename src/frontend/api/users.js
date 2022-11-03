@@ -96,8 +96,10 @@ class TypeError extends Error {
                 
             }, process.env.REACT_APP_JWT_SECRET);
 
+            let recoveredData = user;
+
             res.send({
-                user,
+                recoveredData,
                 message: `Thank you for signing up ${username}!`,token
             });
 

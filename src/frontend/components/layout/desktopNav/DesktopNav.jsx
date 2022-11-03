@@ -6,6 +6,7 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice';
 import {
     KeyboardArrowDown
 } from '@material-ui/icons';
@@ -33,6 +34,8 @@ const DesktopNav = (props) => {
     function logoutUser() {
         dispatch(logout());
         dispatch(emptyUsersSavedItems());
+        dispatch(emptyUsersOrderItems());
+        /* TODO: Need to clear redux data on the frontend for ORders */
         navigateRoutes('/', { replace: true });
     };
 

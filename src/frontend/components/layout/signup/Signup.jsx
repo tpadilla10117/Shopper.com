@@ -1,8 +1,9 @@
 /* This component is for a Signup form: */
-    import React, {useRef} from 'react';
+    import React, {useRef, useEffect} from 'react';
+    import { useNavigate } from 'react-router-dom';
     import { CtaButton } from '../../utils';
-    import { useDispatch } from 'react-redux';
-    import { register } from '../../../reduxslices/authSlice';
+    import { useDispatch, useSelector } from 'react-redux';
+    import { register, reduxStateObject } from '../../../reduxslices/authSlice';
     
     function Signup() {
         const usernameRef = useRef();
@@ -10,6 +11,8 @@
         const firstnameRef = useRef();
         const lastnameRef = useRef();
         const emailRef = useRef();
+        const reduxObject = useSelector(reduxStateObject);
+        const navigateHome = useNavigate();
 
         const dispatch = useDispatch();
 
@@ -40,7 +43,14 @@
                 active,
                 created_at
             }))
-        }
+        };
+
+    /* Page Redirect when a user successfully registers: */
+        useEffect( () => {
+            if(reduxObject.auth.isLoggedIn === true) {
+                return navigateHome('/');
+            }
+        }, [reduxObject, navigateHome])
 
       return (
         <section className='signup-parent-container'>
