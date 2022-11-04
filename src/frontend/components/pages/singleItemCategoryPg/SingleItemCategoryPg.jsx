@@ -2,8 +2,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectItems } from '../../../reduxslices/productSlice';
-import { ProductCards } from '../../utils';
+import { selectItems } from '../../../reduxslices/productSlice.js';
+import { ProductCards } from '../../utils.js';
 
 function SingleItemCategoryPg() {
     const items = useSelector(selectItems);

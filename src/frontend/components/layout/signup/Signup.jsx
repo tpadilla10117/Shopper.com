@@ -1,9 +1,9 @@
 /* This component is for a Signup form: */
     import React, {useRef, useEffect} from 'react';
     import { useNavigate } from 'react-router-dom';
-    import { CtaButton } from '../../utils';
+    import { CtaButton } from '../../utils.js';
     import { useDispatch, useSelector } from 'react-redux';
-    import { register, reduxStateObject } from '../../../reduxslices/authSlice';
+    import { register, reduxStateObject } from '../../../reduxslices/authSlice.js';
     
     function Signup() {
         const usernameRef = useRef();

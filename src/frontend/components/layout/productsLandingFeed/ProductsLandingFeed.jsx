@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCartItemCount } from '../../../reduxslices/basketslice';
-import{ userData } from '../../../reduxslices/authSlice';
+import { addCartItemCount } from '../../../reduxslices/basketslice.js';
+import{ userData } from '../../../reduxslices/authSlice.js';
 import { 
   addASavedItem, 
   selectUsersSavedItems,
   deleteAUsersSavedItem 
-} from '../../../reduxslices/savedItemsSlice';
+} from '../../../reduxslices/savedItemsSlice.js';
 import {
   FavoriteBorderOutlined,
   SearchOutlined,

@@ -5,7 +5,7 @@
   import { 
     ItemCategoriesPreviewPg, 
     SingleItemCategoryPg,
-  } from '../../utils';
+  } from '../../utils.js';
 
   const ProductsPg = () => {
 

@@ -1,12 +1,12 @@
 import React, {useRef} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { NavbarData } from '../../../seed';
+import { NavbarData } from '../../../seed.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
-import { userData, logout } from '../../../reduxslices/authSlice';
-import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice';
-import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
+import { userData, logout } from '../../../reduxslices/authSlice.js';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
+import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice.js';
 import "../../App.scss";
 
 const Sidebar = () => {

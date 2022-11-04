@@ -3,10 +3,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import { userData, logout } from '../../../reduxslices/authSlice'; //my Selector
+import { userData, logout } from '../../../reduxslices/authSlice.js'; //my Selector
 import { useSelector, useDispatch } from 'react-redux';
-import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice';
-import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice';
+import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice.js';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
 import {
     KeyboardArrowDown
 } from '@material-ui/icons';

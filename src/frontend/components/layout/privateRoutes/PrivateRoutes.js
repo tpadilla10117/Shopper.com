@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
-import { userData } from '../../../reduxslices/authSlice';
+import { userData } from '../../../reduxslices/authSlice.js';
 import { useSelector } from 'react-redux';
 
 /* PrivateRoutes works with react-router-dom to only allow authenticated users into certain routes:  */

@@ -2,7 +2,7 @@
 
 /* Redux Slice for products requested from fakestoreapi.com: */
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-    import productService from '../services/productService';
+    import productService from '../services/productService.js';
 
 /* GET Thunk (middleware to make API Call): */
     export const getProducts = createAsyncThunk("products", async () => {

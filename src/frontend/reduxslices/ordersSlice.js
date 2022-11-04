@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
-import ordersService from '../services/ordersService';
+import ordersService from '../services/ordersService.js';
 
 /* GET Thunk: */
 export const getOrders = createAsyncThunk("orders", async () => {

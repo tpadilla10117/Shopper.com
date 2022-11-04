@@ -1,9 +1,9 @@
 /* This component renders a row (container) of 4 products per category: */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ProductCards } from '../../utils';
+import { ProductCards } from '../../utils.js';
 import { useNavigate } from 'react-router-dom';
-import { selectItems } from '../../../reduxslices/productSlice';
+import { selectItems } from '../../../reduxslices/productSlice.js';
 
 function ItemCollectionPreview( { title, subcategory, products}) {
 

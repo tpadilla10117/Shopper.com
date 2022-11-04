@@ -12,7 +12,7 @@
     
   } from '../../../components/utils.js';
   /* import { useStripe } from '@stripe/react-stripe-js'; */
-  import { userData } from '../../../reduxslices/authSlice';
+  import { userData } from '../../../reduxslices/authSlice.js';
   import { loadStripe } from '@stripe/stripe-js';
   import { useDispatch } from 'react-redux';
 

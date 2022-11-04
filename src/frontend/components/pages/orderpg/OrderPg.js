@@ -2,8 +2,8 @@
     import React, { useEffect } from 'react';
     import { OrderCards } from '../../utils.js';
     import { useSelector, useDispatch } from 'react-redux';
-    import { selectUsersOrders, getAUsersOrders } from '../../../reduxslices/ordersSlice';
-    import { userData } from '../../../reduxslices/authSlice';
+    import { selectUsersOrders, getAUsersOrders } from '../../../reduxslices/ordersSlice.js';
+    import { userData } from '../../../reduxslices/authSlice.js';
     
     function OrderPg() {
 

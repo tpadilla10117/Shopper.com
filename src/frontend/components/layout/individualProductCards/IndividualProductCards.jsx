@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket, removeFromBasket, selectItems } from '../../../reduxslices/basketslice';
-import { selectItems as productsFromSlice } from '../../../reduxslices/productSlice';
+import { addToBasket, removeFromBasket, selectItems } from '../../../reduxslices/basketslice.js';
+import { selectItems as productsFromSlice } from '../../../reduxslices/productSlice.js';
 import { useParams } from 'react-router-dom';
 import './IndividualProductCards.scss';
 

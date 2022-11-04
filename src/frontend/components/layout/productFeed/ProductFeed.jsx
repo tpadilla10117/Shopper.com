@@ -1,9 +1,9 @@
 import React from 'react';
-import { selectItems } from '../../../reduxslices/productSlice';
+import { selectItems } from '../../../reduxslices/productSlice.js';
 import { useSelector } from 'react-redux';
 import {
   ProductsLandingFeed
-} from '../../utils';
+} from '../../utils.js';
 
 const ProductFeed = () => {
 

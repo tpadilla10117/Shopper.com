@@ -3,8 +3,8 @@
     import React from 'react';
     import './LandingLogin.scss';
     import { useDispatch, useSelector} from 'react-redux';
-    import { handleModalVisibility, handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
-    import { Modal, SignupModal, Login, Signup } from '../../utils';
+    import { handleModalVisibility, handleSignUpModalVisibility } from '../../../reduxslices/modalSlice.js';
+    import { Modal, SignupModal, Login, Signup } from '../../utils.js';
 
     const LandingLogin = () => {
         const dispatch = useDispatch();

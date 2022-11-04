@@ -1,6 +1,6 @@
 /* The Pg that renders when on the /signin route: */
     import React from 'react';
-    import { LandingLogin } from '../../utils';
+    import { LandingLogin } from '../../utils.js';
     import './Signin.scss';
     
     const Signin = () => {

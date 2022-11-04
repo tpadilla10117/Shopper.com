@@ -5,7 +5,7 @@
         Nav, 
         DesktopNav, 
         Sidebar,
-    } from '../../utils';
+    } from '../../utils.js';
     import './Header.scss';
 
     const Header = () => {

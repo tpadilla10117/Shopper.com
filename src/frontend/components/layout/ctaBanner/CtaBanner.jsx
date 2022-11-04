@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CtaButton } from '../../utils';
+import { CtaButton } from '../../utils.js';
 
 function CtaBanner( {
     parentContainerClassName,

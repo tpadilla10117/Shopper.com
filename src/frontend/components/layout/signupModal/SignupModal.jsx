@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { handleSignUpModalVisibility } from '../../../reduxslices/modalSlice';
+import { handleSignUpModalVisibility } from '../../../reduxslices/modalSlice.js';
 
 
 const SignupModal = ( {children} ) => {

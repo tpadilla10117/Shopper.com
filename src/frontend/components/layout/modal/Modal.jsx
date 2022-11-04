@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { handleModalVisibility } from '../../../reduxslices/modalSlice';
+import { handleModalVisibility } from '../../../reduxslices/modalSlice.js';
 
 
 const Modal = ( {children} ) => {

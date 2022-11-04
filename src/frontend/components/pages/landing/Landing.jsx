@@ -9,7 +9,7 @@ import {
   CtaBanner,
   ContentSectionBreak,
   ServiceSectionBreak,
-} from '../../utils';
+} from '../../utils.js';
 import Groomsmen from '../../../assets/images/groomsmen.jpg';
 
 const Landing = () => {

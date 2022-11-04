@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { 
     selectUsersSavedItems, 
     deleteAUsersSavedItem
-} from '../../../reduxslices/savedItemsSlice';
+} from '../../../reduxslices/savedItemsSlice.js';
 
-import { userData } from '../../../reduxslices/authSlice';
+import { userData } from '../../../reduxslices/authSlice.js';
 
 import {
   Favorite

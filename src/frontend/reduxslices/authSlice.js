@@ -2,8 +2,8 @@
 
 /* The redux slice for authentication: */  
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-    import { setMessage } from './authmessageSlice';
-    import authService from '../services/authService';
+    import { setMessage } from './authmessageSlice.js';
+    import authService from '../services/authService.js';
 
     const user = JSON.parse(localStorage.getItem("user"));
 

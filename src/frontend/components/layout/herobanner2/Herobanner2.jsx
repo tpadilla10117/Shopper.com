@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import {
     carouselItems
-} from '../../../seed';
+} from '../../../seed.js';
 
 function Herobanner2() {
 

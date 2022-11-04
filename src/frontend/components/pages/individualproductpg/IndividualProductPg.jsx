@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from "react-router-dom"
-import { IndividualProductCards } from '../../utils';
+import { IndividualProductCards } from '../../utils.js';
 import { useSelector } from 'react-redux';
-import { selectItems } from '../../../reduxslices/productSlice';
+import { selectItems } from '../../../reduxslices/productSlice.js';
 
 function IndividualProductPg() {
 

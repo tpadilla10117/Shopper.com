@@ -6,9 +6,9 @@ import {
     removeFromBasket,
     addCartItemCount,
     removeCartItemCount 
-} from '../../../reduxslices/basketslice';
+} from '../../../reduxslices/basketslice.js';
 
-import { selectItems } from '../../../reduxslices/basketslice';
+import { selectItems } from '../../../reduxslices/basketslice.js';
 import { Add, Remove } from "@material-ui/icons";
 
 function CheckoutProductCard({ cartItem }) {

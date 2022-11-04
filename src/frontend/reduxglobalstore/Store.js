@@ -4,12 +4,12 @@
     import { persistReducer } from "redux-persist";
     import storage from 'redux-persist/lib/storage';
     import navReducer from '../reduxslices/navSlice.js';
-    import modalReducer from '../reduxslices/modalSlice';
-    import authReducer from '../reduxslices/authSlice';
-    import authMessageReducer from '../reduxslices/authmessageSlice';
-    import basketReducer from '../reduxslices/basketslice';
+    import modalReducer from '../reduxslices/modalSlice.js';
+    import authReducer from '../reduxslices/authSlice.js';
+    import authMessageReducer from '../reduxslices/authmessageSlice.js';
+    import basketReducer from '../reduxslices/basketslice.js';
     import productReducer from '../reduxslices/productSlice.js';
-    import ordersReducer from '../reduxslices/ordersSlice';
+    import ordersReducer from '../reduxslices/ordersSlice.js';
     import loadingReducer from '../reduxslices/loadingSlice.js';
     import savedItemsReducer from '../reduxslices/savedItemsSlice.js';
     import { categoriesReducer} from "../reduxslices/productCategories/productCategories.reducer.js";

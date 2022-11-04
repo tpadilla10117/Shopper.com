@@ -1,8 +1,8 @@
 /* This component renders containers (ItemCollectionPreview) that hold <ProductCards/> organized by category: */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectItems } from '../../../reduxslices/productSlice';
-import { ItemCollectionPreview } from '../../utils';
+import { selectItems } from '../../../reduxslices/productSlice.js';
+import { ItemCollectionPreview } from '../../utils.js';
 
 function ItemCategoriesPreviewPg() {
     const items = useSelector(selectItems);

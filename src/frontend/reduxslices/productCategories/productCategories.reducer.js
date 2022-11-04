@@ -1,4 +1,4 @@
-import { CATEGORIES_ACTION_TYPES } from "./productCategories.type";
+import { CATEGORIES_ACTION_TYPES } from "./productCategories.type.js";
 
 export const CATEGORIES_INITIAL_STATE = {
     /* categoriesMap: {} */

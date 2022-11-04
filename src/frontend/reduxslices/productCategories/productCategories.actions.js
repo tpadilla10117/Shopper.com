@@ -1,4 +1,4 @@
-import { CATEGORIES_ACTION_TYPES } from "./productCategories.type";
+import { CATEGORIES_ACTION_TYPES } from "./productCategories.type.js";
 
 const createAction = (type, payload) => ({ type, payload});
 

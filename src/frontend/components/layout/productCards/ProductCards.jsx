@@ -1,15 +1,15 @@
 import React from 'react';
-/* import { CtaButton } from '../../utils'; */
+/* import { CtaButton } from '../../utils.js'; */
 import CurrencyFormat from 'react-currency-format';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addCartItemCount } from '../../../reduxslices/basketslice';
-import{ userData } from '../../../reduxslices/authSlice';
-import { addASavedItem } from '../../../reduxslices/savedItemsSlice';
+import { addCartItemCount } from '../../../reduxslices/basketslice.js';
+import{ userData } from '../../../reduxslices/authSlice.js';
+import { addASavedItem } from '../../../reduxslices/savedItemsSlice.js';
 import { 
     selectUsersSavedItems, 
     deleteAUsersSavedItem,
-} from '../../../reduxslices/savedItemsSlice';
+} from '../../../reduxslices/savedItemsSlice.js';
 import {
     Favorite,
 } from "@material-ui/icons";

@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 /* import "./Nav.scss"; */
-import {NavbarData} from '../../../seed';
+import {NavbarData} from '../../../seed.js';
 import {NavLink} from 'react-router-dom';
-import {scrollTop} from '../../utils';
+import {scrollTop} from '../../utils.js';
 import { useDispatch } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
 import { useSelector } from 'react-redux';
-import { selectItems } from '../../../reduxslices/basketslice';
+import { selectItems } from '../../../reduxslices/basketslice.js';
 
 const Nav = (props) => {
 

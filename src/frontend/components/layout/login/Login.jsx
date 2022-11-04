@@ -1,13 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CtaButton } from '../../utils';
+import { CtaButton } from '../../utils.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, reduxStateObject } from '../../../reduxslices/authSlice';
-import { clearMessage } from '../../../reduxslices/authmessageSlice';
-import { userData } from '../../../reduxslices/authSlice';
+import { login, reduxStateObject } from '../../../reduxslices/authSlice.js';
+import { clearMessage } from '../../../reduxslices/authmessageSlice.js';
+import { userData } from '../../../reduxslices/authSlice.js';
 import { 
   retrieveUsersSavedItems, 
-} from '../../../reduxslices/savedItemsSlice';
+} from '../../../reduxslices/savedItemsSlice.js';
 
 function Login() {
   
