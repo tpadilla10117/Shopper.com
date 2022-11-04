@@ -5,10 +5,10 @@
     import morgan from "morgan";
     import express from "express";
     import cors from "cors";
-    import { client } from "./backend/index.js";
+    import { client } from "./backend/index.mjs";
 
 /* ApiRouter: */
-    import { apiRouter } from "./frontend/api/index.js";
+    import { apiRouter } from "./frontend/api/index.mjs";
     
 /* This is where I connect to the client (database) : */
 

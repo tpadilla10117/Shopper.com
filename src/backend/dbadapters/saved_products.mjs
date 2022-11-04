@@ -1,7 +1,7 @@
 /* File for saved_products table db adapters using SQL Queries: */
 
-import { client } from "../index.js";
-import { getProductById } from "./products.js";
+import { client } from "../index.mjs";
+import { getProductById } from "./products.mjs";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE saved_prodcts METHODS:

@@ -1,7 +1,7 @@
 /* File for user_carts table db adapters using SQL Queries: */
 /* cart_items holds individual products and works with shopping_sessions */
 
-import { client } from "../index.js";
+import { client } from "../index.mjs";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE cart_items METHODS:

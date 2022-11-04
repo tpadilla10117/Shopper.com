@@ -1,6 +1,6 @@
 /* File for product_category table db adapters using SQL Queries (DQL, Data Query Langauge): */
 
-import { client } from "../index.js";
+import { client } from "../index.mjs";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE product_category METHODS:

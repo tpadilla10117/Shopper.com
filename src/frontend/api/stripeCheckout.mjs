@@ -1,5 +1,5 @@
 /* Where I create a stripe checkout session: */
-    import { stripe }  from './stripe.js';
+    import { stripe }  from './stripe.mjs';
 
     const stripeApi = stripe;
     

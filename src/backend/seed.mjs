@@ -1,27 +1,27 @@
 /* Seed.js is where I seed the db with meaningful info via DDL (DATA Definition Language): */
 
-import { client } from "./index.js";
+import { client } from "./index.mjs";
 import moment from 'moment';
 
-import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "./dbadapters/users.js";
+import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "./dbadapters/users.mjs";
 
-import { createUserAddressByUser, getUserAddress } from "./dbadapters/user_addresses.js";
+import { createUserAddressByUser, getUserAddress } from "./dbadapters/user_addresses.mjs";
 
-import { createProducts, getProductById } from "./dbadapters/products.js";
+import { createProducts, getProductById } from "./dbadapters/products.mjs";
 
-import { createSavedProduct, getSavedProducts, getSavedProductsByUserId, deleteSavedProductByProductid } from "./dbadapters/saved_products.js";
+import { createSavedProduct, getSavedProducts, getSavedProductsByUserId, deleteSavedProductByProductid } from "./dbadapters/saved_products.mjs";
 
-import { getAllOrderItems } from "./dbadapters/order_items.js";
+import { getAllOrderItems } from "./dbadapters/order_items.mjs";
 
-import { createOrder, getOrderById, getOrderItemsByOrdersId, getAllOrdersByAUserId } from "./dbadapters/orders.js";
+import { createOrder, getOrderById, getOrderItemsByOrdersId, getAllOrdersByAUserId } from "./dbadapters/orders.mjs";
 
-import { getAllProductCategories, createProductCategories } from "./dbadapters/product_category.js";
+import { getAllProductCategories, createProductCategories } from "./dbadapters/product_category.mjs";
 
-import { createShoppingSession, retrieveShoppingSessionItemById } from "./dbadapters/shopping_sessions.js";
+import { createShoppingSession, retrieveShoppingSessionItemById } from "./dbadapters/shopping_sessions.mjs";
 
-import { addItemsToCart } from "./dbadapters/cart_items.js";
+import { addItemsToCart } from "./dbadapters/cart_items.mjs";
 
-import { getAllProductReviews, createProductReview, getAProductReviewById } from "./dbadapters/product_reviews.js";
+import { getAllProductReviews, createProductReview, getAProductReviewById } from "./dbadapters/product_reviews.mjs";
 
 /* Database Adapter Testing: */
     export async function testDB() {

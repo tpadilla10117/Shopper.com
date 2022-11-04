@@ -2,13 +2,13 @@
     
     import express from "express";
     import jwt from "jsonwebtoken";
-    import { getUserById } from "../../backend/dbadapters/users.js";
-    import { apiErrorHandler } from "./errors/apirerrorhandler.js";
-    import { createStripeCheckoutSession } from "./stripeCheckout.js";
-    import { usersRouter } from "./users.js";
-    import { shopRouter } from "./shop.js";
-    import { ordersRouter } from "./orders.js";
-    import { webhookRouter } from "./webhook.js";
+    import { getUserById } from "../../backend/dbadapters/users.mjs";
+    import { apiErrorHandler } from "./errors/apirerrorhandler.mjs";
+    import { createStripeCheckoutSession } from "./stripeCheckout.mjs";
+    import { usersRouter } from "./users.mjs";
+    import { shopRouter } from "./shop.mjs";
+    import { ordersRouter } from "./orders.mjs";
+    import { webhookRouter } from "./webhook.mjs";
 
 
     export const apiRouter = express.Router();

@@ -1,6 +1,6 @@
 {
   "name": "turtles_v.1",
-  "type": "module",
+  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -56,10 +56,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node ./src/express.js",
-    "seed:dev": "nodemon ./src/backend/seed.js",
-    "start:dev": "nodemon ./src/express.js",
-    "db:build": "node ./src/backend/seed.js",
+    "start": "node ./src/express.mjs",
+    "seed:dev": "nodemon ./src/backend/seed.mjs",
+    "start:dev": "nodemon ./src/express.mjs",
+    "db:build": "node ./src/backend/seed.mjs",
     "test:watch:db": "jest --watchAll --runInBand --verbose db"
   },
   "eslintConfig": {

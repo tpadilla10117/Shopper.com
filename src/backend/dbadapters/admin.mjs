@@ -1,6 +1,6 @@
 /* File for admin table db adapters: */
 
-import { client } from "../index.js";
+import { client } from "../index.mjs";
 
 /* To update a user's info: */
     export const updateUser = async({id, ...fields}) => {

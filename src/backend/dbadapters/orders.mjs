@@ -1,7 +1,7 @@
 /* File for orders table db adapters using SQL Queries: */
 
-import { client } from "../index.js";
-import { createOrderItems } from "./order_items.js";
+import { client } from "../index.mjs";
+import { createOrderItems } from "./order_items.mjs";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE ORDER METHODS:

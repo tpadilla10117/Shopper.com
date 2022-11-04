@@ -1,5 +1,5 @@
 /* File for user_addresses table  */
-import { client } from "../index.js";
+import { client } from "../index.mjs";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE user_addresses METHODS:

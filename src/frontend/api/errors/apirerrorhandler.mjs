@@ -1,5 +1,5 @@
     
-    import { ApiError } from "./apierror.js";
+    import { ApiError } from "./apierror.mjs";
 
     export function apiErrorHandler(err, req, res, next) {
         // in production, don't use console.log or console.err

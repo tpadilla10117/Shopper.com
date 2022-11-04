@@ -2,7 +2,7 @@
     import Stripe from 'stripe';
     import {
         createOrder
-    } from '../../backend/dbadapters/orders.js';
+    } from '../../backend/dbadapters/orders.mjs';
     import bodyParser from 'body-parser';
     import express from 'express';
     import moment from 'moment';
