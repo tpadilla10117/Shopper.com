@@ -5,6 +5,7 @@
     } from '../../backend/dbadapters/orders.js';
     import bodyParser from 'body-parser';
     import express from 'express';
+    import moment from 'moment';
 
     /* const { getUserById } = require('../../backend/dbadapters/users'); */
 
@@ -54,7 +55,7 @@
             amount_total: Number( (session.amount_total / 100).toFixed(2) ),
             currency: session.currency,
             status: session.status,
-            created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+            created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
             order_items: generateOrderItemsObjects(listLineItems),
 
         })

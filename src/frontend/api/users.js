@@ -5,7 +5,7 @@
     import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "../../backend/dbadapters/users.js";
     import { getSavedProductsByUserId, deleteSavedProductByProductid, createSavedProduct, getASavedProductByUserId } from "../../backend/dbadapters/saved_products.js";
     import { updateUser } from "../../backend/dbadapters/admin.js";
-
+    import moment from 'moment';
     import jwt from "jsonwebtoken";
     import bcrypt from "bcrypt";
     import { ApiError } from "./errors/apierror.js";
@@ -227,7 +227,7 @@ class TypeError extends Error {
                 const productObject = { 
                     product_id: productid, 
                     user_id: userId, 
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss') 
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss') 
                 };
 
                 const savedProduct = await createSavedProduct(productObject);

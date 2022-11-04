@@ -22,9 +22,3 @@
         };
         next();
     };
-
-
-   /*  module.exports = {
-        requireUser,
-        requireActiveUser
-    } */

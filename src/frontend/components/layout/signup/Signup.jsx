@@ -4,6 +4,7 @@
     import { CtaButton } from '../../utils.js';
     import { useDispatch, useSelector } from 'react-redux';
     import { register, reduxStateObject } from '../../../reduxslices/authSlice.js';
+    import moment from 'moment';
     
     function Signup() {
         const usernameRef = useRef();
@@ -28,7 +29,7 @@
             const isAdmin = 'false';
             const location = "Place";
             const active = 'true';
-            const created_at = require('moment')().format('YYYY-MM-DD HH:mm:ss');
+            const created_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
 
             dispatch(register( {
