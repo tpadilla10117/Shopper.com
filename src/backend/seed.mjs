@@ -811,22 +811,5 @@ import { getAllProductReviews, createProductReview, getAProductReviewById } from
     rebuildDB()
         .catch(console.error)
         .finally( () => client.end() );
-
-
-       /*  module.exports = {
-            rebuildDB,
-            dropTables,
-            createTables,
-            seedInitialUsers,
-            seedUserAddress,
-            seedInitialProductCategories,
-            seedInitialProducts,
-            seedSavedProducts,
-            seedShoppingSession,
-            seedInitialCartItem,
-            seedInitialOrders,
-            seedProductReviews,
-            testDB,
-        } */
         
         /* npm run test:watch:db */

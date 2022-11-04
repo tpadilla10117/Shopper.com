@@ -6,6 +6,11 @@
     import express from "express";
     import cors from "cors";
     import { client } from "./backend/index.mjs";
+    import { createStore } from "redux";
+    import { Provider } from "react-redux";
+    import { renderToString } from "react-dom/server.js";
+    /* import store from './frontend/reduxglobalstore/Store.js'; */
+    /* import App from './frontend/components/App.js'; */
 
 /* ApiRouter: */
     import { apiRouter } from "./frontend/api/index.mjs";
@@ -18,6 +23,7 @@
 
     // connect to the server
     const PORT = process.env.PORT || 3000;
+
     server.listen(PORT, async () => {
         console.log(`Server is running on ${PORT}!`);
 
@@ -35,6 +41,23 @@
     server.use(bodyParser.json());
     server.use(morgan('dev'));
 
+/* Fired Every Time server-side receives a request: */
+    function handleRender(req, res) {
+        //Create a new Redux store instance
+        /* const storeInstance = createStore(store); */
+
+        //Render the component to a string:
+        const html = renderToString(
+            {/* <Provider store={storeInstance}>
+                <App />
+            </Provider> */}
+        )
+    };
+
+    function renderFullPage(html, preloadedState) {
+
+    };
+
 //Server passes in:
     //the request object (built from the client's request)
     //the response object (which has methods to build and send back a response)
@@ -47,11 +70,9 @@
         next();
     });
 
+/* Serve up static files: */
     server.use(express.static('public'));
 
 /* My default endpoint for routes: */
     server.use('/', apiRouter);
 
-   /*  module.exports = {
-        server
-    }; */

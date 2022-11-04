@@ -88,7 +88,6 @@ function App() {
 
       <Footer />
 
-
     </main>
   );
 }
