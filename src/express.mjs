@@ -8,6 +8,7 @@
     import { client } from "./backend/index.mjs";
     import { createStore } from "redux";
     import { Provider } from "react-redux";
+    import path from 'path';
     import { renderToString } from "react-dom/server.js";
     /* import store from './frontend/reduxglobalstore/Store.js'; */
     /* import App from './frontend/components/App.js'; */

@@ -36,7 +36,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 - 1) See Github.com instructions on cloning @ { https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository }
 
 - 2) In the terminal for the project, `npm i dotenv` to install .env.
-    - 1a) Create a .env file
+    - 1a) Create a .env file at the top level of your directory.  Add a env variable called 'REACT_APP_DB_NAME'
     - 1b) `npm i node-modules` In the terminal
 
 - 3) Create a free account at Stripe via { https://dashboard.stripe.com/login }
@@ -46,7 +46,9 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 - 5) Install & Configure PostgreSQL: { https://www.postgresql.org/download/ }
 
-- 6) Once your PostgreSQL is configured & downloaded, in a separate terminal, create a database with the command: `createdb e-commerce_nodejs_template`
+- 6) Once your PostgreSQL is configured & downloaded, in a separate terminal, create a database with the command: `createdb e-commerce_nodejs_template` (or whatever name your choose)
+    - **Be sure to have your database url ready to supply to the pg client constructor
+    - e.g. const DB_URL = `postgres://localhost:5432/${process.env.REACT_APP_DB_NAME}`;
 
 - 7) Once the database is configured, run the command `npm run seed:dev` to seed the PostgreSQL database with Products.  See [Seed.js](https://github.com/tpadilla10117/Shopper.com/blob/main/src/backend/Seed.js) for more information.
 
