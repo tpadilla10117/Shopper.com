@@ -1,6 +1,6 @@
 /* File for product_reviews table db adapters using SQL Queries: */
 
-import { client } from "../index.mjs";
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE product_reviews METHODS:

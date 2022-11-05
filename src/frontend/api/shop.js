@@ -3,7 +3,7 @@
     import {
         getAllProducts,
         getProductById,
-    } from '../../backend/dbadapters/products.mjs';
+    } from '../../backend/dbadapters/products.js';
 
     export const shopRouter = express.Router();
 

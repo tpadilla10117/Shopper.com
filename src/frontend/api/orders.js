@@ -5,7 +5,7 @@
         getAllOrders,
         /* getOrderById, */
         getAllOrdersByAUserId,
-    } from "../../backend/dbadapters/orders.mjs";
+    } from "../../backend/dbadapters/orders.js";
     /* import { ApiError } from "./errors/apierror.js"; */
 
     export const ordersRouter = express.Router();

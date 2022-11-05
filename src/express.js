@@ -5,7 +5,7 @@
     import morgan from "morgan";
     import express from "express";
     import cors from "cors";
-    import { client } from "./backend/index.mjs";
+    import { client } from "./backend/index.js";
     import { createStore } from "redux";
     import { Provider } from "react-redux";
     import path from 'path';
@@ -14,7 +14,7 @@
     /* import App from './frontend/components/App.js'; */
 
 /* ApiRouter: */
-    import { apiRouter } from "./frontend/api/index.mjs";
+    import { apiRouter } from "./frontend/api/index.js";
     
 /* This is where I connect to the client (database) : */
 

@@ -1,6 +1,6 @@
 /* File for order_items table db adapters using SQL Queries: */
 
-import { client } from "../index.mjs";
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE order_items METHODS: TODO: NEED TO TEST ONCE ROUTES SET UP

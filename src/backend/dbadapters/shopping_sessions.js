@@ -1,6 +1,6 @@
 /* File for shopping_sessions table db adapters using SQL Queries: */
 
-import { client } from "../index.mjs";
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE shopping_sessions METHODS:

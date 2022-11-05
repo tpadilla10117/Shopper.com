@@ -1,5 +1,5 @@
 /* File for users table db adapters: */
-    import { client } from "../index.mjs";
+    import { client } from "../index.js";
     import bcrypt from "bcrypt";
     const SALT_COUNT = 10;
 /* ----------------------------------------------------------------------------- */

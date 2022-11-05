@@ -1,6 +1,6 @@
 /* File for products table db adapters using SQL Queries: */
 
-import { client } from "../index.mjs";
+import { client } from "../index.js";
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE PRODUCT METHODS:

@@ -1,14 +1,14 @@
 /* That path/router for my API at the users endpoint: */
 
     import express from "express";
-    import { requireUser } from "./utils.mjs";
-    import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "../../backend/dbadapters/users.mjs";
-    import { getSavedProductsByUserId, deleteSavedProductByProductid, createSavedProduct, getASavedProductByUserId } from "../../backend/dbadapters/saved_products.mjs";
-    import { updateUser } from "../../backend/dbadapters/admin.mjs";
+    import { requireUser } from "./utils.js";
+    import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "../../backend/dbadapters/users.js";
+    import { getSavedProductsByUserId, deleteSavedProductByProductid, createSavedProduct, getASavedProductByUserId } from "../../backend/dbadapters/saved_products.js";
+    import { updateUser } from "../../backend/dbadapters/admin.js";
     import moment from 'moment';
     import jwt from "jsonwebtoken";
     import bcrypt from "bcrypt";
-    import { ApiError } from "./errors/apierror.mjs";
+    import { ApiError } from "./errors/apierror.js";
 
     export const usersRouter = express.Router();
 
