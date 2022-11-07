@@ -11,7 +11,7 @@
     import path from 'path';
     import { renderToString } from "react-dom/server.js";
     /* import store from './frontend/reduxglobalstore/Store.js'; */
-    /* import App from './frontend/components/App.js'; */
+    import App from './frontend/components/App.js';
 
 /* ApiRouter: */
     import { apiRouter } from "./frontend/api/index.mjs";
