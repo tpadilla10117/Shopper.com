@@ -4,8 +4,10 @@ import morgan from 'morgan';
 import express from 'express';
 import cors from 'cors';
 import { client } from './db/client.js';
-
 import { apiRouter } from './api/index.js';
+import path from 'path';
+import { Provider } from 'react-redux';
+/* import App from '../frontend/src/ui/components/App.js'; */
 
 dotenv.config();
 
