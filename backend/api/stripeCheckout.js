@@ -1,6 +1,7 @@
 /* Where I create a stripe checkout session: */
 
-import stripeApi from 'stripe';
+import { stripe } from './stripe.js';
+const stripeApi = stripe;
 
 /* My line_items and email to send to Stripe: */
 export default async function createStripeCheckoutSession(req, res) {

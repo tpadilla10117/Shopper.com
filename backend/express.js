@@ -6,6 +6,7 @@ import cors from 'cors';
 import { client } from './db/client.js';
 
 import { apiRouter } from './api/index.js';
+
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;

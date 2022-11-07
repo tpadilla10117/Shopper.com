@@ -1,62 +1,27 @@
 /* Seed.js is where I seed the db with meaningful info via DDL (DATA Definition Language): */
 
-    const { client } = require('./index.js');
+import { client } from "./client.js";
+import moment from 'moment';
 
-    const {
-        createUser, 
-        getAllUsers,
-        getUser,
-        getUserById,
-        getUserByUsername
-    } = require('./dbadapters/users');
+import { createUser, getAllUsers, getUser, getUserById, getUserByUsername } from "./dbadapters/users.js";
 
-    const {
-        createUserAddressByUser,
-        getUserAddress,
-    } = require('./dbadapters/user_addresses');
+import { createUserAddressByUser, getUserAddress } from "./dbadapters/user_addresses.js";
 
-    const {
-        createProducts,
-        getProductById,
-    } = require('./dbadapters/products');
+import { createProducts, getProductById } from "./dbadapters/products.js";
 
-    const {
-        createSavedProduct,
-        getSavedProducts,
-        getSavedProductsByUserId,
-        deleteSavedProductByProductid
-    } = require('./dbadapters/saved_products');
+import { createSavedProduct, getSavedProducts, getSavedProductsByUserId, deleteSavedProductByProductid } from "./dbadapters/saved_products.js";
 
-    const {
-        getAllOrderItems,
-    } = require('./dbadapters/order_items');
+import { getAllOrderItems } from "./dbadapters/order_items.js";
 
-    const {
-        createOrder,
-        getOrderById,
-        getOrderItemsByOrdersId,
-        getAllOrdersByAUserId,
-    } = require('./dbadapters/orders');
+import { createOrder, getOrderById, getOrderItemsByOrdersId, getAllOrdersByAUserId } from "./dbadapters/orders.js";
 
-    const {
-        getAllProductCategories,
-        createProductCategories
-    } = require('./dbadapters/product_category');
+import { getAllProductCategories, createProductCategories } from "./dbadapters/product_category.js";
 
-    const {
-        createShoppingSession,
-        retrieveShoppingSessionItemById,
-    } = require('./dbadapters/shopping_sessions');
+import { createShoppingSession, retrieveShoppingSessionItemById } from "./dbadapters/shopping_sessions.js";
 
-    const {
-        addItemsToCart
-    } = require('./dbadapters/cart_items');
+import { addItemsToCart } from "./dbadapters/cart_items.js";
 
-    const {
-        getAllProductReviews,
-        createProductReview,
-        getAProductReviewById,
-    } = require('./dbadapters/product_reviews');
+import { getAllProductReviews, createProductReview, getAProductReviewById } from "./dbadapters/product_reviews.js";
 
 /* Database Adapter Testing: */
     async function testDB() {
@@ -265,7 +230,7 @@
                     password:'padilla123', 
                     isAdmin: true, 
                     active: true,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss')
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss')
                 }
             ]
 
@@ -316,42 +281,42 @@
                 {
                     name: `men's clothing`,
                     description: 'Items for men',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `women's clothing`,
                     description: 'Items for women',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `men's accessories`,
                     description: 'Accessories for men',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `women's accessories`,
                     description: 'Accessories for women',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `men's jewelry`,
                     description: 'Jewelry for men',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `women's jewelry`,
                     description: 'Jewelry for women',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `hats`,
                     description: 'Collection of headwear',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     name: `shoes`,
                     description: 'Collection of shoes',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 
             ];
@@ -378,7 +343,7 @@
                     category_id: 3,
                     subcategory: "bags",
                     price: 109.95,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                     
                 },
                 {
@@ -390,7 +355,7 @@
                     category_id: 1,
                     subcategory: "shirts",
                     price: 22.3,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 3,
@@ -401,7 +366,7 @@
                     category_id: 1,
                     subcategory: "jackets",
                     price: 55.99,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 4,
@@ -412,7 +377,7 @@
                     category_id: 1,
                     subcategory: "shirts",
                     price: 15.99,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 5,
@@ -423,7 +388,7 @@
                     category_id: 6,
                     price: 695,
                     subcategory: "jewelery",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 6,
@@ -434,7 +399,7 @@
                     category_id: 7,
                     price: 25,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 7,
@@ -445,7 +410,7 @@
                     category_id: 7,
                     price: 18,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 8,
@@ -456,7 +421,7 @@
                     category_id: 7,
                     price: 18,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 9,
@@ -467,7 +432,7 @@
                     category_id: 7,
                     price: 18,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 10,
@@ -478,7 +443,7 @@
                     category_id: 7,
                     price: 16,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 11,
@@ -489,7 +454,7 @@
                     category_id: 7,
                     price: 14,
                     subcategory: "hats",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 12,
@@ -500,7 +465,7 @@
                     category_id: 8,
                     price: 80,
                     subcategory: "shoes",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 13,
@@ -511,7 +476,7 @@
                     category_id: 8,
                     price: 70,
                     subcategory: "shoes",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 14,
@@ -522,7 +487,7 @@
                     category_id: 8,
                     price: 60,
                     subcategory: "shoes",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 15,
@@ -533,7 +498,7 @@
                     category_id: 8,
                     price: 110,
                     subcategory: "shoes",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 16,
@@ -544,7 +509,7 @@
                     category_id: 8,
                     price: 100,
                     subcategory: "shoes",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 17,
@@ -555,7 +520,7 @@
                     category_id: 1,
                     price: 125,
                     subcategory: "jackets",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 18,
@@ -566,7 +531,7 @@
                     category_id: 1,
                     price: 90,
                     subcategory: "jackets",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     id: 19,
@@ -577,7 +542,7 @@
                     category_id: 2,
                     price: 185,
                     subcategory: "jackets",
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
             ]
             
@@ -598,22 +563,22 @@
                 {
                     product_id: 3,
                     user_id: 1,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     product_id: 1,
                     user_id: 1,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     product_id: 4,
                     user_id: 1,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     product_id: 2,
                     user_id: 1,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
         
             ];
@@ -639,7 +604,7 @@
                     amount_total: 109.95,
                     currency: 'usd',
                     status: 'completed',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                     /* These below come from redux: */
                     order_items: [
                         {
@@ -660,7 +625,7 @@
                     amount_total: 78.29,
                     currency: 'usd',
                     status: 'completed',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                     
                     order_items: [
                         {
@@ -681,7 +646,7 @@
                     amount_total: 156.58,
                     currency: 'usd',
                     status: 'completed',
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                     
                     order_items: [
                         {
@@ -730,7 +695,7 @@
                     rating: 4,
                     user_id: user.id,
                     product_id: product.id,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ];
 
@@ -756,7 +721,7 @@
                 {
                     user_id: user.id,
                     totalcost: 125.94,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ];
 
@@ -788,7 +753,7 @@
                     product_id: sampleProduct[0],
                     quantity: 1,
                     totalcost: 109,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 },
                 {
                     session_id: 1,
@@ -796,7 +761,7 @@
                     product_id: sampleProduct[1],
                     quantity: 1,
                     totalcost: 200,
-                    created_at: require('moment')().format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
                 }
             ];
 
@@ -846,22 +811,5 @@
     rebuildDB()
         .catch(console.error)
         .finally( () => client.end() );
-
-
-        module.exports = {
-            rebuildDB,
-            dropTables,
-            createTables,
-            seedInitialUsers,
-            seedUserAddress,
-            seedInitialProductCategories,
-            seedInitialProducts,
-            seedSavedProducts,
-            seedShoppingSession,
-            seedInitialCartItem,
-            seedInitialOrders,
-            seedProductReviews,
-            testDB,
-        }
         
         /* npm run test:watch:db */

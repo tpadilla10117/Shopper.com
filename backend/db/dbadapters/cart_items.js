@@ -1,12 +1,12 @@
 /* File for user_carts table db adapters using SQL Queries: */
 /* cart_items holds individual products and works with shopping_sessions */
 
-const { client } = require('../index');
+import { client } from '../client.js';
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE cart_items METHODS:
 
-async function addItemsToCart(items) {
+export async function addItemsToCart(items) {
 	const { session_id, user_id, product_id, quantity, totalcost, created_at } =
 		items;
 
@@ -27,7 +27,3 @@ async function addItemsToCart(items) {
 		throw error;
 	}
 }
-
-module.exports = {
-	addItemsToCart,
-};

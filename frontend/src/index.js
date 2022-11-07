@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import App from './frontend/components/App.js';
+import App from './ui/components/App.js';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './frontend/reduxglobalstore/Store.js';
+import store from './ui/reduxglobalstore/Store.js';
 import { persistStore } from 'redux-persist';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';

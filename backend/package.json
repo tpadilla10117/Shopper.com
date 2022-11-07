@@ -29,9 +29,9 @@
 	},
 	"scripts": {
 		"start": "node ./express.js",
-		"seed:dev": "nodemon ./seed.js",
+		"seed:dev": "nodemon ./db/seed.js",
 		"start:dev": "nodemon ./express.js",
-		"db:build": "node ./seed.js",
+		"db:build": "node ./db/seed.js",
 		"test:watch:db": "jest --watchAll --runInBand --verbose db"
 	},
 	"browserslist": {

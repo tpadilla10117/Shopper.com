@@ -1,7 +1,7 @@
 /* For default data to be used in project: */
 
-/* import antman from '../frontend/assets/images/antman.png'; */
-import victoria from '../frontend/assets/images/victoriajustice.png';
+/* import antman from '../ui/assets/images/antman.png'; */
+import victoria from '../ui/assets/images/victoriajustice.png';
 
 export const NavbarData = [
 	{

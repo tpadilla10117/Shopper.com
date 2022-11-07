@@ -1,11 +1,11 @@
 /* File for shopping_sessions table db adapters using SQL Queries: */
 
-const { client } = require('../index');
+import { client } from '../client.js';
 
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE shopping_sessions METHODS:
 
-async function createShoppingSession(session) {
+export async function createShoppingSession(session) {
 	const { user_id, totalcost, created_at } = session;
 
 	try {
@@ -27,7 +27,7 @@ async function createShoppingSession(session) {
 }
 
 /* Retrieve a cart by a session_id: */
-async function retrieveShoppingSessionItemById(id) {
+export async function retrieveShoppingSessionItemById(id) {
 	try {
 		const { rows: cart_items } = await client.query(`
                 SELECT shopping_sessions.id, cart_items.*
@@ -45,7 +45,7 @@ async function retrieveShoppingSessionItemById(id) {
 }
 
 /* TODO: */
-async function retrieveAllShoppingSessionItems() {
+export async function retrieveAllShoppingSessionItems() {
 	try {
 		const { rows: cart_items } = await client.query(`
 
@@ -56,10 +56,4 @@ async function retrieveAllShoppingSessionItems() {
 	} catch (error) {
 		throw error;
 	}
-}
-
-module.exports = {
-	createShoppingSession,
-	retrieveShoppingSessionItemById,
-	retrieveAllShoppingSessionItems,
 };
