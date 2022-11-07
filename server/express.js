@@ -8,7 +8,8 @@ import { client } from './db/client.js';
 import { apiRouter } from './api/index.js';
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.EXPRESS_SERVER_PORT || 3000;
+
 export const server = express();
 
 server.use(cors());

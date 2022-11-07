@@ -1,11 +1,10 @@
 /* File for product_reviews table db adapters using SQL Queries: */
 
-const { client } = require('../index');
-
+import { client } from '../client.js';
 /* ----------------------------------------------------------------------------- */
 //THESE ARE THE product_reviews METHODS:
 
-async function createProductReview(product_review) {
+export async function createProductReview(product_review) {
 	const { title, description, rating, user_id, product_id, created_at } =
 		product_review;
 
@@ -27,7 +26,7 @@ async function createProductReview(product_review) {
 	}
 }
 
-async function getAllProductReviews() {
+export async function getAllProductReviews() {
 	try {
 		const { rows } = await client.query(`
                 SELECT * FROM product_reviews
@@ -39,7 +38,7 @@ async function getAllProductReviews() {
 	}
 }
 
-async function getAProductReviewById(id) {
+export async function getAProductReviewById(id) {
 	try {
 		const { rows: reviews } = await client.query(
 			`
@@ -57,16 +56,9 @@ async function getAProductReviewById(id) {
 
 /* TODO: */
 
-async function getAProductReviewByUser(userId) {
+export async function getAProductReviewByUser(userId) {
 	try {
 	} catch (error) {
 		throw error;
 	}
 }
-
-module.exports = {
-	createProductReview,
-	getAllProductReviews,
-	getAProductReviewById,
-	getAProductReviewByUser,
-};

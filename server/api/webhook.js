@@ -113,4 +113,6 @@ webhookRouter.post(
 	}
 );
 
-webhookRouter.listen(4242, () => console.log('Webhook Running on port 4242'));
+webhookRouter.listen(process.env.STRIPE_WEBHOOK_PORT, () =>
+	console.log('Webhook Running on port 4242')
+);

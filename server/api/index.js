@@ -8,7 +8,7 @@ import { getUserById } from '../db/dbadapters/users.js';
 import { usersRouter } from './users.js';
 import { shopRouter } from './shop.js';
 import { ordersRouter } from './orders.js';
-import { webhookRouter } from './webhook.js';
+// import { webhookRouter } from './webhook.js';
 
 import apiErrorHandler from './errors/apirerrorhandler.js';
 import createStripeCheckoutSession from './stripeCheckout.js';
@@ -76,7 +76,7 @@ apiRouter.post('/create-checkout-session', createStripeCheckoutSession);
 
 apiRouter.use('/shop', shopRouter);
 apiRouter.use('/orders', ordersRouter);
-apiRouter.use('/webhook', webhookRouter);
+// apiRouter.use('/webhook', webhookRouter);
 apiRouter.use('/users', usersRouter);
 
 apiRouter.use(apiErrorHandler);
