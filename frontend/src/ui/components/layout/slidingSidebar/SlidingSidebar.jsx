@@ -36,7 +36,7 @@ const SlidingSidebar = () => {
 		} else {
 			return;
 		}
-	}
+	};
 
 	return (
 		<CSSTransition
