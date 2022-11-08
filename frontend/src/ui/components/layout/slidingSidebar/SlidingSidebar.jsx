@@ -73,6 +73,21 @@ const SlidingSidebar = () => {
 								);
 							})}
 
+                            {isUserLoggedIn && (
+
+                                <NavLink
+                                    to='/my-account/saved-items'
+                                    className='nav-item'
+                                    activeclassname='active'
+                                    style={{ textDecoration: 'none' }}
+                                    onClick={navToggle}
+                                >
+                                    <span>
+                                        Saved Items
+                                    </span>
+                                </NavLink>
+                            )}
+
 							<NavLink
 								to={isUserLoggedIn ? '/' : '/signin'}
 								className='nav-item'

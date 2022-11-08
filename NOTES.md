@@ -253,9 +253,18 @@
 
 <!-- TODO: List: -->
 - frontend/src/ui/components:
-    - sidebarModal/SidebarModal.jsx:
+    - slidebarModal/SlidingSidebarModal.jsx:
         - TODO: Need to ensure modal content is focusable and tab presses do not exit the mobile
         - TODO: Ensure upon modal close, tab focus goes back to the button that launched it
+        - TODO: Styles for the nested elements
+            - Optimize: Animation for sliding in/out
+        
+        
+
+    - desktopNav/DesktopNav.jsx:
+        - TODO: Follow the hubspot guide at (https://blog.hubspot.com/website/accessible-drop-down-menus) to make mega menu & links accessible
+
+        - TODO: Styles on the megamenu
 
 - backend/api:
 
