@@ -1,7 +1,7 @@
 /* Webhook used to retrieve data from Stripe API: */
 
 import express from 'express';
-import _stripe from 'stripe';
+import Stripe from 'stripe';
 import bodyParser from 'body-parser';
 import moment from 'moment';
 
@@ -10,7 +10,7 @@ import { createOrder } from '../db/dbadapters/orders.js';
 /* const { getUserById } = require('../db/dbadapters/users'); */
 
 export const webhookRouter = express();
-const stripe = _stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 /* Webhook Secret: */
 const webhookEndpointSecret = process.env.REACT_APP_STRIPE_SIGNING_SECRET_KEY;
