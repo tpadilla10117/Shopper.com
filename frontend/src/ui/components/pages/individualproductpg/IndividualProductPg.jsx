@@ -13,17 +13,20 @@ function IndividualProductPg() {
 		product => product.productid === prodid
 	);
 
+	console.log(productBasedOnRoute)
+
 	return (
 		<section className='individualProductPg-parent-container'>
 			<IndividualProductCards
 				id={productBasedOnRoute.id}
 				title={productBasedOnRoute.title}
-				description={productBasedOnRoute.description}
 				price={productBasedOnRoute.price}
-				category={productBasedOnRoute.category}
+				category_id={productBasedOnRoute.category_id}
 				subcategory={productBasedOnRoute.subcategory}
 				productid={productBasedOnRoute.productid}
+				description={productBasedOnRoute.description}
 				image={productBasedOnRoute.image}
+				quantity={1}
 			/>
 		</section>
 	);

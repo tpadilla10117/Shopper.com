@@ -5,6 +5,8 @@ import {
 	addToBasket,
 	removeFromBasket,
 	selectItems,
+	addCartItemCount,
+	removeCartItemCount
 } from '../../../reduxslices/basketslice.js';
 import { selectItems as productsFromSlice } from '../../../reduxslices/productSlice.js';
 import { useParams } from 'react-router-dom';
@@ -15,15 +17,31 @@ function IndividualProductCards({
 	title,
 	description,
 	price,
-	category,
+	category_id,
 	subcategory,
 	productid,
 	image,
+	quantity
 }) {
+
+	/* const { title, image, price } = cartItem; */
+	const cartItem = {
+		category_id: category_id,
+		id: id,
+		image: `${image}`, 
+		price: `${price}`,
+		productid: `${productid}`,
+		quantity: quantity,
+		subcategory: `${subcategory}`,
+		title: `${title}`, 
+	};
+
+	console.log(cartItem)
+
 	const dispatch = useDispatch();
 	const totalItemsInBasket = useSelector(selectItems);
 
-	const addItemToBasket = () => {
+	/* const addItemToBasket = () => {
 		const product = {
 			id,
 			title,
@@ -39,6 +57,16 @@ function IndividualProductCards({
 
 	const removeItemFromBasket = () => {
 		dispatch(removeFromBasket({ id }));
+	}; */
+
+
+	const addItemHandler = (event) => {
+		event.preventDefault();
+		dispatch(addCartItemCount(cartItem));
+	};
+
+	const removeItemHandler = () => {
+		dispatch(removeCartItemCount(cartItem));
 	};
 
 	/* Keep track of how many individual products a user wants to add to the cart */
@@ -81,7 +109,8 @@ function IndividualProductCards({
 					<div className='individualProductCards-info-quantity-totals'>
 						{/* TODO: These buttons add to the cart incorrectly */}
 						<Remove
-							onClick={removeItemFromBasket}
+							/* onClick={removeItemFromBasket} */
+							onClick={removeItemHandler}
 							className='individualProductCards-removebtn'
 						/>
 
@@ -90,7 +119,8 @@ function IndividualProductCards({
 						</span>
 
 						<Add
-							onClick={addItemToBasket}
+							/* onClick={addItemToBasket} */
+							onClick={event => addItemHandler(event)}
 							className='individualProductCards-addbtn'
 						/>
 					</div>

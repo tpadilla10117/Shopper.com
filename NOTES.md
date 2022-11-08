@@ -259,7 +259,6 @@
         - TODO: Styles for the nested elements
             - Optimize: Animation for sliding in/out
         
-        
 
     - desktopNav/DesktopNav.jsx:
         - TODO: Follow the hubspot guide at (https://blog.hubspot.com/website/accessible-drop-down-menus) to make mega menu & links accessible

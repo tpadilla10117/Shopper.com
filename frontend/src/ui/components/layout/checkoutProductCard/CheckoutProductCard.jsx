@@ -6,18 +6,17 @@ import {
 	removeFromBasket,
 	addCartItemCount,
 	removeCartItemCount,
-	selectItems,
 } from '../../../reduxslices/basketslice.js';
 
 import { Add, Remove } from '@material-ui/icons';
 
 function CheckoutProductCard({ cartItem }) {
+	/* const { title, image, price, quantity } = cartItem; */
 	const { title, image, price, quantity } = cartItem;
 
 	const dispatch = useDispatch();
-	const items = useSelector(selectItems);
 
-	console.log(items);
+	console.log('cartItem from checkoutProductCard: ', cartItem)
 
 	/* const addItemToBasket = () => {
         const product = {
