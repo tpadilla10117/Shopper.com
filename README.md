@@ -4,10 +4,10 @@
 
 CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 :-------------------------:|:-------------------------:
-![](src/ui/assets/interfaceImages/featured_mobile.png)  |  ![](src/ui/assets/interfaceImages/landing_mobile.png)
+![](frontend/src/ui/assets/interfaceImages/featured_mobile.png)  |  ![](frontend/src/ui/assets/interfaceImages/landing_mobile.png)
 
 #### Landing.jsx (Desktop View)
-![](src/ui/assets/interfaceImages/landing_desktop.png)
+![](frontend/src/ui/assets/interfaceImages/landing_desktop.png)
 
 ## Table of Contents:
 * [Limitations](#limitations--future-iterations)
