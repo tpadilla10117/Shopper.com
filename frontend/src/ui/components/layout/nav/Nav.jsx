@@ -118,7 +118,6 @@ const Nav = props => {
 				<button
 					type='button'
 					aria-label='Reveal Navigation'
-					aria-haspopup="true"
 					className='nav-mobile-icon'
 					onClick={navToggle}
 				>

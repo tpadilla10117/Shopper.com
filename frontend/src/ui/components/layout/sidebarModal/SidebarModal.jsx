@@ -7,6 +7,8 @@ const SidebarModal = ({ children }) => {
 			className='sidebarmodal-parent-container'
 			role='dialog'
 			aria-modal='true'
+			aria-label='Sidebar Navigation Modal Container'
+			tabIndex='-1'
 		>
 			<div className='sidebarmodal-content'>
 

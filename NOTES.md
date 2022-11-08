@@ -249,3 +249,14 @@
         - background-color: $background-primary
         
     - Primary:
+
+
+<!-- TODO: List: -->
+- frontend/src/ui/components:
+    - sidebarModal/SidebarModal.jsx:
+        - TODO: Need to ensure modal content is focusable and tab presses do not exit the mobile
+        - TODO: Ensure upon modal close, tab focus goes back to the button that launched it
+
+- backend/api:
+
+- backend/db:

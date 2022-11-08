@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
@@ -11,6 +11,7 @@ import { KeyboardArrowDown } from '@material-ui/icons';
 
 const DesktopNav = props => {
 	let navigateRoutes = useNavigate();
+	const [ menuItemIsToggled, setMenuItemIsToggled ] = useState(false);
 
 	function toggleSubMenu(event) {
 		event.preventDefault();
@@ -32,6 +33,8 @@ const DesktopNav = props => {
 	}
 
 /* Default State for authDropDown: */
+
+	const dynamicFrontendUrl = process.env.REACT_APP_FRONTEND_URL;
 
 	let authDropdownItems = [
 		{
@@ -68,26 +71,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -96,26 +104,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/accessories`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -124,26 +137,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/accessories`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -241,25 +259,28 @@ const DesktopNav = props => {
 					activeclassname='active'
 					style={{ textDecoration: 'none' }}
 				>
-					{/* TODO: Use button for submenus instead of div */}
-					{/* <span onClick={(event) => toggleSubMenu(event)}
-                tabIndex="0" role="button" aria-pressed="false"
-                >Men</span> */}
-					<button onClick={event => toggleSubMenu(event)}>Men</button>
+					<button 
+						onClick={event => toggleSubMenu(event)}
+						type='button'
+						aria-label='Toggle navigation dropdown'
+						className='desktop-nav-items-container2-btn has-submenu'
+					>
+						Men
+						<div className='desktop-nav-items-container2-dropdown'>
+							{menDropdownItems.map((items, index) => {
+								return (
+									<li
+										key={items.id}
+										className='desktop-nav-items-authdropdown-li'
+										/* onClick={items.clickHandler} */
+									>
+										<a href={items.routes}>{items.category}</a>
+									</li>
+								);
+							})}
+						</div>
+					</button>
 
-					<nav className='desktop-nav-items-container2-dropdown'>
-						{menDropdownItems.map((items, index) => {
-							return (
-								<li
-									key={items.id}
-									className='desktop-nav-items-authdropdown-li'
-									onClick={items.clickHandler}
-								>
-									{items.category}
-								</li>
-							);
-						})}
-					</nav>
 				</div>
 				<div
 					className='desktop-nav-items-container2-dropdown-container'
