@@ -236,6 +236,11 @@
         }
       }; */
 
+
+<!-- Misc Big Fixes: -->
+- CSS Visual Malfunction for Nested Routing: (https://stackoverflow.com/questions/67379219/css-not-working-for-nested-routing-in-react-js)
+    - Solution: Use absolute paths (beginning with /) for all assets in your index.html file. As index.html is a static file, when you load it on a route as /products/productId, the relative path points to /products/style.css, where file is not found.
+
 <!-- Design System Notes: -->
 - Buttons:
     - CTA: 

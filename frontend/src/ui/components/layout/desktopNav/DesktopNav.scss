@@ -71,6 +71,10 @@
                 display: flex;
                 align-items: center;
 
+                .desktop-nav-items-btn {
+                    font-size: $text-paragraph;
+                }
+
                 .desktop-nav-items-authdropdown-btnicon {
                     position: absolute;
                     /* border: 1px solid red; */
