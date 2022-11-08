@@ -17,9 +17,7 @@ export const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 server.use(morgan('dev'));
-/* server.use(express.static('public')); */
-server.use(express.static(path.join('../frontend/public/index.html', 'build')));
-
+server.use(express.static('public'));
 
 server.use((req, _res, next) => {
 	console.log('<____Body Logger START____>');
@@ -28,10 +26,6 @@ server.use((req, _res, next) => {
 	next();
 });
 server.use('/', apiRouter);
-
-server.get('/*', function(req,res) {
-	res.sendFile(path.join('../frontend/public/index.html', 'build', 'index.html'));
-});
 
 server.listen(PORT, async () => {
 	console.log(`Server is running on ${PORT}!`);
