@@ -11,11 +11,15 @@ export { default as DesktopNav } from '../components/layout/desktopNav/DesktopNa
 
 export { default as Sidebar } from '../components/layout/sidebar/Sidebar.jsx';
 
+export { default as SlidingSidebar } from '../components/layout/slidingSidebar/SlidingSidebar.jsx';
+
 export { default as CtaBanner } from '../components/layout/ctaBanner/CtaBanner.jsx';
 
 export { default as CtaButton } from '../components/layout/ctabutton/CtaButton.jsx';
 
 export { default as Modal } from '../components/layout/modal/Modal.jsx';
+
+export { default as SidebarModal } from '../components/layout/sidebarModal/SidebarModal.jsx';
 
 export { default as SignupModal } from '../components/layout/signupModal/SignupModal.jsx';
 

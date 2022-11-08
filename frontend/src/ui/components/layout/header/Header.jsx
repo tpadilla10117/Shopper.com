@@ -1,20 +1,24 @@
 /* Header Component is to contain the navigation components: */
 
 import React, { useState, useEffect } from 'react';
-import { Nav, DesktopNav, Sidebar } from '../../utils.js';
-import './Header.scss';
+import { useSelector } from 'react-redux';
+import { 
+	Nav, 
+	DesktopNav, 
+	/* Sidebar, */
+	SlidingSidebar,
+	SidebarModal,
+} from '../../utils.js';
+
+import { navStatus } from '../../../reduxslices/navSlice.js';
 
 const Header = () => {
-	/* TODO: Rewrite in Redux code: */
 
-	/* State for normal React code: */
-	/* const [isOpen, setIsOpen] = useState(false); */
 	const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1000);
 
-	/* If using normal React code: */
-	/*  const navToggle = () => {
-            setIsOpen(!isOpen);
-        }; */
+/* Toggler for Sidebar Modal: */
+
+	const navIsOpen = useSelector(navStatus);
 
 	const updateComponentView = () => {
 		setIsDesktop(window.innerWidth > 1000);
@@ -28,12 +32,20 @@ const Header = () => {
 	return (
 		<header className='header-parent-wrapper'>
 			{isDesktop ? (
-				<DesktopNav /* isOpen={isOpen} */ /* navToggle={navToggle} */ />
+				<DesktopNav />
 			) : (
-				<Nav /* isOpen={isOpen} */ /* navToggle={navToggle} */ />
+				<Nav />
 			)}
 
-			<Sidebar /* isOpen={isOpen} */ /* navToggle={navToggle} */ />
+			{/* <Sidebar isOpen={isOpen} navToggle={navToggle} /> */}
+
+			{navIsOpen && (
+				<SidebarModal>
+					<SlidingSidebar />
+				</SidebarModal>
+			)}
+
+
 		</header>
 	);
 };
