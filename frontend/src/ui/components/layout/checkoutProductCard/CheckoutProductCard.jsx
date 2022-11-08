@@ -1,39 +1,18 @@
 /* The Product Cards Rendered on the Checkout Pg: */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-	addToBasket,
-	removeFromBasket,
 	addCartItemCount,
 	removeCartItemCount,
 } from '../../../reduxslices/basketslice.js';
 
-import { Add, Remove } from '@material-ui/icons';
+/* import { Add, Remove } from '@material-ui/icons'; */
 
 function CheckoutProductCard({ cartItem }) {
-	/* const { title, image, price, quantity } = cartItem; */
+	
 	const { title, image, price, quantity } = cartItem;
 
 	const dispatch = useDispatch();
-
-	console.log('cartItem from checkoutProductCard: ', cartItem)
-
-	/* const addItemToBasket = () => {
-        const product = {
-            id,
-            title,
-            description,
-            productid,
-            image,
-            category_id,
-            subcategory,
-            price };
-        dispatch(addToBasket(product))
-    }; */
-
-	/* const removeItemFromBasket = () => {
-        dispatch(removeFromBasket( {id} ) );
-    }; */
 
 	const addItemHandler = () => {
 		dispatch(addCartItemCount(cartItem));
@@ -67,9 +46,7 @@ function CheckoutProductCard({ cartItem }) {
 
 			<div className='checkoutproductcard-pricedetails'>
 				<div className='checkoutproductcard-productamount-container'>
-					{/* <Add onClick={addItemToBasket}  /> */}
-
-					{/* <Remove onClick={removeItemFromBasket}/> */}
+				
 				</div>
 				<span className='quantity'>
 					<div className='arrow' onClick={removeItemHandler}>

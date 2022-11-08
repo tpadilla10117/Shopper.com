@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Add, Remove } from '@material-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-	addToBasket,
-	removeFromBasket,
 	selectItems,
 	addCartItemCount,
 	removeCartItemCount
@@ -24,7 +22,6 @@ function IndividualProductCards({
 	quantity
 }) {
 
-	/* const { title, image, price } = cartItem; */
 	const cartItem = {
 		category_id: category_id,
 		id: id,
@@ -40,25 +37,6 @@ function IndividualProductCards({
 
 	const dispatch = useDispatch();
 	const totalItemsInBasket = useSelector(selectItems);
-
-	/* const addItemToBasket = () => {
-		const product = {
-			id,
-			title,
-			price,
-			description,
-			category,
-			image,
-			subcategory,
-			productid,
-		};
-		dispatch(addToBasket(product));
-	};
-
-	const removeItemFromBasket = () => {
-		dispatch(removeFromBasket({ id }));
-	}; */
-
 
 	const addItemHandler = (event) => {
 		event.preventDefault();

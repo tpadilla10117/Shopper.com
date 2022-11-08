@@ -13,8 +13,6 @@ function IndividualProductPg() {
 		product => product.productid === prodid
 	);
 
-	console.log(productBasedOnRoute)
-
 	return (
 		<section className='individualProductPg-parent-container'>
 			<IndividualProductCards
