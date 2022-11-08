@@ -18,7 +18,7 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(morgan('dev'));
 /* server.use(express.static('public')); */
-server.use(express.static(path.join(__dirname, 'build')));
+server.use(express.static(path.join('../frontend/public/index.html', 'build')));
 
 
 server.use((req, _res, next) => {
@@ -30,7 +30,7 @@ server.use((req, _res, next) => {
 server.use('/', apiRouter);
 
 server.get('/*', function(req,res) {
-	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+	res.sendFile(path.join('../frontend/public/index.html', 'build', 'index.html'));
 });
 
 server.listen(PORT, async () => {
