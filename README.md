@@ -23,9 +23,8 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 ## Limitations & Future Iterations:
 
-- Bugs 11/2/22: Deployed project currently not accessible through routing outside of main URL.  When a user clicks a link, some JavaScript runs that manipulates the URL in the address bar, without causing a page refresh, which in turn causes React Router to perform a page transition on the client-side.  When I copy-paste a URL ( e.g. https://shopper-react.onrender.com/signin ) in the address bar and e-mail it to a friend, react router is NOT running on their machine yet. The browser makes a server request to https://shopper-react.onrender.com/signin , but no files are served.
-
-- Possible Solutions 11/2/22: SSR or Isomorphic routing (*optimal for SEO)
+- Catch-All approach (client-side routing) in React-router equates to terrible SEO
+    - Possible Solution: SSR or Isomorphic routing to optimize SEO 
 
 ## Deployment:
 
