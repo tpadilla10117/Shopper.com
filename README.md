@@ -4,10 +4,10 @@
 
 CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 :-------------------------:|:-------------------------:
-![](src/frontend/assets/interfaceImages/featured_mobile.png)  |  ![](src/frontend/assets/interfaceImages/landing_mobile.png)
+![](src/ui/assets/interfaceImages/featured_mobile.png)  |  ![](src/ui/assets/interfaceImages/landing_mobile.png)
 
 #### Landing.jsx (Desktop View)
-![](src/frontend/assets/interfaceImages/landing_desktop.png)
+![](src/ui/assets/interfaceImages/landing_desktop.png)
 
 ## Table of Contents:
 * [Limitations](#limitations--future-iterations)
@@ -129,7 +129,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 ![](src/diagrams/ux/User%20flow_%20Shopper.com_MainPurchaseFlow.pptx%20(1).png)
 
 ## ERD & System Design:
-![](src/backend/assets/E-commerce%20Template_ERD.png)
+![](diagrams/assets/E-commerce%20Template_ERD.png)
 
 ## Web Architecture:
 
