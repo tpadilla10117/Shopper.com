@@ -7,7 +7,7 @@ import {
 	selectTotal,
 	clearBasket,
 } from '../../../reduxslices/basketslice.js';
-import CurrencyFormat from 'react-currency-format';
+/* import CurrencyFormat from 'react-currency-format'; */
 import { CheckoutProductCard } from '../../../components/utils.js';
 /* import { useStripe } from '@stripe/react-stripe-js'; */
 import { userData } from '../../../reduxslices/authSlice.js';
@@ -25,7 +25,6 @@ function CheckoutPg() {
 
 	const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
-	console.log(user);
 	const handleGuestCheckout = async () => {
 		const stripe = await stripePromise;
 

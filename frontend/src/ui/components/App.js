@@ -25,7 +25,7 @@ import { isLoading, setLoader } from '../reduxslices/loadingSlice.js';
 import './App.scss';
 
 function App() {
-	/* Server-Side render of my product data: */
+	
 	const dispatch = useDispatch();
 	const items = useSelector(selectItems);
 	const loadStatus = useSelector(setLoader);
@@ -60,13 +60,13 @@ function App() {
 
 				<Route path='/shop/*' element={<ProductsPg />} />
 
-				{/* Routing is unique based on params from ProductsLandingFeed.jsx: */}
+			{/* Routing is unique based on params from ProductsLandingFeed.jsx: */}
 				<Route
 					path={`/shop/products/:subcategory/:title/:prodid`}
 					element={<IndividualProductPg />}
 				/>
 
-				{/* TODO: Protected / Authenticated Routes: */}
+			{/* Protected / Authenticated Routes: */}
 
 				<Route element={<PrivateRoutes />}>
 					<Route path='/orders/:userid' element={<OrderPg />} exact />

@@ -3,11 +3,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
-import { userData, logout } from '../../../reduxslices/authSlice.js'; //my Selector
+import { userData, logout } from '../../../reduxslices/authSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice.js';
 import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
 import { KeyboardArrowDown } from '@material-ui/icons';
+
 const DesktopNav = props => {
 	let navigateRoutes = useNavigate();
 
@@ -17,13 +18,12 @@ const DesktopNav = props => {
 		console.log('Clicked the submenu by mouse');
 	}
 
-	/* Actions & Selectors for authentication:  */
+/* Actions & Selectors for authentication:  */
 	const userToken = localStorage.getItem('user');
-
 	const dispatch = useDispatch();
 	const isUserLoggedIn = useSelector(userData);
 
-	/* Logout function chain: */
+/* Logout function chain: */
 	function logoutUser() {
 		dispatch(logout());
 		dispatch(emptyUsersSavedItems());
@@ -31,7 +31,9 @@ const DesktopNav = props => {
 		navigateRoutes('/', { replace: true });
 	}
 
-	/* Default State for authDropDown: */
+/* Default State for authDropDown: */
+
+	const dynamicFrontendUrl = process.env.REACT_APP_FRONTEND_URL;
 
 	let authDropdownItems = [
 		{
@@ -68,26 +70,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -96,26 +103,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/accessories`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -124,26 +136,31 @@ const DesktopNav = props => {
 			id: 1,
 			category: 'Shirts',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shirts`,
 		},
 		{
 			id: 2,
 			category: 'Pants',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/pants`,
 		},
 		{
 			id: 3,
 			category: 'Jackets',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/jackets`,
 		},
 		{
 			id: 4,
 			category: 'Accessories',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/accessories`,
 		},
 		{
 			id: 5,
 			category: 'Shoes',
 			clickHandler: () => navigateRoutes('/'),
+			routes: `${dynamicFrontendUrl}/shop/products/shoes`,
 		},
 	];
 
@@ -190,7 +207,7 @@ const DesktopNav = props => {
 							style={{ textDecoration: 'none' }}
 							tabIndex='0'
 						>
-							<span>
+							<span className='desktop-nav-items-btn'>
 								Hi, {isUserLoggedIn.recoveredData.username}
 								{/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='desktop-nav-items-authdropdown-btnicon' height='14' width='14' fill="#777582" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg> */}
 								<KeyboardArrowDown className='desktop-nav-items-authdropdown-btnicon' />
@@ -241,25 +258,28 @@ const DesktopNav = props => {
 					activeclassname='active'
 					style={{ textDecoration: 'none' }}
 				>
-					{/* TODO: Use button for submenus instead of div */}
-					{/* <span onClick={(event) => toggleSubMenu(event)}
-                tabIndex="0" role="button" aria-pressed="false"
-                >Men</span> */}
-					<button onClick={event => toggleSubMenu(event)}>Men</button>
+					<button 
+						onClick={event => toggleSubMenu(event)}
+						type='button'
+						aria-label='Toggle navigation dropdown'
+						className='desktop-nav-items-container2-btn has-submenu'
+					>
+						Men
+						<div className='desktop-nav-items-container2-dropdown'>
+							{menDropdownItems.map((items, index) => {
+								return (
+									<li
+										key={items.id}
+										className='desktop-nav-items-authdropdown-li'
+										/* onClick={items.clickHandler} */
+									>
+										<a href={items.routes}>{items.category}</a>
+									</li>
+								);
+							})}
+						</div>
+					</button>
 
-					<nav className='desktop-nav-items-container2-dropdown'>
-						{menDropdownItems.map((items, index) => {
-							return (
-								<li
-									key={items.id}
-									className='desktop-nav-items-authdropdown-li'
-									onClick={items.clickHandler}
-								>
-									{items.category}
-								</li>
-							);
-						})}
-					</nav>
 				</div>
 				<div
 					className='desktop-nav-items-container2-dropdown-container'

@@ -71,6 +71,10 @@
                 display: flex;
                 align-items: center;
 
+                .desktop-nav-items-btn {
+                    font-size: $text-paragraph;
+                }
+
                 .desktop-nav-items-authdropdown-btnicon {
                     position: absolute;
                     /* border: 1px solid red; */
@@ -131,7 +135,10 @@
             margin: 0px 20px 0px 20px;
             /* position: relative; */
 
-            /* button */span {
+            button {
+                background-color: $background-primary;
+                text-decoration: none;
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -165,6 +172,11 @@
 
                     &:hover {
                         background: #F3F3F5;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: $text-primary
                     }
                 }
             }

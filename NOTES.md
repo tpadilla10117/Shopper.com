@@ -236,6 +236,11 @@
         }
       }; */
 
+
+<!-- Misc Big Fixes: -->
+- CSS Visual Malfunction for Nested Routing: (https://stackoverflow.com/questions/67379219/css-not-working-for-nested-routing-in-react-js)
+    - Solution: Use absolute paths (beginning with /) for all assets in your index.html file. As index.html is a static file, when you load it on a route as /products/productId, the relative path points to /products/style.css, where file is not found.
+
 <!-- Design System Notes: -->
 - Buttons:
     - CTA: 
@@ -244,3 +249,22 @@
         - background-color: $background-primary
         
     - Primary:
+
+
+<!-- TODO: List: -->
+- frontend/src/ui/components:
+    - slidebarModal/SlidingSidebarModal.jsx:
+        - TODO: Need to ensure modal content is focusable and tab presses do not exit the mobile
+        - TODO: Ensure upon modal close, tab focus goes back to the button that launched it
+        - TODO: Styles for the nested elements
+            - Optimize: Animation for sliding in/out
+        
+
+    - desktopNav/DesktopNav.jsx:
+        - TODO: Follow the hubspot guide at (https://blog.hubspot.com/website/accessible-drop-down-menus) to make mega menu & links accessible
+
+        - TODO: Styles on the megamenu
+
+- backend/api:
+
+- backend/db:

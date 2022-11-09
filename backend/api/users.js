@@ -1,6 +1,7 @@
 /* That path/router for my API at the users endpoint: */
 
 import express from 'express';
+import moment from 'moment';
 
 import { requireUser } from './utils.js';
 
@@ -253,7 +254,7 @@ usersRouter.post(
 				const productObject = {
 					product_id: productid,
 					user_id: userId,
-					created_at: require('moment')().format(
+					created_at: moment().format(
 						'YYYY-MM-DD HH:mm:ss'
 					),
 				};

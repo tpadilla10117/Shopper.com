@@ -42,12 +42,25 @@ export const NavbarData = [
 		offset: -80,
 	},
 	{
-		title: 'Cart',
-		path: '/checkout',
+		title: 'FAQ',
+		path: '/faq',
 		/* icon: <AiIcons.AiOutlineFilePdf />, */
 		cName: 'nav-text',
 		activeObject: null,
 		id: 3,
+		smooth: true,
+		duration: 500,
+		spy: true,
+		exact: 'true',
+		offset: -80,
+	},
+	{
+		title: 'Contact Us',
+		path: '/contact',
+		/* icon: <AiIcons.AiOutlineFilePdf />, */
+		cName: 'nav-text',
+		activeObject: null,
+		id: 4,
 		smooth: true,
 		duration: 500,
 		spy: true,

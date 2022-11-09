@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-/* import "./Nav.scss"; */
 import { NavbarData } from '../../../seed.js';
 import { NavLink } from 'react-router-dom';
 import { scrollTop } from '../../utils.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { navToggler } from '../../../reduxslices/navSlice.js';
-import { useSelector } from 'react-redux';
 import { selectItems } from '../../../reduxslices/basketslice.js';
+
 
 const Nav = props => {
 	/* useDispatch lets me dispatch / shoot actions into the Global Store: */
@@ -116,24 +115,31 @@ const Nav = props => {
 					</div>
 				</NavLink>
 
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
+				<button
+					type='button'
+					aria-label='Reveal Navigation'
 					className='nav-mobile-icon'
-					fill='none'
-					height='24'
-					width='24'
-					viewBox='0 0 24 24'
-					stroke='currentColor'
 					onClick={navToggle}
-					alt='A three-lined horizontal icon to toggle a navigation menu'
 				>
-					<path
-						strokeLinecap='round'
-						strokeLinejoin='round'
-						strokeWidth='2'
-						d='M4 6h16M4 12h16m-7 6h7'
-					/>
-				</svg>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						height='24'
+						width='24'
+						viewBox='0 0 24 24'
+						stroke='currentColor'
+						alt='A three-lined horizontal icon to toggle a navigation menu'
+						focusable='false'
+						role='presentation'
+					>
+						<path
+							strokeLinecap='round'
+							strokeLinejoin='round'
+							strokeWidth='2'
+							d='M4 6h16M4 12h16m-7 6h7'
+						/>
+					</svg>
+				</button>
 			</div>
 		</nav>
 	);

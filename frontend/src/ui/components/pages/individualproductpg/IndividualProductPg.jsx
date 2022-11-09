@@ -18,12 +18,13 @@ function IndividualProductPg() {
 			<IndividualProductCards
 				id={productBasedOnRoute.id}
 				title={productBasedOnRoute.title}
-				description={productBasedOnRoute.description}
 				price={productBasedOnRoute.price}
-				category={productBasedOnRoute.category}
+				category_id={productBasedOnRoute.category_id}
 				subcategory={productBasedOnRoute.subcategory}
 				productid={productBasedOnRoute.productid}
+				description={productBasedOnRoute.description}
 				image={productBasedOnRoute.image}
+				quantity={1}
 			/>
 		</section>
 	);
