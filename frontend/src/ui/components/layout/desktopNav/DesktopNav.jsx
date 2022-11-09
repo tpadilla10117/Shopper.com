@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 /* import { Badge } from "@material-ui/core"; */
@@ -11,7 +11,6 @@ import { KeyboardArrowDown } from '@material-ui/icons';
 
 const DesktopNav = props => {
 	let navigateRoutes = useNavigate();
-	const [ menuItemIsToggled, setMenuItemIsToggled ] = useState(false);
 
 	function toggleSubMenu(event) {
 		event.preventDefault();
