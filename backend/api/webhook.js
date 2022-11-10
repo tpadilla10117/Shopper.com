@@ -8,8 +8,9 @@ import moment from 'moment';
 import { createOrder } from '../db/dbadapters/orders.js';
 
 /* const { getUserById } = require('../db/dbadapters/users'); */
-const PORT = process.env.REACT_APP_PORT || 4242;
+const PORT = process.env.PORT || 4242;
 export const webhookRouter = express();
+/* export const webhookRouter = express.Router(); */
 
 const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
@@ -17,6 +18,18 @@ const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
 const webhookEndpointSecret = process.env.REACT_APP_STRIPE_SIGNING_SECRET_KEY;
 
 /* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
+
+webhookRouter.use((req, res, next) => {
+	console.log('A request is being made to /webhook:', req.originalUrl);
+	next();
+});
+
+webhookRouter.get('/', async (req, res) => {
+
+	res.send(
+		'Hit GET Route on Webhook'
+	);
+});
 
 const fulfillOrder = async (session, retrievedExpandedListLineItems) => {
 	/*  try {
@@ -114,6 +127,6 @@ webhookRouter.post(
 	}
 );
 
-/* webhookRouter.listen(4242, () => console.log('Webhook Running on port 4242')); */
+webhookRouter.listen(4242, () => console.log('Webhook Running on port 4242'));
 
-webhookRouter.listen(PORT, () => console.log(`Webhook Running on port ${PORT}`));
+/* webhookRouter.listen(PORT, () => console.log(`Webhook Running on port 4242`)); */
