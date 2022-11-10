@@ -51,6 +51,7 @@ apiRouter.use(async (req, _res, next) => {
 
 apiRouter.use((req, res, next) => {
 	if (req.originalUrl === '/webhook') {
+		console.log('Hit the /webhook endpoint in the apiRouter:', req.originalUrl)
 		next();
 	} else {
 		express.json()(req, res, next);
