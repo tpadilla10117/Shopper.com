@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 export const server = express();
 
 server.use(cors());
-server.use(bodyParser.json());
+/* server.use(bodyParser.json()); */
 server.use(morgan('dev'));
 server.use(express.static('public'));
 
