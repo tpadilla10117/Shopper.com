@@ -71,7 +71,7 @@ webhookRouter.post(
 	'/webhook',
 	express.raw({ type: 'application/json' }),
 	async (req, res) => {
-		console.log('Firing from webhook!!!!');
+		console.log('Firing Post Request from webhook!!!!');
 		const signature = req.headers['stripe-signature'];
 		let event;
 

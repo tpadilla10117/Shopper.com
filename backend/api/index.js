@@ -50,7 +50,7 @@ apiRouter.use(async (req, _res, next) => {
 /* Use .use to add middleware: */
 
 apiRouter.use((req, res, next) => {
-	if (req.originalUrl === '/webhook') {
+	if (req.originalUrl === '/webhook/webhook') {
 		console.log('Hit the /webhook endpoint in the apiRouter:', req.originalUrl)
 		next();
 	} else {
