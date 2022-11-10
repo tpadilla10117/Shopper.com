@@ -8,7 +8,7 @@ import moment from 'moment';
 import { createOrder } from '../db/dbadapters/orders.js';
 
 /* const { getUserById } = require('../db/dbadapters/users'); */
-const PORT = process.env.PORT || 4242;
+const PORT = process.env.REACT_APP_PORT || 4242;
 export const webhookRouter = express();
 
 const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
