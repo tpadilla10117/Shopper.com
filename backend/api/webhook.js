@@ -69,7 +69,7 @@ const fulfillOrder = async (session, retrievedExpandedListLineItems) => {
 /* This would be for my deployed app: */
 webhookRouter.post(
 	'/webhook',
-	bodyParser.raw({ type: 'application/json' }),
+	express.raw({ type: 'application/json' }),
 	async (req, res) => {
 		console.log('Firing from webhook!!!!');
 		const signature = req.headers['stripe-signature'];
