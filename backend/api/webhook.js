@@ -8,9 +8,8 @@ import moment from 'moment';
 import { createOrder } from '../db/dbadapters/orders.js';
 
 /* const { getUserById } = require('../db/dbadapters/users'); */
-const PORT = process.env.PORT || 4242;
 export const webhookRouter = express();
-/* export const webhookRouter = express.Router(); */
+/* const PORT = process.env.PORT || 4242; */
 
 const stripe = new Stripe(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
@@ -20,21 +19,19 @@ const webhookEndpointSecret = process.env.REACT_APP_STRIPE_SIGNING_SECRET_KEY;
 /* Fulfilling an order & pushing Stripe data into my DB if checkout session completed: */
 
 webhookRouter.use((req, res, next) => {
-	console.log('A request is being made to /webhook:', req.originalUrl);
+	res.send(
+		'A request is being made to /webhook!'
+	);
 	next();
 });
 
 webhookRouter.get('/', async (req, res) => {
-
 	res.send(
 		'Hit GET Route on Webhook'
 	);
 });
 
 const fulfillOrder = async (session, retrievedExpandedListLineItems) => {
-	/*  try {
-            await getUserById
-        } */
 
 	let listLineItems = retrievedExpandedListLineItems.data;
 
@@ -66,7 +63,7 @@ const fulfillOrder = async (session, retrievedExpandedListLineItems) => {
 };
 
 /* Webhook: extract some events from stripe: */
-/* This would be for my deployed app: */
+
 webhookRouter.post(
 	'/webhook',
 	express.raw({ type: 'application/json' }),
@@ -93,7 +90,7 @@ webhookRouter.post(
 			/* Retrieve a Stripe Checkout session and its id: */
 			case 'checkout.session.completed':
 				const session = event.data.object;
-				console.log('Here is my session object', session);
+				
 				/* Expand the line_items 'product' property to get metadata:*/
 				const lineItemsProductDataExpanded =
 					await stripe.checkout.sessions.listLineItems(session.id, {
