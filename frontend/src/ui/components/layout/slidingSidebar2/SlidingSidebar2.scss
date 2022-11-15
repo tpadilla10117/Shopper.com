@@ -1,0 +1,107 @@
+@media screen and (max-width: 1000px) {
+
+    .nav-parent-container {
+        transition: 0.8s all ease;
+        padding: 0px;
+        height: 100px;
+        justify-content: flex-end;
+        width: 100%;
+        border-right: none;
+        display: flex;
+        position: fixed;
+        max-width: 100%;
+        align-items: center;
+
+        .nav-items-container {
+            display: none;
+        }
+
+
+        .nav-mobile-icon-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: 850ms;
+
+            .main-nav-logo {
+                text-decoration: none;
+                
+                .nav-mobile-header {
+                    color: $text-primary;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .nav-mobile-shoppingcart-parent-container {
+                position: absolute;
+                right: 60px;
+                
+                .nav-mobile-shoppingcart-wrapper {
+    
+                    .nav-mobile-shoppingcart-counter {
+                        border-radius: 9999px;
+                        background-color: $background-secondary;
+                        position: absolute;
+                        height: 1rem;
+                        width: 1rem;
+                        right: 0;
+                        top: 0;
+                        text-align: center;
+                        font-size: $p-txt-small;
+                        text-decoration: none;
+                        color: $text-primary;
+                    }
+                    
+                    .nav-mobile-shoppingcart-icon {
+                        display: flex;
+                        stroke: $text-primary;
+                    }
+                }
+            }
+
+            .nav-mobile-icon {
+                display: flex;
+                position: absolute;
+                right: 1rem;
+                background-color: $background-primary;
+            }
+
+
+        }
+
+        .nav-mobile-icon-container.active {
+            left: 0;
+            transition: 350ms;
+        }
+
+
+    }
+
+
+    .nav-menu {
+        background-color: $background-primary;
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        transition: 850ms;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        right: 0;
+        transition: 1s;
+
+    }
+
+
+
+}

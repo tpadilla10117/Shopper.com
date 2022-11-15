@@ -8,6 +8,7 @@ import {
 	/* Sidebar, */
 	SlidingSidebar,
 	SidebarModal,
+	SlidingSidebar2,
 } from '../../utils.js';
 
 import { navStatus } from '../../../reduxslices/navSlice.js';
@@ -34,16 +35,12 @@ const Header = () => {
 			{isDesktop ? (
 				<DesktopNav />
 			) : (
-				<Nav />
+				
+				<SlidingSidebar2 />
+				
 			)}
 
 			{/* <Sidebar isOpen={isOpen} navToggle={navToggle} /> */}
-
-			{navIsOpen && (
-				<SidebarModal>
-					<SlidingSidebar />
-				</SidebarModal>
-			)}
 
 
 		</header>
@@ -51,3 +48,17 @@ const Header = () => {
 };
 
 export default Header;
+
+	/* <SidebarModal> */
+					{/* <SlidingSidebar2 /> */}
+				/* </SidebarModal> */
+
+				/* {navIsOpen && (
+				
+				
+					<SidebarModal>
+						<SlidingSidebar2 />
+					</SidebarModal>
+					
+				)}
+	 */

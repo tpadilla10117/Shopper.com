@@ -1,20 +1,21 @@
 import React from 'react';
+/* import ReactDOM from "react-dom"; */
 
-const SidebarModal = ({ children }) => {
+const SidebarModal = ({ children, active }) => {
 /* TODO: Check for accessibility */
 	return (
 		<section
-			className='sidebarmodal-parent-container'
+			className={active ? `sidebarmodal-parent-container active` : 'sidebarmodal-parent-container'}
 			role='dialog'
 			aria-modal='true'
 			aria-label='Sidebar Navigation Modal Container'
 			tabIndex='-1'
 		>
-			<div className='sidebarmodal-content'>
+				<div className='sidebarmodal-content'>
 
-				{children}
-                
-			</div>
+					{children}
+					
+				</div>
 		</section>
 	);
 };
