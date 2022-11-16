@@ -3,6 +3,8 @@
 /* "layout" components: */
 export { default as Nav } from '../components/layout/nav/Nav.jsx';
 
+export { default as Footer2 } from '../components/layout/footer2/Footer2.jsx';
+
 export { default as HeroBanner } from '../components/layout/heroBanner/Herobanner.jsx';
 
 export { default as HeroBanner2 } from '../components/layout/herobanner2/Herobanner2.jsx';
