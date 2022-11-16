@@ -32,7 +32,7 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 		<nav className={isSidebarVisible ? 'slidingsidebar2 active' : 'slidingsidebar2'}>
 			<ul className='slidingsidebar2-items' onClick={showSidebar}>
 				<div className='slidingsidebar2-togglebtn'>
-					<CloseIcon/>
+					<CloseIcon onClick={showSidebar}/>
 				</div>
 
 				<div className='slidingsidebar2-nav-item-wrapper'>

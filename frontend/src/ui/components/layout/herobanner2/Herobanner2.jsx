@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
+import { useNavigate } from 'react-router-dom';
 import { carouselItems } from '../../../seed.js';
+import { CtaButton } from '../../utils.js';
 
 function Herobanner2() {
 	const [carouselIndex, setCarouselIndex] = useState(0);
 	const slideLength = carouselItems.length;
 
-	/* Functions for Arrow Buttons: */
+	let btnClickNavigateRoutes = useNavigate();
+
+/* Functions for Arrow Buttons: */
 
 	const nextSlide = () => {
 		setCarouselIndex(
@@ -18,6 +22,13 @@ function Herobanner2() {
 		setCarouselIndex(
 			carouselIndex === 0 ? slideLength - 1 : carouselIndex - 1
 		);
+	};
+
+/* Click handler for <CtaButton/>: */
+	function ctaButtonClickHandler(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		btnClickNavigateRoutes('/shop');
 	};
 
 	return (
@@ -48,9 +59,16 @@ function Herobanner2() {
 							<p className='herobanner2-description'>
 								{item.desc}
 							</p>
-							<button className='herobanner2-btn'>
+							{/* <button className='herobanner2-btn'>
 								SHOP NOW
-							</button>
+							</button> */}
+							<CtaButton
+								text={'SHOP NOW'}
+								myClass={'herobanner2-btn'}
+								btnType={'button'}
+								ariaLabel={'Navigate to Products Page'}
+								onClick={ctaButtonClickHandler}
+							/>
 						</div>
 					</div>
 				))}

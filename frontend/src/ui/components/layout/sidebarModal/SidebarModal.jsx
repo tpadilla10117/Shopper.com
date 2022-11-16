@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SidebarModal = ({ children, active }) => {
+const SidebarModal = ({ children, active, exitModal }) => {
 /* TODO: Check for accessibility */
 	return (
 		<section
@@ -9,6 +9,7 @@ const SidebarModal = ({ children, active }) => {
 			aria-modal='true'
 			aria-label='Sidebar Navigation Modal Container'
 			tabIndex='-1'
+			onClick={exitModal}
 		>
 				<div className='sidebarmodal-content'>
 

@@ -41,7 +41,8 @@
                 right: 60px;
                 
                 .nav-mobile-shoppingcart-wrapper {
-    
+                    padding: 5px;
+                    
                     .nav-mobile-shoppingcart-counter {
                         border-radius: 9999px;
                         background-color: $background-secondary;
@@ -58,16 +59,22 @@
                     
                     .nav-mobile-shoppingcart-icon {
                         display: flex;
-                        stroke: $text-primary;
+                        /* stroke: $text-primary; */
+                        color: $text-primary;
+                        text-decoration: none;
                     }
                 }
             }
 
-            .nav-mobile-icon {
+            .nav-mobile-icon-btn {
                 display: flex;
                 position: absolute;
                 right: 1rem;
-                background-color: $background-primary;
+                background: transparent;
+
+                .nav-mobile-icon {
+                    text-decoration: none;
+                }
             }
 
 
