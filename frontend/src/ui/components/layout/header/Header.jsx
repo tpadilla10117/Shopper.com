@@ -1,16 +1,14 @@
 /* Header Component is to contain the navigation components: */
 
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux'; */
 import { 
 	Nav, 
 	DesktopNav, 
 	/* Sidebar, */
-	SlidingSidebar,
-	SidebarModal,
 } from '../../utils.js';
 
-import { navStatus } from '../../../reduxslices/navSlice.js';
+/* import { navStatus } from '../../../reduxslices/navSlice.js'; */
 
 const Header = () => {
 
@@ -18,7 +16,7 @@ const Header = () => {
 
 /* Toggler for Sidebar Modal: */
 
-	const navIsOpen = useSelector(navStatus);
+	/* const navIsOpen = useSelector(navStatus); */
 
 	const updateComponentView = () => {
 		setIsDesktop(window.innerWidth > 1000);
@@ -34,17 +32,10 @@ const Header = () => {
 			{isDesktop ? (
 				<DesktopNav />
 			) : (
-				<Nav />
+				
+				<Nav/>
+				
 			)}
-
-			{/* <Sidebar isOpen={isOpen} navToggle={navToggle} /> */}
-
-			{navIsOpen && (
-				<SidebarModal>
-					<SlidingSidebar />
-				</SidebarModal>
-			)}
-
 
 		</header>
 	);

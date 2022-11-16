@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { NavbarData } from '../../../seed.js';
 import { NavLink } from 'react-router-dom';
-import { scrollTop } from '../../utils.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { navToggler } from '../../../reduxslices/navSlice.js';
+import { scrollTop, SidebarModal, SlidingSidebar2 } from '../../utils.js';
+import { /* useDispatch, */ useSelector } from 'react-redux';
+/* import { navToggler } from '../../../reduxslices/navSlice.js'; */
 import { selectItems } from '../../../reduxslices/basketslice.js';
 
 
 const Nav = props => {
 	/* useDispatch lets me dispatch / shoot actions into the Global Store: */
-	const dispatch = useDispatch();
+	/* const dispatch = useDispatch(); */
 	const items = useSelector(selectItems);
 
 	const [scrollNav, setScrollNav] = useState(false);
+	const [isSidebarVisible, setIsSidebarVisible ] = useState(false);
+    const showSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 
-	const navToggle = () => {
+	/* const navToggle = () => {
 		dispatch(navToggler());
 	};
-
+ */
 	/* Box and transparent are referencing inline style properties: */
 	const box = {
 		background: '#fff',
@@ -119,7 +121,8 @@ const Nav = props => {
 					type='button'
 					aria-label='Reveal Navigation'
 					className='nav-mobile-icon'
-					onClick={navToggle}
+					/* onClick={navToggle} */
+					onClick={showSidebar}
 				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -141,6 +144,18 @@ const Nav = props => {
 					</svg>
 				</button>
 			</div>
+
+		{/* This is where I render my Modal with a sidebar: */}
+			<SidebarModal
+				active={isSidebarVisible}
+				children={
+					<SlidingSidebar2 
+						isSidebarVisible={isSidebarVisible}
+						showSidebar={showSidebar}
+					/>
+				}
+			/>
+
 		</nav>
 	);
 };

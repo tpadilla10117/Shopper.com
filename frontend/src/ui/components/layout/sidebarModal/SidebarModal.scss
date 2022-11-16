@@ -1,25 +1,34 @@
 .sidebarmodal-parent-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    overflow: auto;
-    z-index: 999;
-    box-shadow: 0 0 10px #494f653b;
-    animation: fadein .5s;
-    overflow-y: auto;
+    
+    visibility: hidden;
+   
+    &.active {
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        overflow: auto;
+        z-index: 900;
+        box-shadow: 0 0 10px #494f653b;
+        animation: fadein .5s;
+        overflow-y: auto;
 
-    @keyframes fadein {
-        from {
-            opacity:0;
-        }
-        to {
-            opacity:1;
+        @keyframes fadein {
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
         }
     }
 
+    .sidebarmodal-content {
+        width: 100%;
+        
+    }
 };

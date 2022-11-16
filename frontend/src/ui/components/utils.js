@@ -67,6 +67,8 @@ export { default as ServiceSectionBreak } from '../components/layout/serviceSect
 
 export { default as PrivateRoutes } from '../components/layout/privateRoutes/PrivateRoutes.js';
 
+export { default as SlidingSidebar2 } from '../components/layout/slidingSidebar2/SlidingSidebar2.jsx';
+
 /* -------------------------------------------------------------------------- */
 
 /* "pages" components: */
