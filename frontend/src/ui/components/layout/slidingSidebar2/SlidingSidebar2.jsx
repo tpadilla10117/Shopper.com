@@ -36,7 +36,7 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 
 				{NavbarData.map((item, index) => {
 					return (
-						<div key={index} className='slidingsidebar2-nav-item'>
+						
 							<NavLink 
 								to={item.path}
 								activeclassname='active'
@@ -46,7 +46,7 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 							>
 								{item.title}
 							</NavLink>
-						</div>
+						
 					);
 				})}
 

@@ -28,7 +28,14 @@
             text-decoration: none;
 
             .slidingsidebar2-nav-item {
-                border: 1px solid green;
+                /* border: 1px solid green; */
+                color: $text-primary;
+                padding: 20px 0px 20px 15px;
+                width: 100%;
+
+                &:hover {
+                    background: #F3F3F5;
+                }
                 
                 a {
                     text-decoration: none;
