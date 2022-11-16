@@ -17,6 +17,30 @@ export const Footer2Data = [
         footerLink4: 'About',
         footerLink5: 'About'
     },
+    {
+        footerLinksContainer: 2,
+        footerLinksWrapper: 'footer2-links-wrapper',
+        footerLinksItemsContainer: 'footer2-linksitems-container',
+        footerLinkTitleClassName:'footer2-linksitems-h3-title',
+        footerLinkTitle: 'About',
+        footerLink1: 'Portfolio',
+        footerLink2: 'Testimonials',
+        footerLink3: 'About',
+        footerLink4: 'About',
+        footerLink5: 'About'
+    },
+    {
+        footerLinksContainer: 3,
+        footerLinksWrapper: 'footer2-links-wrapper',
+        footerLinksItemsContainer: 'footer2-linksitems-container',
+        footerLinkTitleClassName:'footer2-linksitems-h3-title',
+        footerLinkTitle: 'About',
+        footerLink1: 'Portfolio',
+        footerLink2: 'Testimonials',
+        footerLink3: 'About',
+        footerLink4: 'About',
+        footerLink5: 'About'
+    },
 ];
 
 export const Footer2SocialMediaData = [
