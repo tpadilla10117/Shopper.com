@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
     Footer2Data,
     Footer2SocialMediaData
 } from '../../seed.js';
+import { Accordion } from '../../utils.js';
 import * as Scroll from 'react-scroll';
 
 let scroll = Scroll.animateScroll;
@@ -15,14 +16,20 @@ const scrollToTopOfPage = () => {
 
 function Footer2() {
 
-  return (
+    const [isAccordionActive, setIsAccordionActive ] = useState(false);
+
+    function handleAccordionActiveStatus() {
+        setIsAccordionActive(!isAccordionActive);
+    };
+
+    return (
     <footer className='footer2-parent-container'>
         <div className='footer2-wrapper'>
             {/* <p className='footer2-p-description'>
                     There are many variations of passages of Lorem Ipsum
-					available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
+                    available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
                     There are many variations of passages of Lorem Ipsum
-					available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
+                    available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
             </p> */}
 
             {/* <div className='footer2-center-section'>
@@ -47,14 +54,7 @@ function Footer2() {
                                     >
                                         {cardData.footerLinkTitle}
                                     </h3>
-                                    <NavLink
-                                        to=''
-                                        className='footer2-linksitems'
-                                        style={{textDecoration: 'none'}}
-                                    >
-                                        {cardData.footerLink1}
-
-                                    </NavLink>
+                                    
                                     <NavLink
                                         to=''
                                         className='footer2-linksitems'
@@ -78,14 +78,19 @@ function Footer2() {
                         )
                     })
                 }
+                
             </div>
+
+            <Accordion
+                buttonClassName={'footer2'}
+            />
 
             <section className='footer2-socialmedia-parent-container'>
                 <div className='footer2-socialmedia-wrapper'>
                     <NavLink
                         to='/'
                         className='footer2-socialmedia-logo'
-                        style={{ textDecoration: 'nonoe' }}
+                        style={{ textDecoration: 'none' }}
                         onClick={scrollToTopOfPage}
                     >
                         SHOPPER
@@ -118,7 +123,7 @@ function Footer2() {
 
         </div>
     </footer>
-  )
+    )
 
 };
 

@@ -1,6 +1,9 @@
 /* This components handles exports in the main App: */
 
 /* "layout" components: */
+
+export { default as Accordion } from '../components/layout/accordion/Accordion.jsx';
+
 export { default as Nav } from '../components/layout/nav/Nav.jsx';
 
 export { default as Footer2 } from '../components/layout/footer2/Footer2.jsx';
