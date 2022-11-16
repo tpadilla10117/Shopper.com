@@ -72,23 +72,23 @@ export const NavbarData = [
 export const carouselItems = [
 	{
 		id: 1,
+		img: `${victoria}`,
+		title: 'WINTER COLLECTION',
+		desc: "DISCOVER A WORLD OF HOLIDAY MAGIC WITH ELEVATED GIFTS TO INSPIRE EVERYONE ON YOUR LIST",
+		bg: '#fcf1ed',
+	},
+	{
+		id: 2,
+		img: 'https://i.ibb.co/DG69bQ4/2.png',
+		title: 'EXPRESS YOURSELF',
+		desc: "DISCOVER ELEGANTLY TAILORED STYLES FOR OCCASIONS TO REMEMBER",
+		bg: '#fbf0f4',
+	},
+	{
+		id: 3,
 		img: 'https://i.ibb.co/cXFnLLV/3.png',
 		title: 'SUMMER SALE',
 		desc: "DON'T COMPROMISE ON STYLE! GET FLAT 25% OFF FOR NEW ARRIVALS.",
 		bg: '#f5fafd',
-	},
-	{
-		id: 2,
-		img: `${victoria}`,
-		title: 'AUTUMN COLLECTION',
-		desc: "DON'T COMPROMISE ON STYLE! GET FLAT 25% OFF FOR NEW ARRIVALS.",
-		bg: '#fcf1ed',
-	},
-	{
-		id: 3,
-		img: 'https://i.ibb.co/DG69bQ4/2.png',
-		title: 'EXPRESS YOURSELF',
-		desc: "DON'T COMPROMISE ON STYLE! GET FLAT 25% OFF FOR NEW ARRIVALS.",
-		bg: '#fbf0f4',
 	},
 ];

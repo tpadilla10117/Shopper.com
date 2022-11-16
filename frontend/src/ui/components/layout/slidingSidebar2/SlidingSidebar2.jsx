@@ -28,52 +28,49 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 	};
 
 	return (
-		<nav className={isSidebarVisible ? 'nav-menu active' : 'nav-menu'}>
-			<ul className='nav-menu-items' onClick={showSidebar}>
-				<li className='navbar-toggle'>
+		<nav className={isSidebarVisible ? 'slidingsidebar2 active' : 'slidingsidebar2'}>
+			<ul className='slidingsidebar2-items' onClick={showSidebar}>
+				<li className='slidingsidebar2-togglebtn'>
 					<p>X</p>
 				</li>
 
 				{NavbarData.map((item, index) => {
 					return (
-						<div key={index} className={item.cName}>
+						<div key={index} className='slidingsidebar2-nav-item'>
 							<NavLink 
 								to={item.path}
 								activeclassname='active'
-								className='nav-item'
+								className='slidingsidebar2-nav-item'
 								style={{ textDecoration: 'none' }}
 								key={index}
 							>
-								<li key={index} className={item.title}>
-									<span>{item.title}</span>
-								</li>
+								{item.title}
 							</NavLink>
 						</div>
 					);
-				})};
+				})}
 
 				{isUserLoggedIn && (
 					<NavLink
 						to='/my-account/saved-items'
-						className='nav-item'
+						className='slidingsidebar2-nav-item'
 						activeclassname='active'
 						style={{ textDecoration: 'none' }}
 					>
-						<span>
-							Saved Items
-						</span>
+						Saved Items
 					</NavLink>
 				)}
 
 				<NavLink
 					to={isUserLoggedIn ? '/' : '/signin'}
-					className='nav-item'
+					className='slidingsidebar2-nav-item'
 					activeclassname='active'
 					style={{ textDecoration: 'none' }}
+					onClick={userAuthToggler}
 				>
-					<span onClick={userAuthToggler}>
+					
 						{isUserLoggedIn ? 'Sign Out' : 'Sign In'}
-					</span>
+					
 				</NavLink>
 
 			</ul>

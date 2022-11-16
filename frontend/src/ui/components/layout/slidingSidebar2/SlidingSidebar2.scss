@@ -1,7 +1,7 @@
 @media screen and (max-width: 1000px) {
 
 
-    .nav-menu {
+    .slidingsidebar2 {
         background-color: $background-primary;
         width: 80%;
         height: 100vh;
@@ -14,12 +14,32 @@
         z-index: 999;
     }
 
-    .nav-menu.active {
+    .slidingsidebar2.active {
         right: 0;
         transition: 1s;
 
-    }
 
+        .slidingsidebar2-items {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            border: 1px solid red;
+
+            .slidingsidebar2-nav-item {
+                border: 1px solid green;
+                
+                a {
+                    text-decoration: none;
+                    color: $text-primary;
+                }
+            }
+
+           
+        }
+
+    }
 
 
 }

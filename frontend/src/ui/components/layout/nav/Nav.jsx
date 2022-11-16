@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { NavbarData } from '../../../seed.js';
 import { NavLink } from 'react-router-dom';
 import { scrollTop, SidebarModal, SlidingSidebar2 } from '../../utils.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { navToggler } from '../../../reduxslices/navSlice.js';
+import { /* useDispatch, */ useSelector } from 'react-redux';
+/* import { navToggler } from '../../../reduxslices/navSlice.js'; */
 import { selectItems } from '../../../reduxslices/basketslice.js';
 
 
