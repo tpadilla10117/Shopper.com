@@ -14,11 +14,7 @@
         z-index: 999;
         box-shadow: rgb(0 0 0 / 30%) 0px 1px 2px 0px;
         backdrop-filter: blur(5px);
-    }
 
-    .slidingsidebar2.active {
-        right: 0;
-        transition: 1s;
 
         .slidingsidebar2-items {
             width: 100%;
@@ -26,26 +22,54 @@
             flex-direction: column;
             align-items: flex-start;
             text-decoration: none;
+            position: relative;
 
-            .slidingsidebar2-nav-item {
-                /* border: 1px solid green; */
-                color: $text-primary;
-                padding: 20px 0px 20px 15px;
+            .slidingsidebar2-togglebtn {
+                /* border: 1px solid pink; */
+                display: flex;
+                justify-content: flex-end;
                 width: 100%;
+                /* position: absolute;
+                top: 0;
+                right: 0; */
+                margin: 10px 0 0px 0;
+                padding-right: 20px;
+            }
 
-                &:hover {
-                    background: #F3F3F5;
-                }
-                
-                a {
-                    text-decoration: none;
+            .slidingsidebar2-nav-item-wrapper {
+
+                /* border:1px solid yellow; */
+                /* margin-top: 25px; */
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .slidingsidebar2-nav-item {
+                    /* border: 1px solid green; */
                     color: $text-primary;
+                    padding: 20px 0px 20px 15px;
+                    width: 100%;
+    
+                    &:hover {
+                        background: #F3F3F5;
+                    }
+                    
+                    a {
+                        text-decoration: none;
+                        color: $text-primary;
+                    }
                 }
             }
 
+
            
         }
+    }
 
+    .slidingsidebar2.active {
+        right: 0;
+        transition: 1s;
     }
 
 

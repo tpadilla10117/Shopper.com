@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userData, logout } from '../../../reduxslices/authSlice.js';
 import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
 import { emptyUsersSavedItems } from '../../../reduxslices/savedItemsSlice.js';
+import CloseIcon from '@mui/icons-material/Close';
 
 function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 	const navigateRoutes = useNavigate();
@@ -30,13 +31,15 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 	return (
 		<nav className={isSidebarVisible ? 'slidingsidebar2 active' : 'slidingsidebar2'}>
 			<ul className='slidingsidebar2-items' onClick={showSidebar}>
-				<li className='slidingsidebar2-togglebtn'>
-					<p>X</p>
-				</li>
+				<div className='slidingsidebar2-togglebtn'>
+					<CloseIcon/>
+				</div>
 
-				{NavbarData.map((item, index) => {
-					return (
-						
+				<div className='slidingsidebar2-nav-item-wrapper'>
+
+					{NavbarData.map((item, index) => {
+						return (
+							
 							<NavLink 
 								to={item.path}
 								activeclassname='active'
@@ -46,32 +49,36 @@ function SlidingSidebar2( {isSidebarVisible, showSidebar} ) {
 							>
 								{item.title}
 							</NavLink>
-						
-					);
-				})}
+							
+						);
+					})}
 
-				{isUserLoggedIn && (
+					{isUserLoggedIn && (
+						<NavLink
+							to='/my-account/saved-items'
+							className='slidingsidebar2-nav-item'
+							activeclassname='active'
+							style={{ textDecoration: 'none' }}
+						>
+							Saved Items
+						</NavLink>
+					)}
+
 					<NavLink
-						to='/my-account/saved-items'
+						to={isUserLoggedIn ? '/' : '/signin'}
 						className='slidingsidebar2-nav-item'
 						activeclassname='active'
 						style={{ textDecoration: 'none' }}
+						onClick={userAuthToggler}
 					>
-						Saved Items
+						
+							{isUserLoggedIn ? 'Sign Out' : 'Sign In'}
+						
 					</NavLink>
-				)}
 
-				<NavLink
-					to={isUserLoggedIn ? '/' : '/signin'}
-					className='slidingsidebar2-nav-item'
-					activeclassname='active'
-					style={{ textDecoration: 'none' }}
-					onClick={userAuthToggler}
-				>
-					
-						{isUserLoggedIn ? 'Sign Out' : 'Sign In'}
-					
-				</NavLink>
+				</div>
+
+				
 
 			</ul>
 		</nav>
