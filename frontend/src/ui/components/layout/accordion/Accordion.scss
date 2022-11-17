@@ -1,4 +1,4 @@
-/* TODO: Testing out an accordion I'm building: */
+/* Styles for Accordion.jsx: */
 
 .accordion-parent-container {
     background-color: $background-primary;
@@ -14,8 +14,7 @@
     transition: 0.4s;
 
     .accordion-wrapper {
-        /* border: 1px solid red; */
-
+        transition: all .5s ease-in-out;
         .accordion-titlecontent{
             width: 100%;
             display: flex;
@@ -26,32 +25,25 @@
         .accordion-content {
             color: $text-light;
             max-height: 0;
+            transition: all 0.3s ease-in-out;
             overflow: hidden;
+
+            &.active {
+                max-height: 150%;
+                /* transition: 0.1s ease-in-out; */
+                margin-top: 5px;
+            }
         }
-    }
+    };
 
     &.active {
-
+        
         .accordion-wrapper {
-
+            
             .accordion-titlecontent{
                 font-weight: bolder;
-                
-            }
-
-            .accordion-content {
-                
-                /* transform: translateY(10%); */
-                /* transition: all .5s ease-in-out; */
-                transition: max-height 0.2s ease-out;
-               
+                transition: 0.1s ease-in-out;
             }
         }
-        
-    }
-
-
-   
+    }   
 }
-
-/* -------------------------------- */

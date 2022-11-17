@@ -22,7 +22,7 @@ function Accordion( ) {
                     {isAccordionActive ? <RemoveIcon/> : <AddIcon/>}
                 </div>
                 <div 
-                    className={isAccordionActive ? `accordion--content active` : `accordion-content`}  
+                    className={isAccordionActive ? `accordion-content active` : `accordion-content`}  
                 >
                     {isAccordionActive && <p>Big Reveal</p>}
                     {isAccordionActive && <p>Big Reveal</p>}
