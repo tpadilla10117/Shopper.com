@@ -1,12 +1,14 @@
 import React from 'react';
-import { Send } from '@material-ui/icons';
+import SendIcon from '@mui/icons-material/Send';
 
 function Newsletter() {
 	return (
 		<section className='newsletter-parent-container'>
-			<h1 className='newsletter-title'>Sign Up For Email Alerts</h1>
+			<h2 className='newsletter-title'>
+				15% Off Your First Order
+			</h2>
 			<p className='newsletter-description'>
-				You'll receive exclusive offers and first access to products.
+				Want exclusive offers and first access to products? Sign up for email alerts.
 			</p>
 
 			<div className='newsletter-info-parent-container'>
@@ -15,7 +17,7 @@ function Newsletter() {
 					placeholder='Enter Your Email'
 				/>
 				<button>
-					<Send />
+					<SendIcon />
 				</button>
 			</div>
 		</section>
