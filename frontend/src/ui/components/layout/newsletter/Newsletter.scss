@@ -8,7 +8,7 @@
     padding: 15px;
 
     .newsletter-title {
-        font-size: $extralarge-heading-h1;
+        font-size: $primary-heading-h1;
         margin: 0 0 20px 0;
     }
 
@@ -35,6 +35,7 @@
             border: none;
             flex: 8;
             padding: 0 0 0 8px;
+            border-radius: 50px;
         }
 
         button {
