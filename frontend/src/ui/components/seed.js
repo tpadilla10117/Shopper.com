@@ -34,14 +34,22 @@ export const Footer2Data = [
         footerLinksWrapper: 'footer2-links-wrapper',
         footerLinksItemsContainer: 'footer2-linksitems-container',
         footerLinkTitleClassName:'footer2-linksitems-h3-title',
-        footerLinkTitle: 'About',
-        footerLink1: 'Portfolio',
-        footerLink2: 'Testimonials',
-        footerLink3: 'About',
-        footerLink4: 'About',
+        footerLinkTitle: 'Help',
+        footerLink1: 'Return Policies',
+        footerLink2: 'Shipping Policies',
+        footerLink3: 'Contact',
+        footerLink4: 'Feedback',
         footerLink5: 'About'
     },
 ];
+
+
+/* export const FooterAccordionNavlinkData = [
+    {
+        id: 1,
+        linkTitle1: ''
+    }
+]; */
 
 export const Footer2SocialMediaData = [
     {

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
@@ -28,7 +29,7 @@ function Accordion( {titleContent, itemContent, index} ) {
             {/*Below will be the dynamic content  */}
                 <div className='accordion-item'>
                     <div className={`accordion-item-titlecontent`}>
-                        <p>{titleContent}</p>
+                        <h3>{titleContent}</h3>
                         {isAccordionActive ? <RemoveIcon/> : <AddIcon/>}
                     </div>
                     <div 
@@ -36,7 +37,13 @@ function Accordion( {titleContent, itemContent, index} ) {
                         ref={accordionInstance}
                         style={{ maxHeight: `${currentHeight}` }}
                     >
-                        <p>{itemContent}</p>    
+                        <NavLink
+                            to=''
+                            style={{ textDecoration:'none' }}
+                            className='accordion-item-link'
+                        >
+                            {itemContent}
+                        </NavLink>    
                     </div>
                 </div>
             </div>
