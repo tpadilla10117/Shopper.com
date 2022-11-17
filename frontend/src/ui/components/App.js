@@ -2,20 +2,21 @@ import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Routes, Route } from 'react-router-dom';
 import {
-	Header,
-	Landing,
 	About,
-	Signin,
-	MyAccountPg,
-	SavedItemsPg,
 	CheckoutPg,
-	ProductsPg,
-	OrderPg,
-	SuccessPg,
 	Footer,
+	Footer2,
+	Header,
 	IndividualProductPg,
-	Spinner,
+	Landing,
+	MyAccountPg,
+	OrderPg,
 	PrivateRoutes,
+	ProductsPg,
+	SavedItemsPg,
+	Signin,
+	Spinner,
+	SuccessPg,
 } from './utils.js';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -82,7 +83,7 @@ function App() {
 				<Route path='/checkout' element={<CheckoutPg />} />
 			</Routes>
 
-			<Footer />
+			<Footer2 />
 		</main>
 	);
 }

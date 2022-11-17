@@ -1,0 +1,34 @@
+/* Styles for Accordion.jsx: */
+
+.accordion-parent-container {
+    background-color: $background-primary;
+    cursor: pointer;
+    /* padding: 10px; */
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+
+    .accordion-wrapper {
+        border-top: 1px solid #d5d6d6;
+        /* border-bottom: 1px solid #d5d6d6; */
+        padding: 10px;
+
+        .accordion-item {
+
+            .accordion-item-titlecontent{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .accordion-item-content {
+                color: $text-light;
+                overflow: auto;
+                transition: max-height 0.3s ease-in-out;
+            }
+        }
+    };
+}
