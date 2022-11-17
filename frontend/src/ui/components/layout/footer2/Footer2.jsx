@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
     Footer2Data,
@@ -15,12 +15,6 @@ const scrollToTopOfPage = () => {
 
 
 function Footer2() {
-
-    const [isAccordionActive, setIsAccordionActive ] = useState(false);
-
-    function handleAccordionActiveStatus() {
-        setIsAccordionActive(!isAccordionActive);
-    };
 
     return (
     <footer className='footer2-parent-container'>
@@ -81,7 +75,18 @@ function Footer2() {
                 
             </div>
 
-            <Accordion/>
+            {
+                Footer2Data.map( (cardData, index) => {
+                    return (
+                        <Accordion
+                            key={index}
+                            index={index}
+                            titleContent={cardData.footerLinkTitle}
+                            itemContent={cardData.footerLink1}
+                        />
+                    )
+                })
+            }
 
             <section className='footer2-socialmedia-parent-container'>
                 <div className='footer2-socialmedia-wrapper'>
