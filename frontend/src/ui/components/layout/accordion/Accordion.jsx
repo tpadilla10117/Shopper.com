@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-function Accordion( { buttonClassName } ) {
+function Accordion( ) {
 
     const [isAccordionActive, setIsAccordionActive ] = useState(false);
 
@@ -13,17 +13,19 @@ function Accordion( { buttonClassName } ) {
     return (
         <button
             type='button'
-            className={isAccordionActive ? `${buttonClassName}-accordion-linksitems-parent-container active` : `${buttonClassName}-accordion-linksitems-parent-container`}
+            className={isAccordionActive ? `accordion-parent-container active` : `accordion-parent-container`}
             onClick={handleAccordionActiveStatus}
         >
-            <div className={`${buttonClassName}-accordion-linksitems-wrapper`}>
-                <div className={`${buttonClassName}-accordion-linksitems-titlecontent`}>
+            <div className={`accordion-wrapper`}>
+                <div className={`accordion-titlecontent`}>
                     <p>Title</p>
                     {isAccordionActive ? <RemoveIcon/> : <AddIcon/>}
                 </div>
                 <div 
-                    className={isAccordionActive ? `${buttonClassName}-accordion-linksitems-content active` : `${buttonClassName}-accordion-linksitems-content`}  
+                    className={isAccordionActive ? `accordion--content active` : `accordion-content`}  
                 >
+                    {isAccordionActive && <p>Big Reveal</p>}
+                    {isAccordionActive && <p>Big Reveal</p>}
                     {isAccordionActive && <p>Big Reveal</p>}
                 </div>
             </div>

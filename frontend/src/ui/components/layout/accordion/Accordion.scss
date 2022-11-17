@@ -1,0 +1,57 @@
+/* TODO: Testing out an accordion I'm building: */
+
+.accordion-parent-container {
+    background-color: $background-primary;
+    border-top: 1px solid #d5d6d6;
+    border-bottom: 1px solid #d5d6d6;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+
+    .accordion-wrapper {
+        /* border: 1px solid red; */
+
+        .accordion-titlecontent{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            color: $text-light;
+            max-height: 0;
+            overflow: hidden;
+        }
+    }
+
+    &.active {
+
+        .accordion-wrapper {
+
+            .accordion-titlecontent{
+                font-weight: bolder;
+                
+            }
+
+            .accordion-content {
+                
+                /* transform: translateY(10%); */
+                /* transition: all .5s ease-in-out; */
+                transition: max-height 0.2s ease-out;
+               
+            }
+        }
+        
+    }
+
+
+   
+}
+
+/* -------------------------------- */

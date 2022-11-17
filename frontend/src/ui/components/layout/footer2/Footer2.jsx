@@ -81,9 +81,7 @@ function Footer2() {
                 
             </div>
 
-            <Accordion
-                buttonClassName={'footer2'}
-            />
+            <Accordion/>
 
             <section className='footer2-socialmedia-parent-container'>
                 <div className='footer2-socialmedia-wrapper'>
