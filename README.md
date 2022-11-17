@@ -126,7 +126,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 ## User Flows:
 #### Main Purchase Flow (User Checkout Flow):
-![](diagrams/ux/User flow_ Shopper.com_MainPurchaseFlow.pptx.png)
+![](diagrams/ux/Userflow_Shopper.com_MainPurchaseFlow.pptx.png)
 
 ## ERD & System Design:
 ![](diagrams/assets/E-commerce%20Template_ERD.png)
