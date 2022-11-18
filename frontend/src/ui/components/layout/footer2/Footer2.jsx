@@ -82,7 +82,10 @@ function Footer2() {
                             key={index}
                             index={index}
                             titleContent={cardData.footerLinkTitle}
-                            itemContent={cardData.footerLink1}
+                            navLink1={cardData.footerLink1}
+                            navLink2={cardData.footerLink2}
+                            navLink3={cardData.footerLink3}
+                            navLink4={cardData.footerLink4}
                         />
                     )
                 })

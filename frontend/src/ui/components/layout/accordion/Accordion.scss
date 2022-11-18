@@ -25,9 +25,18 @@
             }
     
             .accordion-item-content {
-                color: $text-light;
                 overflow: auto;
                 transition: max-height 0.3s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                /* line-height: 1.5; */
+                
+                .accordion-item-link {
+                    color: $text-light;
+                    text-decoration: none;
+                    margin-top: 10px;
+                    font-size: $p-txt-small;
+                }
             }
         }
     };
