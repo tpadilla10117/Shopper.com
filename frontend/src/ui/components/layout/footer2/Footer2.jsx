@@ -54,6 +54,14 @@ function Footer2() {
                                         className='footer2-linksitems'
                                         style={{textDecoration: 'none'}}
                                     >
+                                        {cardData.footerLink1}
+
+                                    </NavLink>
+                                    <NavLink
+                                        to=''
+                                        className='footer2-linksitems'
+                                        style={{textDecoration: 'none'}}
+                                    >
                                         {cardData.footerLink2}
 
                                     </NavLink>
@@ -63,6 +71,14 @@ function Footer2() {
                                         style={{textDecoration: 'none'}}
                                     >
                                         {cardData.footerLink3}
+
+                                    </NavLink>
+                                    <NavLink
+                                        to=''
+                                        className='footer2-linksitems'
+                                        style={{textDecoration: 'none'}}
+                                    >
+                                        {cardData.footerLink4}
 
                                     </NavLink>
 
@@ -75,6 +91,7 @@ function Footer2() {
                 
             </div>
 
+    {/* Mobile View: */}
             {
                 Footer2Data.map( (cardData, index) => {
                     return (

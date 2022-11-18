@@ -36,6 +36,11 @@
                     text-decoration: none;
                     margin-top: 10px;
                     font-size: $p-txt-small;
+
+                    &:hover {
+                        color: $text-highlight;
+                        transition: 0.3s ease-out;
+                    }
                 }
             }
         }

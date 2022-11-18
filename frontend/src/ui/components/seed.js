@@ -11,10 +11,10 @@ export const Footer2Data = [
         footerLinksItemsContainer: 'footer2-linksitems-container',
         footerLinkTitleClassName:'footer2-linksitems-h3-title',
         footerLinkTitle: 'About',
-        footerLink1: 'Portfolio',
-        footerLink2: 'Testimonials',
-        footerLink3: 'About',
-        footerLink4: 'Thing'
+        footerLink1: 'About Shopper',
+        footerLink2: 'Accessibility',
+        footerLink3: 'Terms',
+        footerLink4: 'Privacy Policy'
     },
     {
         footerLinksContainer: 2,
@@ -22,10 +22,10 @@ export const Footer2Data = [
         footerLinksItemsContainer: 'footer2-linksitems-container',
         footerLinkTitleClassName:'footer2-linksitems-h3-title',
         footerLinkTitle: 'My-Account',
-        footerLink1: 'Saved Items',
+        footerLink1: 'Account',
         footerLink2: 'Orders',
-        footerLink3: 'Account',
-        footerLink4: 'About',
+        footerLink3: 'Saved Items',
+        footerLink4: '',
     },
     {
         footerLinksContainer: 3,
