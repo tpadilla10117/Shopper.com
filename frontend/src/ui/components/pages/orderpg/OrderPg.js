@@ -6,6 +6,7 @@ import {
 	selectUsersOrders,
 	getAUsersOrders,
 } from '../../../reduxslices/ordersSlice.js';
+import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
 import { userData } from '../../../reduxslices/authSlice.js';
 
 function OrderPg() {
@@ -13,15 +14,15 @@ function OrderPg() {
 	const dispatch = useDispatch();
 	const user = useSelector(userData);
 	const usersOrderItems = useSelector(selectUsersOrders);
-	console.log(usersOrderItems);
 
 	/* TODO: need to update the page when a new item is added */
 	useEffect(() => {
 		if (usersOrderItems.length === 0) {
 			dispatch(getAUsersOrders(user.recoveredData.id));
-		} else {
-			return;
-		}
+			/* console.log('From the useEffect:', usersOrderItems); */
+		};
+
+		return;
 	}, [dispatch, usersOrderItems, user]);
 
 	return (
