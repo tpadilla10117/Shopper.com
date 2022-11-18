@@ -11,23 +11,21 @@ export const Footer2Data = [
         footerLinksItemsContainer: 'footer2-linksitems-container',
         footerLinkTitleClassName:'footer2-linksitems-h3-title',
         footerLinkTitle: 'About',
-        footerLink1: 'Portfolio',
-        footerLink2: 'Testimonials',
-        footerLink3: 'About',
-        footerLink4: 'About',
-        footerLink5: 'About'
+        footerLink1: 'About Shopper',
+        footerLink2: 'Accessibility',
+        footerLink3: 'Terms',
+        footerLink4: 'Privacy Policy'
     },
     {
         footerLinksContainer: 2,
         footerLinksWrapper: 'footer2-links-wrapper',
         footerLinksItemsContainer: 'footer2-linksitems-container',
         footerLinkTitleClassName:'footer2-linksitems-h3-title',
-        footerLinkTitle: 'About',
-        footerLink1: 'Portfolio',
-        footerLink2: 'Testimonials',
-        footerLink3: 'About',
-        footerLink4: 'About',
-        footerLink5: 'About'
+        footerLinkTitle: 'My-Account',
+        footerLink1: 'Account',
+        footerLink2: 'Orders',
+        footerLink3: 'Saved Items',
+        footerLink4: '',
     },
     {
         footerLinksContainer: 3,
@@ -39,17 +37,8 @@ export const Footer2Data = [
         footerLink2: 'Shipping Policies',
         footerLink3: 'Contact',
         footerLink4: 'Feedback',
-        footerLink5: 'About'
     },
 ];
-
-
-/* export const FooterAccordionNavlinkData = [
-    {
-        id: 1,
-        linkTitle1: ''
-    }
-]; */
 
 export const Footer2SocialMediaData = [
     {

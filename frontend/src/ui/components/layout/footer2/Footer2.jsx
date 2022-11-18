@@ -54,6 +54,14 @@ function Footer2() {
                                         className='footer2-linksitems'
                                         style={{textDecoration: 'none'}}
                                     >
+                                        {cardData.footerLink1}
+
+                                    </NavLink>
+                                    <NavLink
+                                        to=''
+                                        className='footer2-linksitems'
+                                        style={{textDecoration: 'none'}}
+                                    >
                                         {cardData.footerLink2}
 
                                     </NavLink>
@@ -63,6 +71,14 @@ function Footer2() {
                                         style={{textDecoration: 'none'}}
                                     >
                                         {cardData.footerLink3}
+
+                                    </NavLink>
+                                    <NavLink
+                                        to=''
+                                        className='footer2-linksitems'
+                                        style={{textDecoration: 'none'}}
+                                    >
+                                        {cardData.footerLink4}
 
                                     </NavLink>
 
@@ -75,6 +91,7 @@ function Footer2() {
                 
             </div>
 
+    {/* Mobile View: */}
             {
                 Footer2Data.map( (cardData, index) => {
                     return (
@@ -82,7 +99,10 @@ function Footer2() {
                             key={index}
                             index={index}
                             titleContent={cardData.footerLinkTitle}
-                            itemContent={cardData.footerLink1}
+                            navLink1={cardData.footerLink1}
+                            navLink2={cardData.footerLink2}
+                            navLink3={cardData.footerLink3}
+                            navLink4={cardData.footerLink4}
                         />
                     )
                 })

@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-function Accordion( {titleContent, itemContent, index} ) {
+function Accordion( {titleContent, navLink1, navLink2, navLink3, navLink4, index } ) {
 
     const [isAccordionActive, setIsAccordionActive ] = useState(false);
     const [currentHeight, setCurrentHeight] = useState('0px');
 
     const accordionInstance = useRef(null);
-
+    
 /* This handles the accordion state and checks the scrollHeight property on an element to adjust it's height: */
     function handleAccordionActiveStatus() {
         setIsAccordionActive(!isAccordionActive);
@@ -37,13 +37,36 @@ function Accordion( {titleContent, itemContent, index} ) {
                         ref={accordionInstance}
                         style={{ maxHeight: `${currentHeight}` }}
                     >
+                        
                         <NavLink
                             to=''
                             style={{ textDecoration:'none' }}
                             className='accordion-item-link'
                         >
-                            {itemContent}
-                        </NavLink>    
+                            {navLink1}
+                        </NavLink> 
+                        <NavLink
+                            to=''
+                            style={{ textDecoration:'none' }}
+                            className='accordion-item-link'
+                        >
+                            {navLink2}
+                        </NavLink> 
+                        <NavLink
+                            to=''
+                            style={{ textDecoration:'none' }}
+                            className='accordion-item-link'
+                        >
+                            {navLink3}
+                        </NavLink> 
+                        <NavLink
+                            to=''
+                            style={{ textDecoration:'none' }}
+                            className='accordion-item-link'
+                        >
+                            {navLink4}
+                        </NavLink> 
+                       
                     </div>
                 </div>
             </div>
