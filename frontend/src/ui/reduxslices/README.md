@@ -7,3 +7,49 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 
+<!-- Orders Page flow from the frontend (client) to the server (backend) -->
+
+    1) After a user is logged-in, they navigate to /orders/1.  When they arrive on the page, some things happen in the frontend code:
+        - OrderPg.js ->
+            Frontend:
+
+            - a) (line 16): the Redux hook, useSelector, pulls in the user's data 
+            - b) (line 19): The React useEffect hook fires, and a dispatch event is fired subsequently.  The dispatch event dispatches an action, getAUsersOrders(), to the Redux store.
+                - getAUsersOrders(user.recoveredData.id) takes in the id property for an argument
+
+        - ordersSlice.js ->
+            Frontend:
+
+            - a) (Line 16): An async thunk called, getAUsersOrders, is fired with 'user_id' as the argument (this is the value passed in from the frontend).  The thunk is middleware that accepts 2 arguments:
+                - 1) a 'partial action type string' that generates action types for pending, fulfilled, and rejected). Here it is called 'get/usersOrders' and
+                - 2)  'payload creation callback' that does the actual async request and returns a Promise.  It then automatically dispatches the actions before and after the request, with the right arguments.  Here it is 'usersOrderData'.  usersOrderData awaits the imported 'individualUsersOrdersRequest' function from ordersService.js
+                
+        - ordersService.js ->
+            Frontend:
+            
+            - a) (Line 15): The async function, individualUsersOrdersRequest takes the 'user_id' passed in from the ordersSlice.js thunk on line 16, and utilizes the axios library to make a 'get' request to the orders/${user_id} route shown.  The API is route is hit, and the database queried.  When the promise is settled, I return the reponse.data to use for the UI.
+
+
+        <!-- backend/api/orders.js: -->
+            Backend:
+
+            - a) My API is hit at the /orders/:userId route on line 31.  In my example, this async function is run when individualUsersOrdersRequest makes a GET request.  The result is a call to the PostgreSQL database via Line 35, getAllOrdersByAUserId(), which again receives the userId that was passed via the initial request.
+
+        <!-- backend/db/dbadapters/orders.js: -->
+
+            Backend:
+
+            - a) Line 24: Continuing th example, a SQL query is made with the function getAllOrdersByAUserId(user_id).  It accepts the user_id I've been passing through the chain, queries the rows from the orders table in the database, and returns all of the orders data  from the appropriate user based on the id.
+
+
+        - ordersSlice.js ->
+            Frontend
+
+            - a) (Line 44): A slice of state is created with createSlice(); here is is called 'ordersSlice'.  The ordersSlice is given a name called 'orders' to be used in action types, some initialState initialized on line 37, and some extraReducers on line 52
+
+            - b) The extraReducers on line 52 use the 'builder callback function' to add case reducers to define action types.
+
+                - For example. Line 60 adds a case reducer for the fulfilled status of getAUsersOrders thunk.  When the getAUsersOrders thunk is fulfilled via the Promise-chain extending from the initial API call to the db, it returns a 'status' of 'succeeded' as well as an action that updates the state.  In this particular example, the payload is the logged-in user's orders
+
+            - c) From there, I export the appropriate selector function that targets the state I wish to display in the UI with the useSelector hook.  
+                - e.g. line 79 exports selectUsersOrders, which is the logged-in user's orders that will be read with the useSelector hook back in OrderPg.js
