@@ -1,4 +1,4 @@
-/* ordersService.js uses axios for GET requests to my backend (The 'payload creation callback; used in an Async Thunk): */
+/* ordersService.js uses axios for GET requests to my backend (The 'payload creation callback' used in an Async Thunk): */
 
 import axios from "axios";
 

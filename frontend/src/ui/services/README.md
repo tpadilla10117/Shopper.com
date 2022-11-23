@@ -7,3 +7,79 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 
+<!-- SavedItems flow from the frontend (client) to the server(backend): -->
+
+    1) When a user navigates to /signin, they can proceed to register an account or log-in. When a user successfully logs in, some logic occurs from the components/layout/login/Login.jsx file:
+        - Login.jsx ->
+            Frontend:
+
+            - a) (line 32): The useEffect fires if the reduxObject variable (which references the reduxStateObject from authSlice.js), has the following property:
+
+
+                {
+                    auth: {
+                        isLoggedIn: true.
+                    }
+                }
+
+            - b) If the above isLoggedIn property is set to true, then a dispatch event (action) is fired into the Redux Global Store. In this flow, the retriveUsersSavedItems(user.recoveredData.id) is fired.  The argument it receives is a number that represents the 'id' key corresponding to a user in the database.  This number is needed for the logic in the savedItemsSlice.js as well as the SavedItemsService.js.
+
+        - savedItemsSlice.js ->
+            Frontend:
+
+            - a) (Line 6): An async thunk called, retrieveUsersSavedItems, is fired with 'user_id' as the argument (this is the value passed in from the frontend).  The thunk is middleware that accepts 2 arguments:
+                - 1) a 'partial action type string' that generates action types for pending, fulfilled, and rejected). Here it is called 'items' and
+                - 2)  'payload creation callback' that does the actual async request and returns a Promise.  It then automatically dispatches the actions before and after the request, with the right arguments.  Here the thunk is 'retrieveUsersSavedItems'.  retrieveUsersSavedItems awaits the imported 'userSavedItemsRequest' function from savedItemsService.js, which takes the 'user_id' number passed from the frontend as an argument.  When it finishes, it returns an object called :
+                    {
+                        savedItems: data
+                    }
+
+                - the savedItems is structured as such:
+                    {
+                        category_id: 1,
+                        created_at: "2022-11-23T00:28:37.000Z",
+                        deleted_at: null,
+                        description: "dwdwdwdw",
+                        id: 1,
+                        image: "https://fakestoreapi....jpg",
+                        modified_at: null,
+                        price: "55.99",
+                        product_id: 3,
+                        productid: "93813718292",
+                        subcategory: "jackets",
+                        title: "Mens Cotton Jacket",
+                        user_id: 1,
+                    },
+                    {
+                        ....
+                    }
+                
+        - savedItemsService.js ->
+            Frontend:
+            
+            - a) (Line 5): The async function, userSavedItemsRequest takes the 'user_id' passed in from the savedItemsSlice.js thunk on line 6, and utilizes the axios library to make a 'get' request to the MY_API_URL/users/${user_id}/my-account/saved-items route shown.  The API is route is hit, and the database queried.  When the promise is settled, I return the reponse.data to use for the UI.
+
+
+        <!-- backend/api/users.js: -->
+            Backend:
+
+            - a) My API is hit at the '/:userId/my-account/saved-items' route on line 202.  In my example, this async function is run when userSavedItemsRequest makes a GET request.  The result is a call to the PostgreSQL database via Line 206, getUserById(), which again receives the userId that was passed via the initial request.  If the userId (number) is valid, the getSavedProductsByUserId() function is invoked.  The data that a user desires is sent on line 214.
+
+        <!-- backend/db/dbadapters/saved_products.js: -->
+
+            Backend:
+
+            - a) Line 44: Continuing the example, a SQL query is made with the function getSavedProductsByUserId(user_id).  It accepts the user_id I've been passing through the chain, queries the rows from the products table in the database, and returns all of the orders data for the appropriate user based on the id.
+
+
+        - savedItemsSlice.js ->
+            Frontend
+
+            - a) (Line 63): A slice of state is created with createSlice(); here is is called 'savedItemsSlice'.  The savedItemsSlice is given a name called 'items' to be used in action types, some initialState initialized on line 58, and some extraReducers on line 69
+
+            - b) The extraReducers on line 69 use the 'builder callback function' to add case reducers to define action types.
+
+                - For example. Line 71 adds a case reducer for the fulfilled status of retrieveUsersSavedItems thunk.  When the retrieveUsersSavedItems thunk is fulfilled via the Promise-chain extending from the initial API call to the db, it returns a 'status' of 'succeeded' as well as an action that updates the state.  In this particular example, the payload is the logged-in user's saved-items
+
+            - c) From there, I export the appropriate selector function that targets the state I wish to display in the UI with the useSelector hook.  
+                - e.g. line 91 exports selectUsersSavedItems, which is the logged-in user's savedItems that will be read with the useSelector hook back in SavedItemsPg.jsx

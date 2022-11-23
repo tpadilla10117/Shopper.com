@@ -15,14 +15,54 @@
 
             - a) (line 16): the Redux hook, useSelector, pulls in the user's data 
             - b) (line 19): The React useEffect hook fires, and a dispatch event is fired subsequently.  The dispatch event dispatches an action, getAUsersOrders(), to the Redux store.
-                - getAUsersOrders(user.recoveredData.id) takes in the id property for an argument
+                - getAUsersOrders(user.recoveredData.id) takes in the id property for an argument.  This 'id' is a number that is retrieved from the 'userData' in the Redux store:
+
+                {
+                    email: '',
+                    message: '',
+                    recoveredData: {
+                        iat: 123121,
+                        id: 1,
+                        username: 'trin'
+                    },
+                    token: 'wdwqdfqw'
+                }
 
         - ordersSlice.js ->
             Frontend:
 
             - a) (Line 16): An async thunk called, getAUsersOrders, is fired with 'user_id' as the argument (this is the value passed in from the frontend).  The thunk is middleware that accepts 2 arguments:
                 - 1) a 'partial action type string' that generates action types for pending, fulfilled, and rejected). Here it is called 'get/usersOrders' and
-                - 2)  'payload creation callback' that does the actual async request and returns a Promise.  It then automatically dispatches the actions before and after the request, with the right arguments.  Here it is 'usersOrderData'.  usersOrderData awaits the imported 'individualUsersOrdersRequest' function from ordersService.js
+                - 2)  'payload creation callback' that does the actual async request and returns a Promise.  It then automatically dispatches the actions before and after the request, with the right arguments.  Here it is 'usersOrderData'.  usersOrderData awaits the imported 'individualUsersOrdersRequest' function from ordersService.js.  When it finishes, it returns an object called :
+                    {
+                        usersOrderItems: usersOrderData
+                    }
+
+                - the usersOrderData is structured as such:
+                    {
+                        amount_total: "109.95",
+                        created_at: "2022-11-22T16:43:08.000Z",
+                        currency: "usd",
+                        deleted_at: null,
+                        id: 1,
+                        modified_at: null,
+                        order_items: [
+                            {
+                                created_at: "2022-11-22T16:43:08.000Z",
+                                deleted_at: null,
+                                id: 1,
+                                modified_at: null,
+                                orders_id: 1, 
+                                product_id: 1,
+                                quantity: 1
+                            },
+                            {
+                                ...
+                            }
+                        ],
+                        status: "completed",
+                        user_id: 1
+                    }
                 
         - ordersService.js ->
             Frontend:
@@ -39,7 +79,7 @@
 
             Backend:
 
-            - a) Line 24: Continuing th example, a SQL query is made with the function getAllOrdersByAUserId(user_id).  It accepts the user_id I've been passing through the chain, queries the rows from the orders table in the database, and returns all of the orders data  from the appropriate user based on the id.
+            - a) Line 24: Continuing the example, a SQL query is made with the function getAllOrdersByAUserId(user_id).  It accepts the user_id I've been passing through the chain, queries the rows from the orders table in the database, and returns all of the orders data  from the appropriate user based on the id.
 
 
         - ordersSlice.js ->

@@ -19,7 +19,6 @@ export const getAUsersOrders = createAsyncThunk(
 		try {
 			const usersOrderData =
 				await ordersService.individualUsersOrdersRequest(user_id);
-
 			return { usersOrderItems: usersOrderData };
 		} catch (error) {
 			console.error(error);
