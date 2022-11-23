@@ -28,7 +28,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 ## Deployment:
 
-- Limited Deploy: (https://shopper-react.onrender.com/)
+- Deploy: (https://shopper-react.onrender.com/)
 - **For full experience, follow cloning instructions below**
 
 ## Cloning Instructions:
@@ -132,6 +132,13 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 ![](diagrams/assets/E-commerce%20Template_ERD.png)
 
 ## Web Architecture:
+#### 3-Tier Architecture:
+
+| Tier                      | Description & Stack
+| ---------------------------------- |-------
+| [Presentation(web server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Client-side code.  A GUI built with HTML5, CSS, and JavaScript using React-Redux.  It is deployed on a separate server and can be viewed with at (https://shopper-react.onrender.com/).  It communicates with the other tiers of the app through API calls.
+| [Application](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Sever-side code written in Node.js/JavaScript.  The logic tier that supports my app's core functions.  It is hosted as a web-service through render.com.  
+| [Database](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | A relational database (PostgreSQL) that manages read/write access.  It is hosted on render.com as a separate entity.
 
 ## Redux Flow (State Management):
 ![](https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
