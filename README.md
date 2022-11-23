@@ -28,7 +28,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 ## Deployment:
 
-- Limited Deploy: (https://shopper-react.onrender.com/)
+- Deploy: (https://shopper-react.onrender.com/)
 - **For full experience, follow cloning instructions below**
 
 ## Cloning Instructions:
@@ -132,6 +132,20 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 ![](diagrams/assets/E-commerce%20Template_ERD.png)
 
 ## Web Architecture:
+#### 3-Tier Architecture:
+
+| Tier                      | Description & Stack
+| ---------------------------------- |-------
+| [Presentation(web server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Client-side code.  A user-interface built with HTML5, SCSS, and JavaScript using React-Redux.  It is deployed on a separate web-server and can be viewed with at (https://shopper-react.onrender.com/).  It communicates with the other tiers of the app through API calls and is where the end user interacts with the application.
+| [Application(application server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Server-side code written in Node.js/JavaScript.  The logic tier that supports my app's core functions and processes information collected from the presentation tier.  It can also add, delete, or modify data in the data (database) tier.  It is hosted as a web-service through render.com.  
+| [Data(database server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | A relational database (PostgreSQL) that manages read/write access.  It is hosted on render.com as a separate entity.
+
+##### Benefits of 3-Tier Architecture:
+- Because each tier runs on its own infrastructure, each tier can be developed simultaneously by a separate development team, and can be updated or scaled as needed without impacting the other tiers.  
+    - Faster Development: Because each tier can be developed simultaneously by different teams, an organization can bring the application to market faster, and programmers can use the latest and best languages and tools for each tier.
+    - Improved Scalability: Any tier can be scaled independently of ther others as needed.
+    - Improved Reliability: Any outages in one tier will be less likely to impact the availability or performance of other tiers.
+    - Improved Security: Because the presentation tier and data tier can't communicate directly, a well-designed application tier can function as a sort of intenral firewall, preventing SQL injections and other malicious exploits.
 
 ## Redux Flow (State Management):
 ![](https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)

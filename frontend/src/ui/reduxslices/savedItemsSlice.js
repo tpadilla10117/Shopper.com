@@ -8,7 +8,6 @@
         async (user_id) => {
             try {
                 const data = await savedItemsService.userSavedItemsRequest(user_id);
-                console.log("From retrieveUsersSavedItems Thunk:", data)
 
                 return { savedItems: data };
 
