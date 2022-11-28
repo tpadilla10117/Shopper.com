@@ -7,3 +7,34 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 
+<!-- Checkout Flow front frontend (client) to stripe & webhook: -->
+
+1) A user adds an item to their shopping cart. When they arrive on the /checkout route, a few things can happen:
+    - CheckoutPg.js - (Frontend):
+
+    a) If a user clicks the 'checkout now' button in the UI, a click handler will fire on line 76.
+    b) The click handler on line 28 called 'handleGuestCheckout', fires.  This is what happens:
+        - The imported Stripe.js constructor is used.  This function returns a PROMISE that resolves with a newly created Stripe object after Stripe.js loads.
+        - a Stripe Checkout Session is then created with the following data:
+            - {
+				items: items,
+				email: user.email,
+				user_id: user.recoveredData.id,
+			}
+
+            - items -> [
+                {
+                    category_id: 3,
+                    id: 1,
+                    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                    price: "109.95",
+                    productid: "93813718290",
+                    quantity: 1,
+                    subcategory: "bags",
+                    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                }
+            ]
+            - email -> a string representing a logged-in user's email address 
+            - user_id: a number representing a user
+
+        - Line 44) A user is redirected to Checkout, a Stripe-hosted page to securely collect payment information.
