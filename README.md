@@ -136,9 +136,9 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 | Tier                      | Description & Stack
 | ---------------------------------- |-------
-| [Presentation(web server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Client-side code.  A user-interface built with HTML5, SCSS, and JavaScript using React-Redux.  It is deployed on a separate web-server and can be viewed with at (https://shopper-react.onrender.com/).  It communicates with the other tiers of the app through API calls and is where the end user interacts with the application.
-| [Application(application server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Server-side code written in Node.js/JavaScript.  The logic tier that supports my app's core functions and processes information collected from the presentation tier.  It can also add, delete, or modify data in the data (database) tier.  It is hosted as a web-service through render.com.  
-| [Data(database server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | A relational database (PostgreSQL) that manages read/write access.  It is hosted on render.com as a separate entity.
+| [Presentation (web server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Client-side code.  A user-interface built with HTML5, SCSS, and JavaScript using React-Redux.  It is deployed on a separate web-server and can be viewed with at (https://shopper-react.onrender.com/).  It communicates with the other tiers of the app through API calls and is where the end user interacts with the application.
+| [Application (application server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | Server-side code written in Node.js/JavaScript.  The logic tier that supports my app's core functions and processes information collected from the presentation tier.  It can also add, delete, or modify data in the data (database) tier.  It is hosted as a web-service through render.com.  
+| [Data (database server)](https://www.techtarget.com/searchsoftwarequality/definition/3-tier-application) | A relational database (PostgreSQL) that manages read/write access.  It is hosted on render.com as a separate entity.
 
 ##### Benefits of 3-Tier Architecture:
 - Because each tier runs on its own infrastructure, each tier can be developed simultaneously by a separate development team, and can be updated or scaled as needed without impacting the other tiers.  
