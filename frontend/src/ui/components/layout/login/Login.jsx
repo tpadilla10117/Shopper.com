@@ -61,7 +61,7 @@ function Login() {
 					<input
 						id='login-form-input-box-password'
 						className='login-form-input-box'
-						type='text'
+						type='password'
 						placeholder='Password'
 						required
 						ref={pwordRef}

@@ -7,11 +7,12 @@
     height: 100%;
     display: flex;
     align-items: center;
-    overflow: auto;
+    overflow: hidden;
     z-index: 999;
     box-shadow: 0 0 10px #494f653b;
     animation: fadein .5s;
-    overflow-y: auto;
+    overflow-y: hidden;
+    justify-content: center;
 
     @keyframes fadein {
         from {
@@ -30,6 +31,10 @@
         display: flex;
         width: 100%;
         flex-direction: column;
+
+        @media screen and (min-width: 760px) {
+            width: 50%;
+        };
 
         .modal-header {
             position: relative;

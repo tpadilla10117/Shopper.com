@@ -9,7 +9,7 @@ const Modal = ({ children }) => {
 	const modalToggle = () => {
 		dispatch(handleModalVisibility());
 	};
-
+	
 	return (
 		<section
 			className='modal-parent-container'

@@ -26,8 +26,9 @@
     export const { handleModalVisibility, handleSignUpModalVisibility } = modalSlice.actions;
 
 /* Selectors - How I pull the info. from the Global Store slice: */
-    export const selectItems = (state) => state.modal.modalVisibility;
 
     export const selectSignUpModal = (state) => state.signUpModalVisibility;
+
+    export const selectModal = (state) => state.modal.modalVisibility;
 
     export default modalSlice.reducer;
