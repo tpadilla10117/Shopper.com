@@ -12,7 +12,6 @@ import productReducer from '../reduxslices/productSlice.js';
 import ordersReducer from '../reduxslices/ordersSlice.js';
 import loadingReducer from '../reduxslices/loadingSlice.js';
 import savedItemsReducer from '../reduxslices/savedItemsSlice.js';
-import { categoriesReducer } from '../reduxslices/productCategories/productCategories.reducer.js';
 
 /* Config for redux persist: */
 const persistConfig = {
@@ -29,7 +28,6 @@ const rootReducer = combineReducers({
 	products: productReducer,
 	orders: ordersReducer,
 	loader: loadingReducer,
-	productCategories: categoriesReducer,
 	savedItems: savedItemsReducer,
 });
 

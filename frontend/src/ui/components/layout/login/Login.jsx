@@ -3,21 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import { CtaButton } from '../../utils.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, reduxStateObject } from '../../../reduxslices/authSlice.js';
-import { clearMessage } from '../../../reduxslices/authmessageSlice.js';
-import { userData } from '../../../reduxslices/authSlice.js';
+import { clearErrMessage } from '../../../reduxslices/authSlice.js';
+import { userData, loginErrorMessage } from '../../../reduxslices/authSlice.js';
 import { retrieveUsersSavedItems } from '../../../reduxslices/savedItemsSlice.js';
 
 function Login() {
-	const { message } = useSelector(state => state.message);
 	const reduxObject = useSelector(reduxStateObject);
 	const dispatch = useDispatch();
 	const navigateHome = useNavigate();
 	const nameRef = useRef();
 	const pwordRef = useRef();
 	const user = useSelector(userData);
+	const errorMsg = useSelector(loginErrorMessage);
+	
 
 	useEffect(() => {
-		dispatch(clearMessage());
+		dispatch(clearErrMessage());
 	}, [dispatch]);
 
 	/* My login handler to dispatch into global store: */
@@ -70,13 +71,14 @@ function Login() {
 					<CtaButton text={'Sign in'} myClass={'signin-button'} />
 				</div>
 
-				{message && (
+				{errorMsg && (
 					<div>
 						<div className='alert alert-danger' role='alert'>
-							{message}
+							{errorMsg}
 						</div>
 					</div>
 				)}
+
 			</form>
 		</section>
 	);

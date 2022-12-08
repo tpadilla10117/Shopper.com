@@ -22,7 +22,7 @@ function CheckoutPg() {
 	const stripePromise = loadStripe(
 		process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 	);
-console.log(items)
+
 	const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
 	const handleGuestCheckout = async () => {

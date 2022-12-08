@@ -90,7 +90,7 @@ webhookRouter.post(
 			/* Retrieve a Stripe Checkout session and its id: */
 			case 'checkout.session.completed':
 				const session = event.data.object;
-				
+				console.log('Fire from checkout session completedmy session object: ', session)
 				/* Expand the line_items 'product' property to get metadata:*/
 				const lineItemsProductDataExpanded =
 					await stripe.checkout.sessions.listLineItems(session.id, {
@@ -98,7 +98,7 @@ webhookRouter.post(
 					});
 
 				//Fulfill an order:
-
+					
 				return fulfillOrder(session, lineItemsProductDataExpanded)
 					.then(() => res.status(200).end())
 					.catch(err =>

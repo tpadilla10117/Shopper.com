@@ -58,7 +58,7 @@ export const login = createAsyncThunk(
 	async ({ username, password }, thunkAPI) => {
 		try {
 			const data = await authService.login(username, password);
-
+			
 			return { user: data };
 		} catch (error) {
 			const message =
@@ -67,8 +67,21 @@ export const login = createAsyncThunk(
 					error.response.data.message) ||
 				error.message ||
 				error.toString();
-			thunkAPI.dispatch(setMessage(message));
-			return thunkAPI.rejectWithValue();
+				console.log('Username and password from thunk: ', username)
+				console.log('Username and password from thunk: ', password)
+
+			/* TODO: Can dispatch my message here via error.toString() on line 69, */
+			/* But need to have a custom error somewhere... */
+
+			thunkAPI.dispatch(setMessage("The email address and password you entered doesn't match our records. Please try again"));
+			console.log('From the thunk:', error.response)
+			console.log('From the thunk:', message)
+			console.log('From the thunk:', error.response.data)
+			console.log('From the thunk:', error.message)
+			console.log('From the thunk, error object:', error)
+			
+			//Gets returned as a payload for the auth/login/rejected action
+			return thunkAPI.rejectWithValue("The email address and password you entered doesn't match our records. Please try again");
 		}
 	}
 );
@@ -108,6 +121,9 @@ const authSlice = createSlice({
                     state.isLoggedIn = false;
                     state.user = null;
                 }, */
+				clearErrMessage: () => {
+					return { message: '' };
+				},
 	},
 	extraReducers(builder) {
 		builder
@@ -121,6 +137,11 @@ const authSlice = createSlice({
 				state.status = 'succeeded';
 				state.user = action.payload.user;
 			})
+			.addCase(login.rejected, (state, action) => {
+				state.isLoggedIn = false;
+				state.status = 'Login Failed';
+				state.error = action.payload
+			})
 			.addCase(logout.fulfilled, (state, action) => {
 				state.isLoggedIn = false;
 				state.status = 'succeeded';
@@ -131,6 +152,10 @@ const authSlice = createSlice({
 
 /* User selector:  */
 export const userData = state => state.auth.user;
+
+export const loginErrorMessage = state => state.auth.error;
+
+export const { clearErrMessage } = authSlice.actions;
 
 export const testData = state => state.auth;
 

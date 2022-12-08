@@ -8,7 +8,7 @@ import { requireUser } from './utils.js';
 import {
 	createUser,
 	getAllUsers,
-	getUser,
+	/* getUser, */
 	getUserById,
 	getUserByUsername,
 } from '../db/dbadapters/users.js';
@@ -30,26 +30,10 @@ export const usersRouter = express.Router();
 /* const {JWT_SECRET} = process.env || 'notSoSecret'; */
 
 usersRouter.use((req, res, next) => {
-	console.log('A request is being made to /users');
-
 	/* res.send({ message: 'hello from /users!'}); */
+	console.log('A request is being made to /users');
 	next();
 });
-
-/* Errors Handling: */
-/* class ValidationError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'Validation Error';
-    }
-};
-
-class TypeError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'Type Error';
-    };
-}; */
 
 /* Route to getAllUsers : */
 
@@ -154,6 +138,7 @@ usersRouter.post('/login', async (req, res, next) => {
 				token: token,
 				email: user.email,
 			});
+
 		} else if (isMatch === false) {
 			next({
 				name: 'IncorrectCredentialsError',
@@ -161,7 +146,7 @@ usersRouter.post('/login', async (req, res, next) => {
 			});
 		}
 	} catch (error) {
-		console.log(error);
+		console.log('Error From the users Router: ');
 		next(error);
 	}
 });

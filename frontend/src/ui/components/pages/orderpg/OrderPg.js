@@ -6,7 +6,7 @@ import {
 	selectUsersOrders,
 	getAUsersOrders,
 } from '../../../reduxslices/ordersSlice.js';
-import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js';
+/* import { emptyUsersOrderItems } from '../../../reduxslices/ordersSlice.js'; */
 import { userData } from '../../../reduxslices/authSlice.js';
 
 function OrderPg() {
@@ -19,7 +19,6 @@ function OrderPg() {
 	useEffect(() => {
 		if (usersOrderItems.length === 0) {
 			dispatch(getAUsersOrders(user.recoveredData.id));
-			/* console.log('From the useEffect:', usersOrderItems); */
 		};
 
 		return;
@@ -47,14 +46,6 @@ function OrderPg() {
 								userId={orderCard.user_id}
 								currency={orderCard.currency}
 								order_items={orderCard.order_items}
-
-								/* TODO: Where will i get this info? */
-								/*  shippingstreet={orderCard.shippingstreet}
-                    shippingstreet2={orderCard.shippingstreet2}
-                    shippingzip={orderCard.shippingzip}
-                    shippingcity={orderCard.shippingcity}
-                    shippingcountry={orderCard.shippingcountry}
-                    shippingstate={orderCard.shippingstate} */
 							/>
 						);
 					})}

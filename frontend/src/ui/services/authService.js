@@ -42,9 +42,12 @@
             if(response.data.token) {
                 localStorage.setItem("user_id", JSON.stringify(response.data.recoveredData.id));
             };
-
+            
             return response.data;
         })
+       /*  .catch(function (error) {
+            console.log('error from login service!:', error);
+        }); */
     };
 
     const logout = () => {

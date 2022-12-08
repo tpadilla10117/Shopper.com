@@ -4,7 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import { client } from './db/client.js';
 import { apiRouter } from './api/index.js';
-/* import bodyParser from 'body-parser'; */
+import bodyParser from 'body-parser';
 /* import path from 'path';
 import { Provider } from 'react-redux'; */
 /* import App from '../frontend/src/ui/components/App.js'; */
@@ -20,7 +20,7 @@ server.use(express.static('public'));
 
 /* TODO: bodyParser passed here doesn't send the raw req.body that the webhook needs */
 
-/* server.use(bodyParser.json()); */
+server.use(bodyParser.json());
 
 server.use((req, _res, next) => {
 	console.log('<____Body Logger START____>');
