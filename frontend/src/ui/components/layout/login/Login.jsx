@@ -43,10 +43,12 @@ function Login() {
 				className='login-form-parent-container'
 				onSubmit={handleLogin}
 			>
-				<h1 className='login-form-h1'>Sign in to Shop</h1>
-				<h3 className='login-form-h3'>
-					Please sign in to your account
-				</h3>
+				<div className='login-form-heading-wrapper'>
+					<h1 className='login-form-h1'>Sign in to Shop</h1>
+					<h3 className='login-form-h3'>
+						Please sign in to your account
+					</h3>
+				</div>
 				<div className='login-form-input-wrapper'>
 					<input
 						id='login-form-input-box-username'
@@ -71,13 +73,13 @@ function Login() {
 					<CtaButton text={'Sign in'} myClass={'signin-button'} />
 				</div>
 
-				{errorMsg && (
-					<div>
-						<div className='alert alert-danger' role='alert'>
-							{errorMsg}
+				{/* {errorMsg && ( */}
+					{/* <div> */}
+						<div className='login-form-alert-wrapper' role='alert'>
+							<p>{errorMsg || ''}</p>
 						</div>
-					</div>
-				)}
+					{/* </div> */}
+				{/* )} */}
 
 			</form>
 		</section>
