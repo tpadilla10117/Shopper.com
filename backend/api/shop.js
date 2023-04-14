@@ -45,26 +45,27 @@ const value = await client.get('key'); */
   }); */
 
 // Middleware to check if data is available in Redis cache
-/* const cache = (req, res, next) => {
-	console.log("hit the middleware :", req.originalUrl);
 
+const cache = async (req, res, next) => {
 	const cacheKey = req.originalUrl;
-	
-	client.get(cacheKey, (err, data) => {
-		if (err) {
-			console.error(`Error getting cache for key ${cacheKey}: ${err}`);
-			return next();
-		}
-		if (data !== null) {
-			console.log(`Cache hit for key ${cacheKey}`);
-			return res.send(JSON.parse(data));
-		}
-		console.log(`Cache miss for key ${cacheKey}`);
-		return next();
-	});
-}; */
-
-
+  
+	try {
+	  const cachedData = await client.get(cacheKey);
+  
+	  if (cachedData) {
+		console.log(`Cache hit for key ${cacheKey}`);
+		res.setHeader('X-Cache-Status', 'HIT');
+		return res.send(JSON.parse(cachedData));
+	  }
+  
+	  console.log(`Cache miss for key ${cacheKey}`);
+	  res.setHeader('X-Cache-Status', 'MISS');
+	  return next();
+	} catch (error) {
+	  console.error(`Error getting cache for key ${cacheKey}: ${error}`);
+	  return next();
+	}
+  };
 
 
 /* ------------------------------------------------------------ */
@@ -75,20 +76,12 @@ const value = await client.get('key'); */
 	- 
 */
 
-shopRouter.get('/', async (req, res, next) => {
+shopRouter.get('/', cache, async (req, res, next) => {
 
 	try {
 		const cacheKey = req.originalUrl;
 		const products = await getAllProducts();
 
-	/* I check to see if data is in the cache: */
-		const cachedData = await client.get(cacheKey);
-		
-		if (cachedData) {
-			console.log(`Cache hit for key ${cacheKey}`);
-			return res.send(JSON.parse(cachedData));
-		}
-		
 	/* Setting my data in cache (THIS WORKS): */
 		await client.setEx(cacheKey, 3600, JSON.stringify(products), (err) => {
 			console.log("cached: ", products);
