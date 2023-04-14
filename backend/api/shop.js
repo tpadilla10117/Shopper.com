@@ -1,7 +1,6 @@
 /* Routing for products: */
 
 import express from 'express';
-/* import apicache from 'apicache'; */
 import { createClient} from 'redis';
 
 /* Import DB methods: */
@@ -9,36 +8,36 @@ import { getAllProducts, getProductById } from '../db/dbadapters/products.js';
 
 export const shopRouter = express.Router();
 
+
 /* Create a Redis Client: */
-
-/* const cache = apicache.middleware; */
-
 /* By default, Redis client will try to connect to 'localhost' on port 6379: */
+
 const client = createClient({
 	host: 'localhost',
 	port: 6379,
 });
 
+
+// Handle Redis errors
 client.on('error', err => console.log('Redis Client Error', err));
 
-await client.connect();
+// Connect the Redis client
+client.connect();
 
-/* Create middleware that checks if the requested data is available in Redis cache: */
+console.log("Here is client: ", client);
 
+// Middleware to check if data is available in Redis cache
 const cache = (req, res, next) => {
-  
 	client.get(req.originalUrl, (err, data) => {
 	  if (err) throw err;
-  
 	  if (data !== null) {
 		res.send(JSON.parse(data));
 	  } else {
 		next();
 	  }
 	});
-};
+  };
 
-console.log("Here is cache: ", cache);
 
 /* ------------------------------------------------------------ */
 /* THIS IS THE GET/products ROUTER */
@@ -49,12 +48,15 @@ console.log("Here is cache: ", cache);
 */
 
 shopRouter.get('/', cache, async (req, res, next) => {
-	const { page = 4, limit = 5 } = req.query;
+	/* const { page = 4, limit = 5 } = req.query; */
+	
 
 	try {
+	
 		const products = await getAllProducts();
 
-		client.setex(req.originalUrl, 3600, JSON.stringify(products));
+		 // Cache the data in Redis for 1 hour (3600 seconds)
+		 client.setex(req.originalUrl, 3600, JSON.stringify(products));
 
 		res.send(products);
 		return products;

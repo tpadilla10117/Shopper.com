@@ -122,6 +122,21 @@
 <!-- WebHook Process For Local Environments using Stripe CLI  (https://github.com/stripe/stripe-cli) -->
 
 
+<!-- REDIS -->
+    - To run a redis server, use command `redis-server`
+
+    - To confirm if Redis is running, user the command `redis-cli ping` -> if its running it should respond with "PONG"
+
+    - Connect to your Redis server by running the command `redis-cli -h localhost -p 6379`
+
+    - Check if the data is stored in Redis by running the command GET <key>, where <key> is the original URL of the request.
+
+    - For example, if the original URL is /products, you would run the command GET /products.
+    
+    - If the data is stored in Redis, it should return a string that represents the cached data.
+    
+    - If the data is not stored in Redis, it should return nil.
+
 
 <!-- API  -->
     - If change primary endpoint '/', need to update stripecheckoutsession in stripeCheckout.js
