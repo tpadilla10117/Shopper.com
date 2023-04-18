@@ -2,7 +2,7 @@
 
 import express from 'express';
 import dotenv from 'dotenv';
-import { createClient} from 'redis';
+import { createClient } from 'redis';
 
 /* Import DB methods: */
 import { getAllProducts, getProductById } from '../db/dbadapters/products.js';
@@ -10,8 +10,9 @@ import { getAllProducts, getProductById } from '../db/dbadapters/products.js';
 dotenv.config();
 
 export const shopRouter = express.Router();
-/* const PORT = process.env.REDIS_PORT;
-console.log("My redis port: ", PORT); */
+
+/* TODO: Need to make Redis port come from the env variable: */
+const PORT = process.env.REDIS_PORT;
 
 /* Create a Redis Client: */
 /* By default, Redis client will try to connect to 'localhost' on port 6379: */
@@ -20,8 +21,9 @@ console.log("My redis port: ", PORT); */
 	host: 'localhost',
 	port: 6379,
 }); */
-/* const client = createClient(6379); */
-const client = createClient();
+const client = createClient(PORT);
+
+/* const client = createClient(); */
 
 // Connect the Redis client
 await client.connect();
@@ -53,19 +55,17 @@ const cache = async (req, res, next) => {
 	  const cachedData = await client.get(cacheKey);
   
 	  if (cachedData) {
-		console.log(`Cache hit for key ${cacheKey}`);
-		res.setHeader('X-Cache-Status', 'HIT');
+		res.setHeader('X-Cache-Status', 'CACHE HIT');
 		return res.send(JSON.parse(cachedData));
 	  }
   
-	  console.log(`Cache miss for key ${cacheKey}`);
-	  res.setHeader('X-Cache-Status', 'MISS');
+	  res.setHeader('X-Cache-Status', 'CACHE MISS');
 	  return next();
 	} catch (error) {
 	  console.error(`Error getting cache for key ${cacheKey}: ${error}`);
 	  return next();
 	}
-  };
+};
 
 
 /* ------------------------------------------------------------ */
@@ -77,17 +77,19 @@ const cache = async (req, res, next) => {
 */
 
 shopRouter.get('/', cache, async (req, res, next) => {
+	const { page = 4, limit = 5 } = req.query;
+	console.log("My request query: ", req.query);
 
 	try {
 		const cacheKey = req.originalUrl;
-		const products = await getAllProducts();
+		const products = await getAllProducts(page, limit);
 
 	/* Setting my data in cache (THIS WORKS): */
 		await client.setEx(cacheKey, 3600, JSON.stringify(products), (err) => {
 			console.log("cached: ", products);
 		})
 
-
+		/* res.send({status: "OK", data: products}); */
 		res.send(products);
 		return products;
 	  } catch (error) {

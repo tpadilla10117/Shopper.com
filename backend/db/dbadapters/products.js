@@ -6,7 +6,8 @@ import { client } from '../client.js';
 //THESE ARE THE PRODUCT METHODS:
 
 /* Return all products in the db: */
-export async function getAllProducts() {
+export async function getAllProducts(page, limit) {
+	/* console.log("Coming from my db methids: ", page, limit);
 	try {
 		const { rows } = await client.query(`
                 SELECT * FROM products
@@ -14,7 +15,19 @@ export async function getAllProducts() {
 		return rows;
 	} catch (error) {
 		throw error;
-	}
+	} */
+	console.log("Coming from my db methids: ", page, limit);
+  try {
+    const offset = (page - 1) * limit; // Calculate the offset based on the page and limit
+    const { rows } = await client.query(`
+      SELECT * FROM products
+      LIMIT ${limit}
+      OFFSET ${offset}
+    `);
+    return rows;
+  } catch (error) {
+    throw error;
+  }
 }
 
 /* Create additional products in the db:  */

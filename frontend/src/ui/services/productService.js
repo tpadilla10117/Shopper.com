@@ -2,6 +2,7 @@
 
     import axios from "axios";
 
+/* This URL is hitting my API: */
     const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
 /* Logic to request products from fakestoreapi.com : */

@@ -1,3 +1,38 @@
+<!-- Pagination: 
+
+    - E.g. In my backend/api/shop.js file:
+
+    1)  I defined a GET router (route handler function) that deconstructs a [page] and [limit] parameters as part of my req.query
+        - Page is meant to be the number of pages, limit is how many items to display per page
+
+    2) I send these query parameters in my request, passing them to my `getAllProducts` function
+
+    3) In the backend/db/dbadapters/products.js , my database function / query, I modified the SQL query by adding a 'LIMIT' clause to limit the number of results per page, and an `OFFSET` clause to specify which page to retrieve
+
+        - LIMIT: This returns the specified number of rows from the beginning of the result set. For example, LIMIT 10 would return the first 10 rows of the result set.
+
+        - OFFSET clause is used to skip a specified number of rows from the beginning of the result set. The syntax for OFFSET clause is:
+
+        SELECT column1, column2, ...
+        FROM table_name
+        OFFSET number_of_rows;
+
+        - This returns the result set starting from the specified row number. For example, OFFSET 10 would skip the first 10 rows of the result set and start from the 11th row.
+
+
+    4) You would then make a GET request to the /products route with the appropriate page and limit query parameters to retrieve the desired page of products.
+     - For example:
+
+     GET /shop?page=2&limit=5
+
+
+
+
+-->
+
+
+
+
 <!-- stripeCheckout.js -->
     - A StripeCheckoutSession needs data sent in a specific format.  
     
