@@ -6,12 +6,12 @@
     const MY_API_URL = process.env.REACT_APP_WEB_APP_URL;
 
 /* Logic to request products from fakestoreapi.com : */
-    const productRequest = () => {
-        /* return axios.get(FAKESTORE_API_URL + "products?limit=5") */
+    const productRequest = (page, limit) => {
+        console.log("From my Service: ", page);
       /* TODO: May need to write conditional logic so api call runs only once */  
         return axios.get(`${MY_API_URL}/shop`)
         .then( (response) => {
-            console.log(response.data)
+            console.log("My response data from hitting the API:", response.data)
             return response.data;
         });
     };

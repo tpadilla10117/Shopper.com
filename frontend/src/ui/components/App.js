@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import {
 	About,
 	CheckoutPg,
@@ -20,16 +20,21 @@ import {
 } from './utils.js';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, selectItems } from '../reduxslices/productSlice.js';
+import { getProducts, selectItems, selectPage, selectLimit } from '../reduxslices/productSlice.js';
 import { isLoading, setLoader } from '../reduxslices/loadingSlice.js';
 
 import './App.scss';
 
 function App() {
-	
+	const location = useLocation();
 	const dispatch = useDispatch();
 	const items = useSelector(selectItems);
+	console.log("Items from the frontend: ",items )
 	const loadStatus = useSelector(setLoader);
+	const pageNumber = useSelector(selectPage);
+	const limitNumber = useSelector(selectLimit);
+	console.log("Page on the frontend: ", pageNumber);
+	console.log("Limit on the frontend: ", limitNumber);
 
 	useEffect(() => {
 		if (items.length === 0 || null) {
@@ -37,11 +42,28 @@ function App() {
 			setTimeout(() => {
 				dispatch(isLoading(false));
 			}, 2000);
-			dispatch(getProducts());
+			dispatch(getProducts({ page: 1, limit: 5 }));
+
 		} else {
 			return;
 		}
-	}, [dispatch, items]);
+	}, [dispatch, items, pageNumber, limitNumber]);
+
+/* TODO: need to debug this and make sure I re-fetch based on the route */
+
+	/* useEffect(() => {
+		switch (location.pathname) {
+			case '/':
+				dispatch(getProducts({ page: 1, limit: 5 }));
+				break;
+			case '/shop':
+				dispatch(getProducts({ page: 2, limit: 5 }));
+				break;
+			default:
+				break;
+		}
+		console.log("Here's the location: ", location.pathname)
+	}, [dispatch, location.pathname]); */
 
 	/* My Loading Spinner: */
 	if (loadStatus) return <Spinner />;

@@ -77,7 +77,7 @@ const cache = async (req, res, next) => {
 */
 
 shopRouter.get('/', cache, async (req, res, next) => {
-	const { page = 4, limit = 5 } = req.query;
+	const { page = 1, limit = 5 } = req.query;
 	console.log("My request query: ", req.query);
 
 	try {

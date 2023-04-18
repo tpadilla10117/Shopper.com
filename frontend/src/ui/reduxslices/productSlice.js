@@ -5,12 +5,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import productService from '../services/productService.js';
 
 /* GET Thunk (middleware to make API Call): */
-export const getProducts = createAsyncThunk('products', async () => {
+export const getProducts = createAsyncThunk('products', async ({ page, limit }) => {
 	try {
-		const data = await productService.productRequest();
+		const data = await productService.productRequest(page, limit);
 		console.log('From getProducts Thunk: ', data);
-
-		return { items: data };
+		console.log("Page from getProducts Thunk: ", )
+		return { items: data, page, limit };
 	} catch (error) {
 		console.error(error);
 	}
@@ -19,6 +19,8 @@ export const getProducts = createAsyncThunk('products', async () => {
 /* Create Initial State: */
 const initialState = {
 	items: [],
+	page: 1,
+	limit: 5,
 };
 
 /* Create actions for UI components: */
@@ -36,6 +38,8 @@ const productSlice = createSlice({
 		builder.addCase(getProducts.fulfilled, (state, action) => {
 			state.status = 'succeeded';
 			state.items = [...state.items.concat(action.payload.items)];
+			state.page = action.payload.page;
+			state.limit = action.payload.limit;
 		});
 	},
 });
@@ -43,5 +47,9 @@ const productSlice = createSlice({
 /* Selectors - how to pull info from Global store slice: */
 
 export const selectItems = state => state.products.items;
+
+export const selectPage = state => state.products.page;
+
+export const selectLimit = state => state.products.limit;
 
 export default productSlice.reducer;
