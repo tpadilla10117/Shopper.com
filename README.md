@@ -64,7 +64,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
 #### Stripe Processes
 
-- 9) In another terminal, run `stripe listen --forward-to localhost:3000/api/webhook` for local environment 
+- 9) In another terminal, after logging in with `stripe login`, run `stripe listen --forward-to localhost:4242/webhook/webhook` for local environment 
 
 - 10) Receive a `STRIPE_SIGNING_SECRET` and place into environment variable
 
@@ -72,7 +72,7 @@ CTABanner.jsx (Mobile View)        |  Landing.jsx (Mobile View)
 
     - Once you have your secret API keys you can send requests from your application via a webhook.
 
-    - Run `stripe listen --forward-to localhost:3000/api/webhook` for local environment -> receive a STRIPE_SIGNING_SECRET and place into environment variable
+    - Run `stripe listen --forward-to localhost:4242/webhook/webhook` for local environment -> receive a STRIPE_SIGNING_SECRET and place into environment variable
 
     - Important: You should never expose API keys on the client side in production code because anyone on the internet will have access to your secret key and can make requests with your account. It is however acceptable for the purpose of this application and testing since it won’t be widely available and we don’t expect you to have a backend server.
 
